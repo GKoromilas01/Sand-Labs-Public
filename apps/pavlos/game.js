@@ -33,28 +33,48 @@
  });
  function reset(){state=PavlosPuzzle.initial();selected=null;$('hintText').textContent='';render();document.querySelector('.spot.poster').focus();document.querySelector('.play-area').scrollIntoView({block:'nearest'});}
  $('restart').addEventListener('click',reset);$('again').addEventListener('click',reset);
- $('start').addEventListener('click',()=>{started=true;$('welcome').hidden=true;main.inert=false;document.querySelector('.spot.mitsos').focus();});
- // Modal focus stays on the only action until the scene begins.
- $('start').focus();$('welcome').addEventListener('keydown',e=>{if(e.key==='Tab'){e.preventDefault();$('start').focus();}});
- // Original algorithmic 9/8 cafe miniature. No sampled/commercial recordings.
- let context,master,timer=null,noteIndex=0,wanted=false,active=false;
- const melody=[62,0,65,69,67,0,64,65,62,0,57,60,62,0,65,64,61,57];
+ function begin(music){started=true;$('welcome').hidden=true;main.inert=false;document.querySelector('.spot.mitsos').focus();if(music){wanted=true;noteIndex=0;soundUI();playSound();}}
+ $('start').addEventListener('click',()=>begin(true));$('startSilent').addEventListener('click',()=>begin(false));
+ // Keep keyboard focus within the two start choices until the scene begins.
+ $('start').focus();$('welcome').addEventListener('keydown',e=>{if(e.key==='Tab'){e.preventDefault();const buttons=[$('start'),$('startSilent')];const i=buttons.indexOf(document.activeElement);buttons[(i+(e.shiftKey?-1:1)+2)%2].focus();}});
+ // Original fast six-eight bouzouki-style overture; no recordings or borrowed melody.
+ let context,master,stringsWave,noise,timer=null,noteIndex=0,wanted=false,active=false;
+ const intro=[74,77,76,74,73,69,70,73,74,0,81,79,77,76,74,69,73,74,81,79,77,76,74,0,74,86,81,77,76,74,73,69,70,73,74,0,77,76,74,73,69,65,64,65,69,73,74,0];
+ const melody=[74,0,77,81,79,0,76,77,74,0,69,72,74,0,77,76,73,69];
  const hz=m=>440*Math.pow(2,(m-69)/12);
- function tone(midi,when,duration,amount,type='triangle',cutoff=1800){
+ function tone(midi,when,duration,amount,type='triangle',cutoff=1800,slide=0){
   const osc=context.createOscillator(),env=context.createGain(),filter=context.createBiquadFilter();
   osc.type=type;osc.frequency.setValueAtTime(hz(midi),when);
+  if(slide)osc.frequency.exponentialRampToValueAtTime(hz(midi+slide),when+duration*.8);
   filter.type='lowpass';filter.frequency.setValueAtTime(cutoff,when);
-  env.gain.setValueAtTime(0,when);env.gain.linearRampToValueAtTime(amount,when+.008);env.gain.exponentialRampToValueAtTime(.0001,when+duration);
+  env.gain.setValueAtTime(0,when);env.gain.linearRampToValueAtTime(amount,when+.004);env.gain.exponentialRampToValueAtTime(.0001,when+duration);
   osc.connect(filter);filter.connect(env);env.connect(master);osc.start(when);osc.stop(when+duration+.02);
   osc.onended=()=>{osc.disconnect();filter.disconnect();env.disconnect();};
  }
+ function pluck(midi,when,strength){
+  for(const cents of [-4,4]){
+   const osc=context.createOscillator(),filter=context.createBiquadFilter(),env=context.createGain();
+   osc.setPeriodicWave(stringsWave);osc.frequency.setValueAtTime(hz(midi),when);osc.detune.setValueAtTime(cents,when);
+   filter.type='lowpass';filter.Q.value=.65;filter.frequency.setValueAtTime(6000,when);filter.frequency.exponentialRampToValueAtTime(800,when+.28);
+   env.gain.setValueAtTime(0,when);env.gain.linearRampToValueAtTime(strength*.5,when+.002);env.gain.exponentialRampToValueAtTime(.0001,when+.36);
+   osc.connect(filter);filter.connect(env);env.connect(master);osc.start(when);osc.stop(when+.38);
+   osc.onended=()=>{osc.disconnect();filter.disconnect();env.disconnect();};
+  }
+ }
+ function tap(when){
+  const source=context.createBufferSource(),filter=context.createBiquadFilter(),env=context.createGain();source.buffer=noise;filter.type='highpass';filter.frequency.value=2800;
+  env.gain.setValueAtTime(.075,when);env.gain.exponentialRampToValueAtTime(.0001,when+.055);
+  source.connect(filter);filter.connect(env);env.connect(master);source.start(when);source.stop(when+.06);source.onended=()=>{source.disconnect();filter.disconnect();env.disconnect();};
+ }
  function beat(){
   if(!active)return;
-  const t=context.currentTime+.02,n=melody[noteIndex%melody.length];
-  if(n){tone(n+12,t,.23,.16,'sawtooth',2200);tone(n+19,t+.026,.2,.055,'triangle',1300);}
-  if(noteIndex%9===0||noteIndex%9===4||noteIndex%9===6)tone(noteIndex%18<9?38:33,t,.19,.3,'sine',300);
-  if(noteIndex%3===2)tone(81,t,.06,.035,'square',950);
-  noteIndex++;timer=setTimeout(beat,215);
+  const t=context.currentTime+.02,isIntro=noteIndex<intro.length;
+  const step=isIntro?noteIndex:noteIndex-intro.length,n=isIntro?intro[step]:melody[step%melody.length];
+  if(n){pluck(n,t,isIntro?.22:.13);if(step%6===2||step%6===5)pluck(n,t+.055,isIntro?.13:.07);}
+  if(step%6===0||step%6===3)tone(step%12<6?38:45,t,.18,isIntro?.3:.2,'sine',300);
+  if(step%3===2)tap(t);
+  if(isIntro&&step%12===10)tone(57,t,.16,.12,'triangle',1200,-12);
+  noteIndex++;timer=setTimeout(beat,isIntro?118:155);
  }
  function stopSound(){active=false;clearTimeout(timer);timer=null;document.body.classList.remove('music-playing');if(context){master.gain.cancelScheduledValues(context.currentTime);master.gain.setValueAtTime(0,context.currentTime);context.suspend().catch(()=>{});}}
  function soundUI(){const button=$('sound');button.setAttribute('aria-pressed',String(wanted));button.textContent=wanted?'♫ Μουσική: ανοιχτή · σίγαση':'♫ Μουσική: κλειστή';}
@@ -62,7 +82,7 @@
   try{
    const Audio=window.AudioContext||window.webkitAudioContext;
    if(!Audio)throw Error('Audio unavailable');
-   if(!context){context=new Audio();master=context.createGain();master.gain.value=0;master.connect(context.destination);}
+   if(!context){context=new Audio();master=context.createGain();master.gain.value=0;master.connect(context.destination);stringsWave=context.createPeriodicWave(new Float32Array(9),new Float32Array([0,1,.62,.4,.3,.23,.18,.12,.08]));noise=context.createBuffer(1,Math.ceil(context.sampleRate*.07),context.sampleRate);const data=noise.getChannelData(0);for(let i=0;i<data.length;i++)data[i]=(Math.random()*2-1)*(1-i/data.length);}
    await context.resume();
    if(!wanted||document.hidden){stopSound();return;}
    master.gain.setValueAtTime(Number($('volume').value)/100*.4,context.currentTime);

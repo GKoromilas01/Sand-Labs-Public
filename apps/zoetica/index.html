@@ -23,9 +23,9 @@ canvas#c{display:block;cursor:crosshair;touch-action:none}
 .sp{display:flex;align-items:center;gap:8px;margin:2px -6px;padding:3px 6px;border-radius:6px;cursor:pointer}
 .sp:hover{background:rgba(143,240,200,.12)}
 #ecoTip{font-size:11px;opacity:.45;margin-top:2px}
-#sndBtn{position:fixed;bottom:30px;right:12px;width:44px;height:44px;border-radius:50%;background:rgba(8,40,52,.9);border:1px solid rgba(143,240,200,.35);color:#dff6ff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+#sndBtn{z-index:60;position:fixed;bottom:30px;right:12px;width:44px;height:44px;border-radius:50%;background:rgba(8,40,52,.9);border:1px solid rgba(143,240,200,.35);color:#dff6ff;cursor:pointer;display:flex;align-items:center;justify-content:center}
 #sndBtn.off{opacity:.55}
-#sndPop{position:fixed;bottom:84px;right:12px;background:rgba(8,28,42,.96);border:1px solid rgba(143,240,200,.25);border-radius:12px;padding:12px 14px;width:220px;font-size:13px;z-index:5}
+#sndPop{position:fixed;bottom:84px;right:12px;background:rgba(8,28,42,.96);border:1px solid rgba(143,240,200,.25);border-radius:12px;padding:12px 14px;width:220px;font-size:13px;z-index:61}
 #sndPop label{display:grid;grid-template-columns:62px 1fr;align-items:center;gap:8px;margin:8px 0}
 #sndPop input{width:100%;accent-color:#8ff0c8}
 #muteBtn{width:100%;margin-top:4px;background:rgba(95,211,255,.12);border:1px solid rgba(95,211,255,.35);color:#dff6ff;border-radius:8px;padding:8px;cursor:pointer;font-weight:600}
@@ -62,7 +62,7 @@ canvas#c{display:block;cursor:crosshair;touch-action:none}
 #introTitle{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 1.4s;pointer-events:none}
 #introTitle.on{opacity:1}
 #introTitle h1{font-size:clamp(56px,10vw,120px);letter-spacing:.04em;background:linear-gradient(90deg,#5fd3ff,#8ff0c8);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 30px rgba(95,211,255,.45))}
-#introSkip{position:absolute;right:18px;bottom:18px;background:rgba(0,0,0,.45);color:#dff6ff;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:10px 18px;font-size:14px;cursor:pointer;min-height:44px}
+#introSkip{position:absolute;right:76px;bottom:18px;background:rgba(0,0,0,.45);color:#dff6ff;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:10px 18px;font-size:14px;cursor:pointer;min-height:44px}
 #splash{position:fixed;inset:0;z-index:55;background:radial-gradient(circle at 50% 45%,#0b3a50,#01080e 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;cursor:pointer}
 #splash h1{font-size:clamp(44px,8vw,84px);background:linear-gradient(90deg,#5fd3ff,#8ff0c8);-webkit-background-clip:text;background-clip:text;color:transparent}
 #splash p{opacity:.7;font-size:15px;animation:pulse 2s infinite}@keyframes pulse{50%{opacity:.3}}
@@ -230,12 +230,12 @@ canvas#c{display:block;cursor:crosshair;touch-action:none}
 <div id="actions" class="hidden"><button id="filmsBtn">Films (F)</button><button id="dashBtn">Dash (Space)</button><button id="evoBtn">Evolve (E)</button><button id="leaveBtn" class="hidden ready">Leave the water</button></div>
 <div id="hint" class="hidden">Move: mouse, touch or WASD · Dash: Space · Evolve: E · Tree: T · Films: F</div>
 <div id="saveDesk" style="position:fixed;bottom:100px;left:12px;z-index:25;max-width:calc(100vw - 24px);background:#102836;padding:8px;border-radius:10px;font-size:12px"><button id="saveBtn">Save now</button> <button id="backupBtn">Download backup</button> <button id="restoreBtn">Restore file</button><input id="restoreFile" type="file" accept=".json,application/json" hidden><div id="saveStatus" role="status">Autosaves every 8 seconds while playing. Backups use save format 1.</div><div id="restoreConfirm" hidden><span id="restoreName"></span> replaces your current life. <button id="restoreApply">Replace with backup</button> <button id="restoreCancel">Cancel</button></div></div>
-<div id="ver">Zoetica v0.8.2</div>
+<div id="ver">Zoetica v0.8.3</div>
 
 <div id="title" class="overlay">
   <div class="card">
     <h1>Zoetica</h1>
-    <div class="sub">v0.8.2 · Cell and Creature stages · sound on</div>
+    <div class="sub">v0.8.3 · Cell and Creature stages · sound on</div>
     <ul>
       <li>Swim with the mouse (or touch / WASD). Eat green plants for DNA.</li>
       <li>Press <b>E</b> to evolve: spend DNA on spikes, flagella, armour, eyes and mouths.</li>
@@ -405,10 +405,11 @@ function keyRoot(){return (KEYS[curSize()-1]||50)+TRACKS[AU.track].key;}
 function setTrack(id){const T=TRACKS[id];if(!T)return;AU.track=id;BPM=T.bpm;STEP=60/BPM/4;PROG=T.prog;AU.trackSteps=0;if(AU.dly)AU.dly.delayTime.setTargetAtTime(STEP*3,AU.ctx.currentTime,0.5);const el=document.getElementById('nowPlaying');if(el)el.textContent='Now playing: '+T.name;}
 function pickNextTrack(){if(AU.trackMode!=='shuffle')return AU.trackMode;const others=TRACK_IDS.filter(k=>k!==AU.track);return pick(others);}
 function audioInit(){
-  if(AU.ctx)return;
+  if(AU.ctx){resumeAudio();return;}
+  try{
   const A=window.AudioContext||window.webkitAudioContext;if(!A)return;
   let ac;try{ac=new A();}catch(e){return;}
-  AU.ctx=ac;if(ac.state==='suspended')ac.resume();
+  AU.ctx=ac;resumeAudio();
   AU.master=ac.createGain();AU.master.gain.value=AU.muted?0:1;
   const comp=ac.createDynamicsCompressor();comp.threshold.value=-16;comp.ratio.value=3;
   AU.master.connect(comp);comp.connect(ac.destination);
@@ -431,7 +432,12 @@ function audioInit(){
   AU.sfxVerb=ac.createGain();AU.sfxVerb.gain.value=0.25;AU.sfxVerb.connect(AU.verb);
   const nb=ac.createBuffer(1,ac.sampleRate,ac.sampleRate),nd=nb.getChannelData(0);for(let i=0;i<nd.length;i++)nd[i]=Math.random()*2-1;AU.noise=nb;
   mNext=ac.currentTime+0.15;mStep=0;newAcid();setTrack(AU.trackMode==='shuffle'?'tide':AU.trackMode);
+  // A gentle watery greeting makes the first gesture audible immediately.
+  bell(ac.currentTime+0.02,74,0.7);
+  }catch(e){const failed=AU.ctx;AU.ctx=null;AU.master=null;AU.music=null;AU.sfx=null;if(failed)try{failed.close().catch(()=>{});}catch(e){}}
 }
+function resumeAudio(){const ac=AU.ctx;if(ac&&ac.state==='suspended'&&!document.hidden)try{ac.resume().catch(()=>{});}catch(e){}}
+addEventListener('visibilitychange',()=>{const ac=AU.ctx;if(!ac)return;if(document.hidden){try{ac.suspend().catch(()=>{});}catch(e){}if(window.speechSynthesis)try{speechSynthesis.cancel();}catch(e){}}else resumeAudio();});
 function tone(type,freq,t,a,peak,d,dest,o={}){
   const ac=AU.ctx,osc=ac.createOscillator(),g=ac.createGain();
   osc.type=type;osc.frequency.setValueAtTime(freq,t);
@@ -510,7 +516,7 @@ function scheduleStep(s,t){
   // arrangement: 32-bar cycle -> intro, hats in, full groove, breakdown, build
   const bar=Math.floor(s/16)%32,q=s%16;
   const introLen=T.groove==='night'?4:8;
-  const sec=(!AU.techno||AU.filmMode)?'off':bar<introLen?'intro':bar<introLen+4?'hats':bar<24?'full':bar<28?'break':'build';
+  const sec=(!running||!AU.techno||AU.filmMode)?'off':bar<introLen?'intro':bar<introLen+4?'hats':bar<24?'full':bar<28?'break':'build';
   const grooveOn=sec==='full'||sec==='build'||(sec==='hats'&&bar>=introLen+2);
   let kickOn=false;
   if(T.groove==='tech'||T.groove==='night'){
@@ -551,7 +557,7 @@ function scheduleStep(s,t){
   }
 }
 function musicTick(){
-  const ac=AU.ctx;if(!ac||ac.state!=='running')return;
+  const ac=AU.ctx;if(!ac||document.hidden||ac.state!=='running')return;
   if(mNext<ac.currentTime-0.2){const skip=Math.ceil((ac.currentTime-mNext)/STEP);mStep+=skip;mNext+=skip*STEP;if(mStep%64>8){mStep+=64-mStep%64;}}
   while(mNext<ac.currentTime+0.2){scheduleStep(mStep,mNext);mNext+=STEP;mStep++;}
 }
@@ -623,12 +629,12 @@ cvs.addEventListener('touchstart',touch,{passive:false});cvs.addEventListener('t
 cvs.addEventListener('touchend',()=>{mouse.active=false;});
 let panel=null;
 addEventListener('keydown',e=>{const k=e.key.toLowerCase();keys[k]=true;
+  if(k==='m'&&!e.repeat){toggleMute();return;}
   if(introOn){if(k==='escape'||k===' '||k==='enter'){e.preventDefault();endIntro();}return;}
   if(!running)return;
   if(learnOpen){if(k==='escape'||k==='e'||k==='enter')closeLearn();return;}
   if(panel==='stage'){if(k==='escape'||k==='e')$('stKeep').click();return;}
   if(k===' '){e.preventDefault();dash();}
-  if(k==='m')toggleMute();
   if(panel==='film'){e.preventDefault();if(k===' ')toggleFilmPause();if(k==='arrowright')$('fNext').click();if(k==='escape')endFilm();return;}
   if(panel==='films'){if(k==='escape'||k==='f')closeFilms();return;}
   if(k==='f'&&!panel){openFilms();return;}
@@ -638,7 +644,7 @@ addEventListener('keydown',e=>{const k=e.key.toLowerCase();keys[k]=true;
   if(k==='escape'){if(panel==='species')closeSpecies();else if(panel==='editor')closeEditor();}
 });
 addEventListener('keyup',e=>{keys[e.key.toLowerCase()]=false;});
-addEventListener('pointerdown',()=>{if(AU.ctx&&AU.ctx.state==='suspended')AU.ctx.resume();});
+addEventListener('pointerdown',()=>{resumeAudio();});
 function showGame(){setTimeout(()=>unlockFilm(0),9000);audioInit();$('title').classList.add('hidden');['hud','eco','actions','hint','sndBtn'].forEach(i=>$(i).classList.remove('hidden'));running=true;sfx('click');}
 $('startBtn').onclick=()=>{if(readSave()&&!confirm('Start a new life and replace the saved life? Download a backup first to keep it.'))return;clearSave();init();showGame();banner('A new life begins','Eat the green plants to gather DNA. Then press E to evolve.');};
 $('contBtn').onclick=()=>{const d=readSave();if(!d||!loadGame(d)){toast('Saved game is invalid. Restore a valid backup or start a new life.');return;}showGame();banner('Welcome back','Your species and its whole world have been restored.');};
@@ -1540,7 +1546,7 @@ const INTRO_LINES=[[0.6,'Four and a half billion years ago, a young world burned
   [11.2,'In the deep, warm springs bubbled with the chemistry of life.'],[16.4,'And one day, something new appeared: a living cell.'],[21.6,'It copied itself, again and again. Your story begins here.']];
 let introOn=false,introNext=0;
 function startIntro(){
-  audioInit();introOn=true;introNext=0;AU.filmMode=true;
+  audioInit();$('sndBtn').classList.remove('hidden');introOn=true;introNext=0;AU.filmMode=true;
   $('splash').classList.add('hidden');$('title').classList.add('hidden');$('intro').classList.remove('hidden');
   $('introTitle').classList.remove('on');$('introCap').classList.remove('on');
   const v=$('introV');v.currentTime=0;const p=v.play();if(p&&p.catch)p.catch(()=>endIntro());
@@ -1875,16 +1881,17 @@ function frame(now){
   if(running){
     if(stage==='land'){if(!paused)landUpdate(dt);landDraw();landHud(dt);}
     else{if(!paused)update(dt);draw();hud(dt);}
-    bannerTick(dt);musicTick();
+    bannerTick(dt);
     if(panel==='editor'){if(stage==='land')drawLandPreview();else drawPreview();}
     if(panel==='species')drawSpPreview();
     if(panel==='film'){filmTick(dt);drawFilm();}
   }else{
-    if(introOn){introTick();musicTick();}
+    if(introOn)introTick();
     // title background
     ctx.setTransform(DPR,0,0,DPR,0,0);const bg=ctx.createLinearGradient(0,0,0,VH);bg.addColorStop(0,'#07405a');bg.addColorStop(1,'#03172a');ctx.fillStyle=bg;ctx.fillRect(0,0,VW,VH);
     ctx.fillStyle='rgba(200,240,255,0.25)';const tt=now/1000;for(const m of motes){ctx.beginPath();ctx.arc(((m.x*VW+tt*12*m.z)%VW),((m.y*VH+Math.sin(tt*.3+m.x*9)*10)%VH),m.r,0,TAU);ctx.fill();}
   }
+  musicTick();
   requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);

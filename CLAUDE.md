@@ -18,3 +18,6 @@ Owner requested removal of the entire Shared across projects footer, including D
 
 ## Sand Labs2.9 allowlist
 Approved public browser apps now include Isegoria(index/style/model/app) and Bios(index/style/model/app), plus Zoetica backup.js alongside its HTML/video. Do not copy private app CLAUDE files, personal memoir notes or imported user content. All new account/public-poll/AI features remain explicitly unimplemented; Bios has no credit-bearing AI calls. Actual source/testing/next steps are in each private apps/<app>/CLAUDE.md.
+
+## Standing publication requirement
+Every approved app update must include actual source files, current version/launch links on Sand Labs and shared continuation notes. First-click music is now explicit for Pavlos0.1.3 and Zoetica0.8.3. Keep silent/mute/volume paths; use only original or properly cleared audio. Do not publish private handoffs or personal memory notes.

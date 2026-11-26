@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "2.9",
-  "updated": "2026-11-26",
+  "pageVersion": "3.0",
+  "updated": "2026-11-27",
   "projects": [
     {
       "id": "sphinx",
@@ -13,9 +13,9 @@
       "st": "dev",
       "stl": "Δωρεάν playable beta",
       "main": {
-        "t": "Cafe beta0.1.2 — χειριστήριο δίπλα στη σκηνή",
-        "u": "apps/pavlos/index.html?v=0.1.2",
-        "d": "26 Nov 2026",
+        "t": "Cafe beta0.1.3 — γρήγορο μπουζούκι στην αρχή",
+        "u": "apps/pavlos/index.html?v=0.1.3",
+        "d": "27 Nov 2026",
         "label": "Παίξε"
       },
       "more": [
@@ -25,9 +25,9 @@
           "d": "26 Nov 2026"
         }
       ],
-      "next": "Ορατό χειριστήριο δίπλα στη σκηνή. Το κουτάλι επιλέγεται μόλις το πάρεις: μετά πάτησε Ραδιόφωνο. Δωρεάν beta.",
+      "next": "Το Παίξε με μουσική ξεκινά το πρωτότυπο synth-bouzouki intro. Υπάρχουν σίγαση, ένταση και Παίξε χωρίς ήχο. Δωρεάν beta.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sphinx.md",
-      "version": "0.1.2 cafe beta"
+      "version": "0.1.3 cafe beta"
     },
     {
       "id": "coin",
@@ -171,11 +171,11 @@
       "alias": "The Spore-like game · formerly Life AI",
       "what": "Evolution game: from a single cell to a creature, and one day to a god of the galaxy.",
       "st": "live",
-      "stl": "Playable v0.8.2",
+      "stl": "Playable v0.8.3",
       "main": {
-        "t": "Zoetica v0.8.2 — save & portable backup",
+        "t": "Zoetica v0.8.3 — ambient από το πρώτο πάτημα",
         "u": "apps/zoetica/index.html",
-        "d": "26 Nov 2026",
+        "d": "27 Nov 2026",
         "label": "Παίξε"
       },
       "more": [
@@ -185,9 +185,9 @@
           "d": "24 Nov"
         }
       ],
-      "next": "Νέα Save now, Download backup και ασφαλής Restore με επιβεβαίωση. Κράτα αρχείο για μεταφορά προόδου σε άλλη συσκευή.",
+      "next": "Η πρωτότυπη ambient συνεχίζει από την εισαγωγή στο παιχνίδι. Σίγαση/ένταση διατηρούνται· save και backup παραμένουν διαθέσιμα.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/life.md",
-      "version": "0.8.2"
+      "version": "0.8.3"
     },
     {
       "id": "dd",
