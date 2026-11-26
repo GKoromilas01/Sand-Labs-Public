@@ -127,11 +127,16 @@
           "t": "Anthem test track",
           "u": "https://claude.ai/artifact/HLmrHr9R8steaeYMqKmZ1o",
           "d": "20 Nov"
+        },
+        {
+          "t": "v0.67 review and CI status",
+          "u": "https://github.com/GKoromilas01/Shattered-Crowns/pull/91",
+          "d": "26 Nov 2026"
         }
       ],
-      "next": "Priority #1 of the lab.",
+      "next": "v0.67 PR #91: stale Market test corrected; full CI rerun pending. Do not call it released.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sc.md",
-      "version": "Live version not verified"
+      "version": "v0.66 merged; v0.67 under review"
     },
     {
       "id": "life",
