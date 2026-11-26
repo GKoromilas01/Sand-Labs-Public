@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "2.1",
+  "pageVersion": "2.2",
   "updated": "2026-11-26",
   "projects": [
     {
@@ -9,12 +9,12 @@
       "tint": "#E5C78F",
       "name": "Pavlos O Ellinaras",
       "alias": "Formerly The Grumpy Sphinx",
-      "what": "A planned Greek satirical cartoon adventure starring Pavlos. Existing link opens the original supplied game.",
+      "what": "Ελληνικό καρτουνίστικο καφενείο: ένας γρίφος, δύο χαρακτήρες και πρωτότυπη παράξενη μουσική.",
       "st": "dev",
-      "stl": "Free beta · earlier build",
+      "stl": "Δωρεάν playable beta",
       "main": {
-        "t": "Open earlier Grumpy Sphinx build (private GitHub file)",
-        "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/apps/grumpy-sphinx/index.html",
+        "t": "Παίξε τη δωρεάν cafe beta",
+        "u": "apps/pavlos/index.html",
         "d": "26 Nov 2026"
       },
       "more": [
@@ -24,9 +24,9 @@
           "d": "26 Nov 2026"
         }
       ],
-      "next": "Beta remains free. No payments without prior owner notification and explicit approval. Future pricing is undecided for launch.",
+      "next": "Μικρό κεφάλαιο για δοκιμή. Βρες το κουτάλι, βάλε μουσική και βγάλε διάγγελμα. Καμία χρέωση.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sphinx.md",
-      "version": "Uploaded baseline"
+      "version": "0.1.0 cafe beta"
     },
     {
       "id": "coin",
