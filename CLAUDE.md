@@ -9,3 +9,6 @@ Pavlos beta 0.1.0 consists of original SVG/Web Audio and no external assets, acc
 Owner requested initial SoftOne demo and actual playable Zoetica link. Public allowlist now also includes apps/zoetica/index.html + intro.mp4 and apps/softone-advisor/index.html + guide.js. Do not copy the private PDF or user documents. SoftOne is keyword source guidance/local text search, not AI/ERP or the unavailable156-manual corpus. Show unknown CoinIntel liveURL honestly and preserve previews as secondary links. Footer volleyball/old Sphinx removed at owner request.
 
 Sand Labs2.4 corrects CoinIntel main URL to owner-confirmed https://coinintel-beta-production.up.railway.app/ . Claude artifact is a plan/screenshots, not the app. Pavlos0.1.2 uses persistent side controls and automatic inventory selection. Chapter plans remain private/shared notes and are not new released scenes.
+
+## Latest Sand Labs naming —2.5
+Owner requests Coin Intel (formerly CoinIntel), Bios (capital B only, formerly BIOS/Vios), and ERP Advisor (formerly SoftOne Advisor). Déjà Future is removed from the dashboard, not deleted from historical notes. Preserve stable ids coin/bio/sw and existing source paths/working URLs. ERP Advisor demo still concerns SoftOne sources; rename does not implement other ERP support. Do not restore old names from historical handoffs. Seven dashboard projects remain.
