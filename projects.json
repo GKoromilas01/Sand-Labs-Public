@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "2.3",
+  "pageVersion": "2.4",
   "updated": "2026-11-26",
   "projects": [
     {
@@ -13,8 +13,8 @@
       "st": "dev",
       "stl": "Δωρεάν playable beta",
       "main": {
-        "t": "Παίξε beta0.1.1 — ορατά χειριστήρια",
-        "u": "apps/pavlos/index.html?v=0.1.1",
+        "t": "Cafe beta0.1.2 — χειριστήριο δίπλα στη σκηνή",
+        "u": "apps/pavlos/index.html?v=0.1.2",
         "d": "26 Nov 2026",
         "label": "Παίξε"
       },
@@ -25,9 +25,9 @@
           "d": "26 Nov 2026"
         }
       ],
-      "next": "Κλικ στα έξι ορατά κουμπιά ή στα ονόματα της σκηνής. Δεν έχει περπάτημα. Η beta παραμένει δωρεάν.",
+      "next": "Ορατό χειριστήριο δίπλα στη σκηνή. Το κουτάλι επιλέγεται μόλις το πάρεις: μετά πάτησε Ραδιόφωνο. Δωρεάν beta.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sphinx.md",
-      "version": "0.1.1 cafe beta"
+      "version": "0.1.2 cafe beta"
     },
     {
       "id": "coin",
@@ -37,14 +37,19 @@
       "alias": "",
       "what": "Website for coin collectors: collection, valuations and watch alerts.",
       "st": "live",
-      "stl": "Προεπισκόπηση",
+      "stl": "Live beta",
       "main": {
-        "t": "CoinIntel — διαθέσιμο preview",
-        "u": "https://claude.ai/artifact/5XEMguf3RYKwTomWWEJCoP",
-        "d": "23 Nov",
-        "label": "Άνοιξε το preview"
+        "t": "CoinIntel — κανονική ιστοσελίδα",
+        "u": "https://coinintel-beta-production.up.railway.app/",
+        "d": "26 Nov 2026",
+        "label": "Άνοιξε ιστοσελίδα"
       },
       "more": [
+        {
+          "t": "Πλάνο και screenshots — Claude",
+          "u": "https://claude.ai/artifact/5XEMguf3RYKwTomWWEJCoP",
+          "d": "23 Nov"
+        },
         {
           "t": "Launch review and plan",
           "u": "https://claude.ai/artifact/GhvV54yYpSkLxHGsWgMwJF",
@@ -56,9 +61,9 @@
           "d": "29 Oct"
         }
       ],
-      "next": "Το κουμπί ανοίγει το διαθέσιμο preview στο Claude. Δεν έχει επιβεβαιωθεί διαφορετικό URL ζωντανής ιστοσελίδας.",
+      "next": "Το πραγματικό URL επιβεβαιώθηκε από τον ιδιοκτήτη. Το πλάνο/screenshots του Claude παραμένει ξεχωριστός σύνδεσμος.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/coin.md",
-      "version": "Version not verified"
+      "version": "v10.83.3 Beta — έκδοση repository"
     },
     {
       "id": "bio",
