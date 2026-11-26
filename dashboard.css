@@ -1,0 +1,53 @@
+/* Original Sand Labs workshop identity. System fonts; no remote assets. */
+:root{--bg:light-dark(#f5f2eb,#111d20);--card:light-dark(#fffefa,#19292d);--ink:light-dark(#203b3c,#e9f0e9);--muted:light-dark(#607172,#acbdb8);--line:light-dark(#dbe1d9,#344b4c);--dune:light-dark(#e9d6af,#233f40);--duneInk:light-dark(#244744,#f1e4ca);--btn:light-dark(#245c58,#dfbf7f);--btnInk:light-dark(#fffdf6,#172c2e);--hero-paper:light-dark(#f5ead4,#314f50);--hero-sun:light-dark(#c48b35,#d6ab62);--live:light-dark(#296552,#a1d7b8);--liveBg:light-dark(#e3f1e8,#234337);--dev:light-dark(#365c71,#bdd6e4);--devBg:light-dark(#e8eff3,#283f4e)}
+body{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background-image:radial-gradient(var(--line) .6px,transparent .6px);background-size:9px 9px}
+.band{padding:36px max(5vw,18px)}
+header.band{padding-top:34px;background:var(--dune);overflow:hidden}
+header .wrap{position:relative;padding-right:350px}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;opacity:.8}
+.brand{font-family:inherit;font-size:18px;letter-spacing:-.03em;gap:9px}
+.brand svg{width:28px;height:28px}
+h1{font-family:inherit;font-size:clamp(38px,4.3vw,60px);font-weight:650;letter-spacing:-.055em;line-height:1.02;margin:18px 0 14px}
+.lede{font-size:14px;line-height:1.65;max-width:64ch;opacity:.88}
+header p a{font-size:12px;text-decoration-thickness:1px;text-underline-offset:4px}
+.workshop-art{position:absolute;width:310px;height:220px;right:0;top:30px;color:var(--duneInk)}
+.dunes{height:33px;margin-top:15px}
+main.band{padding-bottom:42px}
+main .wrap>.main{background:transparent;border-bottom:1px solid var(--line);border-radius:0;padding:0 0 18px;gap:12px}
+main .wrap>.main b{font-size:13px;font-weight:700;letter-spacing:.02em}
+main .wrap>.main .lbl{font-size:11px}
+.pill{font-family:inherit;font-size:12px;font-weight:600;padding:0 14px;min-height:40px;border-color:var(--line);background:var(--card)}
+.pill[aria-pressed=true]{background:var(--btn);color:var(--btnInk);border-color:var(--btn)}
+#refreshProjects{background:transparent;border-radius:8px;font-size:11px}
+.tools{margin-bottom:22px}
+.count{font-size:11px;letter-spacing:.02em}
+.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start}
+.card{position:relative;padding:23px;border-radius:14px;border-color:var(--line);gap:15px;box-shadow:0 3px 4px #173b3110;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--accent,#528782)}
+.card[data-project=sphinx]{--accent:#bb8740;--icon-bg:#f6e9d0}.card[data-project=coin]{--accent:#a5782c;--icon-bg:#f5ebce}.card[data-project=bio]{--accent:#8a759d;--icon-bg:#efe8f3}.card[data-project=sc]{--accent:#94714b;--icon-bg:#f0e7d8}.card[data-project=life]{--accent:#377b72;--icon-bg:#deeee6}.card[data-project=dd]{--accent:#517c9e;--icon-bg:#e4edf4}.card[data-project=sw]{--accent:#65854a;--icon-bg:#eaf0de}
+.top{display:flex;flex-direction:column;gap:15px}
+.top>div{width:100%}
+.mark{width:48px;height:48px;border-radius:12px;color:var(--accent);background:var(--icon-bg)}
+.mark svg{width:35px;height:35px}
+h2{font-family:inherit;font-size:22px;font-weight:650;letter-spacing:-.045em;line-height:1.15}
+.alias{font-size:10px;line-height:1.5;margin-top:5px}
+.status{font-size:10px;line-height:1.4;padding:5px 9px;max-width:100%;white-space:normal;font-weight:650;letter-spacing:.015em}
+.status::before{content:"";display:inline-block;width:5px;height:5px;margin-right:6px;border-radius:50%;background:currentColor;vertical-align:2px}
+.what{font-size:13px;line-height:1.65;min-height:65px}
+.version{display:flex;gap:9px;font-size:10px;line-height:1.6;margin:0;color:var(--muted);border-top:1px solid var(--line);padding-top:11px;overflow-wrap:anywhere}
+.version span{font-size:9px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;flex:none;padding-top:1px;color:var(--ink)}
+.card .main{background:var(--bg);border:1px solid var(--line);padding:13px;border-radius:9px;display:flex;flex-direction:column;align-items:stretch;gap:13px}
+.main .lbl{font-size:9px;letter-spacing:.025em}.card .main b{font-size:12px;line-height:1.5;margin-top:5px;font-weight:600}
+.open{font-size:12px;justify-content:center;border-radius:7px;min-height:44px;gap:10px;padding:0 15px}
+.card .open::after{content:"";width:6px;height:6px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;transform:rotate(45deg);margin-left:3px;flex:none}
+.open:hover{filter:brightness(1.12)}
+.more a{font-size:11px;line-height:1.5;gap:10px;padding:9px 0;align-items:flex-start;min-height:40px}
+.more small{font-size:9px;padding-top:2px}
+.card>a{font-size:11px;color:var(--btn);text-underline-offset:3px;font-weight:600}
+.next{font-size:10px;line-height:1.7;margin-top:0;border-top:1px solid var(--line);padding-top:13px}
+#about{background:var(--bg)}#about h3{font-family:inherit!important;font-weight:650!important;letter-spacing:-.04em!important}#about p{font-size:13px;line-height:1.8}#contact{box-shadow:0 5px 15px #173b3108}#contact p:nth-of-type(2){font-size:17px}#contact .pill{min-height:44px}
+a:focus-visible,button:focus-visible{outline:3px solid #b47d30;outline-offset:4px}
+@media(min-width:1500px){.wrap{max-width:1280px}.grid{gap:24px}.card{padding:26px}}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}header .wrap{padding-right:260px}.workshop-art{width:235px;top:45px}}
+@media(max-width:650px){.band{padding:26px 20px}header.band{padding-top:27px}header .wrap{padding-right:0}.eyebrow{font-size:8px;margin-bottom:13px}.brand{font-size:16px}h1{font-size:45px;max-width:270px;margin-top:25px}.workshop-art{width:130px;height:110px;top:40px;right:-21px;opacity:.65}.lede{font-size:12px;max-width:44ch}.dunes{height:25px;margin-top:13px}.grid{grid-template-columns:1fr;gap:18px}.card{padding:22px}.tools{gap:15px}.pills{gap:6px}.pill{font-size:10px;padding:0 11px;min-height:44px}.count{width:100%;font-size:10px}.main .lbl{font-size:9px}#refreshProjects{padding:0 9px;max-width:130px;font-size:10px}.what{min-height:0}.more a{min-height:44px}.card .main b{font-size:13px}.card .open{font-size:13px}#about .wrap{gap:24px!important}}
+@media(prefers-reduced-motion:no-preference){.card{transition:transform .2s,box-shadow .2s}.card:hover{transform:translateY(-3px);box-shadow:0 10px 26px #173b3110}}
