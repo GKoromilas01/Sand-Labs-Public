@@ -15,13 +15,14 @@
   $('inventory').replaceChildren();
   if(state.inventory.length){const button=document.createElement('button');button.id='inventory-spoon';button.textContent='🥄 Κουτάλι';button.setAttribute('aria-pressed',String(selected==='spoon'));button.addEventListener('click',()=>{selected=selected?'': 'spoon';render();$('inventory-spoon').focus();});$('inventory').append(button);}
   else{const p=document.createElement('p');p.className='empty';p.textContent=state.fixed?'Το κουτάλι είναι πλέον τεχνολογία.':'Χνούδι. Και υπερβολική σιγουριά.';$('inventory').append(p);}
-  $('selection').textContent=selected?'Κουτάλι επιλεγμένο → πάτησε τον στόχο. Escape για ακύρωση.':'Πάτησε αντικείμενα στη σκηνή ή στη λίστα.';
+  $('selection').textContent=selected?'✓ Κουτάλι στο χέρι. Τώρα πάτησε Ραδιόφωνο για να το χρησιμοποιήσεις. Escape: ακύρωση.':'Πάτησε ένα από τα έξι κουμπιά πάνω. Οι τσέπες σου φαίνονται εδώ.';
   targets.forEach(t=>t.disabled=state.won);$('hint').disabled=state.won;
   $('ending').hidden=!state.won;
  }
  targets.forEach(button=>button.addEventListener('click',()=>{
   if(!started)return;
   const previous=state;state=PavlosPuzzle.act(state,button.dataset.target,selected);
+  if(!previous.inventory.includes('spoon')&&state.inventory.includes('spoon'))selected='spoon';
   if(state.fixed&&!previous.fixed)selected=null;
   render();
   if(!previous.won&&state.won){$('endingTitle').focus();$('ending').scrollIntoView({behavior:'auto',block:'nearest'});}
