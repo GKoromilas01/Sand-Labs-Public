@@ -37,14 +37,14 @@
       "alias": "",
       "what": "Website for coin collectors: collection, valuations and watch alerts.",
       "st": "live",
-      "stl": "Live URL αναμένεται",
-      "main": null,
+      "stl": "Προεπισκόπηση",
+      "main": {
+        "t": "CoinIntel — διαθέσιμο preview",
+        "u": "https://claude.ai/artifact/5XEMguf3RYKwTomWWEJCoP",
+        "d": "23 Nov",
+        "label": "Άνοιξε το preview"
+      },
       "more": [
-        {
-          "t": "Προεπισκόπηση στο Claude — όχι επιβεβαιωμένο live site",
-          "u": "https://claude.ai/artifact/5XEMguf3RYKwTomWWEJCoP",
-          "d": "23 Nov"
-        },
         {
           "t": "Launch review and plan",
           "u": "https://claude.ai/artifact/GhvV54yYpSkLxHGsWgMwJF",
@@ -56,10 +56,9 @@
           "d": "29 Oct"
         }
       ],
-      "next": "Χρειάζεται η πραγματική διεύθυνση CoinIntel. Το link του Sand Labs δεν είναι CoinIntel και δεν χρησιμοποιείται ως υποκατάστατο.",
+      "next": "Το κουμπί ανοίγει το διαθέσιμο preview στο Claude. Δεν έχει επιβεβαιωθεί διαφορετικό URL ζωντανής ιστοσελίδας.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/coin.md",
-      "version": "Version not verified",
-      "unavailable": "Δεν έχει επιβεβαιωθεί το URL της ζωντανής ιστοσελίδας. Preview και κώδικας παρακάτω."
+      "version": "Version not verified"
     },
     {
       "id": "bio",
