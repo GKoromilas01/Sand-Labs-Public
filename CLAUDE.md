@@ -15,3 +15,6 @@ Owner requests Coin Intel (formerly CoinIntel), Bios (capital B only, formerly B
 
 ## Removed shared footer
 Owner requested removal of the entire Shared across projects footer, including Decisions and Roadmap and main-site-design links. Do not restore this section. Keep actual private agent handoff files intact.
+
+## Sand Labs2.9 allowlist
+Approved public browser apps now include Isegoria(index/style/model/app) and Bios(index/style/model/app), plus Zoetica backup.js alongside its HTML/video. Do not copy private app CLAUDE files, personal memoir notes or imported user content. All new account/public-poll/AI features remain explicitly unimplemented; Bios has no credit-bearing AI calls. Actual source/testing/next steps are in each private apps/<app>/CLAUDE.md.

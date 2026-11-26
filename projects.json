@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "2.8",
+  "pageVersion": "2.9",
   "updated": "2026-11-26",
   "projects": [
     {
@@ -71,16 +71,22 @@
       "tint": "#C9A6E2",
       "name": "Bios",
       "alias": "Formerly Vios / Digital Biography",
-      "what": "Upload your photos and an AI biographer writes your life story, one question at a time.",
+      "what": "Γράψε αναμνήσεις, αποθήκευσέ τις στη συσκευή και εξήγαγε το τετράδιό σου. Χωρίς αυτόματες κλήσεις AI.",
       "st": "dev",
-      "stl": "Mockup / roadmap",
+      "stl": "Λειτουργικό τοπικό demo",
       "main": {
-        "t": "Website mockup",
-        "u": "https://claude.ai/artifact/EdjaspGHDYqHC1iiL7DaqT",
-        "d": "24 Nov",
-        "label": "Δες mockup"
+        "t": "Bios0.1.0 — το προσωπικό σου τετράδιο",
+        "u": "apps/bios/index.html",
+        "d": "26 Nov 2026",
+        "label": "Άνοιξε Bios"
       },
       "more": [
+        {
+          "t": "Προηγούμενο mockup — Vios/Bios",
+          "u": "https://claude.ai/artifact/EdjaspGHDYqHC1iiL7DaqT",
+          "d": "24 Nov",
+          "label": "Δες mockup"
+        },
         {
           "t": "Biographer agent: design and questions",
           "u": "https://claude.ai/artifact/K9L77JTtYeMUz5gjAc7Hvk",
@@ -107,9 +113,9 @@
           "d": "20 Nov"
         }
       ],
-      "next": "Next: private biography pilot for 10 participants; consent, story prompts and export. Roadmap recorded; app not upgraded.",
+      "next": "Λογαριασμοί, φωτογραφίες και social imports απαιτούν backend και παραμένουν επόμενα βήματα. Καμία χρήση owner AI credits από αυτό το demo.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/bio.md",
-      "version": "Version not verified"
+      "version": "0.1.0 local journal demo"
     },
     {
       "id": "sc",
@@ -165,9 +171,9 @@
       "alias": "The Spore-like game · formerly Life AI",
       "what": "Evolution game: from a single cell to a creature, and one day to a god of the galaxy.",
       "st": "live",
-      "stl": "Supplied v0.8.1",
+      "stl": "Playable v0.8.2",
       "main": {
-        "t": "Zoetica v0.8.1 — πραγματικό παιχνίδι",
+        "t": "Zoetica v0.8.2 — save & portable backup",
         "u": "apps/zoetica/index.html",
         "d": "26 Nov 2026",
         "label": "Παίξε"
@@ -179,9 +185,9 @@
           "d": "24 Nov"
         }
       ],
-      "next": "Πάτησε στην αρχική οθόνη, παράκαμψε την εισαγωγή αν θέλεις και πάτησε Start.",
+      "next": "Νέα Save now, Download backup και ασφαλής Restore με επιβεβαίωση. Κράτα αρχείο για μεταφορά προόδου σε άλλη συσκευή.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/life.md",
-      "version": "0.8.1 — uploaded baseline"
+      "version": "0.8.2"
     },
     {
       "id": "dd",
@@ -189,25 +195,31 @@
       "tint": "#9DB7E8",
       "name": "Isegoria",
       "alias": "Formerly Digital Democracy / Instant Democracy",
-      "what": "Each news story shown from every political view, world and Greece.",
+      "what": "Διατύπωσε μια πρόταση, κράτησε πρόχειρο και δοκίμασε μια ουδέτερη ψηφοφορία σε αυτόν τον browser.",
       "st": "dev",
-      "stl": "First page",
+      "stl": "Τοπικές προτάσεις & poll",
       "main": {
-        "t": "Isegoria page",
-        "u": "https://claude.ai/artifact/ApSffgV6QiSumWpmK8Mha5",
-        "d": "24 Nov",
-        "label": "Δες preview"
+        "t": "Isegoria0.2 — προτάσεις & δοκιμαστική ψηφοφορία",
+        "u": "apps/isegoria/index.html",
+        "d": "26 Nov 2026",
+        "label": "Άνοιξε Isegoria"
       },
       "more": [
+        {
+          "t": "Προηγούμενο preview Isegoria",
+          "u": "https://claude.ai/artifact/ApSffgV6QiSumWpmK8Mha5",
+          "d": "24 Nov",
+          "label": "Δες preview"
+        },
         {
           "t": "Digital Democracy — supplied earlier page (private GitHub file)",
           "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/apps/digital-democracy/index.html",
           "d": "26 Nov 2026"
         }
       ],
-      "next": "Next: proposals, discussions, polls and a voluntary interview pilot. Roadmap recorded; implementation scope pending.",
+      "next": "Δεν είναι δημόσια ψηφοφορία ή αντιπροσωπευτικό δείγμα. Κοινοί λογαριασμοί, συζητήσεις και moderation απαιτούν backend.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/dd.md",
-      "version": "Version not verified"
+      "version": "0.2 local participation demo"
     },
     {
       "id": "sw",
