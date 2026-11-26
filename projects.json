@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "2.7",
+  "pageVersion": "2.8",
   "updated": "2026-11-26",
   "projects": [
     {
@@ -128,6 +128,11 @@
       },
       "more": [
         {
+          "t": "Νέος έλεγχος v0.67 — commit841d1a5",
+          "u": "https://github.com/GKoromilas01/Shattered-Crowns/actions/runs/45899703466",
+          "d": "26 Nov 2026"
+        },
+        {
           "t": "Code and docs on GitHub",
           "u": "https://github.com/GKoromilas01/Shattered-Crowns",
           "d": "24 Nov"
@@ -148,9 +153,9 @@
           "d": "26 Nov 2026"
         }
       ],
-      "next": "Η v0.67 δεν έχει κυκλοφορήσει. Quick και live-smoke πέρασαν, verify απέτυχε. Το PR #91 παραμένει ανοικτό.",
+      "next": "Διορθώθηκε η διαρροή συμπτυγμένης προβολής από σπίτι σε φάρμα.35 τοπικοί έλεγχοι πέρασαν. Νέο πλήρες CI τρέχει· η v0.67 δεν έχει συγχωνευτεί ή κυκλοφορήσει.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sc.md",
-      "version": "Live v0.66 · v0.67: verify failed"
+      "version": "Live v0.66 · v0.67: new CI running"
     },
     {
       "id": "life",
