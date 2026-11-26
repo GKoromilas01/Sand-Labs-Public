@@ -174,7 +174,7 @@
       "stl": "Playable v0.8.3",
       "main": {
         "t": "Zoetica v0.8.3 — ambient από το πρώτο πάτημα",
-        "u": "apps/zoetica/index.html",
+        "u": "apps/zoetica/index.html?v=0.8.3",
         "d": "27 Nov 2026",
         "label": "Παίξε"
       },
