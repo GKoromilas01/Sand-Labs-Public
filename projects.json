@@ -1,0 +1,236 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "2.1",
+  "updated": "2026-11-26",
+  "projects": [
+    {
+      "id": "sphinx",
+      "mark": "PE",
+      "tint": "#E5C78F",
+      "name": "Pavlos O Ellinaras",
+      "alias": "Formerly The Grumpy Sphinx",
+      "what": "A planned Greek satirical cartoon adventure starring Pavlos. Existing link opens the original supplied game.",
+      "st": "dev",
+      "stl": "Free beta · earlier build",
+      "main": {
+        "t": "Open earlier Grumpy Sphinx build (private GitHub file)",
+        "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/apps/grumpy-sphinx/index.html",
+        "d": "26 Nov 2026"
+      },
+      "more": [
+        {
+          "t": "Agent handoff and continuation notes (private GitHub file)",
+          "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/apps/grumpy-sphinx/CLAUDE.md",
+          "d": "26 Nov 2026"
+        }
+      ],
+      "next": "Beta remains free. No payments without prior owner notification and explicit approval. Future pricing is undecided for launch.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sphinx.md",
+      "version": "Uploaded baseline"
+    },
+    {
+      "id": "coin",
+      "mark": "CI",
+      "tint": "#E2B15E",
+      "name": "CoinIntel",
+      "alias": "",
+      "what": "Website for coin collectors: collection, valuations and watch alerts.",
+      "st": "live",
+      "stl": "Preview ready",
+      "main": {
+        "t": "CoinIntel core preview",
+        "u": "https://claude.ai/artifact/5XEMguf3RYKwTomWWEJCoP",
+        "d": "23 Nov"
+      },
+      "more": [
+        {
+          "t": "Launch review and plan",
+          "u": "https://claude.ai/artifact/GhvV54yYpSkLxHGsWgMwJF",
+          "d": "20 Nov"
+        },
+        {
+          "t": "Code on GitHub (private)",
+          "u": "https://github.com/GKoromilas01/CoinIntel-Beta",
+          "d": "29 Oct"
+        }
+      ],
+      "next": "Next: automated tests, then launch the core without the marketplace. Source not supplied here; external links retained and unverified.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/coin.md",
+      "version": "Version not verified"
+    },
+    {
+      "id": "bio",
+      "mark": "BI",
+      "tint": "#C9A6E2",
+      "name": "BIOS",
+      "alias": "Formerly Vios / Digital Biography",
+      "what": "Upload your photos and an AI biographer writes your life story, one question at a time.",
+      "st": "dev",
+      "stl": "In development",
+      "main": {
+        "t": "Website mockup",
+        "u": "https://claude.ai/artifact/EdjaspGHDYqHC1iiL7DaqT",
+        "d": "24 Nov"
+      },
+      "more": [
+        {
+          "t": "Biographer agent: design and questions",
+          "u": "https://claude.ai/artifact/K9L77JTtYeMUz5gjAc7Hvk",
+          "d": "20 Nov"
+        },
+        {
+          "t": "Test run: Yannis, A Reflective Portrait",
+          "u": "https://claude.ai/artifact/Twaa7NfGurKcBWVuQqsRE3",
+          "d": "23 Nov"
+        },
+        {
+          "t": "Test run: In My Own Words",
+          "u": "https://claude.ai/artifact/QrceHr1MfPzkUtppNwLcHT",
+          "d": "23 Nov"
+        },
+        {
+          "t": "Test run: A Life in Chapters",
+          "u": "https://claude.ai/artifact/V6acwJk1HbpCWgWnXVEiq9",
+          "d": "21 Nov"
+        },
+        {
+          "t": "My Digital Biography",
+          "u": "https://claude.ai/artifact/LaWxEXNxXzHTPj5fBghVtm",
+          "d": "20 Nov"
+        }
+      ],
+      "next": "Next: private biography pilot for 10 participants; consent, story prompts and export. Roadmap recorded; app not upgraded.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/bio.md",
+      "version": "Version not verified"
+    },
+    {
+      "id": "sc",
+      "mark": "SC",
+      "tint": "#E6B96E",
+      "name": "Shattered Crowns",
+      "alias": "",
+      "what": "Medieval real-time strategy: grow a village into a kingdom.",
+      "st": "live",
+      "stl": "Playable",
+      "main": {
+        "t": "Play the latest build",
+        "u": "https://gkoromilas01.github.io/Shattered-Crowns/",
+        "d": "24 Nov, 17:25"
+      },
+      "more": [
+        {
+          "t": "Code and docs on GitHub",
+          "u": "https://github.com/GKoromilas01/Shattered-Crowns",
+          "d": "24 Nov"
+        },
+        {
+          "t": "Anthem test track",
+          "u": "https://claude.ai/artifact/HLmrHr9R8steaeYMqKmZ1o",
+          "d": "20 Nov"
+        }
+      ],
+      "next": "Priority #1 of the lab.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sc.md",
+      "version": "Live version not verified"
+    },
+    {
+      "id": "life",
+      "mark": "ZO",
+      "tint": "#8FD3C2",
+      "name": "Zoetica",
+      "alias": "The Spore-like game · formerly Life AI",
+      "what": "Evolution game: from a single cell to a creature, and one day to a god of the galaxy.",
+      "st": "live",
+      "stl": "Supplied v0.8.1",
+      "main": {
+        "t": "Zoetica v0.8.1 (private GitHub file)",
+        "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/apps/zoetica/index.html",
+        "d": "26 Nov 2026"
+      },
+      "more": [
+        {
+          "t": "Zoetica v0.8",
+          "u": "https://claude.ai/artifact/5BP85D58DQ9XBd4MhZXSs1",
+          "d": "24 Nov"
+        }
+      ],
+      "next": "Cell stage built; creature stage started.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/life.md",
+      "version": "0.8.1 — uploaded baseline"
+    },
+    {
+      "id": "yt",
+      "mark": "DF",
+      "tint": "#F08F7A",
+      "name": "Déjà Future",
+      "alias": "YouTube channel · formerly Echoes Ahead",
+      "what": "Videos about science, AI, politics, biology and history.",
+      "st": "dev",
+      "stl": "Launch kit",
+      "main": {
+        "t": "Déjà Future launch kit",
+        "u": "https://claude.ai/artifact/HksyzR1vRd6TusMtT3x3bv",
+        "d": "24 Nov"
+      },
+      "more": [],
+      "next": "Banner, logos, About text and first script are in the kit. Frank AI videos planned for later. Source not supplied here; external links retained and unverified.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/yt.md",
+      "version": "Version not verified"
+    },
+    {
+      "id": "dd",
+      "mark": "IS",
+      "tint": "#9DB7E8",
+      "name": "Isegoria",
+      "alias": "Formerly Digital Democracy / Instant Democracy",
+      "what": "Each news story shown from every political view, world and Greece.",
+      "st": "dev",
+      "stl": "First page",
+      "main": {
+        "t": "Isegoria page",
+        "u": "https://claude.ai/artifact/ApSffgV6QiSumWpmK8Mha5",
+        "d": "24 Nov"
+      },
+      "more": [
+        {
+          "t": "Digital Democracy — supplied earlier page (private GitHub file)",
+          "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/apps/digital-democracy/index.html",
+          "d": "26 Nov 2026"
+        }
+      ],
+      "next": "Next: proposals, discussions, polls and a voluntary interview pilot. Roadmap recorded; implementation scope pending.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/dd.md",
+      "version": "Version not verified"
+    },
+    {
+      "id": "sw",
+      "mark": "SA",
+      "tint": "#B5CF86",
+      "name": "SoftOne Advisor",
+      "alias": "Software Agent",
+      "what": "AI advisor for SoftOne ERP work, built on your manuals.",
+      "st": "plan",
+      "stl": "Planned application",
+      "main": {
+        "t": "Library Collection Plan (PDF) (private GitHub file)",
+        "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/references/SoftOne Advisor — Library Collection Plan.pdf",
+        "d": "24 Nov 2026"
+      },
+      "more": [
+        {
+          "t": "Library collection plan",
+          "u": "https://claude.ai/artifact/6RoRiiyYo116SG9r2p1bBt",
+          "d": "24 Nov"
+        },
+        {
+          "t": "AI agent opportunities and build guide",
+          "u": "https://claude.ai/artifact/XxSmSUYNuDnCiMrGyFKW2n",
+          "d": "19 Nov"
+        }
+      ],
+      "next": "Latest step is the plan for its SoftOne knowledge library.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sw.md",
+      "version": "Planning document"
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sand Labs Projects — v2.1</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* VOICE: a workshop control board, practical and calm, one place to open everything
+   IDEA: the lab's sample shelf: every project is a labelled jar with its newest version up front
+   PICTURE: the board of eight project cards itself, under a dune-line header
+   COLOUR and TYPE: dune ochre header, white or night cards, ink; Space Grotesk titles, Inter body
+   LAYOUT: header band, filter row, card grid, footer with shared docs */
+:root{color-scheme:light dark;
+--bg:light-dark(#F1ECE4,#14110E);--card:light-dark(#FFFFFF,#1F1A15);--ink:light-dark(#1E1A16,#F2EBE0);
+--muted:light-dark(#5C5247,#B9AD9C);--line:light-dark(#E2D8CA,#332B23);
+--dune:light-dark(#C98A3A,#3A2A17);--duneInk:light-dark(#1E1A16,#F2D7A8);
+--btn:light-dark(#1E1A16,#E8B96A);--btnInk:light-dark(#FFFFFF,#16120D);
+--live:light-dark(#1E6B3A,#8FDDA6);--liveBg:light-dark(#DDF1E3,#183324);
+--dev:light-dark(#1F4F8A,#A8C9F5);--devBg:light-dark(#DFEAF8,#1A2A40);
+--plan:light-dark(#6A5A45,#D3C5B1);--planBg:light-dark(#EEE6DA,#2A241E)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+.band{padding:clamp(28px,4vw,56px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+header.band{background:var(--dune);color:var(--duneInk);padding-bottom:0;position:relative}
+.brand{display:flex;align-items:center;gap:12px;font:700 20px 'Space Grotesk',sans-serif}
+h1{font:700 clamp(32px,5vw,52px)/1.05 'Space Grotesk',sans-serif;margin:18px 0 10px;text-wrap:balance;letter-spacing:-.02em}
+.lede{margin:0;max-width:60ch;font-size:17px}
+.dunes{display:block;width:100%;height:56px;margin-top:28px}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:20px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 15px Inter,sans-serif;cursor:pointer}
+.pill[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pill:focus-visible,a:focus-visible{outline:3px solid #2F7BE0;outline-offset:2px}
+.count{color:var(--muted);font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.mark{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;font:700 17px 'Space Grotesk',sans-serif;color:#1E1A16;flex:none}
+.status{font-size:13px;font-weight:600;padding:4px 11px;border-radius:999px;white-space:nowrap}
+.s-live{color:var(--live);background:var(--liveBg)}.s-dev{color:var(--dev);background:var(--devBg)}.s-plan{color:var(--plan);background:var(--planBg)}
+h2{font:700 24px/1.15 'Space Grotesk',sans-serif;margin:0}
+.alias{color:var(--muted);font-size:14px;margin:2px 0 0}
+.what{margin:0;color:var(--muted)}
+.main{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--bg);border-radius:12px;padding:12px 14px}
+.main .lbl{font-size:13px;color:var(--muted)}.main b{display:block;font-weight:600}
+.open{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:10px;background:var(--btn);color:var(--btnInk);text-decoration:none;font-weight:600;white-space:nowrap}
+.none{font-size:15px;color:var(--muted);background:var(--bg);border-radius:12px;padding:12px 14px;margin:0}
+.more{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.more li{border-top:1px solid var(--line)}
+.more a{display:flex;justify-content:space-between;gap:12px;padding:10px 0;color:var(--ink);text-decoration:none;min-height:44px;align-items:center}
+.more a:hover span:first-child{text-decoration:underline}
+.more small{color:var(--muted);font-size:13px;white-space:nowrap}
+.next{font-size:14px;color:var(--muted);margin:auto 0 0;padding-top:4px}
+footer.band{border-top:1px solid var(--line);margin-top:24px}
+footer h3{font:700 20px 'Space Grotesk',sans-serif;margin:0 0 10px}
+footer ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:10px}
+footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:10px;color:var(--ink);text-decoration:none;background:var(--card)}
+.note{color:var(--muted);font-size:13px;margin-top:16px}
+@media(prefers-reduced-motion:no-preference){.card{transition:transform .15s}.card:hover{transform:translateY(-2px)}}
+</style>
+</head>
+<body>
+<header class="band">
+<div class="wrap">
+<div class="brand"><svg width="32" height="32" viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect x="1" y="1" width="34" height="34" rx="9" stroke="currentColor" stroke-width="2"/><path d="M11 9h14M11 27h14M12 9c0 6 6 6 6 9s-6 3-6 9M24 9c0 6-6 6-6 9s6 3 6 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="24" r="1.6" fill="currentColor"/></svg>Sand Labs</div>
+<h1>Every project, newest version first</h1>
+<p class="lede">One place to open the latest build, page or document of each project you are working on. Private GitHub files require repository access; their links show source or documents rather than a playable website.</p>
+<p style="margin:14px 0 0;display:flex;gap:18px;flex-wrap:wrap"><a href="#about" style="color:inherit;font-weight:600">About us</a><a href="#contact" style="color:inherit;font-weight:600">Contact</a></p>
+</div>
+<svg class="dunes" viewBox="0 0 1200 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C150 10 300 10 450 34 S760 56 900 26 S1120 8 1200 30 V56 H0Z" fill="var(--bg)" opacity=".45"/><path d="M0 50 C200 26 380 30 560 46 S900 40 1050 34 S1160 40 1200 44 V56 H0Z" fill="var(--bg)"/></svg>
+</header>
+
+<main class="band" style="padding-top:20px">
+<div class="wrap">
+<div class="main" style="margin-bottom:18px"><div><b>Sand Labs · v2.1</b><span id="registryStatus" class="lbl" role="status">Saved project records · 26 November 2026</span></div><button class="pill" id="refreshProjects" type="button">Refresh versions</button></div>
+<div class="tools">
+<div class="pills" role="group" aria-label="Show projects">
+<button class="pill" data-f="all" aria-pressed="true">All 8</button>
+<button class="pill" data-f="has">Has a version</button>
+<button class="pill" data-f="not">Nothing built yet</button>
+</div>
+<span class="count" id="count"></span>
+</div>
+<div class="grid" id="grid"></div>
+</div>
+</main>
+
+<section class="band" id="about" style="border-top:1px solid var(--line)">
+<div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:32px">
+<div>
+<h3 style="font:700 clamp(28px,3.5vw,40px)/1.1 'Space Grotesk',sans-serif;margin:0 0 14px;letter-spacing:-.02em">About us</h3>
+<p style="margin:0 0 12px;max-width:60ch">Sand Labs is a small independent lab in Athens, Greece, building games, websites and AI tools, one grain at a time.</p>
+<p style="margin:0 0 12px;max-width:60ch;color:var(--muted)">It was started by Yannis Koromilas, a software developer with more than twenty years of experience building business systems, and a musician on bass and piano. The lab exists to learn new technology by making real things with it.</p>
+<p style="margin:0;max-width:60ch;color:var(--muted)">Every project is built step by step, released free first, and improved with the people who use it.</p>
+</div>
+<div id="contact" style="background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;align-self:start">
+<h3 style="font:700 24px 'Space Grotesk',sans-serif;margin:0 0 8px">Contact</h3>
+<p style="margin:0 0 14px;color:var(--muted)">Questions, ideas or feedback on any project? Write to us.</p>
+<p style="margin:0 0 16px;font-size:18px;font-weight:600;overflow-wrap:anywhere">yanniskoromilas@gmail.com</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px">
+<a class="open" href="mailto:yanniskoromilas@gmail.com">Send an email</a>
+<button class="pill" id="copyMail" type="button">Copy address</button>
+</div>
+<p id="copyMsg" style="margin:10px 0 0;font-size:14px;color:var(--muted);min-height:1.4em"></p>
+</div>
+</div>
+</section>
+
+<footer class="band">
+<div class="wrap">
+<h3>Shared across projects</h3>
+<ul>
+<li><a href="https://claude.ai/artifact/98KaeHCuxRYSJDpLrZ6NKn" target="_blank" rel="noopener">Sand Labs: Decisions and Roadmap</a></li>
+<li><a href="https://claude.ai/artifact/3zKsYSwdgLNbHzBZtQP6aW" target="_blank" rel="noopener">Sand Labs main site (design, not started)</a></li>
+<li><a href="https://claude.ai/artifact/SPZ3wXzCFiaTfQ3mBuzm8K" target="_blank" rel="noopener">Sunset Spike Volleyball</a></li>
+<li><a href="https://claude.ai/artifact/H66zg9fnJZAfej7LPFyGFF" target="_blank" rel="noopener">The Grumpy Sphinx</a></li>
+</ul>
+<p class="note">Sand Labs page v2 · Updated 26 November 2026. The Grumpy Sphinx opens the supplied local build. Other project links are preserved from your original page and have not been rechecked. New versions require updating the project records; private chats are not automatically synchronized.</p>
+</div>
+</footer>
+
+<script id="project-data" type="application/json">{"schemaVersion": 1, "pageVersion": "2.1", "updated": "2026-11-26", "projects": [{"id": "sphinx", "mark": "PE", "tint": "#E5C78F", "name": "Pavlos O Ellinaras", "alias": "Formerly The Grumpy Sphinx", "what": "A planned Greek satirical cartoon adventure starring Pavlos. Existing link opens the original supplied game.", "st": "dev", "stl": "Free beta · earlier build", "main": {"t": "Open earlier Grumpy Sphinx build (private GitHub file)", "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/apps/grumpy-sphinx/index.html", "d": "26 Nov 2026"}, "more": [{"t": "Agent handoff and continuation notes (private GitHub file)", "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/apps/grumpy-sphinx/CLAUDE.md", "d": "26 Nov 2026"}], "next": "Beta remains free. No payments without prior owner notification and explicit approval. Future pricing is undecided for launch.", "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sphinx.md", "version": "Uploaded baseline"}, {"id": "coin", "mark": "CI", "tint": "#E2B15E", "name": "CoinIntel", "alias": "", "what": "Website for coin collectors: collection, valuations and watch alerts.", "st": "live", "stl": "Preview ready", "main": {"t": "CoinIntel core preview", "u": "https://claude.ai/artifact/5XEMguf3RYKwTomWWEJCoP", "d": "23 Nov"}, "more": [{"t": "Launch review and plan", "u": "https://claude.ai/artifact/GhvV54yYpSkLxHGsWgMwJF", "d": "20 Nov"}, {"t": "Code on GitHub (private)", "u": "https://github.com/GKoromilas01/CoinIntel-Beta", "d": "29 Oct"}], "next": "Next: automated tests, then launch the core without the marketplace. Source not supplied here; external links retained and unverified.", "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/coin.md", "version": "Version not verified"}, {"id": "bio", "mark": "BI", "tint": "#C9A6E2", "name": "BIOS", "alias": "Formerly Vios / Digital Biography", "what": "Upload your photos and an AI biographer writes your life story, one question at a time.", "st": "dev", "stl": "In development", "main": {"t": "Website mockup", "u": "https://claude.ai/artifact/EdjaspGHDYqHC1iiL7DaqT", "d": "24 Nov"}, "more": [{"t": "Biographer agent: design and questions", "u": "https://claude.ai/artifact/K9L77JTtYeMUz5gjAc7Hvk", "d": "20 Nov"}, {"t": "Test run: Yannis, A Reflective Portrait", "u": "https://claude.ai/artifact/Twaa7NfGurKcBWVuQqsRE3", "d": "23 Nov"}, {"t": "Test run: In My Own Words", "u": "https://claude.ai/artifact/QrceHr1MfPzkUtppNwLcHT", "d": "23 Nov"}, {"t": "Test run: A Life in Chapters", "u": "https://claude.ai/artifact/V6acwJk1HbpCWgWnXVEiq9", "d": "21 Nov"}, {"t": "My Digital Biography", "u": "https://claude.ai/artifact/LaWxEXNxXzHTPj5fBghVtm", "d": "20 Nov"}], "next": "Next: private biography pilot for 10 participants; consent, story prompts and export. Roadmap recorded; app not upgraded.", "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/bio.md", "version": "Version not verified"}, {"id": "sc", "mark": "SC", "tint": "#E6B96E", "name": "Shattered Crowns", "alias": "", "what": "Medieval real-time strategy: grow a village into a kingdom.", "st": "live", "stl": "Playable", "main": {"t": "Play the latest build", "u": "https://gkoromilas01.github.io/Shattered-Crowns/", "d": "24 Nov, 17:25"}, "more": [{"t": "Code and docs on GitHub", "u": "https://github.com/GKoromilas01/Shattered-Crowns", "d": "24 Nov"}, {"t": "Anthem test track", "u": "https://claude.ai/artifact/HLmrHr9R8steaeYMqKmZ1o", "d": "20 Nov"}], "next": "Priority #1 of the lab.", "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sc.md", "version": "Live version not verified"}, {"id": "life", "mark": "ZO", "tint": "#8FD3C2", "name": "Zoetica", "alias": "The Spore-like game · formerly Life AI", "what": "Evolution game: from a single cell to a creature, and one day to a god of the galaxy.", "st": "live", "stl": "Supplied v0.8.1", "main": {"t": "Zoetica v0.8.1 (private GitHub file)", "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/apps/zoetica/index.html", "d": "26 Nov 2026"}, "more": [{"t": "Zoetica v0.8", "u": "https://claude.ai/artifact/5BP85D58DQ9XBd4MhZXSs1", "d": "24 Nov"}], "next": "Cell stage built; creature stage started.", "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/life.md", "version": "0.8.1 — uploaded baseline"}, {"id": "yt", "mark": "DF", "tint": "#F08F7A", "name": "Déjà Future", "alias": "YouTube channel · formerly Echoes Ahead", "what": "Videos about science, AI, politics, biology and history.", "st": "dev", "stl": "Launch kit", "main": {"t": "Déjà Future launch kit", "u": "https://claude.ai/artifact/HksyzR1vRd6TusMtT3x3bv", "d": "24 Nov"}, "more": [], "next": "Banner, logos, About text and first script are in the kit. Frank AI videos planned for later. Source not supplied here; external links retained and unverified.", "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/yt.md", "version": "Version not verified"}, {"id": "dd", "mark": "IS", "tint": "#9DB7E8", "name": "Isegoria", "alias": "Formerly Digital Democracy / Instant Democracy", "what": "Each news story shown from every political view, world and Greece.", "st": "dev", "stl": "First page", "main": {"t": "Isegoria page", "u": "https://claude.ai/artifact/ApSffgV6QiSumWpmK8Mha5", "d": "24 Nov"}, "more": [{"t": "Digital Democracy — supplied earlier page (private GitHub file)", "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/apps/digital-democracy/index.html", "d": "26 Nov 2026"}], "next": "Next: proposals, discussions, polls and a voluntary interview pilot. Roadmap recorded; implementation scope pending.", "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/dd.md", "version": "Version not verified"}, {"id": "sw", "mark": "SA", "tint": "#B5CF86", "name": "SoftOne Advisor", "alias": "Software Agent", "what": "AI advisor for SoftOne ERP work, built on your manuals.", "st": "plan", "stl": "Planned application", "main": {"t": "Library Collection Plan (PDF) (private GitHub file)", "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/references/SoftOne Advisor — Library Collection Plan.pdf", "d": "24 Nov 2026"}, "more": [{"t": "Library collection plan", "u": "https://claude.ai/artifact/6RoRiiyYo116SG9r2p1bBt", "d": "24 Nov"}, {"t": "AI agent opportunities and build guide", "u": "https://claude.ai/artifact/XxSmSUYNuDnCiMrGyFKW2n", "d": "19 Nov"}], "next": "Latest step is the plan for its SoftOne knowledge library.", "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sw.md", "version": "Planning document"}]}</script>
+<script>
+{
+let registry=JSON.parse(document.getElementById("project-data").textContent);
+let P=registry.projects;
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safeUrl=u=>{try{const v=new URL(u,location.href);return ['http:','https:','file:'].includes(v.protocol)?u:'#'}catch(e){return '#'}};
+const link=(u,inner,cls)=>`<a ${cls?`class="${cls}" `:''}href="${esc(safeUrl(u))}" target="_blank" rel="noopener">${inner}</a>`;
+const card=p=>`<article class="card">
+<div class="top"><div style="display:flex;gap:12px;align-items:center"><div class="mark" style="background:${p.tint}" aria-hidden="true">${esc(p.mark)}</div>
+<div><h2>${esc(p.name)}</h2>${p.alias?`<p class="alias">${esc(p.alias)}</p>`:''}</div></div>
+<span class="status s-${p.st}">${esc(p.stl)}</span></div>
+<p class="what">${esc(p.what)}</p><p class="alias">${esc(p.version)}</p>
+${p.main?`<div class="main"><div><span class="lbl">Latest · ${esc(p.main.d)}</span><b>${esc(p.main.t)}</b></div>${link(p.main.u,'Open','open')}</div>`:`<p class="none">No version to open yet.</p>`}
+${p.more.length?`<ul class="more">${p.more.map(m=>`<li>${link(m.u,`<span>${esc(m.t)}</span><small>${esc(m.d)}</small>`)}</li>`).join('')}</ul>`:''}
+${link(p.handoff,'Project notes','')}
+${p.next?`<p class="next">${esc(p.next)}</p>`:''}
+</article>`;
+const grid=document.getElementById('grid'),count=document.getElementById('count');
+let f='all';
+try{f=localStorage.getItem('sl-filter')||'all'}catch(e){}
+if(!['all','has','not'].includes(f))f='all';
+function render(){
+ const list=P.filter(p=>f==='all'||(f==='has'?!!p.main:!p.main));
+ grid.innerHTML=list.map(card).join('');
+ count.textContent=list.length+' of '+P.length+' projects';
+ document.querySelector('[data-f=all]').textContent='All '+P.length;
+ document.querySelectorAll('.pill[data-f]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.f===f)));
+}
+document.querySelectorAll('.pill[data-f]').forEach(b=>b.addEventListener('click',()=>{f=b.dataset.f;try{localStorage.setItem('sl-filter',f)}catch(e){}render()}));
+render();
+async function refreshProjects(){
+ const status=document.getElementById('registryStatus');
+ try{
+  const response=await fetch('projects.json',{cache:'no-store'});
+  if(!response.ok)throw Error('Registry unavailable');
+  const next=await response.json();
+  if(next.schemaVersion!==1||!Array.isArray(next.projects)||!next.projects.length)throw Error('Invalid registry');
+  const ids=new Set();
+  for(const x of next.projects){
+   if(!x||typeof x.id!=='string'||ids.has(x.id)||typeof x.name!=='string'||!['live','dev','plan'].includes(x.st)||!Array.isArray(x.more)||typeof x.handoff!=='string'||typeof x.version!=='string'||(x.main&&typeof x.main.u!=='string'))throw Error('Invalid project');
+   ids.add(x.id);
+  }
+  registry=next;P=next.projects;render();
+  status.textContent='Project records: '+next.updated+' · refreshed '+new Date().toLocaleTimeString();
+ }catch(e){status.textContent='Using saved project records · live registry unavailable';}
+}
+document.getElementById('refreshProjects').addEventListener('click',refreshProjects);
+if(location.protocol!=='file:'){refreshProjects();setInterval(refreshProjects,30000);}
+const cb=document.getElementById('copyMail');
+if(cb)cb.addEventListener('click',async()=>{const m=document.getElementById('copyMsg');try{await navigator.clipboard.writeText('yanniskoromilas@gmail.com');m.textContent='Address copied.'}catch(e){m.textContent='Copy blocked here; select the address above instead.'}});
+}
+</script>
+</body>
+</html>
