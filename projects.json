@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "3.2",
+  "pageVersion": "3.3",
   "updated": "2026-11-27",
   "projects": [
     {
@@ -269,7 +269,7 @@
         "label": "Open app"
       },
       "more": [],
-      "next": "No connected account, automatic AI calls or paid services. Details and integrations are future work.",
+      "next": "Owner reports YouTube channel setup is awaiting a24-hour verification. Channel URL not supplied yet. Episode planner available; no videos published by this app.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/chronoscope.md"
     },
     {
