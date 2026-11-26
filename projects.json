@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "2.5",
+  "pageVersion": "2.6",
   "updated": "2026-11-26",
   "projects": [
     {
@@ -119,9 +119,9 @@
       "alias": "",
       "what": "Medieval real-time strategy: grow a village into a kingdom.",
       "st": "live",
-      "stl": "Playable",
+      "stl": "Playable v0.66",
       "main": {
-        "t": "Play the latest build",
+        "t": "Παίξε τη δημοσιευμένη v0.66",
         "u": "https://gkoromilas01.github.io/Shattered-Crowns/",
         "d": "24 Nov, 17:25",
         "label": "Παίξε"
@@ -141,11 +141,16 @@
           "t": "v0.67 review and CI status",
           "u": "https://github.com/GKoromilas01/Shattered-Crowns/pull/91",
           "d": "26 Nov 2026"
+        },
+        {
+          "t": "v0.67 — αποτελέσματα ελέγχων (verify failed)",
+          "u": "https://github.com/GKoromilas01/Shattered-Crowns/actions/runs/45883868851",
+          "d": "26 Nov 2026"
         }
       ],
-      "next": "v0.67 PR #91: stale Market test corrected; full CI rerun pending. Do not call it released.",
+      "next": "Η v0.67 δεν έχει κυκλοφορήσει. Quick και live-smoke πέρασαν, verify απέτυχε. Το PR #91 παραμένει ανοικτό.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sc.md",
-      "version": "v0.66 merged; v0.67 under review"
+      "version": "Live v0.66 · v0.67: verify failed"
     },
     {
       "id": "life",
