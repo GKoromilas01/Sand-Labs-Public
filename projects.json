@@ -13,8 +13,8 @@
       "st": "dev",
       "stl": "Δωρεάν playable beta",
       "main": {
-        "t": "Παίξε τη δωρεάν cafe beta",
-        "u": "apps/pavlos/index.html",
+        "t": "Παίξε beta0.1.1 — ορατά χειριστήρια",
+        "u": "apps/pavlos/index.html?v=0.1.1",
         "d": "26 Nov 2026"
       },
       "more": [
@@ -24,9 +24,9 @@
           "d": "26 Nov 2026"
         }
       ],
-      "next": "Μικρό κεφάλαιο για δοκιμή. Βρες το κουτάλι, βάλε μουσική και βγάλε διάγγελμα. Καμία χρέωση.",
+      "next": "Κλικ στα έξι ορατά κουμπιά ή στα ονόματα της σκηνής. Δεν έχει περπάτημα. Η beta παραμένει δωρεάν.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sphinx.md",
-      "version": "0.1.0 cafe beta"
+      "version": "0.1.1 cafe beta"
     },
     {
       "id": "coin",
