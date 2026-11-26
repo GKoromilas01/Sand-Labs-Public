@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "2.2",
+  "pageVersion": "2.3",
   "updated": "2026-11-26",
   "projects": [
     {
@@ -15,7 +15,8 @@
       "main": {
         "t": "Παίξε beta0.1.1 — ορατά χειριστήρια",
         "u": "apps/pavlos/index.html?v=0.1.1",
-        "d": "26 Nov 2026"
+        "d": "26 Nov 2026",
+        "label": "Παίξε"
       },
       "more": [
         {
@@ -36,13 +37,14 @@
       "alias": "",
       "what": "Website for coin collectors: collection, valuations and watch alerts.",
       "st": "live",
-      "stl": "Preview ready",
-      "main": {
-        "t": "CoinIntel core preview",
-        "u": "https://claude.ai/artifact/5XEMguf3RYKwTomWWEJCoP",
-        "d": "23 Nov"
-      },
+      "stl": "Live URL αναμένεται",
+      "main": null,
       "more": [
+        {
+          "t": "Προεπισκόπηση στο Claude — όχι επιβεβαιωμένο live site",
+          "u": "https://claude.ai/artifact/5XEMguf3RYKwTomWWEJCoP",
+          "d": "23 Nov"
+        },
         {
           "t": "Launch review and plan",
           "u": "https://claude.ai/artifact/GhvV54yYpSkLxHGsWgMwJF",
@@ -54,9 +56,10 @@
           "d": "29 Oct"
         }
       ],
-      "next": "Next: automated tests, then launch the core without the marketplace. Source not supplied here; external links retained and unverified.",
+      "next": "Χρειάζεται η πραγματική διεύθυνση CoinIntel. Το link του Sand Labs δεν είναι CoinIntel και δεν χρησιμοποιείται ως υποκατάστατο.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/coin.md",
-      "version": "Version not verified"
+      "version": "Version not verified",
+      "unavailable": "Δεν έχει επιβεβαιωθεί το URL της ζωντανής ιστοσελίδας. Preview και κώδικας παρακάτω."
     },
     {
       "id": "bio",
@@ -66,11 +69,12 @@
       "alias": "Formerly Vios / Digital Biography",
       "what": "Upload your photos and an AI biographer writes your life story, one question at a time.",
       "st": "dev",
-      "stl": "In development",
+      "stl": "Mockup / roadmap",
       "main": {
         "t": "Website mockup",
         "u": "https://claude.ai/artifact/EdjaspGHDYqHC1iiL7DaqT",
-        "d": "24 Nov"
+        "d": "24 Nov",
+        "label": "Δες mockup"
       },
       "more": [
         {
@@ -115,7 +119,8 @@
       "main": {
         "t": "Play the latest build",
         "u": "https://gkoromilas01.github.io/Shattered-Crowns/",
-        "d": "24 Nov, 17:25"
+        "d": "24 Nov, 17:25",
+        "label": "Παίξε"
       },
       "more": [
         {
@@ -148,9 +153,10 @@
       "st": "live",
       "stl": "Supplied v0.8.1",
       "main": {
-        "t": "Zoetica v0.8.1 (private GitHub file)",
-        "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/apps/zoetica/index.html",
-        "d": "26 Nov 2026"
+        "t": "Zoetica v0.8.1 — πραγματικό παιχνίδι",
+        "u": "apps/zoetica/index.html",
+        "d": "26 Nov 2026",
+        "label": "Παίξε"
       },
       "more": [
         {
@@ -159,7 +165,7 @@
           "d": "24 Nov"
         }
       ],
-      "next": "Cell stage built; creature stage started.",
+      "next": "Πάτησε στην αρχική οθόνη, παράκαμψε την εισαγωγή αν θέλεις και πάτησε Start.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/life.md",
       "version": "0.8.1 — uploaded baseline"
     },
@@ -175,7 +181,8 @@
       "main": {
         "t": "Déjà Future launch kit",
         "u": "https://claude.ai/artifact/HksyzR1vRd6TusMtT3x3bv",
-        "d": "24 Nov"
+        "d": "24 Nov",
+        "label": "Δες launch kit"
       },
       "more": [],
       "next": "Banner, logos, About text and first script are in the kit. Frank AI videos planned for later. Source not supplied here; external links retained and unverified.",
@@ -194,7 +201,8 @@
       "main": {
         "t": "Isegoria page",
         "u": "https://claude.ai/artifact/ApSffgV6QiSumWpmK8Mha5",
-        "d": "24 Nov"
+        "d": "24 Nov",
+        "label": "Δες preview"
       },
       "more": [
         {
@@ -213,13 +221,14 @@
       "tint": "#B5CF86",
       "name": "SoftOne Advisor",
       "alias": "Software Agent",
-      "what": "AI advisor for SoftOne ERP work, built on your manuals.",
-      "st": "plan",
-      "stl": "Planned application",
+      "what": "Πρώτο demo: πηγές, αναζήτηση τοπικών κειμένων και προετοιμασία ερωτήματος. Δεν παρέχει ακόμη απαντήσεις AI ή σύνδεση ERP.",
+      "st": "dev",
+      "stl": "Δοκιμαστική εφαρμογή",
       "main": {
-        "t": "Library Collection Plan (PDF) (private GitHub file)",
-        "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/references/SoftOne Advisor — Library Collection Plan.pdf",
-        "d": "24 Nov 2026"
+        "t": "SoftOne Advisor — Library desk demo 0.1.0",
+        "u": "apps/softone-advisor/index.html",
+        "d": "26 Nov 2026",
+        "label": "Άνοιξε demo"
       },
       "more": [
         {
@@ -233,9 +242,9 @@
           "d": "19 Nov"
         }
       ],
-      "next": "Latest step is the plan for its SoftOne knowledge library.",
+      "next": "Τα επίσημα εγχειρίδια δεν έχουν δοθεί ακόμη. Η βιβλιοθήκη156 εγχειριδίων του παλιού πλάνου δεν περιλαμβάνεται.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sw.md",
-      "version": "Planning document"
+      "version": "0.1.0 web demo — χωρίς σύνδεση AI/ERP"
     }
   ]
 }

@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Zoetica — v0.8.1</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:#03121c;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#dff6ff;user-select:none;-webkit-user-select:none}
+canvas#c{display:block;cursor:crosshair;touch-action:none}
+.hidden{display:none!important}
+#hud{position:fixed;top:14px;left:14px;pointer-events:none;width:230px}
+.lbl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.65;font-weight:600}
+#dna{font-size:30px;font-weight:700;color:#8ff0c8;line-height:1.1;transition:transform .15s}
+#dna.pulse{transform:scale(1.12)}
+.bar{height:8px;border-radius:4px;background:rgba(255,255,255,.1);overflow:hidden;margin:4px 0 10px}
+.bar i{display:block;height:100%;width:0;border-radius:4px;transition:width .2s}
+#hpBar{background:linear-gradient(90deg,#ff6b81,#ffb36b)}
+#dashBar{background:linear-gradient(90deg,#ffd36b,#ffe9a8)}
+#growBar{background:linear-gradient(90deg,#5fd3ff,#8ff0c8)}
+#eco{position:fixed;top:14px;right:14px;pointer-events:auto;font-size:13px;background:rgba(3,18,28,.6);padding:10px 12px;border-radius:12px;border:1px solid rgba(143,240,200,.15);min-width:210px}
+#eco .lbl{margin-bottom:6px}
+.sp{display:flex;align-items:center;gap:8px;margin:2px -6px;padding:3px 6px;border-radius:6px;cursor:pointer}
+.sp:hover{background:rgba(143,240,200,.12)}
+#ecoTip{font-size:11px;opacity:.45;margin-top:2px}
+#sndBtn{position:fixed;bottom:30px;right:12px;width:44px;height:44px;border-radius:50%;background:rgba(8,40,52,.9);border:1px solid rgba(143,240,200,.35);color:#dff6ff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+#sndBtn.off{opacity:.55}
+#sndPop{position:fixed;bottom:84px;right:12px;background:rgba(8,28,42,.96);border:1px solid rgba(143,240,200,.25);border-radius:12px;padding:12px 14px;width:220px;font-size:13px;z-index:5}
+#sndPop label{display:grid;grid-template-columns:62px 1fr;align-items:center;gap:8px;margin:8px 0}
+#sndPop input{width:100%;accent-color:#8ff0c8}
+#muteBtn{width:100%;margin-top:4px;background:rgba(95,211,255,.12);border:1px solid rgba(95,211,255,.35);color:#dff6ff;border-radius:8px;padding:8px;cursor:pointer;font-weight:600}
+#spPanel .card{width:min(780px,95vw);max-height:94vh;overflow:auto;display:grid;grid-template-columns:280px 1fr;gap:22px}
+@media(max-width:700px){#spPanel .card{grid-template-columns:1fr}}
+#spv{width:260px;height:260px;display:block;border-radius:14px;background:radial-gradient(circle at 50% 45%,#0d4660,#04182a);margin:0 auto}
+#spMeta{opacity:.7;font-size:13px;margin:2px 0 10px}
+.hist{border-left:2px solid rgba(143,240,200,.3);padding:2px 0 2px 12px;margin:8px 0 8px 4px;font-size:13px;line-height:1.45}
+.hist b{color:#8ff0c8}
+.hist.cur b{color:#ffd36b}
+.stat-box{background:rgba(255,255,255,.05);border-radius:10px;padding:10px 6px}.stat-box b{display:block;font-size:22px;color:#8ff0c8}.stat-box span{font-size:11px;opacity:.6;text-transform:uppercase;letter-spacing:.06em}
+.prow{display:flex;justify-content:space-between;font-size:13px;margin:3px 0}
+#spClose{margin-top:16px;width:100%}
+.sp .dot{width:10px;height:10px;border-radius:50%;flex:none}
+.sp .n{flex:1;white-space:nowrap}
+.sp .r{font-size:10px;opacity:.55;text-transform:uppercase;letter-spacing:.06em}
+.sp .c{opacity:.8;font-variant-numeric:tabular-nums;min-width:18px;text-align:right}
+.new{font-size:9px;background:#ffd36b;color:#2a1a00;border-radius:4px;padding:1px 4px;font-weight:800;letter-spacing:.05em}
+#nextEvo{margin-top:8px;font-size:11px;opacity:.6}
+#banner{position:fixed;top:16px;left:50%;transform:translate(-50%,-16px);opacity:0;transition:all .45s;background:rgba(8,28,42,.94);border:1px solid rgba(255,211,107,.55);padding:12px 20px;border-radius:12px;max-width:min(520px,58vw);text-align:center;pointer-events:none;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+#banner.show{opacity:1;transform:translate(-50%,0)}
+#banner.learnable.show{pointer-events:auto;cursor:pointer}
+#banner.learnable:after{content:"Tap to learn more";display:block;margin-top:6px;font-size:11px;color:#8ff0c8;letter-spacing:.06em}
+#banner.learnable:hover{border-color:#8ff0c8}
+.q{background:none;border:1px solid rgba(143,240,200,.35);color:#8ff0c8;border-radius:50%;width:22px;height:22px;font-size:12px;font-weight:700;cursor:pointer;padding:0;margin-left:6px;vertical-align:1px}
+.row button.q{padding:0;width:22px;height:22px;border-radius:50%;background:none;border-color:rgba(143,240,200,.35)}
+.q:hover{background:rgba(143,240,200,.15)}
+.lk{background:none;border:0;color:#8ff0c8;cursor:pointer;font-size:12px;text-decoration:underline;padding:0;margin-left:4px}
+#learn{z-index:30}
+#intro{position:fixed;inset:0;z-index:50;background:#000;display:flex;align-items:center;justify-content:center}
+#introV{width:100%;height:100%;object-fit:cover}
+#introCap{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);width:min(820px,90vw);text-align:center;font-size:clamp(18px,2.6vw,28px);font-weight:600;line-height:1.35;text-shadow:0 2px 12px rgba(0,0,0,.9);opacity:0;transition:opacity .6s}
+#introCap.on{opacity:1}
+#introTitle{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 1.4s;pointer-events:none}
+#introTitle.on{opacity:1}
+#introTitle h1{font-size:clamp(56px,10vw,120px);letter-spacing:.04em;background:linear-gradient(90deg,#5fd3ff,#8ff0c8);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 30px rgba(95,211,255,.45))}
+#introSkip{position:absolute;right:18px;bottom:18px;background:rgba(0,0,0,.45);color:#dff6ff;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:10px 18px;font-size:14px;cursor:pointer;min-height:44px}
+#splash{position:fixed;inset:0;z-index:55;background:radial-gradient(circle at 50% 45%,#0b3a50,#01080e 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;cursor:pointer}
+#splash h1{font-size:clamp(44px,8vw,84px);background:linear-gradient(90deg,#5fd3ff,#8ff0c8);-webkit-background-clip:text;background-clip:text;color:transparent}
+#splash p{opacity:.7;font-size:15px;animation:pulse 2s infinite}@keyframes pulse{50%{opacity:.3}}
+#banner.learnable.filmable:after{content:"Tap to watch the film"}
+#filmsP .card{width:min(560px,95vw)}
+.filmCard{display:flex;gap:14px;align-items:center;width:100%;text-align:left;background:rgba(255,255,255,.05);border:1px solid rgba(143,240,200,.2);color:#dff6ff;border-radius:12px;padding:12px 14px;margin:8px 0;cursor:pointer;font:inherit}
+.filmCard:hover:not(.locked){border-color:#8ff0c8;background:rgba(143,240,200,.1)}
+.filmCard.locked{opacity:.45;cursor:default}
+.filmCard b{display:block;font-size:16px}.filmCard small{font-size:12px;opacity:.7}
+.fnum{width:34px;height:34px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(143,240,200,.15);color:#8ff0c8;font-weight:700}
+#filmP{position:fixed;inset:0;z-index:40;background:#01080e}
+#filmC{position:absolute;inset:0;width:100%;height:100%}
+#filmCap{position:absolute;left:50%;bottom:74px;transform:translateX(-50%);width:min(820px,92vw);text-align:center;font-size:clamp(17px,2.4vw,24px);line-height:1.4;font-weight:600;text-shadow:0 2px 8px rgba(0,0,0,.8);background:rgba(1,10,16,.55);padding:10px 16px;border-radius:12px;min-height:1em}
+#filmCap:empty{display:none}
+#fBar{position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap}
+#fBar button{background:rgba(8,40,52,.9);color:#dff6ff;border:1px solid rgba(143,240,200,.35);border-radius:999px;padding:9px 16px;font-size:14px;cursor:pointer;font-weight:600;min-height:40px}
+#fDots{display:flex;gap:5px}#fDots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.2)}#fDots i.on{background:#8ff0c8}
+#learn .card{max-width:520px}
+#lnT{font-size:24px;margin:4px 0 10px;color:#8ff0c8}
+#lnX{font-size:16px;line-height:1.6}
+#ecoTime,#ecoFood{display:flex;justify-content:space-between;align-items:center;font-size:12px;margin-top:6px;cursor:pointer;border-radius:6px;padding:2px 6px;margin-left:-6px;margin-right:-6px}
+#ecoTime:hover,#ecoFood:hover{background:rgba(143,240,200,.12)}
+#ecoTime b{color:#ffd36b;font-weight:600}
+#foodBar{width:80px;height:6px;border-radius:3px;background:rgba(255,255,255,.1);overflow:hidden;display:inline-block}
+#foodBar i{display:block;height:100%;background:#86e36a;border-radius:3px}
+#sndPop .tk{display:flex;align-items:center;gap:8px;margin:6px 0 2px;grid-template-columns:none}
+#sndPop .tk input{width:auto}
+#banner b{color:#ffd36b;display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+#banner span{font-size:14px;line-height:1.4}
+#toast{position:fixed;bottom:78px;left:50%;transform:translateX(-50%);background:rgba(60,14,24,.92);border:1px solid rgba(255,107,129,.5);padding:8px 14px;border-radius:10px;font-size:14px;opacity:0;transition:opacity .3s;pointer-events:none}
+#toast.show{opacity:1}
+#actions{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:10px}
+#actions button{background:rgba(8,40,52,.9);color:#dff6ff;border:1px solid rgba(143,240,200,.35);padding:11px 24px;border-radius:999px;font-size:15px;font-weight:600;cursor:pointer;letter-spacing:.03em}
+@media(max-width:560px){#actions button{padding:10px 12px;font-size:13px}}
+#actions button.ready{border-color:#8ff0c8;box-shadow:0 0 0 0 rgba(143,240,200,.6);animation:glow 1.6s infinite}
+@keyframes glow{0%{box-shadow:0 0 0 0 rgba(143,240,200,.55)}70%{box-shadow:0 0 0 14px rgba(143,240,200,0)}100%{box-shadow:0 0 0 0 rgba(143,240,200,0)}}
+#ver{position:fixed;bottom:10px;right:12px;font-size:11px;opacity:.4;pointer-events:none}
+#hint{position:fixed;bottom:12px;left:14px;font-size:12px;opacity:.5;pointer-events:none}
+.overlay{position:fixed;inset:0;background:rgba(1,10,16,.8);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center;z-index:10}
+.card{background:linear-gradient(160deg,#0a2a3a,#061a26);border:1px solid rgba(143,240,200,.2);border-radius:18px;padding:26px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+#title .card{max-width:480px;text-align:center}
+#title h1{font-size:54px;letter-spacing:.02em;background:linear-gradient(90deg,#5fd3ff,#8ff0c8);-webkit-background-clip:text;background-clip:text;color:transparent}
+#title .sub{opacity:.65;margin:4px 0 18px;font-size:14px}
+#title ul{list-style:none;text-align:left;margin:0 auto 22px;max-width:360px;font-size:14px;line-height:1.5}
+#title li{margin:6px 0;padding-left:22px;position:relative}
+#title li:before{content:"";position:absolute;left:4px;top:7px;width:8px;height:8px;border-radius:50%;background:#8ff0c8}
+.btn{background:linear-gradient(90deg,#2bb7d9,#3fd6a0);border:0;color:#03202a;font-weight:700;font-size:16px;padding:12px 30px;border-radius:999px;cursor:pointer}
+.btn:hover{filter:brightness(1.1)}
+.small{font-size:11px;opacity:.45;margin-top:14px}
+#editor .card{width:min(860px,95vw);max-height:94vh;overflow:auto;display:grid;grid-template-columns:320px 1fr;gap:24px}
+@media(max-width:720px){#editor .card{grid-template-columns:1fr}#pv{margin:0 auto}}
+#pv{width:300px;height:300px;display:block;border-radius:14px;background:radial-gradient(circle at 50% 45%,#0d4660,#04182a)}
+#statbars{margin-top:14px}
+.srow{display:grid;grid-template-columns:70px 1fr;align-items:center;gap:8px;font-size:12px;margin:6px 0}
+.srow .bar{margin:0}
+.srow .bar i{background:#5fd3ff}
+#diet{font-size:13px;margin-top:8px;opacity:.85}
+#editor h2{font-size:24px}
+#editor h3{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.6;margin:16px 0 6px}
+.edDna{font-size:15px;margin:2px 0 10px;color:#8ff0c8;font-weight:600}
+.row{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;background:rgba(255,255,255,.04);margin:6px 0}
+.row .info{flex:1}
+.row .info b{font-size:15px}
+.row .info span{display:block;font-size:12px;opacity:.65}
+.pips{letter-spacing:2px;color:#8ff0c8;font-size:12px}
+.row button,.mouths button{background:rgba(95,211,255,.12);border:1px solid rgba(95,211,255,.35);color:#dff6ff;border-radius:8px;padding:7px 11px;font-size:13px;cursor:pointer;font-weight:600;white-space:nowrap}
+.row button:disabled,.mouths button:disabled{opacity:.3;cursor:default}
+.row button.buy:not(:disabled){background:rgba(143,240,200,.18);border-color:#8ff0c8}
+.mouths{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.mouths button{padding:10px 8px;text-align:left;white-space:normal}
+.mouths button small{display:block;font-weight:400;opacity:.7;font-size:11px;margin-top:2px}
+.mouths button.cur{border-color:#ffd36b;background:rgba(255,211,107,.12);opacity:1}
+#edClose{margin-top:18px;width:100%}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<div id="hud" class="hidden">
+  <div class="lbl">DNA</div>
+  <div id="dna">0</div>
+  <div class="lbl" style="margin-top:8px">Health</div>
+  <div class="bar"><i id="hpBar"></i></div>
+  <div class="lbl"><span id="sizeLbl">Size 1</span> · growth</div>
+  <div class="bar"><i id="growBar"></i></div>
+  <div class="lbl">Dash</div>
+  <div class="bar"><i id="dashBar"></i></div>
+</div>
+<div id="eco" class="hidden"><div class="lbl">Ecosystem</div><div id="ecoList"></div><div id="ecoTip">Click a species to see its history</div><button id="treeBtn" class="lk" style="margin:4px 0 0;font-size:12px">Open the tree of life (T)</button><div id="ecoTime" title="Learn about deep time"><span>Deep time</span><b id="dtVal">0 years</b></div><div id="ecoFood" title="Learn about food webs"><span>Pond food</span><span id="foodBar"><i id="foodFill"></i></span></div><div id="nextEvo"></div></div>
+<button id="sndBtn" class="hidden" title="Sound (M to mute)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z" fill="currentColor"/><path id="sndWave" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></button>
+<div id="sndPop" class="hidden">
+  <div class="lbl">Sound</div>
+  <label>Music <input type="range" id="mvol" min="0" max="1" step="0.05"></label>
+  <label>Effects <input type="range" id="svol" min="0" max="1" step="0.05"></label>
+  <label style="grid-template-columns:62px 1fr">Track <select id="trkSel" style="width:100%;background:#0a2a3a;color:#dff6ff;border:1px solid rgba(143,240,200,.3);border-radius:6px;padding:6px;font-size:13px"><option value="shuffle">Shuffle all</option></select></label>
+  <div id="nowPlaying" style="font-size:12px;opacity:.65;margin:-2px 0 6px">Now playing: Tide Pool</div>
+  <label class="tk"><input type="checkbox" id="tkChk"> Techno beat</label>
+  <button id="muteBtn">Mute all (M)</button>
+</div>
+<div id="treeP" class="overlay hidden">
+  <div class="card" style="width:min(980px,96vw);max-height:94vh;overflow:auto">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap">
+      <h2 style="font-size:24px">Tree of life <button class="q" data-l="tree" title="Learn more">?</button></h2>
+      <div style="font-size:12px;opacity:.65">Each line is a species. Branches show who evolved from whom. Faded lines went extinct. Click a line for its story.</div>
+    </div>
+    <div id="treeWrap" style="margin-top:12px;overflow-x:auto"></div>
+    <div id="yourForms" style="margin-top:10px;font-size:13px"></div>
+    <button class="btn" id="treeClose" style="margin-top:14px">Back to the game</button>
+  </div>
+</div>
+<div id="filmsP" class="overlay hidden">
+  <div class="card">
+    <h2 style="font-size:24px">Films</h2>
+    <div style="font-size:13px;opacity:.7;margin:4px 0 6px">Short films with a spoken voice that explain how evolution works. A new one unlocks at each milestone.</div>
+    <div id="filmList"></div>
+    <button class="btn" id="filmsClose" style="margin-top:10px">Back to the game</button>
+  </div>
+</div>
+<div id="filmP" class="hidden">
+  <canvas id="filmC"></canvas>
+  <div id="filmCap"></div>
+  <div id="fBar"><div id="fDots"></div><button id="fPause">Pause</button><button id="fNext">Next ▸</button><button id="fVoice">Voice: on</button><button id="fClose">Close ✕</button></div>
+</div>
+<div id="splash" class="hidden"><h1>Zoetica</h1><p>Click or tap to begin</p></div>
+<div id="intro" class="hidden">
+  <video id="introV" src="intro.mp4" playsinline muted preload="auto"></video>
+  <div id="introCap"></div>
+  <div id="introTitle"><h1>Zoetica</h1></div>
+  <button id="introSkip">Skip intro ▸</button>
+</div>
+<div id="learn" class="overlay hidden">
+  <div class="card">
+    <div class="lbl">Learn more</div>
+    <h2 id="lnT"></h2>
+    <p id="lnX"></p>
+    <button class="btn" id="lnClose" style="margin-top:18px">Got it</button>
+  </div>
+</div>
+<div id="stage" class="overlay hidden">
+  <div class="card" style="max-width:560px;text-align:center">
+    <div class="lbl" style="color:#ffd36b">Cell stage complete</div>
+    <h1 id="stTitle" style="font-size:38px;margin:6px 0 4px"></h1>
+    <div id="stText" style="opacity:.8;font-size:14px;margin-bottom:16px"></div>
+    <div id="stStats" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px"></div>
+    <div id="stNext" style="font-size:13px;opacity:.7;margin-bottom:6px"></div><div style="margin-bottom:16px"><button class="lk" id="stLearn">Learn more about your path</button></div>
+    <button class="btn" id="stLand" style="margin-right:8px">Go to land ▸</button><button class="btn" id="stKeep" style="margin-right:8px;background:rgba(255,255,255,.12);color:#dff6ff">Keep swimming</button><button class="btn" id="stNew" style="background:rgba(255,255,255,.12);color:#dff6ff">Start a new life</button>
+  </div>
+</div>
+<div id="spPanel" class="overlay hidden">
+  <div class="card">
+    <div><canvas id="spv" width="520" height="520"></canvas></div>
+    <div>
+      <h2 id="spName"></h2>
+      <div id="spMeta"></div>
+      <div id="spParts"></div>
+      <h3 style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.6;margin:16px 0 4px">Family history</h3>
+      <div id="spHist"></div>
+      <button class="btn" id="spClose">Back to the game</button>
+    </div>
+  </div>
+</div>
+<div id="banner"><b id="bT"></b><span id="bS"></span></div>
+<div id="toast"></div>
+<div id="actions" class="hidden"><button id="filmsBtn">Films (F)</button><button id="dashBtn">Dash (Space)</button><button id="evoBtn">Evolve (E)</button><button id="leaveBtn" class="hidden ready">Leave the water</button></div>
+<div id="hint" class="hidden">Move: mouse, touch or WASD · Dash: Space · Evolve: E · Tree: T · Films: F</div>
+<div id="ver">Zoetica v0.8.1</div>
+
+<div id="title" class="overlay">
+  <div class="card">
+    <h1>Zoetica</h1>
+    <div class="sub">v0.8 · Cell and Creature stages · sound on</div>
+    <ul>
+      <li>Swim with the mouse (or touch / WASD). Eat green plants for DNA.</li>
+      <li>Press <b>E</b> to evolve: spend DNA on spikes, flagella, armour, eyes and mouths.</li>
+      <li>Red <b>Snapjaws</b> hunt you. Escape, outgrow them, or fight back.</li>
+      <li>Watch the top right: the other species <b>evolve in response to how you play</b>.</li>
+    </ul>
+    <button class="btn hidden" id="contBtn" style="margin-right:8px">Continue</button><button class="btn" id="startBtn">Start</button>
+    <div style="margin-top:12px"><button class="lk" id="watchIntro">Watch the intro again</button></div>
+    <div id="contInfo" class="small hidden" style="margin-top:10px;opacity:.6"></div>
+    <div class="small">From one cell to the stars.</div>
+  </div>
+</div>
+
+<div id="editor" class="overlay hidden">
+  <div class="card">
+    <div>
+      <canvas id="pv" width="600" height="600"></canvas>
+      <div id="statbars"></div>
+      <div id="diet"></div>
+    </div>
+    <div>
+      <h2>Evolve your cell</h2>
+      <div class="edDna">DNA available: <span id="edDna">0</span></div>
+      <div id="partList"></div>
+      <h3>Mouth</h3><div style="font-size:12px;opacity:.85;margin:-2px 0 6px">Learn: <button class="lk" data-l="filter">filter feeding</button> · <button class="lk" data-l="jaw">jaws</button> · <button class="lk" data-l="omni">omnivores</button></div>
+      <div class="mouths" id="mouthList"></div>
+      <button class="btn" id="edClose">Back to the pond (E)</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(()=>{
+'use strict';
+const cvs=document.getElementById('c'),ctx=cvs.getContext('2d');
+let VW=800,VH=600,DPR=1;
+function resize(){DPR=Math.min(2,window.devicePixelRatio||1);VW=innerWidth;VH=innerHeight;cvs.width=VW*DPR;cvs.height=VH*DPR;cvs.style.width=VW+'px';cvs.style.height=VH+'px';}
+addEventListener('resize',resize);resize();
+
+const $=id=>document.getElementById(id);
+const TAU=Math.PI*2, WORLD=2300;
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const clamp=(v,a,b)=>v<a?a:v>b?b:v;
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+
+// ---------- parts & stats ----------
+const PARTS={
+  flagellum:{name:'Flagellum',cost:12,max:3,desc:'Swim faster.'},
+  spike:{name:'Spike',cost:15,max:4,desc:'Hurts anything that touches you.'},
+  armour:{name:'Armour',cost:18,max:3,desc:'Take less damage. Swim a little slower.'},
+  eye:{name:'Eye',cost:10,max:3,min:1,desc:'See further into the dark.'},
+  toxin:{name:'Toxin',cost:16,max:3,desc:'Poisons anything that bites you. Hunters learn to avoid you.'},
+  chloro:{name:'Chloroplast',cost:14,max:3,desc:'Makes food from light: a slow trickle of free DNA. A little slower.'},
+};
+const fillG=g=>{for(const k in PARTS)if(g[k]==null)g[k]=k==='eye'?1:0;return g;};
+const MOUTHS={
+  filter:{name:'Filter mouth',cost:10,desc:'Eats plants'},
+  jaw:{name:'Jaw',cost:20,desc:'Bites cells, eats meat. No plants.'},
+  omni:{name:'Omnivore',cost:35,desc:'Plants and meat, and bites'},
+};
+const SIZE_AT=[0,30,90,190,330];
+const PLAYER_HUE=188;
+const radiusFor=s=>11+s*5.5;
+function stats(g,isPlayer){
+  return {
+    speed:(78+g.flagellum*30)*(1-g.armour*0.07)*(1-(g.chloro||0)*0.04)*(1-(g.size-1)*0.035),
+    toxin:(g.toxin||0)*9,photo:(g.chloro||0)*0.3,
+    spikeDps:g.spike*7,
+    biteDps:g.mouth!=='filter'?12:0,
+    armour:Math.min(0.6,g.armour*0.18),
+    vision:190+g.eye*120,
+    plants:g.mouth!=='jaw',
+    meat:g.mouth!=='filter',
+    maxHp:isPlayer?60+g.size*25:15+g.size*15,
+  };
+}
+
+// ---------- state ----------
+let time=0, running=false, paused=false;
+let cells=[], plants=[], meat=[], fx=[], species=[], spId=0;
+const motes=[];for(let i=0;i<110;i++)motes.push({x:Math.random(),y:Math.random(),z:rnd(.2,.7),r:rnd(.6,1.8)});
+const patches=[];for(let i=0;i<7;i++)patches.push({x:rnd(200,WORLD-200),y:rnd(200,WORLD-200),a:rnd(0,TAU),food:1});
+let allSp={};
+const cam={x:WORLD/2,y:WORLD/2,zoom:1};
+const mouse={x:0,y:0,active:false};const keys={};
+
+const playerSp={id:0,name:'Your species',hue:PLAYER_HUE,role:'player'};
+let player;
+const dir={t:150,kills:{},dealt:{},escapes:0,pressured:0,random:0};
+const ROLE_BUDGET={grazer:30,hunter:6,apex:0};
+const isPred=sp=>sp.role==='hunter'||sp.role==='apex';
+let spores=[],sporeAcc=0,apexDone=false,saveAcc=0,stageShown=false;
+
+function makeSpecies(o){if(o.genome)fillG(o.genome);const s=Object.assign({id:++spId,gen:1,w:1,target:0,isNew:0},o);species.push(s);allSp[s.id]=s;return s;}
+function newCell(sp,g,x,y,isPlayer){
+  fillG(g);const st=stats(g,isPlayer);
+  return {x,y,vx:0,vy:0,dx:0,dy:0,spd:0,angle:rnd(0,TAU),g,sp,st,r:radiusFor(g.size)*(isPlayer?1:rnd(.92,1.08)),
+    hp:st.maxHp,phase:rnd(0,TAU),wander:rnd(0,TAU),hurt:0,rest:0,chase:0,mut:0,lastHit:null,speedNow:0,isPlayer:!!isPlayer};
+}
+function refresh(c){const ratio=c.hp/c.st.maxHp;c.st=stats(c.g,c.isPlayer);c.r=radiusFor(c.g.size)*(c.isPlayer?1:c.r/radiusFor(c.g.size)||1);c.hp=Math.max(1,ratio*c.st.maxHp);}
+function spawnPos(minD){for(let i=0;i<40;i++){const x=rnd(80,WORLD-80),y=rnd(80,WORLD-80);if(!player||Math.hypot(x-player.x,y-player.y)>minD)return{x,y};}return{x:rnd(80,WORLD-80),y:rnd(80,WORLD-80)};}
+function spawnOf(sp,minD){const p=spawnPos(minD);const c=newCell(sp,Object.assign({},sp.genome),p.x,p.y,false);cells.push(c);return c;}
+function recomputeTargets(){
+  for(const role in ROLE_BUDGET){
+    const list=species.filter(s=>s.role===role&&s.w>0);
+    const sum=list.reduce((a,s)=>a+s.w,0)||1;
+    for(const s of list){s.target=Math.max(1,Math.round(ROLE_BUDGET[role]*s.w/sum));if(s.w<0.07){s.w=0;s.target=0;}}
+  }
+}
+
+function init(){
+  cells=[];plants=[];meat=[];fx=[];species=[];spId=0;time=0;allSp={};
+  stage='cell';lp=null;LE=[];landSpecies=[];
+  for(const p of patches)p.food=1;ROLE_BUDGET.grazer=30;ROLE_BUDGET.hunter=6;ROLE_BUDGET.apex=0;
+  spores=[];apexDone=false;stageShown=false;$('leaveBtn').classList.add('hidden');dir.pressured=0;dir.random=0;
+  dir.t=150;dir.kills={};dir.dealt={};dir.escapes=0;
+  player=newCell(playerSp,{size:1,flagellum:0,spike:0,armour:0,eye:1,mouth:'filter'},WORLD/2,WORLD/2,true);
+  player.dna=0;player.growth=0;player.inv=2;player.calm=0;
+  Object.assign(player,{forms:[],kills:0,deaths:0,plantDNA:0,meatDNA:0,sporesEaten:0,apexKills:0,dashCd:0,boost:0});
+  cells.push(player);
+  makeSpecies({name:'Mossling',hue:98,role:'grazer',w:1.5,genome:{size:1,flagellum:0,spike:0,armour:0,eye:1,mouth:'filter'}});
+  makeSpecies({name:'Driftbead',hue:42,role:'grazer',w:0.8,genome:{size:2,flagellum:1,spike:0,armour:1,eye:1,mouth:'filter'}});
+  makeSpecies({name:'Snapjaw',hue:352,role:'hunter',w:1,genome:{size:3,flagellum:1,spike:1,armour:0,eye:1,mouth:'jaw'}});
+  recomputeTargets();
+  for(const s of species)for(let i=0;i<s.target;i++)spawnOf(s,s.role!=='grazer'?550:250);
+  for(let i=0;i<320;i++)spawnPlant();
+  cam.x=player.x;cam.y=player.y;
+}
+
+function spawnPlant(){
+  let x,y,pt=-1;
+  if(Math.random()<0.72){
+    for(let i=0;i<6;i++){const k=Math.floor(Math.random()*patches.length);if(Math.random()<patches[k].food){pt=k;break;}}
+  }
+  if(pt>=0){const p=patches[pt];const a=rnd(0,TAU),d=Math.abs(rnd(0,1)+rnd(0,1)-1)*190;x=p.x+Math.cos(a)*d;y=p.y+Math.sin(a)*d;}
+  else{x=rnd(30,WORLD-30);y=rnd(30,WORLD-30);}
+  plants.push({x:clamp(x,20,WORLD-20),y:clamp(y,20,WORLD-20),r:rnd(3,5),ph:rnd(0,TAU),pt});
+}
+
+// ---------- names ----------
+const ENDS=['ix','ara','on','ella','yx','ode','ina','us','eth','ari','ume','os'];
+function mutName(n){const base=n.replace(/(ix|ara|on|ella|yx|ode|ina|us|eth|ari|ume|os)$/,'');const stem=base.length>4?base.slice(0,4+Math.floor(Math.random()*2)):base;let e;do{e=pick(ENDS);}while(n.endsWith(e));const out=stem+e;return species.some(s=>s.name===out)?mutName(out+'x'):out;}
+
+// ---------- sound: live generative music + effects (all synthesized, original) ----------
+const AU={ctx:null,muted:false,techno:true,track:'tide',trackMode:'shuffle',trackSteps:0,nextTrack:null,mv:0.6,sv:0.7,danger:0,last:{},streak:0,lastEat:-9,chord:[0,7,10,15]};
+try{const s=JSON.parse(localStorage.getItem('lifeai-sound')||'null');if(s){AU.muted=!!s.m;AU.techno=s.tk??true;AU.trackMode=s.tm||'shuffle';AU.mv=s.mv??0.6;AU.sv=s.sv??0.7;}}catch(e){}
+function saveSound(){try{localStorage.setItem('lifeai-sound',JSON.stringify({m:AU.muted,tk:AU.techno,tm:AU.trackMode,mv:AU.mv,sv:AU.sv}));}catch(e){}}
+let BPM=94,STEP=60/BPM/4;
+// five generative tracks: same engine, different instruments, keys, tempos and grooves
+const TRACKS={
+  tide:{name:'Tide Pool',bpm:94,key:0,prog:[[0,7,10,15],[-4,3,7,12],[-7,0,3,10],[-2,5,9,14]],pad:'sawtooth',bright:1,bells:0.045,arp:3,groove:'tech'},
+  vent:{name:'Deep Vent',bpm:80,key:-3,prog:[[0,3,7,10],[-2,3,5,10],[-4,0,3,7],[-5,2,5,10]],pad:'triangle',bright:0.6,bells:0.02,arp:9,groove:'dub'},
+  glass:{name:'Glass Garden',bpm:104,key:2,prog:[[0,4,7,11],[2,5,9,12],[-3,0,4,7],[-5,2,5,9]],pad:'triangle',bright:1.3,bells:0.08,arp:0,groove:'broken'},
+  night:{name:'Night Current',bpm:122,key:0,prog:[[0,5,7,10],[0,3,7,10],[-2,5,7,9],[-4,3,7,10]],pad:'sawtooth',bright:0.85,bells:0.02,arp:9,groove:'night'},
+  shore:{name:'First Shore',bpm:100,key:5,prog:[[0,4,7,14],[-3,0,4,9],[-7,0,4,7],[-5,2,7,11]],pad:'triangle',bright:1.15,bells:0.05,arp:2,groove:'perc'},
+};
+const TRACK_IDS=Object.keys(TRACKS);
+const mtof=m=>440*Math.pow(2,(m-69)/12);
+let PROG=TRACKS.tide.prog;
+const KEYS=[50,53,48,55,52];
+const PENTA=[0,3,5,7,10];
+let mNext=0,mStep=0,chordI=0,acidPat=[];
+function can(k,gap){const n=performance.now();if((AU.last[k]||0)>n-gap*1000)return false;AU.last[k]=n;return true;}
+function curSize(){return (typeof stage!=='undefined'&&stage==='land'&&lp)?lp.g.size:((player&&player.g.size)||1);}
+function keyRoot(){return (KEYS[curSize()-1]||50)+TRACKS[AU.track].key;}
+function setTrack(id){const T=TRACKS[id];if(!T)return;AU.track=id;BPM=T.bpm;STEP=60/BPM/4;PROG=T.prog;AU.trackSteps=0;if(AU.dly)AU.dly.delayTime.setTargetAtTime(STEP*3,AU.ctx.currentTime,0.5);const el=document.getElementById('nowPlaying');if(el)el.textContent='Now playing: '+T.name;}
+function pickNextTrack(){if(AU.trackMode!=='shuffle')return AU.trackMode;const others=TRACK_IDS.filter(k=>k!==AU.track);return pick(others);}
+function audioInit(){
+  if(AU.ctx)return;
+  const A=window.AudioContext||window.webkitAudioContext;if(!A)return;
+  let ac;try{ac=new A();}catch(e){return;}
+  AU.ctx=ac;if(ac.state==='suspended')ac.resume();
+  AU.master=ac.createGain();AU.master.gain.value=AU.muted?0:1;
+  const comp=ac.createDynamicsCompressor();comp.threshold.value=-16;comp.ratio.value=3;
+  AU.master.connect(comp);comp.connect(ac.destination);
+  // long dark reverb
+  const len=Math.floor(ac.sampleRate*4.5),buf=ac.createBuffer(2,len,ac.sampleRate);
+  for(let ch=0;ch<2;ch++){const d=buf.getChannelData(ch);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2.8);}
+  AU.verb=ac.createConvolver();AU.verb.buffer=buf;
+  const vlp=ac.createBiquadFilter();vlp.type='lowpass';vlp.frequency.value=3500;AU.verb.connect(vlp);vlp.connect(AU.master);
+  // music bus: voices -> mIn -> music(volume) -> master + reverb
+  AU.mIn=ac.createGain();AU.music=ac.createGain();AU.music.gain.value=AU.mv;
+  AU.mIn.connect(AU.music);AU.music.connect(AU.master);
+  const mv=ac.createGain();mv.gain.value=0.55;AU.music.connect(mv);mv.connect(AU.verb);
+  // dub delay (dotted 8th), feeds the music bus
+  AU.dly=ac.createDelay(2);AU.dly.delayTime.value=STEP*3;
+  const fb=ac.createGain();fb.gain.value=0.45;const dlp=ac.createBiquadFilter();dlp.type='lowpass';dlp.frequency.value=1700;
+  AU.dly.connect(dlp);dlp.connect(fb);fb.connect(AU.dly);dlp.connect(AU.mIn);
+  AU.dlySend=ac.createGain();AU.dlySend.gain.value=0.5;AU.dlySend.connect(AU.dly);
+  // effects bus
+  AU.sfx=ac.createGain();AU.sfx.gain.value=AU.sv;AU.sfx.connect(AU.master);
+  AU.sfxVerb=ac.createGain();AU.sfxVerb.gain.value=0.25;AU.sfxVerb.connect(AU.verb);
+  const nb=ac.createBuffer(1,ac.sampleRate,ac.sampleRate),nd=nb.getChannelData(0);for(let i=0;i<nd.length;i++)nd[i]=Math.random()*2-1;AU.noise=nb;
+  mNext=ac.currentTime+0.15;mStep=0;newAcid();setTrack(AU.trackMode==='shuffle'?'tide':AU.trackMode);
+}
+function tone(type,freq,t,a,peak,d,dest,o={}){
+  const ac=AU.ctx,osc=ac.createOscillator(),g=ac.createGain();
+  osc.type=type;osc.frequency.setValueAtTime(freq,t);
+  if(o.to)osc.frequency.exponentialRampToValueAtTime(o.to,t+(o.glide||d));
+  if(o.detune)osc.detune.value=o.detune;
+  g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(peak,t+a);g.gain.exponentialRampToValueAtTime(0.0001,t+a+d);
+  osc.connect(g);g.connect(dest);if(o.send)g.connect(o.send);
+  osc.start(t);osc.stop(t+a+d+0.05);
+}
+function noiseHit(t,d,peak,type,f,q,dest){
+  const ac=AU.ctx,s=ac.createBufferSource(),bf=ac.createBiquadFilter(),g=ac.createGain();
+  s.buffer=AU.noise;bf.type=type;bf.frequency.value=f;bf.Q.value=q;
+  g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(peak,t+0.003);g.gain.exponentialRampToValueAtTime(0.0001,t+d);
+  s.connect(bf);bf.connect(g);g.connect(dest);s.start(t,Math.random()*0.5);s.stop(t+d+0.05);
+}
+function newAcid(){acidPat=[];for(let i=0;i<16;i++){const on=Math.random()<(i%4===0?0.85:0.45);acidPat.push(on?{n:pick([0,0,0,12,7,3,10,-12]),acc:Math.random()<0.3,slide:Math.random()<0.2}:null);}}
+// warm detuned pad with tape wobble (Aphex-ish ambient)
+function padChord(t){
+  const ac=AU.ctx,dur=STEP*64,root=keyRoot(),ch=PROG[chordI%PROG.length],sz=curSize(),TT=TRACKS[AU.track];
+  AU.chord=ch;chordI++;
+  const f=ac.createBiquadFilter();f.type='lowpass';f.Q.value=0.8;
+  f.frequency.setValueAtTime(350*TT.bright,t);f.frequency.linearRampToValueAtTime((850+sz*140)*TT.bright,t+dur*0.5);f.frequency.linearRampToValueAtTime(400,t+dur+3);
+  const g=ac.createGain();g.gain.setValueAtTime(0.0001,t);g.gain.linearRampToValueAtTime(0.045,t+3);g.gain.setValueAtTime(0.045,t+dur-0.5);g.gain.linearRampToValueAtTime(0.0001,t+dur+3.5);
+  f.connect(g);g.connect(AU.mIn);
+  const lfo=ac.createOscillator(),la=ac.createGain();lfo.frequency.value=rnd(0.15,0.3);la.gain.value=10;lfo.connect(la);lfo.start(t);lfo.stop(t+dur+4);
+  for(const n of ch)for(const dt of [-7,7]){const o=ac.createOscillator();o.type=TT.pad;o.frequency.value=mtof(root+n);o.detune.value=dt;la.connect(o.detune);o.connect(f);o.start(t);o.stop(t+dur+4);}
+  if(sz>=2){const o=ac.createOscillator(),sg=ac.createGain();o.type='sine';o.frequency.value=mtof(root+ch[0]-12);
+    sg.gain.setValueAtTime(0.0001,t);sg.gain.linearRampToValueAtTime(0.08,t+2.5);sg.gain.setValueAtTime(0.08,t+dur-0.5);sg.gain.linearRampToValueAtTime(0.0001,t+dur+2);
+    o.connect(sg);sg.connect(AU.mIn);o.start(t);o.stop(t+dur+2.5);}
+}
+function bell(t,m,v){const f=mtof(m);tone('sine',f,t,0.005,0.055*v,2.6,AU.mIn,{send:AU.dlySend});tone('sine',f*2.76,t,0.003,0.018*v,0.8,AU.mIn);}
+function kick(t,v){const ac=AU.ctx,o=ac.createOscillator(),g=ac.createGain();o.frequency.setValueAtTime(120,t);o.frequency.exponentialRampToValueAtTime(44,t+0.11);
+  g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(0.28*v+0.0002,t+0.005);g.gain.exponentialRampToValueAtTime(0.0001,t+0.3);o.connect(g);g.connect(AU.mIn);o.start(t);o.stop(t+0.35);}
+// gentle techno: rolling bass, offbeat hats, shaker, soft rim, minimal blips
+function techBass(t,v){const ac=AU.ctx,o=ac.createOscillator(),bf=ac.createBiquadFilter(),g=ac.createGain();
+  o.type='sawtooth';o.frequency.value=mtof(keyRoot()+AU.chord[0]-24);bf.type='lowpass';bf.Q.value=4;
+  bf.frequency.setValueAtTime(520,t);bf.frequency.exponentialRampToValueAtTime(160,t+0.16);
+  g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(0.06*v,t+0.008);g.gain.exponentialRampToValueAtTime(0.0001,t+0.19);
+  o.connect(bf);bf.connect(g);g.connect(AU.mIn);o.start(t);o.stop(t+0.22);}
+const hat=(t,v,open)=>noiseHit(t,open?0.11:0.035,0.028*v,'highpass',open?6500:8500,0.7,AU.mIn);
+function rim(t,v){tone('triangle',1650,t,0.002,0.05*v,0.035,AU.mIn,{send:AU.dlySend});noiseHit(t,0.05,0.03*v,'bandpass',2600,2,AU.mIn);}
+function riser(t){const ac=AU.ctx,src=ac.createBufferSource(),bf=ac.createBiquadFilter(),g=ac.createGain(),d=STEP*16;
+  src.buffer=AU.noise;src.loop=true;bf.type='bandpass';bf.Q.value=3;bf.frequency.setValueAtTime(400,t);bf.frequency.exponentialRampToValueAtTime(6000,t+d);
+  g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(0.03,t+d);g.gain.exponentialRampToValueAtTime(0.0001,t+d+0.05);
+  src.connect(bf);bf.connect(g);g.connect(AU.mIn);src.start(t);src.stop(t+d+0.1);}
+// squelchy resonant acid line (Plastikman-ish minimal)
+function acid(t,s,v){
+  const p=acidPat[s%16];if(!p)return;
+  const ac=AU.ctx,root=keyRoot()+AU.chord[0]-12,o=ac.createOscillator(),bf=ac.createBiquadFilter(),g=ac.createGain();
+  o.type='sawtooth';o.frequency.setValueAtTime(mtof(root+p.n),t);
+  bf.type='lowpass';bf.Q.value=15;const pk=p.acc?2600:1200;
+  bf.frequency.setValueAtTime(180,t);bf.frequency.exponentialRampToValueAtTime(pk,t+0.012);bf.frequency.exponentialRampToValueAtTime(190,t+0.17+(p.slide?0.12:0));
+  const len=STEP*(p.slide?1.9:0.8),pv=0.09*v*(p.acc?1.35:1)+0.0002;
+  g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(pv,t+0.005);g.gain.setValueAtTime(pv,t+len*0.8);g.gain.exponentialRampToValueAtTime(0.0001,t+len);
+  o.connect(bf);bf.connect(g);g.connect(AU.mIn);if(p.acc)g.connect(AU.dlySend);
+  o.start(t);o.stop(t+len+0.05);
+}
+function musicArp(t){const r=keyRoot()+12,ch=AU.chord;for(let i=0;i<10;i++){const n=ch[i%4]+12*Math.floor(i/4);tone('triangle',mtof(r+n),t+i*STEP*0.5,0.004,0.06,0.5,AU.mIn,{send:AU.dlySend});tone('sine',mtof(r+n+12),t+i*STEP*0.5,0.003,0.025,0.9,AU.mIn);}}
+function tom(t,f,v){tone('sine',f,t,0.004,0.16*v,0.28,AU.mIn,{to:f*0.7,glide:0.2});}
+function snare(t,v){noiseHit(t,0.14,0.06*v,'bandpass',1800,0.9,AU.mIn);tone('triangle',190,t,0.002,0.04*v,0.08,AU.mIn);}
+function scheduleStep(s,t){
+  const sz=curSize(),d=AU.danger;
+  // track changes happen on a chord boundary so they never cut a phrase
+  if(s%64===0){
+    if(AU.nextTrack){setTrack(AU.nextTrack);AU.nextTrack=null;}
+    else if(AU.trackMode!=='shuffle'&&AU.track!==AU.trackMode)setTrack(AU.trackMode);
+    else if(AU.trackMode==='shuffle'&&AU.trackSteps>=16*96)setTrack(pickNextTrack());
+    padChord(t);if(s%128===0)newAcid();
+  }
+  AU.trackSteps++;
+  const T=TRACKS[AU.track];
+  if(s%2===0&&Math.random()<T.bells+0.012*sz){bell(t,keyRoot()+PENTA[Math.floor(Math.random()*5)]+pick(T.groove==='dub'?[0,12,12,24]:[12,24,24,36]),rnd(0.5,1));}
+  if(sz>=T.arp&&s%2===0&&Math.random()<0.5){const n=AU.chord[(s/2)%4]+12;tone('triangle',mtof(keyRoot()+n),t,0.004,0.03,0.32,AU.mIn,{send:AU.dlySend});}
+  if(T.groove==='broken'&&s%2===1&&Math.random()<0.55){const n=AU.chord[(s*3)%4]+24+(Math.random()<0.3?12:0);tone('sine',mtof(keyRoot()+n),t,0.002,0.022,0.18,AU.mIn,{send:AU.dlySend});}
+  if(sz>=4&&s%16===8&&Math.random()<0.5)bell(t,keyRoot()+36+pick(PENTA),0.6);
+  // arrangement: 32-bar cycle -> intro, hats in, full groove, breakdown, build
+  const bar=Math.floor(s/16)%32,q=s%16;
+  const introLen=T.groove==='night'?4:8;
+  const sec=(!AU.techno||AU.filmMode)?'off':bar<introLen?'intro':bar<introLen+4?'hats':bar<24?'full':bar<28?'break':'build';
+  const grooveOn=sec==='full'||sec==='build'||(sec==='hats'&&bar>=introLen+2);
+  let kickOn=false;
+  if(T.groove==='tech'||T.groove==='night'){
+    kickOn=grooveOn||d>0.3;
+    if(kickOn&&s%4===0)kick(t,Math.max(0.85,d*1.2));
+    if(sec!=='off'&&sec!=='intro'){
+      if(s%4===2)hat(t,sec==='break'?0.6:1,q===14);
+      if(Math.random()<0.6)noiseHit(t,0.025,0.006+Math.random()*0.008,'bandpass',6500,1.5,AU.mIn);
+    }
+    if((sec==='full'||(sec==='hats'&&bar>=introLen+2))&&(s%4===2||(s%4===3&&Math.random()<0.35)))techBass(t,1);
+    if(sec==='full'&&(q===12||(q===4&&Math.random()<0.4)))rim(t,1);
+    if((sec==='full'||sec==='break')&&[3,7,10,14].includes(q)&&Math.random()<0.18)tone('sine',mtof(keyRoot()+36+pick(PENTA)),t,0.002,0.03,0.12,AU.mIn,{send:AU.dlySend});
+    if(T.groove==='night'&&sec==='full'&&d<0.25)acid(t,s,0.3);
+  }else if(T.groove==='dub'){
+    kickOn=grooveOn&&(q===0||q===10)||d>0.3&&s%4===0;
+    if(kickOn)kick(t,0.9);
+    if(grooveOn&&q===8)rim(t,1.2);
+    if(sec!=='off'&&sec!=='intro'&&(q===6||q===14))hat(t,0.7,q===14);
+    if(grooveOn&&(q===0||q===3||q===11))techBass(t,0.9);
+  }else if(T.groove==='broken'){
+    kickOn=grooveOn&&(q===0||q===10||(q===7&&Math.random()<0.4))||d>0.3&&s%4===0;
+    if(kickOn)kick(t,0.8);
+    if(grooveOn&&(q===4||q===12))snare(t,1);
+    if(sec!=='off'&&sec!=='intro'&&Math.random()<0.45)noiseHit(t,0.03,0.012+Math.random()*0.012,'highpass',8000,0.7,AU.mIn);
+    if(grooveOn&&(q===2||q===8))techBass(t,0.7);
+  }else if(T.groove==='perc'){
+    kickOn=d>0.3&&s%4===0;if(kickOn)kick(t,d);
+    if(grooveOn&&(q===0||q===6||q===10))tom(t,q===0?95:q===6?120:140,1);
+    if(sec!=='off'&&sec!=='intro'&&s%2===0)noiseHit(t,0.05,0.012+(s%4===2?0.01:0),'bandpass',5000,1.2,AU.mIn);
+    if(grooveOn&&q===12)rim(t,0.8);
+    if(grooveOn&&s%4===2)techBass(t,0.6);
+  }
+  if(sec==='build'&&bar===31&&q===0)riser(t);
+  if(d>0.04){
+    if(!kickOn&&s%4===0)kick(t,d);
+    if(sec==='off'||sec==='intro'){if(s%4===2)hat(t,d,false);}
+    acid(t,s,d);
+  }
+}
+function musicTick(){
+  const ac=AU.ctx;if(!ac||ac.state!=='running')return;
+  if(mNext<ac.currentTime-0.2){const skip=Math.ceil((ac.currentTime-mNext)/STEP);mStep+=skip;mNext+=skip*STEP;if(mStep%64>8){mStep+=64-mStep%64;}}
+  while(mNext<ac.currentTime+0.2){scheduleStep(mStep,mNext);mNext+=STEP;mStep++;}
+}
+function sfx(name,arg){
+  const ac=AU.ctx;if(!ac||AU.muted)return;
+  const t=ac.currentTime+0.005,D=AU.sfx,k=keyRoot();
+  switch(name){
+    case 'click':tone('sine',1100,t,0.002,0.1,0.06,D,{to:820});break;
+    case 'buy':tone('triangle',mtof(k+24),t,0.003,0.15,0.16,D);tone('triangle',mtof(k+31),t+0.07,0.003,0.15,0.3,D,{send:AU.sfxVerb});break;
+    case 'sell':tone('triangle',mtof(k+31),t,0.003,0.13,0.14,D);tone('triangle',mtof(k+24),t+0.07,0.003,0.11,0.24,D);break;
+    case 'deny':tone('square',150,t,0.005,0.045,0.18,D,{to:110});break;
+    case 'eat':{const a=arg||0,m=k+24+PENTA[a%5]+12*Math.floor(a/5);tone('sine',mtof(m),t,0.002,0.16,0.12,D,{to:mtof(m)*0.72,glide:0.1,send:AU.sfxVerb});break;}
+    case 'meat':tone('sawtooth',220,t,0.003,0.07,0.15,D,{to:90});noiseHit(t,0.08,0.1,'bandpass',900,2,D);break;
+    case 'bite':noiseHit(t,0.06,0.22,'bandpass',1400,3,D);tone('square',180,t,0.002,0.05,0.07,D,{to:80});break;
+    case 'hurt':tone('sine',150,t,0.003,0.32,0.25,D,{to:55});noiseHit(t,0.1,0.07,'lowpass',600,1,D);break;
+    case 'pop':noiseHit(t,0.35,0.1,'highpass',2500,0.8,D);tone('sine',700,t,0.003,0.09,0.35,D,{to:120,send:AU.sfxVerb});break;
+    case 'die':tone('sawtooth',400,t,0.01,0.13,1.4,D,{to:40});noiseHit(t,1,0.1,'lowpass',1200,1,D);break;
+    case 'grow':[0,7,12,19].forEach((n,i)=>tone('triangle',mtof(k+12+n),t+i*0.09,0.01,0.11,1.2,D,{send:AU.sfxVerb}));break;
+    case 'dash':noiseHit(t,0.3,0.12,'bandpass',600,1.2,D);tone('sine',300,t,0.01,0.08,0.25,D,{to:900});break;
+    case 'spore':[0,4,7,12,16].forEach((n,i)=>tone('sine',mtof(k+36+n),t+i*0.05,0.003,0.09,0.7,D,{send:AU.sfxVerb}));break;
+    case 'apex':tone('sawtooth',mtof(k-24),t,1.2,0.12,3.5,D,{to:mtof(k-26),send:AU.sfxVerb});tone('sine',mtof(k-12),t+0.3,1,0.1,3,D,{send:AU.sfxVerb});break;
+    case 'stage':[0,7,12,16,19,24].forEach((n,i)=>tone('triangle',mtof(k+12+n),t+i*0.12,0.01,0.1,2.2,D,{send:AU.sfxVerb}));break;
+    case 'evolve':musicArp(t);tone('sine',mtof(k+48),t,0.4,0.03,2,D,{send:AU.sfxVerb});break;
+  }
+}
+
+// ---------- "Learn more": simple science, written for 10-12 year olds ----------
+const LEARN={
+ flagellum:['The flagellum','A flagellum is a long, thin tail that some tiny living things use to swim. It whips or spins like a propeller and pushes the cell through the water. Real bacteria have flagella that spin like tiny motors, hundreds of times every second! Being fast helps a cell reach food first and escape hungry hunters. But swimming costs energy, so a fast cell must eat more. In nature, every new body part has a cost as well as a benefit. That is why not every creature ends up with the fastest tail possible. It depends on what it needs to survive.'],
+ spike:['Spikes','Spikes are sharp points that grow out of a body. They say: "Don\'t eat me, it will hurt!" Many living things use them: sea urchins, cactus plants, hedgehogs and porcupines. Some tiny sea cells even build spiky shells out of a glass-like material. A spike does not have to win a fight. It only has to make an attacker think twice. Hunters that keep biting spiky prey get hurt, so they choose easier food. Over many generations, spiky creatures survive more often and have more babies, so spikes spread through the whole species.'],
+ armour:['Armour','Armour is a hard, protective layer around a body. Turtles have shells, crabs wear their skeleton on the outside, and some tiny cells build little shells of chalk around themselves. The white cliffs of Dover in England are made of the shells of billions of tiny sea creatures! Armour protects you from bites, but it is heavy, so armoured creatures usually move more slowly. That is a trade-off: you give up some speed to stay safe. Evolution is full of trade-offs. There is rarely one "best" body, only the best body for a certain place and a certain danger.'],
+ eye:['Eyes','Eyes help living things find food and spot danger. The very first "eyes" were tiny patches that could only tell light from dark. Even that was useful: a cell could swim towards sunlight, or away from a shadow that might be a hunter. Over millions of years, some patches curved into cups, then filled with clear jelly that worked like a lens. Step by step, sharp eyes like yours appeared. Each small improvement helped its owner survive a little better. Today some single cells, like the green Euglena, still have a simple red eyespot.'],
+ filter:['Filter feeding (herbivores)','Many tiny creatures eat by filtering. They wave little hairs, called cilia, to sweep water into their mouth and catch the food floating in it, like a net catching fish. Blue whales, the biggest animals ever, eat the same way! Here, filter feeders are herbivores: they eat plants and algae, which make their own food from sunlight. Eating plants is safe, because plants do not fight back. But plants give less energy than meat, so plant-eaters must eat a lot and spend much of their day feeding.'],
+ jaw:['Jaws (carnivores)','A jaw lets an animal grab and bite. Real tiny cells do not have jaws, but some hunt anyway: an amoeba can wrap its body around another cell and swallow it whole! Animals that eat other animals are called carnivores. Meat is full of energy, so a hunter can eat less often than a plant-eater. But hunting is risky: prey runs away, fights back, or grows armour and spikes. So hunters and prey are in a never-ending race. When prey gets better at escaping, hunters must get better at catching. Scientists call this an evolutionary arms race.'],
+ omni:['Omnivores','An omnivore eats both plants and meat. Bears, pigs, crows and humans are all omnivores. Their big advantage is flexibility. If plants are hard to find, they hunt. If hunting is hard, they eat plants. Omnivores do well when the world changes, because they always have a plan B. The downside is that they are not the very best at either job. A pure hunter may be faster and stronger, and a pure plant-eater may digest plants better. Being good at many things instead of great at one is another trade-off that shapes living things.'],
+ selection:['Natural selection','Living things are never all exactly the same. Some are a little faster, some have thicker skin. When danger comes, the ones whose bodies fit the danger best are more likely to survive and have babies, and the babies inherit those helpful features. Repeat this for many generations and the whole species changes. This is natural selection, discovered by Charles Darwin and Alfred Russel Wallace over 160 years ago. Nobody plans it. It simply happens when survivors pass on their features. In Zoetica, you are part of the danger, so your choices steer how the other species evolve.'],
+ drift:['Random mutations','Sometimes a species changes by chance. When a cell copies its DNA to make a new cell, tiny copying mistakes can happen. These are called mutations. Most do nothing, some are harmful, and a few turn out to be useful. Even when nothing pushes a species in one direction, a random change can spread through the population just by luck. Scientists call this genetic drift, and it happens more easily in small groups. Mutations are the raw material of evolution: without these little mistakes, there would be nothing new for natural selection to choose from.'],
+ grow:['Growing bigger','A real cell cannot just keep getting bigger. As it grows, its outside cannot keep up with its inside, so food and oxygen struggle to reach the middle. That is why most cells are tiny. The trick that changed everything was cells sticking together. Instead of one giant cell, life built bodies from many cells working as a team. Your body has around 30 trillion of them! Some became skin, some muscle, some nerves. This teamwork, called multicellular life, is what made plants, animals and you possible. It is also where the Creature stage will begin.'],
+ apex:['Apex predators','An apex predator is the hunter at the very top of the food chain: nothing normally hunts it. Lions, orcas, great white sharks and wolves are apex predators. You might think they are bad for nature, but they are very important. By hunting, they stop any one species from growing so numerous that it eats everything. When wolves returned to Yellowstone Park in America, the deer stopped overeating the young trees by the rivers. The trees grew back, and birds and beavers returned. One hunter changed the whole ecosystem!'],
+ food:['Food webs','No living thing lives alone. Plants make food from sunlight. Plant-eaters eat the plants. Hunters eat the plant-eaters, and bigger hunters eat smaller ones. Scientists draw all these links as a food web. Pull on one strand and the whole web moves. If you eat all the plants in a patch, the plant-eaters there go hungry and their numbers fall. Then the hunters have less to eat, and their numbers fall too. Later the plants grow back and everything slowly recovers. This rise and fall happens in real ponds, forests and oceans all the time.'],
+ toxin:['Poison',"Some living things protect themselves with poison. Poison dart frogs, pufferfish and some caterpillars taste terrible or make a hunter sick. Many show off bright warning colours like purple, yellow or red, as if to say: \"Remember me, I taste awful!\" A hunter that bites one and feels ill will avoid anything that looks like it next time. Even tiny sea cells called dinoflagellates make toxins strong enough to poison fish. Poison is a clever defence: you do not need to be fast or strong, you just need to make eating you a very bad idea."],
+ chloro:['Chloroplasts and sunlight',"Chloroplasts are tiny green parts inside plant cells that turn sunlight into food. This is called photosynthesis. They take water and carbon dioxide from the air, use the energy of light, and make sugar, giving out oxygen as a gift. Almost all the oxygen you breathe was made this way! Amazingly, chloroplasts were once free-living bacteria. Over a billion years ago, a bigger cell swallowed one but did not digest it. The two started living together, and they never separated. Scientists call this endosymbiosis: two living things becoming one."],
+ tree:['The tree of life',"Every living thing on Earth is related. If you go back far enough, you, a mushroom, an oak tree and a shark all share the same ancient ancestor: a tiny cell that lived over 3.5 billion years ago. Scientists draw these family connections as a tree. Each branch point is where one species split into two, and each branch that stops is a species that went extinct. More than 99% of all species that ever lived are now extinct! The tree in this game shows the same thing for your pond: who came from whom, and who survived."],
+ land:['Life on land',"For billions of years, all life lived in water. Then, about 470 million years ago, plants began to grow on land, and tiny animals like millipedes followed them. Land was a hard place to live: no water to hold you up, harsh sunlight, and air that dries you out. But it was also empty, full of food and space with no competition. The first animals with backbones crawled out of the water about 375 million years ago. Every land animal alive today, including you, comes from those brave first explorers."],
+ legs:['From fins to legs',"Legs did not appear out of nowhere: they grew from fins! Around 375 million years ago lived a fish called Tiktaalik. It had strong fins with bones inside, a bit like a wrist, and a neck that could turn. It could prop itself up in shallow water and even pull itself onto mud. Over millions of years, fins like these became legs with fingers and toes. Look at your own arm: the one bone, then two bones, then many small bones in your hand follow the same plan as those ancient fins."],
+ eggs:['Eggs and nests',"The first land animals had a problem: their eggs needed water, like fish eggs, so they had to go back to ponds to lay them. Then, about 310 million years ago, some animals evolved a new kind of egg with a tough shell and its own little pond of fluid inside. Now babies could grow on dry land! Reptiles, birds and the ancestors of mammals all come from these egg-layers. Many animals also build nests to keep their eggs warm and safe, and some, like crocodiles and birds, guard them carefully until they hatch."],
+ deeptime:['Deep time','Earth is about 4.5 billion years old. Life appeared around 3.8 billion years ago, as tiny cells in the sea. For about 3 billion years, almost all life was single cells, like the ones in this pond! Animals came much later, about 600 million years ago. The dinosaurs disappeared 66 million years ago, and humans arrived only about 300,000 years ago. If Earth\'s whole history were squeezed into one day, humans would appear in the last few seconds before midnight. The clock shows how much time has passed for your species. In later stages, time will run faster.'],
+};
+let learnOpen=false;
+function openLearn(k){const L=LEARN[k];if(!L)return;$('lnT').textContent=L[0];$('lnX').textContent=L[1];$('learn').classList.remove('hidden');learnOpen=true;paused=true;sfx('click');}
+function closeLearn(){$('learn').classList.add('hidden');learnOpen=false;paused=!!panel;sfx('click');}
+const fmtYears=y=>y<1e9?Math.round(y/1e6)+' million years':(y/1e9).toFixed(2)+' billion years';
+const YEARS_PER_SEC=5e6;
+
+// ---------- UI helpers ----------
+const bannerQ=[];let bannerT=0;
+function banner(t,s,lk){bannerQ.push([t,s,lk]);}
+function bannerTick(dt){
+  if(bannerT>0){bannerT-=dt;if(bannerT<=0)$('banner').classList.remove('show');return;}
+  if(bannerQ.length&&bannerT<=0){const[t,s,lk]=bannerQ.shift();$('bT').textContent=t;$('bS').textContent=s;const B=$('banner');B.dataset.lk=lk||'';B.classList.toggle('learnable',!!lk);B.classList.toggle('filmable',!!lk&&lk.startsWith('film:'));B.classList.add('show');bannerT=lk?8:6;}
+}
+let toastT=0;function toast(m){sfx('deny');$('toast').textContent=m;$('toast').classList.add('show');toastT=2.4;}
+
+// ---------- input ----------
+cvs.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;mouse.active=true;});
+cvs.addEventListener('mouseleave',()=>{mouse.active=false;});
+const touch=e=>{const t=e.touches[0];if(t){mouse.x=t.clientX;mouse.y=t.clientY;mouse.active=true;}e.preventDefault();};
+cvs.addEventListener('touchstart',touch,{passive:false});cvs.addEventListener('touchmove',touch,{passive:false});
+cvs.addEventListener('touchend',()=>{mouse.active=false;});
+let panel=null;
+addEventListener('keydown',e=>{const k=e.key.toLowerCase();keys[k]=true;
+  if(introOn){if(k==='escape'||k===' '||k==='enter'){e.preventDefault();endIntro();}return;}
+  if(!running)return;
+  if(learnOpen){if(k==='escape'||k==='e'||k==='enter')closeLearn();return;}
+  if(panel==='stage'){if(k==='escape'||k==='e')$('stKeep').click();return;}
+  if(k===' '){e.preventDefault();dash();}
+  if(k==='m')toggleMute();
+  if(panel==='film'){e.preventDefault();if(k===' ')toggleFilmPause();if(k==='arrowright')$('fNext').click();if(k==='escape')endFilm();return;}
+  if(panel==='films'){if(k==='escape'||k==='f')closeFilms();return;}
+  if(k==='f'&&!panel){openFilms();return;}
+  if(panel==='tree'){if(k==='escape'||k==='t')closeTree();return;}
+  if(k==='t'&&!panel)openTree();
+  if(k==='e'){if(panel==='species')closeSpecies();else if(panel==='editor')closeEditor();else openEditor();}
+  if(k==='escape'){if(panel==='species')closeSpecies();else if(panel==='editor')closeEditor();}
+});
+addEventListener('keyup',e=>{keys[e.key.toLowerCase()]=false;});
+addEventListener('pointerdown',()=>{if(AU.ctx&&AU.ctx.state==='suspended')AU.ctx.resume();});
+function showGame(){setTimeout(()=>unlockFilm(0),9000);audioInit();$('title').classList.add('hidden');['hud','eco','actions','hint','sndBtn'].forEach(i=>$(i).classList.remove('hidden'));running=true;sfx('click');}
+$('startBtn').onclick=()=>{clearSave();init();showGame();banner('A new life begins','Eat the green plants to gather DNA. Then press E to evolve.');};
+$('contBtn').onclick=()=>{const d=readSave();if(!d||!loadGame(d)){init();}showGame();banner('Welcome back','Your species and its whole world have been restored.');};
+$('dashBtn').onclick=()=>dash();
+$('lnClose').onclick=()=>closeLearn();
+$('treeBtn').onclick=()=>openTree();
+$('treeClose').onclick=()=>closeTree();
+$('stLearn').onclick=()=>openLearn($('stLearn').dataset.l);
+$('banner').onclick=()=>{const k=$('banner').dataset.lk;if(!k||learnOpen)return;bannerT=0.01;if(k.startsWith('film:')){if(!panel)playFilm(+k.slice(5));}else openLearn(k);};
+$('ecoTime').onclick=()=>openLearn('deeptime');
+$('ecoFood').onclick=()=>openLearn('food');
+document.addEventListener('click',e=>{const b=e.target.closest('.lk[data-l],#spHist .q[data-l],#treeP .q[data-l]');if(b){e.stopPropagation();openLearn(b.dataset.l);}});
+for(const k of TRACK_IDS){const o=document.createElement('option');o.value=k;o.textContent=TRACKS[k].name;$('trkSel').appendChild(o);}
+$('trkSel').value=AU.trackMode;$('trkSel').onchange=e=>{AU.trackMode=e.target.value;AU.nextTrack=AU.trackMode==='shuffle'?null:AU.trackMode;saveSound();sfx('click');};
+$('tkChk').checked=AU.techno;$('tkChk').onchange=e=>{AU.techno=e.target.checked;saveSound();sfx('click');};
+$('leaveBtn').onclick=()=>openStage();
+$('stLand').onclick=()=>goToLand();
+$('stKeep').onclick=()=>{$('stage').classList.add('hidden');paused=false;panel=null;sfx('click');};
+$('stNew').onclick=()=>{$('stage').classList.add('hidden');paused=false;panel=null;clearSave();init();banner('A new life begins','A fresh pond, new species. Try a different path this time.');sfx('click');};
+$('evoBtn').onclick=()=>{if(panel==='editor')closeEditor();else if(!panel)openEditor();};
+$('edClose').onclick=()=>closeEditor();
+$('spClose').onclick=()=>closeSpecies();
+$('ecoList').addEventListener('pointerdown',e=>{const row=e.target.closest('.sp');if(row&&!panel)openSpecies(+row.dataset.id);});
+$('sndBtn').onclick=()=>{$('sndPop').classList.toggle('hidden');sfx('click');};
+$('mvol').value=AU.mv;$('svol').value=AU.sv;
+$('mvol').oninput=e=>{AU.mv=+e.target.value;if(AU.music)AU.music.gain.value=AU.mv;saveSound();};
+$('svol').oninput=e=>{AU.sv=+e.target.value;if(AU.sfx)AU.sfx.gain.value=AU.sv;saveSound();};
+$('svol').onchange=()=>sfx('buy');
+$('muteBtn').onclick=()=>toggleMute();
+function toggleMute(){AU.muted=!AU.muted;if(AU.master)AU.master.gain.setTargetAtTime(AU.muted?0:1,AU.ctx.currentTime,0.05);
+  muteUI();saveSound();}
+function muteUI(){$('sndBtn').classList.toggle('off',AU.muted);$('sndWave').style.display=AU.muted?'none':'';$('muteBtn').textContent=AU.muted?'Unmute (M)':'Mute all (M)';}
+muteUI();
+
+// ---------- AI ----------
+function ai(c,dt){
+  const st=c.st,hunter=isPred(c.sp);
+  let tx=0,ty=0,spd=0.45,done=false;
+  c.rest=Math.max(0,c.rest-dt);
+  if(!hunter){
+    let th=null,td=1e9;
+    for(const o of cells){
+      if(o===c||o.sp===c.sp)continue;
+      const d=Math.hypot(o.x-c.x,o.y-c.y);if(d>st.vision*0.8||d>=td)continue;
+      let danger=false;
+      if(o.isPlayer){if(player.inv<=0&&(o.st.biteDps>0||o.st.spikeDps>0)&&o.r>c.r*0.6)danger=true;}
+      else if(isPred(o.sp)&&o.rest<=0&&c.r<=o.r*1.35)danger=true;
+      if(danger){th=o;td=d;}
+    }
+    if(th){tx=c.x-th.x;ty=c.y-th.y;spd=1;done=true;}
+  }else if(c.rest<=0){
+    let pr=null,pd=1e9;
+    for(const o of cells){
+      if(o===c||o.sp===c.sp||o.sp.role==='apex'||(isPred(o.sp)&&c.sp.role!=='apex'))continue;
+      if(o.r>c.r*1.35)continue;
+      if((o.g.toxin||0)>=2&&c.sp.role!=='apex')continue;
+      if(o.isPlayer&&player.inv>0)continue;
+      const d=Math.hypot(o.x-c.x,o.y-c.y);if(d<st.vision&&d<pd){pr=o;pd=d;}
+    }
+    if(pr){tx=pr.x-c.x;ty=pr.y-c.y;spd=0.88;done=true;c.chase+=dt;c.prey=pr;
+      if(c.chase>6){c.rest=4;c.chase=0;c.prey=null;if(pr.isPlayer)dir.escapes++;}
+    }else{c.chase=0;c.prey=null;}
+  }else c.prey=null;
+  if(!done){
+    let f=null,fd=st.vision;
+    if(st.plants)for(const p of plants){const d=Math.abs(p.x-c.x)+Math.abs(p.y-c.y);if(d<fd){fd=d;f=p;}}
+    if(st.meat)for(const m of meat){const d=Math.abs(m.x-c.x)+Math.abs(m.y-c.y);if(d<fd){fd=d;f=m;}}
+    if(f){tx=f.x-c.x;ty=f.y-c.y;spd=0.6;}
+    else{c.wander+=rnd(-1.6,1.6)*dt;tx=Math.cos(c.wander);ty=Math.sin(c.wander);spd=0.4;}
+  }
+  let l=Math.hypot(tx,ty)||1;tx/=l;ty/=l;
+  const m=140;
+  if(c.x<m)tx+=1-c.x/m;if(c.x>WORLD-m)tx-=1-(WORLD-c.x)/m;
+  if(c.y<m)ty+=1-c.y/m;if(c.y>WORLD-m)ty-=1-(WORLD-c.y)/m;
+  l=Math.hypot(tx,ty)||1;c.dx=tx/l;c.dy=ty/l;c.spd=spd;
+}
+function playerInput(){
+  const p=player;
+  const kx=(keys.d||keys.arrowright?1:0)-(keys.a||keys.arrowleft?1:0);
+  const ky=(keys.s||keys.arrowdown?1:0)-(keys.w||keys.arrowup?1:0);
+  if(kx||ky){const l=Math.hypot(kx,ky);p.dx=kx/l;p.dy=ky/l;p.spd=1;return;}
+  if(mouse.active){
+    const wx=cam.x+(mouse.x-VW/2)/cam.zoom,wy=cam.y+(mouse.y-VH/2)/cam.zoom;
+    const dx=wx-p.x,dy=wy-p.y,d=Math.hypot(dx,dy)||1;
+    p.dx=dx/d;p.dy=dy/d;p.spd=clamp((d-p.r*0.4)/90,0,1);
+  }else p.spd=0;
+}
+function move(c,dt){
+  let ms=c.st.speed*c.spd,k=Math.min(1,dt*4);
+  if(c.boost>0){c.boost-=dt;ms=c.st.speed*2.8;k=Math.min(1,dt*14);if(Math.random()<0.6)fx.push({x:c.x-c.dx*c.r,y:c.y-c.dy*c.r,vx:-c.dx*30,vy:-c.dy*30,life:0.5,hue:PLAYER_HUE,r:rnd(2,4)});}
+  c.vx+=(c.dx*ms-c.vx)*k;c.vy+=(c.dy*ms-c.vy)*k;
+  c.x=clamp(c.x+c.vx*dt,c.r,WORLD-c.r);c.y=clamp(c.y+c.vy*dt,c.r,WORLD-c.r);
+  const sp=Math.hypot(c.vx,c.vy);c.speedNow=sp;
+  if(sp>6){const ta=Math.atan2(c.vy,c.vx);let da=ta-c.angle;da=Math.atan2(Math.sin(da),Math.cos(da));c.angle+=da*Math.min(1,dt*6);}
+}
+
+// ---------- combat & eating ----------
+function contact(a,b,dt){
+  let dmg=a.st.spikeDps;
+  if(a.st.biteDps>0&&(a.isPlayer||isPred(a.sp)))dmg+=a.st.biteDps*Math.sqrt(a.r/b.r);
+  if(dmg<=0)return;
+  if(b.isPlayer&&player.inv>0)return;
+  dmg*=(1-b.st.armour)*dt;
+  b.hp-=dmg;b.hurt=0.18;b.lastHit=a;
+  if(a.isPlayer){dir.dealt[b.sp.id]=(dir.dealt[b.sp.id]||0)+dmg;if(a.st.biteDps>0&&can('bite',0.25))sfx('bite');}
+  // biting a poisonous cell poisons the biter
+  if(b.st.toxin>0&&a.st.biteDps>0&&!(a.isPlayer&&player.inv>0)){a.hp-=b.st.toxin*(1-a.st.armour)*dt;a.hurt=0.18;a.lastHit=b;a.poisoned=0.6;
+    if(a.isPlayer&&can('hurt',0.45))sfx('hurt');}
+  if(b.isPlayer){player.calm=0;if(can('hurt',0.45))sfx('hurt');}
+}
+function burst(x,y,hue,n,spd){for(let i=0;i<n;i++){const a=rnd(0,TAU),s=rnd(.3,1)*spd;fx.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:rnd(.5,1),max:1,hue,r:rnd(1.5,3.5)});}}
+function gain(n,kind){player.dna+=n;player.growth+=n;if(kind)player[kind]+=n;const el=$('dna');el.classList.add('pulse');setTimeout(()=>el.classList.remove('pulse'),120);}
+
+function update(dt){
+  time+=dt;
+  playerInput();
+  for(const c of cells)if(!c.isPlayer)ai(c,dt);
+  for(const c of cells)move(c,dt);
+  // collisions
+  for(let i=0;i<cells.length;i++){const a=cells[i];
+    for(let j=i+1;j<cells.length;j++){const b=cells[j];
+      const dx=b.x-a.x,dy=b.y-a.y,min=a.r+b.r;
+      if(Math.abs(dx)>min||Math.abs(dy)>min)continue;
+      const d=Math.hypot(dx,dy)||0.01;if(d>=min)continue;
+      const o=(min-d),wa=b.r/(a.r+b.r),wb=a.r/(a.r+b.r);
+      a.x-=dx/d*o*wa;a.y-=dy/d*o*wa;b.x+=dx/d*o*wb;b.y+=dy/d*o*wb;
+      if(a.sp!==b.sp){contact(a,b,dt);contact(b,a,dt);}
+    }}
+  // eating
+  for(const c of cells){
+    if(c.st.plants){for(let i=plants.length-1;i>=0;i--){const p=plants[i];const dx=p.x-c.x,dy=p.y-c.y,rr=c.r+p.r;if(dx*dx+dy*dy<rr*rr){plants.splice(i,1);
+      if(p.pt>=0)patches[p.pt].food=Math.max(0,patches[p.pt].food-0.03);
+      if(c.isPlayer){gain(1,"plantDNA");c.hp=Math.min(c.st.maxHp,c.hp+3);burst(p.x,p.y,110,4,40);
+        AU.streak=(time-AU.lastEat<0.9)?Math.min(14,AU.streak+1):0;AU.lastEat=time;if(can('eat',0.04))sfx('eat',AU.streak);}
+      else c.hp=Math.min(c.st.maxHp,c.hp+2);}}}
+    if(c.st.meat){for(let i=meat.length-1;i>=0;i--){const m=meat[i];const dx=m.x-c.x,dy=m.y-c.y,rr=c.r+m.r;if(dx*dx+dy*dy<rr*rr){meat.splice(i,1);
+      if(c.isPlayer){gain(4,"meatDNA");c.hp=Math.min(c.st.maxHp,c.hp+8);burst(m.x,m.y,0,6,50);if(can('meat',0.08))sfx('meat');}else c.hp=Math.min(c.st.maxHp,c.hp+10);}}}
+  }
+  // deaths, regen, timers
+  for(let i=cells.length-1;i>=0;i--){const c=cells[i];
+    c.hurt=Math.max(0,c.hurt-dt);c.mut=Math.max(0,c.mut-dt);
+    if(c.isPlayer){player.inv=Math.max(0,player.inv-dt);player.calm+=dt;if(player.calm>3)c.hp=Math.min(c.st.maxHp,c.hp+4*dt);
+      if(c.st.photo>0){player.photoAcc=(player.photoAcc||0)+c.st.photo*dt;if(player.photoAcc>=1){player.photoAcc-=1;gain(1,'plantDNA');fx.push({x:c.x+rnd(-c.r,c.r)*.5,y:c.y-c.r*.6,vx:0,vy:-25,life:0.8,hue:110,r:2.5});}}}
+    else if(c.st.photo>0)c.hp=Math.min(c.st.maxHp,c.hp+c.st.photo*2*dt);
+    else c.hp=Math.min(c.st.maxHp,c.hp+1*dt);
+    if(c.hp<=0){
+      if(c.isPlayer){playerDie();continue;}
+      const n=1+c.g.size;for(let k=0;k<n;k++)meat.push({x:c.x+rnd(-c.r,c.r)*.6,y:c.y+rnd(-c.r,c.r)*.6,r:rnd(4,6),life:28,ph:rnd(0,TAU)});
+      burst(c.x,c.y,c.sp.hue,14,90);
+      if(Math.hypot(c.x-player.x,c.y-player.y)<VW/cam.zoom*0.6&&can('pop',0.08))sfx('pop');
+      if(c.lastHit&&c.lastHit.isPlayer){dir.kills[c.sp.id]=(dir.kills[c.sp.id]||0)+1;player.kills++;
+        if(c.sp.role==='apex'){player.apexKills++;banner('You slew a '+c.sp.name+'!','The giant of the deep is gone, for now. Its remains are a feast: eat them with a jaw.');sfx('grow');}}
+      cells.splice(i,1);
+    }}
+  // growth
+  const g=player.g;
+  if(g.size<5&&player.growth>=SIZE_AT[g.size]){g.size++;refresh(player);player.hp=player.st.maxHp;burst(player.x,player.y,PLAYER_HUE,24,120);sfx('grow');
+    if(g.size<5)banner('You grew!','Size '+g.size+'. Bigger cells are tougher, and fewer hunters dare to chase you.','grow');
+    else banner('Size 5 reached','Your species is ready to leave the water. The Creature stage comes in a later version, so keep evolving for now.','grow');}
+  // dash cooldown
+  player.dashCd=Math.max(0,player.dashCd-dt);
+  // golden spores: rare, drifting, worth a lot, any diet can eat them
+  sporeAcc+=dt;if(sporeAcc>7&&spores.length<4){sporeAcc=0;const p=spawnPos(350);spores.push({x:p.x,y:p.y,a:rnd(0,TAU),ph:rnd(0,TAU),life:60});}
+  for(let i=spores.length-1;i>=0;i--){const s=spores[i];s.a+=rnd(-1,1)*dt;s.x=clamp(s.x+Math.cos(s.a)*22*dt,40,WORLD-40);s.y=clamp(s.y+Math.sin(s.a)*22*dt,40,WORLD-40);s.life-=dt;
+    const rr=player.r+9;if((s.x-player.x)**2+(s.y-player.y)**2<rr*rr){spores.splice(i,1);gain(6,'plantDNA');player.sporesEaten++;player.hp=Math.min(player.st.maxHp,player.hp+15);burst(s.x,s.y,48,14,90);sfx('spore');continue;}
+    if(s.life<=0)spores.splice(i,1);}
+  // the apex predator arrives once you are big
+  if(g.size>=3&&!filmsUnl[2])unlockFilm(2);
+  if(g.size>=5&&!filmsUnl[4])unlockFilm(4);
+  if(!apexDone&&g.size>=4){apexDone=true;setTimeout(()=>unlockFilm(3),7000);
+    const ap=makeSpecies({name:'Gloomfin',hue:282,role:'apex',w:1,genome:{size:6,flagellum:1,spike:2,armour:1,eye:2,mouth:'jaw'}});
+    ROLE_BUDGET.apex=2;recomputeTargets();for(let i=0;i<ap.target;i++)spawnOf(ap,750);
+    banner('Something huge stirs in the deep','A Gloomfin, an apex predator, has entered the pond. It hunts everything. Dash (Space) to escape, or grow spikes and fight it.','apex');sfx('apex');}
+  // autosave
+  saveAcc+=dt;if(saveAcc>8){saveAcc=0;saveGame();}
+  if(g.size>=5)$('leaveBtn').classList.remove('hidden');
+  // food
+  plantAcc+=dt*13;while(plantAcc>1){plantAcc--;if(plants.length<400)spawnPlant();}
+  ecoAcc+=dt;if(ecoAcc>5){ecoAcc=0;
+    const avg=patches.reduce((a,p)=>a+p.food,0)/patches.length;
+    ROLE_BUDGET.grazer=Math.round(14+18*avg);
+    const gz=cells.filter(c=>c.sp.role==='grazer').length;
+    ROLE_BUDGET.hunter=clamp(Math.round(gz/5),3,7);recomputeTargets();}
+  const chased=cells.some(c=>c.prey===player&&c.rest<=0);
+  AU.danger+=((chased?1:0)-AU.danger)*Math.min(1,dt*(chased?0.9:0.3));
+  for(const p of patches){p.food=Math.min(1,p.food+dt*0.012);p.a+=rnd(-.3,.3)*dt;p.x=clamp(p.x+Math.cos(p.a)*8*dt,150,WORLD-150);p.y=clamp(p.y+Math.sin(p.a)*8*dt,150,WORLD-150);}
+  for(let i=meat.length-1;i>=0;i--){meat[i].life-=dt;if(meat[i].life<=0)meat.splice(i,1);}
+  for(let i=fx.length-1;i>=0;i--){const f=fx[i];f.x+=f.vx*dt;f.y+=f.vy*dt;f.vx*=0.94;f.vy*=0.94;f.life-=dt;if(f.life<=0)fx.splice(i,1);}
+  // populations
+  popAcc+=dt;if(popAcc>0.7){popAcc=0;populations();}
+  // director
+  dir.t-=dt;if(dir.t<=0){dir.t=225;evolveStep();}
+  for(const s of species)if(s.isNew>0)s.isNew-=dt;
+  // camera
+  const tz=(Math.min(VW,VH)/760)*(1.28-player.g.size*0.07);
+  cam.zoom+=(tz-cam.zoom)*Math.min(1,dt*2);
+  cam.x+=(player.x-cam.x)*Math.min(1,dt*5);cam.y+=(player.y-cam.y)*Math.min(1,dt*5);
+}
+let plantAcc=0,popAcc=0,ecoAcc=0;
+
+const dashCdFor=()=>3.2-player.g.flagellum*0.5;
+function dash(){
+  if(stage==='land')return landDash();
+  if(!running||paused||player.dashCd>0)return;
+  if(player.spd<0.05){player.dx=Math.cos(player.angle);player.dy=Math.sin(player.angle);}
+  player.spd=1;player.boost=0.32;player.dashCd=dashCdFor();sfx('dash');
+}
+function playerDie(){
+  burst(player.x,player.y,PLAYER_HUE,30,140);sfx('die');player.deaths++;
+  const lost=Math.floor(player.dna/2);player.dna-=lost;
+  let p=spawnPos(0);
+  for(let t=0;t<30;t++){const q=spawnPos(0);if(!cells.some(c=>isPred(c.sp)&&Math.hypot(c.x-q.x,c.y-q.y)<600)){p=q;break;}}
+  player.x=p.x;player.y=p.y;player.vx=player.vy=0;player.hp=player.st.maxHp;player.inv=3;
+  cam.x=p.x;cam.y=p.y;
+  banner('You were eaten','You lost '+lost+' DNA, but your evolved parts are kept. Try more speed, armour or spikes.');
+}
+
+function populations(){
+  for(const s of species){
+    const mine=cells.filter(c=>c.sp===s);
+    if(mine.length<s.target)spawnOf(s,700);
+    else if(mine.length>s.target){const far=mine.find(c=>Math.hypot(c.x-player.x,c.y-player.y)>VW/cam.zoom*0.75+200);if(far)cells.splice(cells.indexOf(far),1);}
+  }
+  species=species.filter(s=>{const keep=s.target>0||cells.some(c=>c.sp===s);if(!keep&&s.died==null){s.died=Math.floor(time);}return keep;});
+}
+
+// ---------- the "AI": an evolution director that reacts to the player ----------
+function evolveStep(){
+  const pg=player.g;
+  const hurtsThings=pg.spike>0||pg.mouth!=='filter';
+  let best=null,score=0,part=null,reason='';
+  for(const s of species){
+    if(s.w<=0||s.role==='apex')continue;
+    const k=dir.kills[s.id]||0,dealt=dir.dealt[s.id]||0,G=s.genome;
+    if(s.role==='grazer'){
+      const sc=k*3+dealt/15;
+      if(sc>=3&&sc>score&&hurtsThings){
+        let p=null,r='';
+        if(pg.mouth!=='filter'&&G.toxin<3&&Math.random()<0.45){p='toxin';r='You kept eating them, so the poisonous ones survived. Biting them now hurts you.';}
+        else if(G.armour<3){p='armour';r='You hunted them, so only the armoured ones survived to breed.';}
+        else if(G.flagellum<3){p='flagellum';r='You hunted them, so only the fastest ones survived to breed.';}
+        if(p){best=s;score=sc;part=p;reason=r;}
+      }
+    }else{
+      const sc=dir.escapes*2+dealt/12+k*4;
+      if(sc>=2&&sc>score){
+        let p=null,r='';
+        if(pg.armour>0&&G.spike<4){p='spike';r='Your armour stopped their bites, so they grew spikes to pierce it.';}
+        else if(dir.escapes>0&&G.flagellum<3){p='flagellum';r='You kept escaping, so the fastest hunters survived.';}
+        else if(pg.spike>0&&G.armour<3){p='armour';r='Your spikes hurt them, so armoured hunters survived.';}
+        else if(G.eye<3){p='eye';r='They struggled to find you, so sharper-eyed hunters took over.';}
+        if(p){best=s;score=sc;part=p;reason=r;}
+      }
+    }
+  }
+  const pressured=!!best;
+  if(!best){
+    const live=species.filter(s=>s.w>0&&s.role!=='apex');
+    for(let t=0;t<20&&!best;t++){const s=pick(live);const opts=Object.keys(PARTS).filter(p=>s.genome[p]<PARTS[p].max);if(opts.length){best=s;part=pick(opts);reason='Nothing pressured them, so a random mutation spread through the population.';}}
+  }
+  dir.kills={};dir.dealt={};dir.escapes=0;
+  if(best){if(pressured)dir.pressured++;else dir.random++;}
+  if(!best)return;
+  doEvolve(best,part,reason);
+}
+function doEvolve(s,part,reason){
+  setTimeout(()=>unlockFilm(1),6500);
+  const g=Object.assign({},s.genome);g[part]++;
+  // pick the colour most different from every living species (and the player), within the role's colour family
+  const reddish=h=>h>295||h<25;
+  const used=[PLAYER_HUE,...species.filter(o=>o.w>0||cells.some(c=>c.sp===o)).map(o=>o.hue)];
+  const hd=(a,b)=>{const d=Math.abs(a-b)%360;return d>180?360-d:d;};
+  let hue=s.hue,bestD=-1;
+  for(let h=0;h<360;h+=6){if(s.role==='grazer'?reddish(h):!reddish(h))continue;const md=Math.min(...used.map(u=>hd(h,u)));if(md>bestD){bestD=md;hue=h;}}
+  const ns=makeSpecies({name:mutName(s.name),hue,role:s.role,genome:g,gen:s.gen+1,w:s.w,isNew:20,parent:s.name,parentId:s.id,gained:part,reason,drift:reason.startsWith('Nothing'),born:Math.floor(time)});
+  sfx('evolve');
+  s.w*=0.35;
+  for(const o of species)if(o!==s&&o!==ns&&o.role===s.role&&o.w>0)o.w*=0.85;
+  recomputeTargets();
+  const old=cells.filter(c=>c.sp===s);
+  old.forEach((c,i)=>{if(i%2===0){c.sp=ns;c.g=Object.assign({},g);refresh(c);c.mut=1.4;burst(c.x,c.y,48,10,60);}});
+  banner(s.name+' evolved into '+ns.name,PARTS[part].name+' +1. '+reason,ns.drift?'drift':'selection');
+}
+
+// ---------- drawing ----------
+function drawCell(x,c,t){
+  const r=c.r,g=c.g,h=c.isPlayer?PLAYER_HUE:c.sp.hue,wob=c.phase;
+  x.save();x.translate(c.x,c.y);x.rotate(c.angle);
+  x.lineCap='round';x.lineJoin='round';
+  // flagella
+  const nf=g.flagellum;
+  for(let i=0;i<nf;i++){
+    const a=Math.PI+(i-(nf-1)/2)*0.55,len=r*1.55,ca=Math.cos(a),sa=Math.sin(a);
+    x.beginPath();x.moveTo(ca*r*0.9,sa*r*0.9);
+    for(let s=1;s<=12;s++){const u=s/12,al=r*0.9+len*u,pp=Math.sin(t*(7+c.speedNow/10)+u*6+wob+i*1.7)*r*0.24*u;x.lineTo(ca*al-sa*pp,sa*al+ca*pp);}
+    x.strokeStyle=`hsla(${h},60%,75%,0.85)`;x.lineWidth=Math.max(1.5,r*0.1);x.stroke();
+  }
+  // spikes
+  const SA=[Math.PI/2,-Math.PI/2,Math.PI*0.8,-Math.PI*0.8];
+  for(let i=0;i<g.spike;i++){
+    const a=SA[i],w=0.24;
+    x.beginPath();x.moveTo(Math.cos(a-w)*r*0.88,Math.sin(a-w)*r*0.88);x.lineTo(Math.cos(a)*r*1.7,Math.sin(a)*r*1.7);x.lineTo(Math.cos(a+w)*r*0.88,Math.sin(a+w)*r*0.88);x.closePath();
+    x.fillStyle=`hsl(${h},30%,86%)`;x.fill();x.strokeStyle=`hsla(${h},40%,35%,.8)`;x.lineWidth=Math.max(1,r*0.05);x.stroke();
+  }
+  // jaw (behind body edge so it reads as attached)
+  if(g.mouth!=='filter'){
+    const open=0.5+0.5*Math.sin(t*7+wob);
+    for(const s of [-1,1]){x.beginPath();x.moveTo(r*0.62,s*r*0.4);x.quadraticCurveTo(r*1.45,s*r*(0.5+open*0.2),r*1.3,s*r*0.06);
+      x.lineWidth=r*0.16;x.strokeStyle=`hsl(${h},25%,22%)`;x.stroke();x.lineWidth=r*0.08;x.strokeStyle=`hsl(${h},30%,90%)`;x.stroke();}
+  }
+  // body
+  const body=()=>{x.beginPath();const N=24;for(let i=0;i<=N;i++){const a=i/N*TAU;const rr=r*(1+0.045*Math.sin(a*3+t*2.2+wob)+0.03*Math.sin(a*5-t*1.7+wob*2));const px=Math.cos(a)*rr,py=Math.sin(a)*rr;i?x.lineTo(px,py):x.moveTo(px,py);}x.closePath();};
+  body();
+  const gr=x.createRadialGradient(-r*0.3,-r*0.35,r*0.08,0,0,r*1.05);
+  gr.addColorStop(0,`hsla(${h},80%,76%,0.95)`);gr.addColorStop(0.65,`hsla(${h},65%,50%,0.9)`);gr.addColorStop(1,`hsla(${h},70%,30%,0.95)`);
+  if(c.isPlayer){x.shadowColor=`hsla(${h},90%,60%,.75)`;x.shadowBlur=20;}
+  x.fillStyle=gr;x.fill();x.shadowBlur=0;
+  x.lineWidth=Math.max(1.5,r*0.09);x.strokeStyle=`hsla(${h},85%,84%,0.85)`;x.stroke();
+  // armour plates
+  if(g.armour>0){
+    const plates=5+g.armour,span=TAU*0.74,start=Math.PI-span/2,lw=r*(0.1+g.armour*0.055);
+    for(let i=0;i<plates;i++){const a0=start+i*span/plates+0.06,a1=start+(i+1)*span/plates-0.06;
+      x.beginPath();x.arc(0,0,r*0.97,a0,a1);x.lineWidth=lw;x.strokeStyle=`hsla(${h},22%,26%,0.95)`;x.stroke();
+      x.beginPath();x.arc(0,0,r*0.97+lw*0.3,a0+0.04,a1-0.04);x.lineWidth=lw*0.3;x.strokeStyle=`hsla(${h},30%,72%,0.55)`;x.stroke();}
+  }
+  // chloroplasts
+  const CP=[[-0.1,-0.52,0.4],[-0.62,0.28,2.1],[-0.08,0.52,-0.5]];
+  for(let i=0;i<(g.chloro||0);i++){const a=CP[i][2],px=CP[i][0]*r,py=CP[i][1]*r;
+    x.save();x.translate(px,py);x.rotate(a+t*0.3);x.beginPath();x.ellipse(0,0,r*0.2,r*0.1,0,0,TAU);x.fillStyle='rgba(90,200,80,0.85)';x.fill();
+    x.strokeStyle='rgba(200,255,170,0.7)';x.lineWidth=Math.max(1,r*0.025);x.beginPath();x.moveTo(-r*0.12,0);x.lineTo(r*0.12,0);x.stroke();x.restore();}
+  // toxin vesicles on the membrane
+  if((g.toxin||0)>0){const n=4+g.toxin*3;for(let i=0;i<n;i++){const a=i/n*TAU+0.3,rr=r*(0.86+0.05*Math.sin(t*3+i));
+    x.beginPath();x.arc(Math.cos(a)*rr,Math.sin(a)*rr,r*(0.06+g.toxin*0.015),0,TAU);x.fillStyle=`rgba(190,90,255,${0.55+0.25*Math.sin(t*4+i)})`;x.fill();}}
+  // organelles
+  x.beginPath();x.arc(-r*0.34,r*0.08,r*0.27,0,TAU);x.fillStyle=`hsla(${h},55%,24%,0.55)`;x.fill();
+  x.beginPath();x.arc(-r*0.38,r*0.03,r*0.11,0,TAU);x.fillStyle=`hsla(${h},70%,80%,0.35)`;x.fill();
+  x.fillStyle=`hsla(${h},70%,85%,0.4)`;
+  for(const [ox,oy,orr] of [[-0.05,0.5,0.07],[0.15,-0.55,0.06],[-0.6,-0.35,0.05]]){x.beginPath();x.arc(ox*r,oy*r,orr*r,0,TAU);x.fill();}
+  // filter mouth
+  if(g.mouth!=='jaw'){
+    x.beginPath();x.arc(r*0.83,0,r*0.15,0,TAU);x.fillStyle=`hsla(${h},50%,15%,0.8)`;x.fill();
+    x.strokeStyle=`hsla(${h},70%,85%,0.7)`;x.lineWidth=Math.max(1,r*0.04);
+    for(let i=-2;i<=2;i++){const a=i*0.5,w=Math.sin(t*10+i)*0.12;x.beginPath();x.moveTo(r*0.83+Math.cos(a)*r*0.16,Math.sin(a)*r*0.16);x.lineTo(r*0.83+Math.cos(a+w)*r*0.33,Math.sin(a+w)*r*0.33);x.stroke();}
+  }
+  // eyes
+  const EP=[[],[[0.4,0]],[[0.38,-0.36],[0.38,0.36]],[[0.42,-0.45],[0.42,0.45],[0.08,0]]][g.eye]||[];
+  const er=r*(g.eye>1?0.17:0.21);
+  for(const [ex,ey] of EP){
+    x.beginPath();x.arc(ex*r,ey*r,er,0,TAU);x.fillStyle='#f4fbff';x.fill();x.lineWidth=Math.max(1,r*0.03);x.strokeStyle=`hsla(${h},50%,20%,0.7)`;x.stroke();
+    x.beginPath();x.arc(ex*r+er*0.35,ey*r,er*0.55,0,TAU);x.fillStyle='#0a1520';x.fill();
+    x.beginPath();x.arc(ex*r+er*0.15,ey*r-er*0.3,er*0.2,0,TAU);x.fillStyle='#fff';x.fill();
+  }
+  if(c.hurt>0){body();x.fillStyle=`rgba(255,120,130,${c.hurt*2.5})`;x.fill();}
+  x.restore();
+  if((g.toxin||0)>0){x.beginPath();x.arc(c.x,c.y,r*1.18,0,TAU);x.strokeStyle=`rgba(190,90,255,${0.12+0.06*g.toxin})`;x.lineWidth=r*0.12;x.stroke();}
+  if(c.mut>0){x.beginPath();x.arc(c.x,c.y,r*(1.3+(1.4-c.mut)*1.6),0,TAU);x.strokeStyle=`rgba(255,211,107,${c.mut/1.4})`;x.lineWidth=3;x.stroke();}
+  if(c.isPlayer&&player.inv>0){x.beginPath();x.arc(c.x,c.y,r*1.35,0,TAU);x.strokeStyle=`rgba(143,240,200,${0.3+0.3*Math.sin(t*10)})`;x.lineWidth=2;x.stroke();}
+}
+
+function draw(){
+  const t=time;
+  ctx.setTransform(DPR,0,0,DPR,0,0);
+  const bg=ctx.createLinearGradient(0,0,0,VH);bg.addColorStop(0,'#07405a');bg.addColorStop(1,'#03172a');
+  ctx.fillStyle=bg;ctx.fillRect(0,0,VW,VH);
+  // soft light shafts
+  for(let i=0;i<3;i++){const lx=(Math.sin(t*0.05+i*2.1)*0.5+0.5)*VW,ly=(Math.cos(t*0.04+i*1.3)*0.5+0.5)*VH;const lg=ctx.createRadialGradient(lx,ly,0,lx,ly,Math.max(VW,VH)*0.45);lg.addColorStop(0,'rgba(120,230,255,0.07)');lg.addColorStop(1,'rgba(120,230,255,0)');ctx.fillStyle=lg;ctx.fillRect(0,0,VW,VH);}
+  // parallax motes
+  ctx.fillStyle='rgba(200,240,255,0.25)';
+  for(const m of motes){const sx=((m.x*VW*2-cam.x*m.z*cam.zoom)%VW+VW)%VW,sy=((m.y*VH*2-cam.y*m.z*cam.zoom)%VH+VH)%VH;ctx.beginPath();ctx.arc(sx,sy,m.r,0,TAU);ctx.fill();}
+
+  ctx.save();ctx.translate(VW/2,VH/2);ctx.scale(cam.zoom,cam.zoom);ctx.translate(-cam.x,-cam.y);
+  // world edge
+  ctx.fillStyle='rgba(1,8,14,0.6)';const B=3000;
+  ctx.fillRect(-B,-B,WORLD+2*B,B);ctx.fillRect(-B,WORLD,WORLD+2*B,B);ctx.fillRect(-B,0,B,WORLD);ctx.fillRect(WORLD,0,B,WORLD);
+  ctx.strokeStyle='rgba(143,240,200,0.18)';ctx.lineWidth=4;ctx.strokeRect(0,0,WORLD,WORLD);
+  // view culling bounds
+  const hw=VW/2/cam.zoom+60,hh=VH/2/cam.zoom+60;
+  const vis=(o)=>Math.abs(o.x-cam.x)<hw&&Math.abs(o.y-cam.y)<hh;
+  // plants
+  ctx.fillStyle='rgba(120,230,110,0.18)';ctx.beginPath();
+  for(const p of plants){if(!vis(p))continue;ctx.moveTo(p.x+p.r*2.2,p.y);ctx.arc(p.x,p.y,p.r*2.2,0,TAU);}ctx.fill();
+  ctx.fillStyle='#86e36a';ctx.beginPath();
+  for(const p of plants){if(!vis(p))continue;const rr=p.r*(1+0.12*Math.sin(t*3+p.ph));ctx.moveTo(p.x+rr,p.y);ctx.arc(p.x,p.y,rr,0,TAU);}ctx.fill();
+  ctx.fillStyle='#d7ffb8';ctx.beginPath();
+  for(const p of plants){if(!vis(p))continue;ctx.moveTo(p.x-p.r*0.2+p.r*0.35,p.y-p.r*0.3);ctx.arc(p.x-p.r*0.2,p.y-p.r*0.3,p.r*0.35,0,TAU);}ctx.fill();
+  // meat
+  for(const m of meat){if(!vis(m))continue;const a=Math.min(1,m.life/4);ctx.fillStyle=`rgba(232,88,98,${a})`;ctx.beginPath();
+    for(let i=0;i<=7;i++){const an=i/7*TAU,rr=m.r*(1+0.25*Math.sin(an*3+m.ph));i?ctx.lineTo(m.x+Math.cos(an)*rr,m.y+Math.sin(an)*rr):ctx.moveTo(m.x+Math.cos(an)*rr,m.y+Math.sin(an)*rr);}ctx.fill();
+    ctx.fillStyle=`rgba(255,190,190,${a*0.7})`;ctx.beginPath();ctx.arc(m.x-m.r*0.25,m.y-m.r*0.25,m.r*0.3,0,TAU);ctx.fill();}
+  // golden spores
+  for(const s of spores){if(!vis(s))continue;const pr=6+1.5*Math.sin(t*5+s.ph);
+    const sg=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,pr*4);sg.addColorStop(0,'rgba(255,215,110,0.55)');sg.addColorStop(1,'rgba(255,215,110,0)');
+    ctx.fillStyle=sg;ctx.beginPath();ctx.arc(s.x,s.y,pr*4,0,TAU);ctx.fill();
+    ctx.save();ctx.translate(s.x,s.y);ctx.rotate(t*1.5+s.ph);ctx.fillStyle='#ffe08a';ctx.beginPath();
+    for(let i=0;i<10;i++){const a=i/10*TAU,rr=i%2?pr*0.5:pr*1.25;i?ctx.lineTo(Math.cos(a)*rr,Math.sin(a)*rr):ctx.moveTo(Math.cos(a)*rr,Math.sin(a)*rr);}
+    ctx.closePath();ctx.fill();ctx.fillStyle='#fff7d6';ctx.beginPath();ctx.arc(0,0,pr*0.35,0,TAU);ctx.fill();ctx.restore();}
+  // cells (smaller first)
+  const order=cells.filter(c=>Math.abs(c.x-cam.x)<hw+c.r*2&&Math.abs(c.y-cam.y)<hh+c.r*2).sort((a,b)=>a.r-b.r);
+  for(const c of order)drawCell(ctx,c,t);
+  // hp bars
+  for(const c of order){if(c.isPlayer||c.hp>=c.st.maxHp-0.5)continue;const w=c.r*1.6;ctx.fillStyle='rgba(0,0,0,.5)';ctx.fillRect(c.x-w/2,c.y-c.r-12,w,4);ctx.fillStyle='#ff6b81';ctx.fillRect(c.x-w/2,c.y-c.r-12,w*Math.max(0,c.hp/c.st.maxHp),4);}
+  // fx
+  for(const f of fx){ctx.fillStyle=`hsla(${f.hue},90%,70%,${f.life})`;ctx.beginPath();ctx.arc(f.x,f.y,f.r,0,TAU);ctx.fill();}
+  ctx.restore();
+  // vision darkness (eyes matter)
+  const px=VW/2+(player.x-cam.x)*cam.zoom,py=VH/2+(player.y-cam.y)*cam.zoom,vr=player.st.vision*cam.zoom;
+  const vg=ctx.createRadialGradient(px,py,vr*0.55,px,py,vr*1.25);vg.addColorStop(0,'rgba(1,8,16,0)');vg.addColorStop(1,'rgba(1,8,16,0.9)');
+  ctx.fillStyle=vg;ctx.fillRect(0,0,VW,VH);
+  // arrow at the screen edge pointing to the nearest golden spore that is off-screen
+  let ns=null,nd=1e9;for(const s of spores){const d=Math.hypot(s.x-player.x,s.y-player.y);if(d<nd){nd=d;ns=s;}}
+  if(ns){const sx=VW/2+(ns.x-cam.x)*cam.zoom,sy=VH/2+(ns.y-cam.y)*cam.zoom;
+    if(sx<20||sx>VW-20||sy<20||sy>VH-20){
+      const a=Math.atan2(sy-py,sx-px),m=46;
+      // intersect ray with the inset screen rectangle
+      const mb=100,tx=Math.cos(a)>0?(VW-m-px)/Math.cos(a):(m-px)/Math.cos(a),ty=Math.sin(a)>0?(VH-mb-py)/Math.sin(a):(m-py)/Math.sin(a);
+      const tt=Math.min(Math.abs(tx),Math.abs(ty));const ax=px+Math.cos(a)*tt,ay=py+Math.sin(a)*tt;
+      ctx.save();ctx.translate(ax,ay);ctx.rotate(a);ctx.globalAlpha=0.65+0.25*Math.sin(t*4);
+      ctx.fillStyle='#ffd36b';ctx.beginPath();ctx.moveTo(14,0);ctx.lineTo(-8,-9);ctx.lineTo(-4,0);ctx.lineTo(-8,9);ctx.closePath();ctx.fill();ctx.restore();
+    }}
+}
+
+// ---------- save / continue (this browser only) ----------
+const SAVE_KEY='lifeai-save-v1';
+const fmtT=t=>Math.floor(t/60)+':'+String(t%60).padStart(2,'0');
+function saveGame(){
+  if(!player||!running)return;
+  try{
+    const P=player,d={v:1,time,spId,dirT:dir.t,pressured:dir.pressured,random:dir.random,apexDone,stageShown,budget:Object.assign({},ROLE_BUDGET),
+      patches:patches.map(p=>[p.x,p.y,p.food]),
+      player:{g:P.g,dna:P.dna,growth:P.growth,x:P.x,y:P.y,kills:P.kills,deaths:P.deaths,plantDNA:P.plantDNA,meatDNA:P.meatDNA,sporesEaten:P.sporesEaten,apexKills:P.apexKills,forms:P.forms},
+      all:Object.values(allSp).map(s=>({id:s.id,name:s.name,hue:s.hue,role:s.role,genome:s.genome,gen:s.gen,w:s.w,parentId:s.parentId,gained:s.gained,reason:s.reason,drift:s.drift,died:s.died,stage:s.stage,born:s.born,parent:s.parent})),
+      live:species.map(s=>s.id),stage,land:landSerialize()};
+    localStorage.setItem(SAVE_KEY,JSON.stringify(d));
+  }catch(e){}
+}
+function readSave(){try{return JSON.parse(localStorage.getItem(SAVE_KEY)||'null');}catch(e){return null;}}
+function clearSave(){try{localStorage.removeItem(SAVE_KEY);}catch(e){}}
+function loadGame(d){
+  try{
+    init();
+    cells=[];species=[];allSp={};
+    for(const o of d.all){const s=Object.assign({target:0,isNew:0},o);fillG(s.genome);allSp[s.id]=s;}
+    species=d.live.map(id=>allSp[id]).filter(Boolean);
+    spId=d.spId;time=d.time;dir.t=d.dirT;dir.pressured=d.pressured;dir.random=d.random;apexDone=d.apexDone;stageShown=d.stageShown;
+    Object.assign(ROLE_BUDGET,d.budget);
+    d.patches.forEach((p,i)=>{if(patches[i]){patches[i].x=p[0];patches[i].y=p[1];patches[i].food=p[2];}});
+    const P=d.player;
+    player=newCell(playerSp,P.g,P.x,P.y,true);
+    Object.assign(player,{dna:P.dna,growth:P.growth,inv:2,calm:0,kills:P.kills||0,deaths:P.deaths||0,plantDNA:P.plantDNA||0,meatDNA:P.meatDNA||0,sporesEaten:P.sporesEaten||0,apexKills:P.apexKills||0,dashCd:0,boost:0,forms:P.forms||[]});
+    cells.push(player);
+    recomputeTargets();
+    for(const s of species)for(let i=0;i<s.target;i++)spawnOf(s,s.role!=='grazer'?550:250);
+    cam.x=player.x;cam.y=player.y;
+    lp=null;LE=[];landSpecies=[];stage='cell';
+    if(d.land&&d.land.lp){landRestore(d.land);if(d.stage==='land'){stage='land';cam.x=lp.x;cam.y=lp.y;}}
+    return true;
+  }catch(e){console.warn('save could not be loaded',e);return false;}
+}
+addEventListener('visibilitychange',()=>{if(document.hidden)saveGame();});
+addEventListener('pagehide',saveGame);
+(function titleSave(){const d=readSave();if(d&&d.player){$('contBtn').classList.remove('hidden');$('startBtn').textContent='New life';
+  $('contInfo').textContent='Saved: '+(d.stage==='land'&&d.land?'Creature stage, size '+d.land.lp.g.size:'Cell stage, size '+d.player.g.size)+' · '+Math.floor(d.stage==='land'&&d.land?d.land.lp.dna:d.player.dna)+' DNA · '+fmtT(Math.floor(d.time))+' played';$('contInfo').classList.remove('hidden');}})();
+
+// ---------- stage complete ----------
+function openStage(){
+  if(panel)return;
+  paused=true;panel='stage';stageShown=true;sfx('stage');
+  const p=player,tot=(p.plantDNA+p.meatDNA)||1,ms=p.meatDNA/tot;
+  const trait=ms<0.25?'Herbivore':ms>0.75?'Carnivore':'Omnivore';
+  $('stTitle').textContent=trait;
+  $('stLearn').dataset.l={Herbivore:'filter',Carnivore:'jaw',Omnivore:'omni'}[trait];
+  $('stText').textContent={Herbivore:'You lived on plants and avoided the fight. Your species learned patience and endurance.',
+    Carnivore:'You lived by the hunt. Your species learned to bite first.',
+    Omnivore:'You ate whatever the pond offered. Your species learned to adapt.'}[trait]+' ('+Math.round((1-ms)*100)+'% of your DNA came from plants, '+Math.round(ms*100)+'% from meat.)';
+  const box=(v,l)=>`<div class="stat-box"><b>${v}</b><span>${l}</span></div>`;
+  $('stStats').innerHTML=box(fmtYears(time*YEARS_PER_SEC).replace(' years','').replace('million','M').replace('billion','bn'),'Years of evolution')+box(Math.floor(p.growth),'DNA gathered')+box(p.kills,'Cells you killed')+
+    box(p.deaths,'Times eaten')+box(dir.pressured,'Species you shaped')+box(p.sporesEaten,'Golden spores');
+  $('stNext').textContent='Your '+trait.toLowerCase()+' path carries over to the land as a starting bonus: '+{Herbivore:'a tough shell',Carnivore:'sharp claws',Omnivore:'an extra pair of legs'}[trait]+'.';
+  $('stage').classList.remove('hidden');
+}
+
+// ---------- HUD ----------
+let hudAcc=0;
+function hud(dt){
+  hudAcc+=dt;if(hudAcc<0.25)return;hudAcc=0;
+  const p=player,g=p.g;
+  $('dna').textContent=Math.floor(p.dna);
+  $('hpBar').style.width=(100*Math.max(0,p.hp/p.st.maxHp))+'%';
+  $('sizeLbl').textContent='Size '+g.size+(g.size>=5?' (max)':'');
+  const lo=SIZE_AT[g.size-1]||0,hi=SIZE_AT[g.size];
+  $('growBar').style.width=(g.size>=5?100:100*clamp((p.growth-lo)/(hi-lo),0,1))+'%';
+  const cheapest=Math.min(...Object.keys(PARTS).filter(k=>g[k]<PARTS[k].max).map(k=>PARTS[k].cost),99);
+  $('evoBtn').classList.toggle('ready',p.dna>=cheapest);
+  $('dashBar').style.width=(100*(1-p.dashCd/dashCdFor()))+'%';$('dashBtn').classList.toggle('ready',p.dashCd<=0);
+  const rows=species.map(s=>{const n=cells.filter(c=>c.sp===s).length;
+    return `<div class="sp" data-id="${s.id}"><span class="dot" style="background:hsl(${s.hue},70%,58%)"></span><span class="n">${s.name} ${s.isNew>0?'<span class="new">NEW</span>':''}</span><span class="r">${s.role}</span><span class="c">${n}</span></div>`;}).join('');
+  $('ecoList').innerHTML=rows;
+  $('nextEvo').textContent='Next evolution in '+fmtT(Math.ceil(dir.t));
+  $('dtVal').textContent=fmtYears(time*YEARS_PER_SEC);
+  $('ecoFood').firstElementChild.textContent='Pond food';
+  $('foodFill').style.width=(100*patches.reduce((a,p)=>a+p.food,0)/patches.length)+'%';
+  if(toastT>0){toastT-=0.25;if(toastT<=0)$('toast').classList.remove('show');}
+}
+
+// ---------- editor ----------
+function openEditor(){
+  if(stage==='land')return openLandEditor();
+  if(!running||panel)return;
+  const near=cells.some(c=>isPred(c.sp)&&c.rest<=0&&Math.hypot(c.x-player.x,c.y-player.y)<300);
+  if(near){toast('A hunter is too close. Escape first!');return;}
+  paused=true;panel='editor';edSnap=JSON.stringify(player.g);$('editor').classList.remove('hidden');buildEditor();sfx('click');
+}
+let edSnap='';
+const partSummary=g=>Object.keys(PARTS).filter(k=>g[k]>(k==='eye'?1:0)).map(k=>PARTS[k].name+(g[k]>1?' ×'+g[k]:'')).concat([MOUTHS[g.mouth].name]).join(', ');
+function closeEditor(){paused=false;panel=null;$('editor').classList.add('hidden');sfx('click');
+  if(stage==='land'){if(JSON.stringify(lp.g)!==edSnap)player.forms.push({t:Math.floor(time),txt:'Creature: '+Object.keys(LPARTS).filter(k=>lp.g[k]>((LPARTS[k].min)||0)).map(k=>LPARTS[k].name+(lp.g[k]>1?' ×'+lp.g[k]:'')).concat([LMOUTHS[lp.g.mouth].name]).join(', ')});return;}
+  if(JSON.stringify(player.g)!==edSnap){player.forms.push({t:Math.floor(time),txt:partSummary(player.g)});if(player.forms.length>40)player.forms.shift();}}
+// ---------- tree of life ----------
+function openTree(){
+  if(panel||!running)return;
+  paused=true;panel='tree';sfx('click');
+  const list=Object.values(allSp).sort((a,b)=>a.id-b.id);
+  // depth-first order so children sit under their parent
+  const kids={};for(const s of list){const p=s.parentId||0;(kids[p]=kids[p]||[]).push(s);}
+  const order=[];const walk=id=>{for(const c of (kids[id]||[])){order.push(c);walk(c.id);}};walk(0);
+  const now=Math.max(1,Math.floor(time)),W=Math.max(640,Math.min(940,innerWidth*0.9)),L=150,R=W-20,rowH=26,top=30;
+  const H=top+(order.length+1)*rowH+30,X=t=>L+(R-L)*t/now;
+  const row={};let svg='';
+  // your species on top
+  svg+=`<text x="8" y="${top+4}" fill="hsl(${PLAYER_HUE},80%,70%)" font-size="12" font-weight="700">Your species</text><line x1="${X(0)}" y1="${top}" x2="${X(now)}" y2="${top}" stroke="hsl(${PLAYER_HUE},80%,60%)" stroke-width="5" stroke-linecap="round"/>`;
+  for(const f of player.forms)svg+=`<circle cx="${X(f.t)}" cy="${top}" r="5" fill="#fff" stroke="hsl(${PLAYER_HUE},80%,50%)" stroke-width="2"><title>${fmtT(f.t)}: ${f.txt}</title></circle>`;
+  order.forEach((s,i)=>{
+    const y=top+(i+1)*rowH;row[s.id]=y;
+    const b=s.born||0,e=s.died!=null?s.died:now,alive=s.died==null,col=`hsl(${s.hue},70%,60%)`;
+    if(s.parentId&&row[s.parentId]!=null)svg+=`<path d="M${X(b)} ${row[s.parentId]} V${y}" stroke="${col}" stroke-width="2" fill="none" opacity="${alive?0.9:0.35}" stroke-dasharray="3 3"/>`;
+    svg+=`<g class="tl" data-id="${s.id}" style="cursor:pointer"><rect x="0" y="${y-12}" width="${W}" height="24" fill="transparent"/>
+      <text x="8" y="${y+4}" fill="${col}" font-size="12" opacity="${alive?1:0.45}">${s.name}${alive?'':' (extinct)'}</text>
+      <line x1="${X(b)}" y1="${y}" x2="${X(e)}" y2="${y}" stroke="${col}" stroke-width="${alive?5:3}" stroke-linecap="round" opacity="${alive?1:0.35}"/>
+      ${alive?`<circle cx="${X(e)}" cy="${y}" r="5" fill="${col}"/>`:`<text x="${X(e)+6}" y="${y+4}" fill="${col}" opacity=".5" font-size="11">✕</text>`}
+      ${s.gained?`<text x="${X(b)+6}" y="${y-6}" fill="#dff6ff" opacity=".6" font-size="10">+${partName(s.gained)}</text>`:''}</g>`;
+  });
+  // time axis in years
+  const ay=H-16;svg+=`<line x1="${L}" y1="${ay-8}" x2="${R}" y2="${ay-8}" stroke="rgba(255,255,255,.2)"/>`;
+  for(let i=0;i<=4;i++){const t=now*i/4;svg+=`<text x="${X(t)}" y="${ay+6}" fill="rgba(223,246,255,.55)" font-size="10" text-anchor="${i===0?'start':i===4?'end':'middle'}">${i===4?'now':fmtYears(t*YEARS_PER_SEC)}</text>`;}
+  $('treeWrap').innerHTML=`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" style="display:block">${svg}</svg>`;
+  $('treeWrap').querySelectorAll('.tl').forEach(g=>g.onclick=()=>{const id=+g.dataset.id;closeTree(true);openSpecies(id);});
+  $('yourForms').innerHTML=player.forms.length?'<b>Your evolution:</b> '+player.forms.slice(-6).map(f=>`<span style="opacity:.8">${fmtT(f.t)} → ${f.txt}</span>`).join(' · '):'<span style="opacity:.6">Your own changes appear here (white dots on your line) each time you evolve in the editor.</span>';
+  $('treeP').classList.remove('hidden');
+}
+function closeTree(quiet){paused=false;panel=null;$('treeP').classList.add('hidden');if(!quiet)sfx('click');}
+
+// ---------- species history panel ----------
+let spShown=null;
+function openSpecies(id){
+  const s=allSp[id];if(!s)return;
+  spShown=s;paused=true;panel='species';sfx('click');
+  const isL=s.stage==='land',n=(isL?LE:cells).filter(c=>c.sp===s).length,G=s.genome,PP=isL?LPARTS:PARTS,MM=isL?LMOUTHS:MOUTHS;
+  $('spName').textContent=s.name;$('spName').style.color=`hsl(${s.hue},75%,68%)`;
+  $('spMeta').textContent=({hunter:'Hunter',apex:'Apex predator',grazer:'Grazer'}[s.role])+' · generation '+s.gen+' · '+n+' alive'+(s.gen>1?' · appeared at '+fmtT(s.born):' · original species');
+  $('spParts').innerHTML=Object.entries(PP).map(([k,d])=>`<div class="prow"><span>${d.name}</span><span class="pips">${'●'.repeat(G[k]||0)+'○'.repeat(Math.max(0,d.max-(G[k]||0)))}</span></div>`).join('')+
+    `<div class="prow"><span>Mouth</span><span>${(MM[G.mouth]||{name:'?'}).name}</span></div>`;
+  const chain=[];let p=s;while(p){chain.unshift(p);p=allSp[p.parentId];}
+  $('spHist').innerHTML=chain.map(x=>`<div class="hist ${x===s?'cur':''}"><b>${x.name}</b> ${x.parentId?`gained <b>${partName(x.gained)}</b><button class="q" data-l="${x.gained}">?</button> at ${fmtT(x.born)}. ${x.reason} <button class="lk" data-l="${x.drift?'drift':'selection'}">Why does this happen?</button>`:(x.stage==='land'?'an original species of the land.':'the original species in this pond.')}</div>`).join('');
+  $('spPanel').classList.remove('hidden');
+}
+function closeSpecies(){paused=false;panel=null;spShown=null;$('spPanel').classList.add('hidden');sfx('click');}
+const spv=$('spv'),sctx=spv.getContext('2d');
+function drawSpPreview(){
+  if(!spShown)return;
+  sctx.setTransform(1,0,0,1,0,0);sctx.clearRect(0,0,520,520);
+  const o={x:spShown.stage==='land'?240:260,y:260,r:spShown.stage==='land'?95:105,g:spShown.genome,sp:spShown,angle:0,phase:1,speedNow:60,walk:performance.now()/250,hurt:0,mut:0,isPlayer:false};
+  if(spShown.stage==='land')drawCreature(sctx,o,performance.now()/1000);else drawCell(sctx,o,performance.now()/1000);
+}
+function buildEditor(){
+  const p=player,g=p.g;document.querySelector('#editor h2').textContent='Evolve your cell';
+  $('edDna').textContent=Math.floor(p.dna);
+  $('partList').innerHTML=Object.entries(PARTS).map(([k,d])=>{
+    const n=g[k],pips='●'.repeat(n)+'○'.repeat(d.max-n);
+    return `<div class="row"><div class="info"><b>${d.name}</b><button class="q" data-l="${k}" title="Learn more">?</button> <span class="pips">${pips}</span><span>${d.desc}</span></div>
+      <button data-p="${k}" data-a="-1" ${n<=(d.min||0)?'disabled':''} title="Remove (full refund)">−</button>
+      <button class="buy" data-p="${k}" data-a="1" ${n>=d.max||p.dna<d.cost?'disabled':''}>+ ${d.cost} DNA</button></div>`;}).join('');
+  $('mouthList').innerHTML=Object.entries(MOUTHS).map(([k,d])=>{const cur=g.mouth===k;
+    return `<button data-m="${k}" class="${cur?'cur':''}" ${cur||p.dna<d.cost?'disabled':''}>${d.name}<small>${cur?'Current':d.cost+' DNA'} · ${d.desc}</small></button>`;}).join('');
+  document.querySelectorAll('#partList button.q').forEach(b=>b.onclick=e=>{e.stopPropagation();openLearn(b.dataset.l);});
+  document.querySelectorAll('#partList button:not(.q)').forEach(b=>b.onclick=()=>{const k=b.dataset.p,a=+b.dataset.a,d=PARTS[k];
+    if(a>0&&g[k]<d.max&&p.dna>=d.cost){g[k]++;p.dna-=d.cost;sfx('buy');}
+    else if(a<0&&g[k]>(d.min||0)){g[k]--;p.dna+=d.cost;sfx('sell');}
+    refresh(p);buildEditor();});
+  document.querySelectorAll('#mouthList button').forEach(b=>b.onclick=()=>{const k=b.dataset.m,d=MOUTHS[k];if(p.dna>=d.cost&&g.mouth!==k){g.mouth=k;p.dna-=d.cost;sfx('buy');refresh(p);buildEditor();}});
+  const st=p.st;
+  const bars=[['Speed',st.speed/180],['Attack',(st.spikeDps+st.biteDps)/40],['Defence',st.armour/0.6],['Vision',(st.vision-190)/360+0.15]];
+  $('statbars').innerHTML=bars.map(([n,v])=>`<div class="srow"><span>${n}</span><div class="bar"><i style="width:${clamp(v,0.04,1)*100}%"></i></div></div>`).join('');
+  $('diet').textContent='Diet: '+(st.plants&&st.meat?'plants and meat':st.plants?'plants only':'meat only (bite cells, eat the red chunks)');
+}
+const pv=$('pv'),pctx=pv.getContext('2d');
+function drawPreview(){
+  pctx.setTransform(1,0,0,1,0,0);pctx.clearRect(0,0,600,600);
+  const fake={x:300,y:300,r:120,g:player.g,sp:playerSp,angle:-0.0,phase:player.phase,speedNow:60,hurt:0,mut:0,isPlayer:false};
+  drawCell(pctx,fake,performance.now()/1000);
+}
+
+// ---------- FILMS: five short animated explainers with a spoken voice, unlocked at milestones ----------
+// (inserted inside the main game script; uses drawCell, fillG, AU, panel, paused, banner, sfx, $)
+const ATCG={A:'#6ee7a0',T:'#ff7a8a',C:'#6cb8ff',G:'#ffd36b'};
+const fease=p=>p<0?0:p>1?1:p*p*(3-2*p);
+const lerp=(a,b,p)=>a+(b-a)*p;
+function fbg(x,W,H,c1,c2){const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,c1);g.addColorStop(1,c2);x.fillStyle=g;x.fillRect(0,0,W,H);}
+function circ(x,X,Y,R){x.beginPath();x.arc(X,Y,Math.max(0.1,R),0,TAU);}
+function stars(x,W,H,t){for(let i=0;i<120;i++){const px=(i*137.5)%W,py=(i*71.3)%H;x.fillStyle=`rgba(255,255,255,${0.25+0.35*Math.abs(Math.sin(t*0.8+i))})`;x.fillRect(px,py,1.6,1.6);}}
+function fmotes(x,W,H,t,col){x.fillStyle=col||'rgba(200,240,255,0.25)';for(let i=0;i<60;i++){const px=((i*97.3+t*10*(1+i%3))%W),py=((i*53.7)%H)+Math.sin(t+i)*8;circ(x,px,py,1+(i%3)*0.6);x.fill();}}
+function water(x,W,H,t){fbg(x,W,H,'#07405a','#03172a');fmotes(x,W,H,t);}
+function label(x,txt,X,Y,size,col,align){x.font=`600 ${size}px system-ui,-apple-system,Segoe UI,Roboto,sans-serif`;x.textAlign=align||'center';x.textBaseline='middle';x.fillStyle=col||'#dff6ff';x.fillText(txt,X,Y);}
+const mk=(X,Y,r,hue,g,ang)=>({x:X,y:Y,r,g:fillG(Object.assign({size:1,flagellum:0,spike:0,armour:0,eye:1,mouth:'filter'},g||{})),sp:{hue},angle:ang||0,phase:hue*0.07,speedNow:45,hurt:0,mut:0,isPlayer:false});
+function cellAt(x,X,Y,r,hue,g,ang,t,mut){const c=mk(X,Y,r,hue,g,ang);c.mut=mut||0;drawCell(x,c,t);}
+function helix(x,X0,X1,cy,A,t,S,steps){const N=steps||28;for(let i=0;i<=N;i++){const px=lerp(X0,X1,i/N),ph=i*0.55+t*1.6,y1=cy+Math.sin(ph)*A,y2=cy-Math.sin(ph)*A;
+  x.strokeStyle=Object.values(ATCG)[i%4];x.globalAlpha=0.5+0.5*Math.abs(Math.cos(ph));x.lineWidth=3*S;x.beginPath();x.moveTo(px,y1);x.lineTo(px,y2);x.stroke();x.globalAlpha=1;}
+  for(const sg of [1,-1]){x.beginPath();for(let i=0;i<=N*3;i++){const px=lerp(X0,X1,i/(N*3)),ph=(i/3)*0.55+t*1.6,y=cy+sg*Math.sin(ph)*A;i?x.lineTo(px,y):x.moveTo(px,y);}x.strokeStyle='#e8f6ff';x.lineWidth=4*S;x.stroke();}}
+function letters(x,str,cx,cy,S,hi,hiCol){const w=34*S;const x0=cx-(str.length-1)*w/2;for(let i=0;i<str.length;i++){const ch=str[i],X=x0+i*w;
+  if(i===hi){circ(x,X,cy,22*S);x.fillStyle=hiCol||'rgba(255,90,110,0.35)';x.fill();}label(x,ch,X,cy,32*S,ATCG[ch]||'#fff');}}
+function arrow(x,X0,Y0,X1,Y1,S,col,alpha){x.globalAlpha=alpha==null?1:alpha;x.strokeStyle=col;x.fillStyle=col;x.lineWidth=3*S;x.beginPath();x.moveTo(X0,Y0);x.lineTo(X1,Y1);x.stroke();
+  const a=Math.atan2(Y1-Y0,X1-X0);x.beginPath();x.moveTo(X1,Y1);x.lineTo(X1-Math.cos(a-0.4)*12*S,Y1-Math.sin(a-0.4)*12*S);x.lineTo(X1-Math.cos(a+0.4)*12*S,Y1-Math.sin(a+0.4)*12*S);x.closePath();x.fill();x.globalAlpha=1;}
+
+const FILMS=[
+ {title:'How life began',when:'Unlocked when you start playing',scenes:[
+  {say:'Four and a half billion years ago, Earth was a burning ball of rock, covered in volcanoes.',d:(x,t,p,W,H,S,cx,cy)=>{
+    fbg(x,W,H,'#02030a','#0b0716');stars(x,W,H,t);const R=150*S;const g=x.createRadialGradient(cx-R*.3,cy-R*.3,R*.1,cx,cy,R);g.addColorStop(0,'#ffb347');g.addColorStop(.6,'#c2410c');g.addColorStop(1,'#3b0a02');
+    circ(x,cx,cy,R+18*S);x.fillStyle='rgba(255,110,40,0.12)';x.fill();circ(x,cx,cy,R);x.fillStyle=g;x.fill();
+    x.save();circ(x,cx,cy,R);x.clip();x.strokeStyle=`rgba(255,225,130,${.55+.3*Math.sin(t*3)})`;x.lineWidth=2.5*S;
+    for(let i=0;i<10;i++){const a=i*0.7;x.beginPath();x.arc(cx+Math.cos(a*2)*R*.35,cy+Math.sin(a*1.3)*R*.35,R*(.25+.06*i),a,a+0.9);x.stroke();}
+    for(let i=0;i<5;i++){const f=Math.abs(Math.sin(t*2+i*1.7));circ(x,cx+Math.cos(i*1.3)*R*.6,cy+Math.sin(i*2.1)*R*.55,(4+8*f)*S);x.fillStyle=`rgba(255,240,180,${f})`;x.fill();}x.restore();}},
+  {say:'Slowly it cooled down. Rain fell for millions of years, and filled the first oceans.',d:(x,t,p,W,H,S,cx,cy)=>{
+    fbg(x,W,H,'#02030a','#06101c');stars(x,W,H,t);const R=150*S,q=fease(p*1.3),hue=lerp(18,205,q),l=lerp(45,42,q);
+    circ(x,cx,cy,R+16*S);x.fillStyle=`hsla(${hue},80%,60%,0.12)`;x.fill();
+    const g=x.createRadialGradient(cx-R*.3,cy-R*.3,R*.1,cx,cy,R);g.addColorStop(0,`hsl(${hue},75%,${l+20}%)`);g.addColorStop(1,`hsl(${hue},80%,${l-25}%)`);circ(x,cx,cy,R);x.fillStyle=g;x.fill();
+    x.save();circ(x,cx,cy,R);x.clip();x.strokeStyle='rgba(200,230,255,0.45)';x.lineWidth=1.5*S;
+    for(let i=0;i<70;i++){const px=cx-R+((i*37)%(2*R)),py=cy-R+((i*53+t*260)%(2*R));x.beginPath();x.moveTo(px,py);x.lineTo(px-3*S,py+12*S);x.stroke();}
+    x.fillStyle='rgba(255,255,255,0.18)';for(let i=0;i<4;i++){x.beginPath();x.ellipse(cx+Math.cos(t*.2+i*1.6)*R*.5,cy+Math.sin(i*1.9)*R*.5,R*.35,R*.08,i,0,TAU);x.fill();}x.restore();}},
+  {say:'Deep in the ocean, hot springs bubbled up from the sea floor, full of chemicals and energy.',d:(x,t,p,W,H,S,cx,cy)=>{
+    fbg(x,W,H,'#063049','#020a12');fmotes(x,W,H,t,'rgba(160,220,255,0.18)');const fy=cy+130*S;
+    x.fillStyle='#0b1a22';x.beginPath();x.moveTo(0,H);x.lineTo(0,fy);for(let i=0;i<=12;i++)x.lineTo(W*i/12,fy+Math.sin(i*1.7)*14*S);x.lineTo(W,H);x.fill();
+    x.fillStyle='#1d2a30';x.beginPath();x.moveTo(cx-60*S,fy+6*S);x.lineTo(cx-22*S,cy-40*S);x.lineTo(cx+22*S,cy-40*S);x.lineTo(cx+60*S,fy+6*S);x.fill();
+    const gl=x.createRadialGradient(cx,cy-40*S,0,cx,cy-40*S,90*S);gl.addColorStop(0,'rgba(255,150,60,0.55)');gl.addColorStop(1,'rgba(255,150,60,0)');x.fillStyle=gl;circ(x,cx,cy-40*S,90*S);x.fill();
+    for(let i=0;i<26;i++){const k=(t*0.5+i/26)%1,bx=cx+Math.sin(i*2.3+t)*18*S*(1+k*2),by=cy-40*S-k*260*S;circ(x,bx,by,(2+3*(i%3))*S*(1-k*0.4));x.strokeStyle=`rgba(220,245,255,${0.6*(1-k)})`;x.lineWidth=1.2*S;x.stroke();}
+    const cols=['#ff7a8a','#ffd36b','#6cb8ff','#6ee7a0'];for(let i=0;i<34;i++){const a=i*0.9+t*(0.3+(i%4)*0.1),rr=(70+(i*13)%140)*S;circ(x,cx+Math.cos(a)*rr*1.4,cy-60*S+Math.sin(a)*rr*0.6,3.5*S);x.fillStyle=cols[i%4];x.fill();}}},
+  {say:'There, simple chemicals bumped into each other again and again. Some joined into long chains that could copy themselves.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);const n=10,q=fease(p*1.6),keys='ATCGGATCCA';
+    const pts=[];for(let i=0;i<n;i++){const sx=cx+Math.cos(i*2.4)*260*S,sy=cy+Math.sin(i*1.7)*170*S,tx=cx+(i-(n-1)/2)*34*S,ty=cy+Math.sin(i*0.8+t*2)*14*S;pts.push([lerp(sx,tx,q)+Math.sin(t*2+i)*6*S*(1-q),lerp(sy,ty,q)]);}
+    if(q>0.85){x.strokeStyle=`rgba(232,246,255,${(q-0.85)/0.15})`;x.lineWidth=3*S;x.beginPath();pts.forEach((pp,i)=>i?x.lineTo(pp[0],pp[1]):x.moveTo(pp[0],pp[1]));x.stroke();}
+    pts.forEach((pp,i)=>{circ(x,pp[0],pp[1],11*S);x.fillStyle=ATCG[keys[i]];x.fill();label(x,keys[i],pp[0],pp[1]+1,12*S,'#06202c');});
+    if(p>0.7){const a=fease((p-0.7)/0.3);x.globalAlpha=a;pts.forEach((pp,i)=>{circ(x,pp[0],pp[1]+60*S,11*S);x.fillStyle=ATCG[keys[i]];x.fill();});x.globalAlpha=1;label(x,'a copy!',cx,cy+100*S,18*S,`rgba(255,211,107,${a})`);}}},
+  {say:'Some of these chains got trapped inside tiny bubbles of fat, like soap bubbles. A bubble with a copying chain inside was the very first cell.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);const R=120*S,q=fease(p*1.5);
+    x.strokeStyle='#e8f6ff';x.lineWidth=3*S;x.beginPath();for(let i=0;i<10;i++){const X=cx+(i-4.5)*16*S,Y=cy+Math.sin(i*0.8+t*2)*8*S;i?x.lineTo(X,Y):x.moveTo(X,Y);}x.stroke();
+    for(let i=0;i<10;i++){circ(x,cx+(i-4.5)*16*S,cy+Math.sin(i*0.8+t*2)*8*S,5*S);x.fillStyle=Object.values(ATCG)[i%4];x.fill();}
+    x.beginPath();x.arc(cx,cy,R,-Math.PI/2,-Math.PI/2+TAU*q);x.strokeStyle='rgba(143,240,200,0.85)';x.lineWidth=10*S;x.lineCap='round';x.stroke();
+    if(q>=1){circ(x,cx,cy,R);x.fillStyle=`rgba(95,211,255,${0.12+0.05*Math.sin(t*2)})`;x.fill();label(x,'the first cell',cx,cy+R+34*S,20*S,'#ffd36b');}
+    for(let i=0;i<40;i++){const a=i/40*TAU+t*0.2,rr=R+(30+(i%5)*12)*S*(1-q);circ(x,cx+Math.cos(a)*rr,cy+Math.sin(a)*rr,3*S);x.fillStyle=`rgba(143,240,200,${0.6*(1-q)+0.1})`;x.fill();}}},
+  {say:'When it copied itself, one cell became two, and two became four. Life had begun, about 3.8 billion years ago.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);const gen=Math.min(3,Math.floor(p*4.2)),n=1<<gen,cols=gen<2?n:4,rows=Math.ceil(n/cols),gap=110*S;
+    for(let i=0;i<n;i++){const c=i%cols,r=Math.floor(i/cols);cellAt(x,cx+(c-(cols-1)/2)*gap,cy+(r-(rows-1)/2)*gap,38*S,188,{},Math.sin(t+i)*0.5,t);}
+    label(x,n+(n===1?' cell':' cells'),cx,cy+190*S,22*S,'#ffd36b');}},
+  {say:'From that first cell came every living thing that has ever existed, including the cells in your pond. This is where your story starts.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);const sp=[[98,{}],[42,{flagellum:1,armour:1}],[352,{mouth:'jaw',spike:1,flagellum:1}],[150,{eye:2}],[270,{toxin:1}],[60,{chloro:2}]];
+    sp.forEach(([h,g],i)=>{const a=i/6*TAU+t*0.25;cellAt(x,cx+Math.cos(a)*220*S,cy+Math.sin(a)*130*S,30*S,h,g,a+Math.PI/2,t);});
+    cellAt(x,cx,cy,48*S,188,{},Math.sin(t)*0.3,t);label(x,'you',cx,cy+78*S,18*S,'#8ff0c8');}},
+ ]},
+ {title:'DNA and mutations',when:'Unlocks at the first evolution in your pond',scenes:[
+  {say:'Inside every cell is a long instruction book called DNA. It is written with just four letters: A, T, C and G.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);helix(x,cx-300*S,cx+300*S,cy-20*S,60*S,t,S);letters(x,'ATCG',cx,cy+110*S,S*1.3);}},
+  {say:'The letters tell the cell how to build itself: how big to grow, what shape to be, and what parts to have.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);helix(x,cx-300*S,cx+300*S,cy-120*S,30*S,t,S,22);const str='ATGCGTACCTAGGATCCGTA';const off=Math.floor(t*2)%8;letters(x,str.slice(off,off+11),cx,cy-30*S,S);
+    const parts=[['size',{size:1}],['shape',{flagellum:1}],['parts',{spike:2,eye:2}]];parts.forEach(([n,g],i)=>{const X=cx+(i-1)*190*S;arrow(x,X,cy+5*S,X,cy+45*S,S,'#8ff0c8',0.7);cellAt(x,X,cy+105*S,34*S,188,g,0,t);label(x,n,X,cy+165*S,16*S,'#dff6ff');});}},
+  {say:'Before a cell splits in two, it copies its whole instruction book, letter by letter.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);const sp=fease(p*1.3)*80*S;helix(x,cx-280*S,cx+280*S,cy-sp,40*S,t,S,24);if(p>0.08)helix(x,cx-280*S,cx+280*S,cy+sp,40*S,t+0.3,S,24);
+    if(p>0.6)label(x,'two copies',cx,cy+150*S,20*S,'#ffd36b');}},
+  {say:'But copying is not perfect. Sometimes one letter comes out wrong. This is called a mutation.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);const base='ATGCGTACCTAG',mut=p>0.35;letters(x,base,cx,cy-50*S,S);
+    const copy=mut?base.slice(0,7)+'G'+base.slice(8):base;letters(x,copy,cx,cy+40*S,S,mut?7:-1,`rgba(255,90,110,${0.25+0.2*Math.sin(t*6)})`);
+    label(x,'original',cx-260*S,cy-50*S,14*S,'rgba(223,246,255,.6)','right');label(x,'copy',cx-260*S,cy+40*S,14*S,'rgba(223,246,255,.6)','right');
+    if(mut)label(x,'mutation!',cx+(7-5.5)*34*S,cy+95*S,20*S,'#ff7a8a');}},
+  {say:'Most mutations do nothing. Some are harmful. But once in a while, a mutation gives a cell something new, like a spike.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);const k=p>0.4?Math.min(2,1+Math.floor((p-0.4)*6)):0;cellAt(x,cx-170*S,cy,60*S,188,{},0,t);cellAt(x,cx+170*S,cy,60*S,188,{spike:k},0,t,p>0.4&&p<0.6?1.2:0);
+    label(x,'normal copy',cx-170*S,cy+115*S,17*S,'#dff6ff');label(x,'copy with a mutation',cx+170*S,cy+115*S,17*S,'#ffd36b');}},
+  {say:'Add up millions of tiny changes over millions of years, and you get all the different living things on Earth.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);const G=[{},{flagellum:1},{spike:2},{armour:2},{eye:3},{toxin:2},{chloro:3},{mouth:'jaw',spike:1},{flagellum:2,eye:2},{armour:1,toxin:1}];
+    for(let i=0;i<10;i++){const X=((i*130*S+t*40*S)%(W+260*S))-130*S,Y=cy+Math.sin(i*1.9)*90*S;cellAt(x,X,Y,32*S,(i*47)%360,G[i],0,t);}}},
+ ]},
+ {title:'Natural selection',when:'Unlocks when you reach size 3',scenes:[
+  {say:'Living things are never exactly the same. In this group, some cells have tails, and some do not.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);for(let i=0;i<10;i++){const X=cx+((i%5)-2)*120*S+Math.sin(t+i)*10*S,Y=cy+(i<5?-60:60)*S+Math.cos(t*0.8+i)*8*S;cellAt(x,X,Y,28*S,98,{flagellum:i%2?0:1},0,t);}}},
+  {say:'A hunter arrives. The slow cells without tails are easier to catch.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);const hx=lerp(-80*S,W+80*S,p);
+    for(let i=0;i<10;i++){const tail=i%2===0,X=cx+((i%5)-2)*120*S,baseY=cy+(i<5?-60:60)*S;
+      if(!tail&&hx>X+10*S){const k=(hx-X)/(60*S);if(k<1){circ(x,X,baseY,28*S*(1+k));x.strokeStyle=`rgba(255,120,130,${1-k})`;x.lineWidth=3*S;x.stroke();}continue;}
+      const near=Math.max(0,1-Math.abs(hx-X)/(200*S)),Y=baseY+(i<5?-1:1)*near*70*S*(tail?1:0.2);cellAt(x,X,Y,28*S,98,{flagellum:tail?1:0},0,t);}
+    cellAt(x,hx,cy,44*S,352,{mouth:'jaw',spike:1,flagellum:1},0,t);}},
+  {say:'The fast ones escape more often. They are the survivors.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);for(let i=0;i<5;i++){const X=cx+(i-2)*130*S+Math.sin(t+i)*10*S,Y=cy+Math.cos(t+i*2)*30*S;circ(x,X,Y,44*S);x.fillStyle='rgba(255,211,107,0.08)';x.fill();cellAt(x,X,Y,30*S,98,{flagellum:1},0,t);}}},
+  {say:'The survivors have babies, and the babies inherit their parents\' tails.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);const sp=fease((p-0.25)*2)*40*S;for(let i=0;i<5;i++){const X=cx+(i-2)*130*S;cellAt(x,X,cy-sp,(p>0.25?24:30)*S,98,{flagellum:1},0,t);if(p>0.25)cellAt(x,X,cy+sp,24*S,98,{flagellum:1},0,t);}}},
+  {say:'Generation after generation, more and more of the group has tails. The whole species has changed.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);const frac=0.5+0.5*fease(p*1.2),gen=1+Math.floor(fease(p)*99);
+    for(let i=0;i<12;i++){const X=cx+((i%6)-2.5)*100*S,Y=cy+(i<6?-55:55)*S+Math.sin(t+i)*6*S;cellAt(x,X,Y,26*S,98,{flagellum:(i/12)<frac?1:0},0,t);}
+    label(x,'Generation '+gen,cx,cy-150*S,24*S,'#ffd36b');label(x,Math.round(frac*100)+'% have tails',cx,cy+150*S,18*S,'#dff6ff');}},
+  {say:'Charles Darwin and Alfred Russel Wallace worked this out over 160 years ago. They called it natural selection.',d:(x,t,p,W,H,S,cx,cy)=>{
+    fbg(x,W,H,'#ffb36b','#5a2a4a');const sy=cy+80*S;circ(x,cx+160*S,sy-30*S,60*S);x.fillStyle='rgba(255,236,190,0.85)';x.fill();
+    x.fillStyle='#173048';x.fillRect(0,sy,W,H-sy);x.strokeStyle='rgba(255,220,180,0.3)';x.lineWidth=2*S;for(let i=0;i<8;i++){x.beginPath();x.moveTo(cx-300*S+i*80*S+Math.sin(t+i)*10*S,sy+20*S+i*8*S);x.lineTo(cx-250*S+i*80*S,sy+20*S+i*8*S);x.stroke();}
+    const bx=cx-80*S+Math.sin(t*0.5)*20*S,by=sy-4*S+Math.sin(t*1.5)*3*S;x.fillStyle='#1b1020';x.beginPath();x.moveTo(bx-90*S,by);x.lineTo(bx+90*S,by);x.lineTo(bx+70*S,by+24*S);x.lineTo(bx-70*S,by+24*S);x.fill();
+    x.fillRect(bx-3*S,by-120*S,5*S,120*S);x.fillRect(bx+40*S,by-90*S,4*S,90*S);
+    x.beginPath();x.moveTo(bx,by-115*S);x.quadraticCurveTo(bx+40*S,by-70*S,bx,by-20*S);x.fill();x.beginPath();x.moveTo(bx+42*S,by-86*S);x.quadraticCurveTo(bx+72*S,by-55*S,bx+42*S,by-20*S);x.fill();
+    label(x,'Darwin & Wallace · 1858',cx,cy-150*S,26*S,'#fff7e6');}},
+  {say:'In Zoetica, you are the hunter, or the hunted. Your choices are the danger that shapes how the other species evolve.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);for(let i=0;i<7;i++){const a=i/7*TAU+t*0.3,rr=(170+20*Math.sin(t*2+i))*S;cellAt(x,cx+Math.cos(a)*rr*1.3,cy+Math.sin(a)*rr*0.7,24*S,98,{armour:i%3===0?1:0,flagellum:i%2},a+Math.PI/2,t);}
+    cellAt(x,cx,cy,52*S,188,{mouth:'omni',spike:2,flagellum:1},Math.sin(t)*0.4,t);}},
+ ]},
+ {title:'The arms race',when:'Unlocks when the apex predator appears (size 4)',scenes:[
+  {say:'Hunters and their prey are in a race that never ends.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);cellAt(x,cx-170*S,cy,52*S,98,{},0,t);cellAt(x,cx+170*S,cy,58*S,352,{mouth:'jaw',flagellum:1},Math.PI,t);label(x,'VS',cx,cy,34*S,'#ffd36b');}},
+  {say:'When hunters bite, the prey with armour survive more often. Soon, most of the prey are armoured.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);const k=p>0.3?Math.min(2,1+Math.floor((p-0.3)*5)):0,lunge=Math.max(0,Math.sin(t*3))*60*S;
+    cellAt(x,cx-170*S,cy,52*S,98,{armour:k},0,t,p>0.3&&p<0.45?1.2:0);cellAt(x,cx+170*S-lunge,cy,58*S,352,{mouth:'jaw',flagellum:1},Math.PI,t);label(x,'+ armour',cx-170*S,cy+95*S,18*S,k?'#ffd36b':'rgba(0,0,0,0)');}},
+  {say:'Now the hunters with sharper spikes catch more food, so the hunters change too.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);const k=p>0.25?Math.min(3,1+Math.floor((p-0.25)*6)):0;cellAt(x,cx-170*S,cy,52*S,98,{armour:2},0,t);
+    cellAt(x,cx+170*S,cy,58*S,352,{mouth:'jaw',flagellum:1,spike:k},Math.PI,t,p>0.25&&p<0.4?1.2:0);label(x,'+ spikes',cx+170*S,cy+105*S,18*S,k?'#ffd36b':'rgba(0,0,0,0)');}},
+  {say:'Some prey find a different trick: poison. Bite me, and you will be sorry.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);const k=p>0.25?2:0,lunge=p>0.55?Math.max(0,Math.sin((p-0.55)*12))*80*S:0;cellAt(x,cx-170*S,cy,52*S,98,{armour:2,toxin:k},0,t,p>0.25&&p<0.4?1.2:0);
+    const hc=mk(cx+170*S-lunge,cy,58*S,352,{mouth:'jaw',flagellum:1,spike:3},Math.PI);hc.hurt=lunge>40*S?0.4:0;drawCell(x,hc,t);
+    if(p>0.7)label(x,'ouch!',cx+150*S,cy-95*S,22*S,'#c58bff');}},
+  {say:'Everything is connected in a food web. Plants feed the grazers, grazers feed the hunters, and the hunters feed the giants.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);const ys=[cy+170*S,cy+60*S,cy-50*S,cy-160*S],names=['plants','grazers','hunters','apex predator'];
+    for(let i=0;i<14;i++){circ(x,cx-40*S+(i-6.5)*14*S,ys[0]+Math.sin(i*2+t)*6*S,6*S);x.fillStyle='#86e36a';x.fill();}
+    cellAt(x,cx,ys[1],26*S,98,{},-Math.PI/2,t);cellAt(x,cx,ys[2],32*S,352,{mouth:'jaw',flagellum:1},-Math.PI/2,t);cellAt(x,cx,ys[3],40*S,282,{mouth:'jaw',spike:2,eye:2},-Math.PI/2,t);
+    for(let i=0;i<4;i++)label(x,names[i],cx+110*S,ys[i],17*S,'#dff6ff','left');
+    for(let i=0;i<3;i++){const a=fease((p-i*0.22)*4);if(a>0)arrow(x,cx-60*S,ys[i]-12*S,cx-60*S,ys[i+1]+22*S,S,'#ffd36b',a);}
+    label(x,'food flows up',cx-80*S,cy,14*S,'rgba(255,211,107,.7)','right');}},
+  {say:'When there are many grazers, hunters do well. When hunters eat too many, they go hungry. The numbers rise and fall, keeping a balance.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);const X0=cx-300*S,X1=cx+300*S,Y0=cy+130*S,Y1=cy-130*S;x.strokeStyle='rgba(255,255,255,.3)';x.lineWidth=2*S;x.beginPath();x.moveTo(X0,Y1);x.lineTo(X0,Y0);x.lineTo(X1,Y0);x.stroke();
+    const upto=fease(p*1.15);for(const [col,ph,amp,base] of [['#86e36a',0,90,0.55],['#ff6b81',1.3,60,0.35]]){x.strokeStyle=col;x.lineWidth=4*S;x.beginPath();
+      for(let i=0;i<=120*upto;i++){const u=i/120,X=lerp(X0,X1,u),Y=Y0-(base*(Y0-Y1))-Math.sin(u*TAU*2-ph)*amp*S;i?x.lineTo(X,Y):x.moveTo(X,Y);}x.stroke();}
+    label(x,'grazers',X1,Y1-10*S,16*S,'#86e36a','right');label(x,'hunters',X1,Y1+16*S,16*S,'#ff6b81','right');label(x,'time →',X1,Y0+20*S,14*S,'rgba(223,246,255,.6)','right');}},
+ ]},
+ {title:'From one cell to many',when:'Unlocks when you reach size 5',scenes:[
+  {say:'For about three billion years, life on Earth was only single cells, like the ones in your pond.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);for(let i=0;i<9;i++){const a=i*0.7+t*0.2;cellAt(x,cx+Math.cos(a+i)*260*S*((i%3+1)/3),cy+Math.sin(a*1.3+i)*150*S*((i%3+1)/3),24*S,160,{},a,t);}}},
+  {say:'Then some cells started sticking together after they divided. Together they were bigger, and harder to eat.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);const q=fease(p*1.4),hex=[[0,0]];for(let i=0;i<6;i++)hex.push([Math.cos(i/6*TAU),Math.sin(i/6*TAU)]);
+    hex.forEach(([hx,hy],i)=>{const sx=cx+Math.cos(i*2.2)*280*S,sy=cy+Math.sin(i*1.5)*160*S;cellAt(x,lerp(sx,cx+hx*50*S,q),lerp(sy,cy+hy*50*S,q),26*S,160,{},0,t);});
+    if(q>0.95)label(x,'a team of cells',cx,cy+120*S,20*S,'#ffd36b');}},
+  {say:'In a team, cells could share the work. Some cells moved, some digested food, and some protected the group.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);x.save();x.translate(cx,cy);x.rotate(t*0.15);
+    for(let i=0;i<6;i++){const a=i/6*TAU;cellAt(x,Math.cos(a)*56*S,Math.sin(a)*56*S,28*S,i%2?160:200,i%2?{flagellum:1}:{armour:1},a,t);}cellAt(x,0,0,30*S,30,{chloro:1},0,t);x.restore();
+    label(x,'movers',cx+170*S,cy-60*S,16*S,'hsl(160,70%,65%)','left');label(x,'protectors',cx+170*S,cy,16*S,'hsl(200,70%,65%)','left');label(x,'digesters',cx+170*S,cy+60*S,16*S,'hsl(30,80%,65%)','left');}},
+  {say:'Over millions of years, these teams became the first animals: worms, jellyfish, and stranger things.',d:(x,t,p,W,H,S,cx,cy)=>{
+    water(x,W,H,t);const wx=cx-170*S;for(let i=9;i>=0;i--){const X=wx+i*-16*S+Math.sin(t*2)*6*S,Y=cy+Math.sin(t*3-i*0.6)*18*S;circ(x,X+80*S,Y,(16-i*0.6)*S);x.fillStyle=`hsl(${20+i*3},60%,${55-i*2}%)`;x.fill();}
+    circ(x,wx+86*S,cy-6*S+Math.sin(t*3)*18*S,4*S);x.fillStyle='#fff';x.fill();
+    const jx=cx+170*S,jy=cy-40*S+Math.sin(t*1.5)*20*S;x.beginPath();x.arc(jx,jy,55*S,Math.PI,0);x.quadraticCurveTo(jx,jy+20*S*(1+Math.sin(t*3)*0.3),jx-55*S,jy);x.fillStyle='rgba(200,140,255,0.55)';x.fill();
+    x.strokeStyle='rgba(220,180,255,0.6)';x.lineWidth=2*S;for(let i=0;i<6;i++){const tx=jx-40*S+i*16*S;x.beginPath();x.moveTo(tx,jy+10*S);for(let k=1;k<=8;k++)x.lineTo(tx+Math.sin(t*3+k*0.8+i)*8*S,jy+10*S+k*14*S);x.stroke();}}},
+  {say:'Much later, some brave creatures crawled out of the water and onto the land.',d:(x,t,p,W,H,S,cx,cy)=>{
+    fbg(x,W,H,'#7cc7e8','#f3d9a4');const sea=cy+40*S;x.fillStyle='#1c6f94';x.beginPath();x.moveTo(0,sea);for(let i=0;i<=20;i++)x.lineTo(W*0.55*i/20,sea+Math.sin(i+t*2)*5*S);x.lineTo(W*0.62,H);x.lineTo(0,H);x.fill();
+    x.fillStyle='#e8c98a';x.beginPath();x.moveTo(W*0.55,sea);x.lineTo(W,sea-30*S);x.lineTo(W,H);x.lineTo(W*0.62,H);x.fill();
+    const q=fease(p*1.2),bx=lerp(W*0.35,W*0.72,q),by=lerp(sea+30*S,sea-20*S,q);
+    for(let i=0;i<4;i++){const lx=bx+(i<2?-18:18)*S,ph=Math.sin(t*8+i*Math.PI)*8*S;x.strokeStyle='#3b6d4f';x.lineWidth=6*S;x.lineCap='round';x.beginPath();x.moveTo(lx,by);x.lineTo(lx+ph,by+22*S);x.stroke();}
+    x.beginPath();x.ellipse(bx,by,36*S,18*S,0,0,TAU);x.fillStyle='#4f8f63';x.fill();circ(x,bx+30*S,by-8*S,12*S);x.fill();circ(x,bx+34*S,by-11*S,4*S);x.fillStyle='#fff';x.fill();circ(x,bx+35*S,by-11*S,2*S);x.fillStyle='#000';x.fill();}},
+  {say:'And that is the next step of your journey. From one cell, to a creature, to a civilisation, and one day, to the stars.',d:(x,t,p,W,H,S,cx,cy)=>{
+    fbg(x,W,H,'#03121c','#0b0716');stars(x,W,H,t);const names=['Cell','Creature','Tribe','Civilisation','Planet','Galaxy'],n=6,gap=Math.min(150*S,(W-80)/n);
+    for(let i=0;i<n;i++){const X=cx+(i-(n-1)/2)*gap,Y=cy,lit=p*7>i;if(i<n-1)arrow(x,X+34*S,Y,X+gap-34*S,Y,S,'rgba(143,240,200,.5)',lit?1:0.2);
+      x.globalAlpha=lit?1:0.25;circ(x,X,Y,30*S);x.fillStyle='rgba(143,240,200,0.12)';x.fill();
+      if(i===0)cellAt(x,X,Y,16*S,188,{},0,t);
+      if(i===1){x.fillStyle='#4f8f63';x.beginPath();x.ellipse(X,Y,16*S,9*S,0,0,TAU);x.fill();circ(x,X+14*S,Y-5*S,6*S);x.fill();}
+      if(i===2){x.fillStyle='#d9a066';for(let k=-1;k<=1;k++){x.beginPath();x.moveTo(X+k*12*S-8*S,Y+10*S);x.lineTo(X+k*12*S,Y-8*S);x.lineTo(X+k*12*S+8*S,Y+10*S);x.fill();}}
+      if(i===3){x.fillStyle='#9fb8d0';[[-14,14],[-5,22],[4,10],[12,18]].forEach(([dx,h])=>x.fillRect(X+dx*S,Y+12*S-h*S,7*S,h*S));}
+      if(i===4){circ(x,X,Y,13*S);x.fillStyle='#3b82c4';x.fill();x.strokeStyle='#ffd36b';x.lineWidth=2*S;x.beginPath();x.ellipse(X,Y,22*S,6*S,-0.3,0,TAU);x.stroke();}
+      if(i===5){for(let k=0;k<40;k++){const a=k*0.5+t*0.5,rr=k*0.55*S;x.fillStyle='rgba(255,236,190,0.9)';x.fillRect(X+Math.cos(a)*rr,Y+Math.sin(a)*rr*0.6,2,2);}}
+      x.globalAlpha=1;label(x,names[i],X,Y+50*S,15*S,lit?'#dff6ff':'rgba(223,246,255,.35)');}
+    label(x,'you are here',cx-(n-1)/2*gap,cy-55*S,13*S,'#ffd36b');}},
+ ]},
+];
+
+let filmsUnl=[false,false,false,false,false];
+try{const v=JSON.parse(localStorage.getItem('lifeai-films')||'null');if(Array.isArray(v))filmsUnl=filmsUnl.map((b,i)=>!!v[i]);}catch(e){}
+function unlockFilm(i){
+  if(filmsUnl[i])return;filmsUnl[i]=true;
+  try{localStorage.setItem('lifeai-films',JSON.stringify(filmsUnl));}catch(e){}
+  banner('New film unlocked: '+FILMS[i].title,'A short film that explains what is happening in your pond. Press F any time to open your films.','film:'+i);
+  $('filmsBtn').classList.add('ready');
+}
+function openFilms(){
+  if(panel||!running)return;
+  paused=true;panel='films';sfx('click');$('filmsBtn').classList.remove('ready');
+  $('filmList').innerHTML=FILMS.map((f,i)=>`<button class="filmCard ${filmsUnl[i]?'':'locked'}" data-i="${i}" ${filmsUnl[i]?'':'disabled'}>
+     <span class="fnum">${i+1}</span><span><b>${f.title}</b><small>${filmsUnl[i]?'Watch · about '+Math.round(f.scenes.reduce((a,s)=>a+s.say.split(' ').length/2.3+1.2,0)/10)*10+' seconds':f.when}</small></span></button>`).join('');
+  $('filmList').querySelectorAll('.filmCard:not(.locked)').forEach(b=>b.onclick=()=>{closeFilms(true);playFilm(+b.dataset.i);});
+  $('filmsP').classList.remove('hidden');
+}
+function closeFilms(quiet){paused=false;panel=null;$('filmsP').classList.add('hidden');if(!quiet)sfx('click');}
+
+// ---- player ----
+let film=null,voiceOn=true,filmVoice=null;
+try{voiceOn=localStorage.getItem('lifeai-voice')!=='off';}catch(e){}
+function pickVoice(){
+  if(!window.speechSynthesis)return null;const vs=speechSynthesis.getVoices();if(!vs.length)return null;
+  const en=vs.filter(v=>/^en(-|_|$)/i.test(v.lang));
+  const pref=[/Google UK English Female/i,/Samantha/i,/Aria|Jenny|Natural/i,/Google US English/i,/Daniel/i,/Karen|Moira|Serena/i];
+  for(const r of pref){const v=en.find(v=>r.test(v.name));if(v)return v;}
+  return en[0]||vs[0];
+}
+if(window.speechSynthesis){speechSynthesis.onvoiceschanged=()=>{filmVoice=pickVoice();};filmVoice=pickVoice();}
+function speak(text){
+  if(!film)return;film.speaking=false;film.spoken=false;
+  if(!voiceOn||AU.muted||!window.speechSynthesis)return;
+  try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);filmVoice=filmVoice||pickVoice();if(filmVoice)u.voice=filmVoice;u.lang=(filmVoice&&filmVoice.lang)||'en-GB';u.rate=0.93;u.pitch=1.02;u.volume=1;
+    const me=film;u.onend=u.onerror=()=>{if(film===me)film.spoken=true;};film.speaking=true;speechSynthesis.speak(u);}catch(e){film.speaking=false;}
+}
+function playFilm(i){
+  if(!filmsUnl[i]||panel)return;
+  const f=FILMS[i];
+  const scenes=[{say:f.title+'.',title:true,d:(x,t,p,W,H,S,cx,cy)=>{water(x,W,H,t);label(x,'Zoetica · film '+(i+1),cx,cy-50*S,16*S,'rgba(143,240,200,.8)');label(x,f.title,cx,cy,44*S,'#dff6ff');}}]
+    .concat(f.scenes,[{say:'The end.',title:true,d:(x,t,p,W,H,S,cx,cy)=>{water(x,W,H,t);label(x,'The end',cx,cy-10*S,40*S,'#dff6ff');label(x,'Back to the pond',cx,cy+40*S,16*S,'rgba(143,240,200,.8)');}}]);
+  film={i,scenes,si:-1,t:0,gap:0,paused:false};panel='film';paused=true;AU.filmMode=true;AU.danger=0;
+  if(AU.music)AU.music.gain.setTargetAtTime(AU.mv*0.35,AU.ctx.currentTime,0.4);
+  $('filmP').classList.remove('hidden');$('fVoice').textContent=voiceOn?'Voice: on':'Voice: off';
+  nextScene();
+}
+function nextScene(){
+  film.si++;if(film.si>=film.scenes.length){endFilm();return;}
+  const sc=film.scenes[film.si];film.t=0;film.gap=0;film.est=Math.max(3,sc.say.split(' ').length/2.3+1.2);
+  $('filmCap').textContent=sc.title?'':sc.say;
+  $('fDots').innerHTML=film.scenes.map((_,k)=>`<i class="${k<=film.si?'on':''}"></i>`).join('');
+  speak(sc.say);
+}
+function playCustomFilm(scenes,onEnd){
+  film={i:-1,scenes,si:-1,t:0,gap:0,paused:false,onEnd};panel='film';paused=true;AU.filmMode=true;AU.danger=0;
+  if(AU.music)AU.music.gain.setTargetAtTime(AU.mv*0.35,AU.ctx.currentTime,0.4);
+  $('filmP').classList.remove('hidden');$('fVoice').textContent=voiceOn?'Voice: on':'Voice: off';nextScene();
+}
+function endFilm(){
+  const cb=film&&film.onEnd;
+  if(window.speechSynthesis)try{speechSynthesis.cancel();}catch(e){}
+  film=null;AU.filmMode=false;if(AU.music)AU.music.gain.setTargetAtTime(AU.mv,AU.ctx.currentTime,0.6);
+  $('filmP').classList.add('hidden');panel=null;paused=false;sfx('click');
+  if(cb)cb();
+}
+function toggleFilmPause(){if(!film)return;film.paused=!film.paused;$('fPause').textContent=film.paused?'Play':'Pause';
+  if(window.speechSynthesis)try{film.paused?speechSynthesis.pause():speechSynthesis.resume();}catch(e){}}
+function filmTick(dt){
+  if(!film||film.paused)return;film.t+=dt;
+  const speechDone=!film.speaking||film.spoken;
+  if((speechDone&&film.t>=(film.speaking?Math.max(2.2,film.est*0.4):film.est))||film.t>film.est*1.9+2){film.gap+=dt;if(film.gap>0.9)nextScene();}
+}
+const fc=document.getElementById('filmC'),fx2=fc.getContext('2d');
+function drawFilm(){
+  if(!film)return;const W=innerWidth,H=innerHeight,D=Math.min(2,devicePixelRatio||1);
+  if(fc.width!==Math.round(W*D)||fc.height!==Math.round(H*D)){fc.width=Math.round(W*D);fc.height=Math.round(H*D);}
+  fx2.setTransform(D,0,0,D,0,0);const sc=film.scenes[film.si];if(!sc)return;
+  const S=Math.min(W/900,(H-140)/600),cx=W/2,cy=(H-110)/2,p=Math.min(1,film.t/film.est);
+  fx2.save();try{sc.d(fx2,performance.now()/1000,p,W,H,S,cx,cy);}catch(e){}fx2.restore();
+  const fade=Math.min(1,film.t/0.5);if(fade<1){fx2.fillStyle=`rgba(1,8,14,${1-fade})`;fx2.fillRect(0,0,W,H);}
+}
+$('fPause').onclick=()=>toggleFilmPause();
+$('fNext').onclick=()=>{if(film){if(window.speechSynthesis)try{speechSynthesis.cancel();}catch(e){}nextScene();}};
+$('fClose').onclick=()=>endFilm();
+$('fVoice').onclick=()=>{voiceOn=!voiceOn;try{localStorage.setItem('lifeai-voice',voiceOn?'on':'off');}catch(e){}$('fVoice').textContent=voiceOn?'Voice: on':'Voice: off';
+  if(!voiceOn&&window.speechSynthesis)try{speechSynthesis.cancel();}catch(e){} if(film){film.speaking=false;if(voiceOn)speak(film.scenes[film.si].say);}};
+$('filmsBtn').onclick=()=>{if(panel==='films')closeFilms();else openFilms();};
+$('filmsClose').onclick=()=>closeFilms();
+
+// ---------- cinematic intro (Leonardo Motion 2.0 clips, Private Mode) ----------
+const INTRO_LINES=[[0.6,'Four and a half billion years ago, a young world burned.'],[6.0,'Rain fell for millions of years, and the first oceans were born.'],
+  [11.2,'In the deep, warm springs bubbled with the chemistry of life.'],[16.4,'And one day, something new appeared: a living cell.'],[21.6,'It copied itself, again and again. Your story begins here.']];
+let introOn=false,introNext=0;
+function startIntro(){
+  audioInit();introOn=true;introNext=0;AU.filmMode=true;
+  $('splash').classList.add('hidden');$('title').classList.add('hidden');$('intro').classList.remove('hidden');
+  $('introTitle').classList.remove('on');$('introCap').classList.remove('on');
+  const v=$('introV');v.currentTime=0;const p=v.play();if(p&&p.catch)p.catch(()=>endIntro());
+}
+function introTick(){
+  if(!introOn)return;const v=$('introV'),t=v.currentTime;
+  if(introNext<INTRO_LINES.length&&t>=INTRO_LINES[introNext][0]){const line=INTRO_LINES[introNext][1];$('introCap').textContent=line;$('introCap').classList.add('on');
+    if(voiceOn&&!AU.muted&&window.speechSynthesis){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(line);filmVoice=filmVoice||pickVoice();if(filmVoice)u.voice=filmVoice;u.rate=0.92;speechSynthesis.speak(u);}catch(e){}}
+    introNext++;}
+  if(t>=4.6&&t<5.4||t>=9.8&&t<10.6||t>=15&&t<15.8||t>=20.2&&t<21)$('introCap').classList.remove('on');
+  if(t>=24.6)$('introTitle').classList.add('on');
+  if(v.ended)setTimeout(endIntro,1200);
+}
+function endIntro(){
+  if(!introOn)return;introOn=false;try{$('introV').pause();}catch(e){}if(window.speechSynthesis)try{speechSynthesis.cancel();}catch(e){}
+  AU.filmMode=false;try{localStorage.setItem('lifeai-intro','seen');}catch(e){}
+  $('intro').classList.add('hidden');$('title').classList.remove('hidden');
+}
+$('introSkip').onclick=()=>endIntro();
+$('splash').onclick=()=>startIntro();
+$('watchIntro').onclick=()=>startIntro();
+(function(){let seen=false;try{seen=localStorage.getItem('lifeai-intro')==='seen';}catch(e){}if(!seen){$('splash').classList.remove('hidden');$('title').classList.add('hidden');}})();
+
+// ======================= CREATURE STAGE (land) =======================
+let stage='cell',lp=null,LE=[],landSpecies=[],trees=[],lmeat=[],nest={x:620,y:1400},ldir={t:170,kills:{},dealt:{},escapes:0},lApex=false,lSave=0,lPop=0,lEco=0,lFruitAcc=0;
+const LW=2800,SHORE=300;
+const LPARTS={
+  legs:{name:'Legs',cost:20,max:3,min:1,desc:'More pairs of legs: walk faster.'},
+  tail:{name:'Tail',cost:16,max:2,desc:'Balance for sprinting: your dash recharges faster.'},
+  horns:{name:'Horns',cost:22,max:3,desc:'Hurt anything you charge into, and defend yourself.'},
+  claws:{name:'Claws',cost:18,max:2,desc:'Sharp claws: stronger attacks.'},
+  shell:{name:'Shell',cost:24,max:3,desc:'Hard plates on your back. Tougher, a little slower.'},
+  eyes:{name:'Eyes',cost:12,max:3,min:1,desc:'See further across the land.'},
+};
+const LMOUTHS={herb:{name:'Beak',cost:15,desc:'Eats fruit'},carn:{name:'Fangs',cost:25,desc:'Bites, eats meat. No fruit.'},omni:{name:'Omnivore jaw',cost:40,desc:'Fruit and meat, and bites'}};
+const LSIZE_AT=[0,40,110,220,380];
+const partName=k=>(PARTS[k]||LPARTS[k]||{name:k}).name;
+const lrad=sz=>14+sz*6;
+function lstats(g,isP){
+  return {speed:(72+g.legs*24)*(1-g.shell*0.08)*(1-(g.size-1)*0.03),atk:g.horns*7+g.claws*6+(g.mouth!=='herb'?10:0),horn:g.horns*7,
+    armour:Math.min(0.6,g.shell*0.17),vision:300+g.eyes*130,fruit:g.mouth!=='carn',meat:g.mouth!=='herb',maxHp:isP?80+g.size*30:30+g.size*20,dashCd:3.4-g.tail*0.7};
+}
+function lMakeSpecies(o){const s=Object.assign({id:++spId,gen:1,w:1,target:0,isNew:0,stage:'land',born:Math.floor(time)},o);landSpecies.push(s);allSp[s.id]=s;return s;}
+function lNew(sp,g,x,y,isP){const st=lstats(g,isP);return {x,y,vx:0,vy:0,dx:0,dy:0,spd:0,angle:rnd(0,TAU),g,sp,st,r:lrad(g.size)*(isP?1:rnd(.92,1.08)),hp:st.maxHp,phase:rnd(0,TAU),walk:0,wander:rnd(0,TAU),hurt:0,rest:0,chase:0,mut:0,prey:null,lastHit:null,isPlayer:!!isP,dashCd:0,boost:0};}
+function lRefresh(c){const ratio=c.hp/c.st.maxHp;c.st=lstats(c.g,c.isPlayer);if(c.isPlayer)c.r=lrad(c.g.size);c.hp=Math.max(1,ratio*c.st.maxHp);}
+function lSpawnPos(minD){for(let i=0;i<40;i++){const x=rnd(SHORE+60,LW-80),y=rnd(80,LW-80);if(!lp||Math.hypot(x-lp.x,y-lp.y)>minD)return{x,y};}return{x:rnd(SHORE+60,LW-80),y:rnd(80,LW-80)};}
+function lSpawn(sp,minD){const p=lSpawnPos(minD);const c=lNew(sp,Object.assign({},sp.genome),p.x,p.y,false);LE.push(c);return c;}
+const LBUDGET={grazer:22,hunter:5,apex:0};
+function lTargets(){for(const role in LBUDGET){const list=landSpecies.filter(s=>s.role===role&&s.w>0);const sum=list.reduce((a,s)=>a+s.w,0)||1;
+  for(const s of list){s.target=Math.max(1,Math.round(LBUDGET[role]*s.w/sum));if(s.w<0.07){s.w=0;s.target=0;}}}}
+function makeTrees(){trees=[];for(let i=0;i<150;i++){const big=i<60;const x=rnd(SHORE+120,LW-60),y=rnd(60,LW-60);trees.push({x,y,r:big?rnd(34,48):rnd(14,20),big,fruit:big?3:2,max:big?3:2,regrow:0,ph:rnd(0,TAU)});}}
+function landTrait(){
+  const p=player;if(!p)return 'Omnivore';const tot=(p.plantDNA+p.meatDNA)||1,ms=p.meatDNA/tot;return ms<0.25?'Herbivore':ms>0.75?'Carnivore':'Omnivore';
+}
+function landInit(){
+  LE=[];landSpecies=[];lmeat=[];makeTrees();lApex=false;ldir.t=170;ldir.kills={};ldir.dealt={};ldir.escapes=0;LBUDGET.apex=0;LBUDGET.grazer=22;LBUDGET.hunter=5;
+  const trait=landTrait();
+  const g={size:1,legs:1,tail:0,horns:0,claws:0,shell:0,eyes:1,mouth:trait==='Herbivore'?'herb':trait==='Carnivore'?'carn':'omni'};
+  if(trait==='Herbivore')g.shell=1;if(trait==='Carnivore')g.claws=1;if(trait==='Omnivore')g.legs=2;
+  lp=lNew({id:0,name:'Your species',hue:PLAYER_HUE,role:'player'},g,nest.x+80,nest.y,true);
+  Object.assign(lp,{dna:0,growth:0,inv:2,calm:0,kills:0,deaths:0,trait,photoAcc:0});
+  LE.push(lp);
+  lMakeSpecies({name:'Mossback',hue:96,role:'grazer',w:1.4,genome:{size:1,legs:1,tail:1,horns:0,claws:0,shell:1,eyes:1,mouth:'herb'}});
+  lMakeSpecies({name:'Longstride',hue:44,role:'grazer',w:0.8,genome:{size:2,legs:3,tail:0,horns:1,claws:0,shell:0,eyes:2,mouth:'herb'}});
+  lMakeSpecies({name:'Fangtail',hue:352,role:'hunter',w:1,genome:{size:3,legs:2,tail:1,horns:0,claws:1,shell:0,eyes:1,mouth:'carn'}});
+  lTargets();for(const s of landSpecies)for(let i=0;i<s.target;i++)lSpawn(s,s.role==='grazer'?250:650);
+  player.forms.push({t:Math.floor(time),txt:'Left the water as a '+trait.toLowerCase()+' creature'});
+}
+function landSerialize(){if(!lp)return null;return {lp:{g:lp.g,x:lp.x,y:lp.y,dna:lp.dna,growth:lp.growth,kills:lp.kills,deaths:lp.deaths,trait:lp.trait},
+  sp:landSpecies.map(s=>s.id),apex:lApex,budget:Object.assign({},LBUDGET),dirT:ldir.t};}
+function landRestore(L){
+  LE=[];lmeat=[];makeTrees();landSpecies=(L.sp||[]).map(id=>allSp[id]).filter(Boolean);lApex=!!L.apex;Object.assign(LBUDGET,L.budget||{});ldir.t=L.dirT||170;
+  const P=L.lp;lp=lNew({id:0,name:'Your species',hue:PLAYER_HUE,role:'player'},P.g,P.x,P.y,true);Object.assign(lp,{dna:P.dna,growth:P.growth,inv:2,calm:0,kills:P.kills||0,deaths:P.deaths||0,trait:P.trait||'Omnivore'});
+  LE.push(lp);lTargets();for(const s of landSpecies)for(let i=0;i<s.target;i++)lSpawn(s,s.role==='grazer'?250:650);
+}
+
+// ---- AI & movement ----
+function lAI(c,dt){
+  const st=c.st,pred=c.sp.role!=='grazer';let tx=0,ty=0,spd=0.45,done=false;
+  c.rest=Math.max(0,c.rest-dt);
+  if(!pred){
+    let th=null,td=1e9;
+    for(const o of LE){if(o===c||o.sp===c.sp)continue;const d=Math.hypot(o.x-c.x,o.y-c.y);if(d>st.vision*0.7||d>=td)continue;
+      let danger=false;if(o.isPlayer){if(lp.inv<=0&&o.st.atk>0&&o.r>c.r*0.6)danger=true;}else if(o.sp.role!=='grazer'&&o.rest<=0&&c.r<=o.r*1.35)danger=true;
+      if(danger){th=o;td=d;}}
+    if(th){tx=c.x-th.x;ty=c.y-th.y;spd=1;done=true;}
+  }else if(c.rest<=0){
+    let pr=null,pd=1e9;
+    for(const o of LE){if(o===c||o.sp===c.sp||o.sp.role==='apex')continue;if(o.sp.role==='hunter'&&c.sp.role!=='apex')continue;if(o.r>c.r*1.35)continue;if(o.isPlayer&&lp.inv>0)continue;
+      const d=Math.hypot(o.x-c.x,o.y-c.y);if(d<st.vision&&d<pd){pr=o;pd=d;}}
+    if(pr){tx=pr.x-c.x;ty=pr.y-c.y;spd=0.88;done=true;c.chase+=dt;c.prey=pr;if(c.chase>7){c.rest=4;c.chase=0;c.prey=null;if(pr.isPlayer)ldir.escapes++;}}
+    else{c.chase=0;c.prey=null;}
+  }else c.prey=null;
+  if(!done){
+    let f=null,fd=st.vision;
+    if(st.fruit)for(const t of trees){if(t.fruit<1)continue;const d=Math.abs(t.x-c.x)+Math.abs(t.y-c.y);if(d<fd){fd=d;f=t;}}
+    if(st.meat)for(const m of lmeat){const d=Math.abs(m.x-c.x)+Math.abs(m.y-c.y);if(d<fd){fd=d;f=m;}}
+    if(f){tx=f.x-c.x;ty=f.y-c.y;spd=0.6;}else{c.wander+=rnd(-1.4,1.4)*dt;tx=Math.cos(c.wander);ty=Math.sin(c.wander);spd=0.4;}
+  }
+  let l=Math.hypot(tx,ty)||1;tx/=l;ty/=l;const m=140;
+  if(c.x<SHORE+m)tx+=1-(c.x-SHORE)/m;if(c.x>LW-m)tx-=1-(LW-c.x)/m;if(c.y<m)ty+=1-c.y/m;if(c.y>LW-m)ty-=1-(LW-c.y)/m;
+  l=Math.hypot(tx,ty)||1;c.dx=tx/l;c.dy=ty/l;c.spd=spd;
+}
+function lInput(){
+  const p=lp,kx=(keys.d||keys.arrowright?1:0)-(keys.a||keys.arrowleft?1:0),ky=(keys.s||keys.arrowdown?1:0)-(keys.w||keys.arrowup?1:0);
+  if(kx||ky){const l=Math.hypot(kx,ky);p.dx=kx/l;p.dy=ky/l;p.spd=1;return;}
+  if(mouse.active){const wx=cam.x+(mouse.x-VW/2)/cam.zoom,wy=cam.y+(mouse.y-VH/2)/cam.zoom,dx=wx-p.x,dy=wy-p.y,d=Math.hypot(dx,dy)||1;p.dx=dx/d;p.dy=dy/d;p.spd=clamp((d-p.r*0.4)/90,0,1);}else p.spd=0;
+}
+function lMove(c,dt){
+  let ms=c.st.speed*c.spd,k=Math.min(1,dt*4);
+  if(c.boost>0){c.boost-=dt;ms=c.st.speed*2.6;k=Math.min(1,dt*14);if(Math.random()<0.5)fx.push({x:c.x-c.dx*c.r,y:c.y-c.dy*c.r,vx:-c.dx*20,vy:-c.dy*20,life:0.5,hue:40,r:rnd(2,4)});}
+  c.vx+=(c.dx*ms-c.vx)*k;c.vy+=(c.dy*ms-c.vy)*k;
+  c.x=clamp(c.x+c.vx*dt,SHORE-60+c.r,LW-c.r);c.y=clamp(c.y+c.vy*dt,c.r,LW-c.r);
+  const sp=Math.hypot(c.vx,c.vy);c.walk+=sp*dt*0.09;
+  if(sp>6){const ta=Math.atan2(c.vy,c.vx);let da=ta-c.angle;da=Math.atan2(Math.sin(da),Math.cos(da));c.angle+=da*Math.min(1,dt*6);}
+}
+function lContact(a,b,dt){
+  const aggressive=a.isPlayer||a.sp.role!=='grazer';
+  let dmg=aggressive?a.st.atk*Math.sqrt(a.r/b.r):a.st.horn;
+  if(dmg<=0)return;if(b.isPlayer&&lp.inv>0)return;
+  dmg*=(1-b.st.armour)*dt;b.hp-=dmg;b.hurt=0.18;b.lastHit=a;
+  if(a.isPlayer){ldir.dealt[b.sp.id]=(ldir.dealt[b.sp.id]||0)+dmg;if(can('bite',0.25))sfx('bite');}
+  if(b.isPlayer){lp.calm=0;if(can('hurt',0.45))sfx('hurt');}
+}
+function landDash(){if(!running||paused||lp.dashCd>0)return;if(lp.spd<0.05){lp.dx=Math.cos(lp.angle);lp.dy=Math.sin(lp.angle);}lp.spd=1;lp.boost=0.3;lp.dashCd=lp.st.dashCd;sfx('dash');}
+function landGain(n){lp.dna+=n;lp.growth+=n;const el=$('dna');el.classList.add('pulse');setTimeout(()=>el.classList.remove('pulse'),120);}
+function landDie(){
+  burst(lp.x,lp.y,PLAYER_HUE,30,140);sfx('die');lp.deaths++;const lost=Math.floor(lp.dna*0.2);lp.dna-=lost;
+  lp.x=nest.x+60;lp.y=nest.y;lp.vx=lp.vy=0;lp.hp=lp.st.maxHp;lp.inv=3;cam.x=lp.x;cam.y=lp.y;
+  banner('You hatched again at your nest','You lost only '+lost+' DNA. Your nest keeps your species safe: return to it to heal and to evolve.','eggs');
+}
+function landUpdate(dt){
+  time+=dt;lInput();
+  for(const c of LE)if(!c.isPlayer)lAI(c,dt);
+  for(const c of LE)lMove(c,dt);
+  for(let i=0;i<LE.length;i++){const a=LE[i];for(let j=i+1;j<LE.length;j++){const b=LE[j];const dx=b.x-a.x,dy=b.y-a.y,mn=a.r+b.r;if(Math.abs(dx)>mn||Math.abs(dy)>mn)continue;
+    const d=Math.hypot(dx,dy)||0.01;if(d>=mn)continue;const o=mn-d,wa=b.r/(a.r+b.r),wb=a.r/(a.r+b.r);a.x-=dx/d*o*wa;a.y-=dy/d*o*wa;b.x+=dx/d*o*wb;b.y+=dy/d*o*wb;
+    if(a.sp!==b.sp){lContact(a,b,dt);lContact(b,a,dt);}}}
+  // eating: fruit from trees and bushes, meat from kills
+  for(const c of LE){
+    if(c.st.fruit)for(const t of trees){if(t.fruit<1)continue;const rr=c.r+t.r*0.9;if((t.x-c.x)**2+(t.y-c.y)**2<rr*rr){c.eatCd=(c.eatCd||0)-dt;if(c.eatCd<=0){c.eatCd=0.5;t.fruit--;t.regrow=t.big?10:7;
+      if(c.isPlayer){landGain(t.big?3:2);c.hp=Math.min(c.st.maxHp,c.hp+6);burst(t.x+rnd(-10,10),t.y+rnd(-10,10),20,5,50);AU.streak=(time-AU.lastEat<1.2)?Math.min(14,AU.streak+1):0;AU.lastEat=time;sfx('eat',AU.streak);}
+      else c.hp=Math.min(c.st.maxHp,c.hp+5);}}}
+    if(c.st.meat)for(let i=lmeat.length-1;i>=0;i--){const m=lmeat[i],rr=c.r+m.r;if((m.x-c.x)**2+(m.y-c.y)**2<rr*rr){lmeat.splice(i,1);if(c.isPlayer){landGain(5);c.hp=Math.min(c.st.maxHp,c.hp+10);burst(m.x,m.y,0,6,50);if(can('meat',0.08))sfx('meat');}else c.hp=Math.min(c.st.maxHp,c.hp+12);}}
+  }
+  for(const t of trees)if(t.fruit<t.max){t.regrow-=dt;if(t.regrow<=0){t.fruit++;t.regrow=t.big?10:7;}}
+  // deaths, regen
+  for(let i=LE.length-1;i>=0;i--){const c=LE[i];c.hurt=Math.max(0,c.hurt-dt);c.mut=Math.max(0,c.mut-dt);
+    if(c.isPlayer){lp.inv=Math.max(0,lp.inv-dt);lp.calm+=dt;lp.dashCd=Math.max(0,lp.dashCd-dt);const atNest=Math.hypot(lp.x-nest.x,lp.y-nest.y)<150;if(lp.calm>3||atNest)c.hp=Math.min(c.st.maxHp,c.hp+(atNest?14:4)*dt);}
+    else c.hp=Math.min(c.st.maxHp,c.hp+dt);
+    if(c.hp<=0){if(c.isPlayer){landDie();continue;}
+      for(let k=0;k<1+c.g.size;k++)lmeat.push({x:c.x+rnd(-c.r,c.r)*.6,y:c.y+rnd(-c.r,c.r)*.6,r:rnd(5,7),life:30,ph:rnd(0,TAU)});
+      burst(c.x,c.y,c.sp.hue,14,90);if(Math.hypot(c.x-lp.x,c.y-lp.y)<VW/cam.zoom*0.6&&can('pop',0.08))sfx('pop');
+      if(c.lastHit&&c.lastHit.isPlayer){ldir.kills[c.sp.id]=(ldir.kills[c.sp.id]||0)+1;lp.kills++;if(c.sp.role==='apex'){banner('You brought down a '+c.sp.name+'!','The giant of the forest is gone, for now. Its remains are a feast.','apex');sfx('grow');}}
+      LE.splice(i,1);}}
+  for(let i=lmeat.length-1;i>=0;i--){lmeat[i].life-=dt;if(lmeat[i].life<=0)lmeat.splice(i,1);}
+  for(let i=fx.length-1;i>=0;i--){const f=fx[i];f.x+=f.vx*dt;f.y+=f.vy*dt;f.vx*=0.94;f.vy*=0.94;f.life-=dt;if(f.life<=0)fx.splice(i,1);}
+  // growth
+  const g=lp.g;
+  if(g.size<5&&lp.growth>=LSIZE_AT[g.size]){g.size++;lRefresh(lp);lp.hp=lp.st.maxHp;burst(lp.x,lp.y,PLAYER_HUE,24,120);sfx('grow');
+    if(g.size<5)banner('Your creature grew!','Size '+g.size+'. Bigger and stronger: fewer hunters dare to chase you.','legs');
+    else banner('Size 5: the top of the food chain','Your species is ready to live in groups. The Tribe stage comes in a later version.','land');}
+  if(!lApex&&g.size>=3){lApex=true;const ap=lMakeSpecies({name:'Dreadhorn',hue:282,role:'apex',w:1,genome:{size:6,legs:2,tail:1,horns:3,claws:2,shell:2,eyes:2,mouth:'carn'}});
+    LBUDGET.apex=2;lTargets();for(let i=0;i<ap.target;i++)lSpawn(ap,800);banner('The ground shakes','A Dreadhorn, an apex predator, roams the forest. It hunts everything. Stay near your nest or grow horns and a shell to face it.','apex');sfx('apex');}
+  // populations, ecosystem, director, music danger, autosave
+  lPop+=dt;if(lPop>0.8){lPop=0;for(const s of landSpecies){const mine=LE.filter(c=>c.sp===s);if(mine.length<s.target)lSpawn(s,750);
+    else if(mine.length>s.target){const far=mine.find(c=>Math.hypot(c.x-lp.x,c.y-lp.y)>VW/cam.zoom*0.8+200);if(far)LE.splice(LE.indexOf(far),1);}}
+    landSpecies=landSpecies.filter(s=>{const keep=s.target>0||LE.some(c=>c.sp===s);if(!keep&&s.died==null)s.died=Math.floor(time);return keep;});}
+  lEco+=dt;if(lEco>5){lEco=0;const tot=trees.reduce((a,t)=>a+t.fruit/t.max,0)/trees.length;LBUDGET.grazer=Math.round(14+14*tot);LBUDGET.hunter=clamp(Math.round(LE.filter(c=>c.sp.role==='grazer').length/5),3,6);lTargets();}
+  ldir.t-=dt;if(ldir.t<=0){ldir.t=250;landEvolve();}
+  for(const s of landSpecies)if(s.isNew>0)s.isNew-=dt;
+  const chased=LE.some(c=>c.prey===lp&&c.rest<=0);AU.danger+=((chased?1:0)-AU.danger)*Math.min(1,dt*(chased?0.9:0.3));
+  lSave+=dt;if(lSave>8){lSave=0;saveGame();}
+  const tz=(Math.min(VW,VH)/760)*(1.15-lp.g.size*0.07);cam.zoom+=(tz-cam.zoom)*Math.min(1,dt*2);
+  cam.x+=(lp.x-cam.x)*Math.min(1,dt*5);cam.y+=(lp.y-cam.y)*Math.min(1,dt*5);
+}
+function landEvolve(){
+  const pg=lp.g,hurts=lp.st.atk>0;let best=null,score=0,part=null,reason='';
+  for(const s of landSpecies){if(s.w<=0||s.role==='apex')continue;const k=ldir.kills[s.id]||0,dealt=ldir.dealt[s.id]||0,G=s.genome;
+    if(s.role==='grazer'){const sc=k*3+dealt/20;if(sc>=3&&sc>score&&hurts){let p=null,r='';
+        if(G.shell<3){p='shell';r='You hunted them, so only the ones with tough shells survived to breed.';}else if(G.legs<3){p='legs';r='You hunted them, so only the fastest runners survived.';}else if(G.horns<3){p='horns';r='You hunted them, so the horned ones that fought back survived.';}
+        if(p){best=s;score=sc;part=p;reason=r;}}}
+    else{const sc=ldir.escapes*2+dealt/15+k*4;if(sc>=2&&sc>score){let p=null,r='';
+        if(pg.shell>0&&G.horns<3){p='horns';r='Your shell stopped their bites, so hunters with horns took over.';}else if(ldir.escapes>0&&G.legs<3){p='legs';r='You kept outrunning them, so the fastest hunters survived.';}
+        else if(pg.horns>0&&G.shell<3){p='shell';r='Your horns hurt them, so shelled hunters survived.';}else if(G.eyes<3){p='eyes';r='They struggled to find you, so sharper-eyed hunters took over.';}
+        if(p){best=s;score=sc;part=p;reason=r;}}}}
+  const pressured=!!best;
+  if(!best){const live=landSpecies.filter(s=>s.w>0&&s.role!=='apex');for(let t=0;t<20&&!best;t++){const s=pick(live);const opts=Object.keys(LPARTS).filter(p=>s.genome[p]<LPARTS[p].max);if(opts.length){best=s;part=pick(opts);reason='Nothing pressured them, so a random mutation spread through the population.';}}}
+  ldir.kills={};ldir.dealt={};ldir.escapes=0;if(!best)return;
+  const s=best,g=Object.assign({},s.genome);g[part]++;
+  const reddish=h=>h>295||h<25,used=[PLAYER_HUE,...landSpecies.map(o=>o.hue)],hd=(a,b)=>{const d=Math.abs(a-b)%360;return d>180?360-d:d;};
+  let hue=s.hue,bd=-1;for(let h=0;h<360;h+=6){if(s.role==='grazer'?reddish(h):!reddish(h))continue;const md=Math.min(...used.map(u=>hd(h,u)));if(md>bd){bd=md;hue=h;}}
+  const ns=lMakeSpecies({name:mutName(s.name),hue,role:s.role,genome:g,gen:s.gen+1,w:s.w,isNew:20,parent:s.name,parentId:s.id,gained:part,reason,drift:!pressured});
+  s.w*=0.35;for(const o of landSpecies)if(o!==s&&o!==ns&&o.role===s.role&&o.w>0)o.w*=0.85;lTargets();
+  LE.filter(c=>c.sp===s).forEach((c,i)=>{if(i%2===0){c.sp=ns;c.g=Object.assign({},g);lRefresh(c);c.mut=1.4;burst(c.x,c.y,48,10,60);}});
+  sfx('evolve');banner(s.name+' evolved into '+ns.name,LPARTS[part].name+' +1. '+reason,pressured?'selection':'drift');
+}
+
+// ---- drawing ----
+function drawCreature(x,c,t){
+  const r=c.r,g=c.g,h=c.isPlayer?PLAYER_HUE:c.sp.hue,w=c.walk||t*3;
+  x.save();x.translate(c.x,c.y);
+  x.beginPath();x.ellipse(r*0.12,r*0.22,r*1.25,r*0.8,c.angle,0,TAU);x.fillStyle='rgba(0,0,0,0.22)';x.fill();
+  x.rotate(c.angle);x.lineCap='round';x.lineJoin='round';
+  // tail
+  const tl=r*(0.7+g.tail*0.55);x.beginPath();x.moveTo(-r*0.9,0);for(let i=1;i<=8;i++){const u=i/8;x.lineTo(-r*0.9-tl*u,Math.sin(t*3+u*3+c.phase)*r*0.18*u);}
+  x.strokeStyle=`hsl(${h},45%,38%)`;x.lineWidth=r*(0.34-0.1*g.tail*0);x.stroke();x.strokeStyle=`hsl(${h},55%,52%)`;x.lineWidth=r*0.18;x.stroke();
+  // legs
+  for(let i=0;i<g.legs;i++){const lx=g.legs===1?0:lerp(r*0.45,-r*0.5,i/(g.legs-1));
+    for(const sd of [-1,1]){const sw=Math.sin(w+i*Math.PI+(sd>0?Math.PI:0))*0.45,ex=lx+Math.sin(sw)*r*0.5,ey=sd*(r*0.72+Math.cos(sw)*r*0.35);
+      x.beginPath();x.moveTo(lx,sd*r*0.45);x.quadraticCurveTo(lx+sd*0,sd*r*0.95,ex,ey);x.strokeStyle=`hsl(${h},40%,32%)`;x.lineWidth=r*0.2;x.stroke();
+      x.beginPath();x.arc(ex,ey,r*0.13,0,TAU);x.fillStyle=`hsl(${h},35%,28%)`;x.fill();
+      if(g.claws>0&&i===0){x.fillStyle='#f4efe4';for(let k=-1;k<=1;k++){x.beginPath();x.moveTo(ex+r*0.08,ey+k*r*0.06);x.lineTo(ex+r*(0.2+0.06*g.claws),ey+k*r*0.09);x.lineTo(ex+r*0.08,ey+k*r*0.06+r*0.04);x.fill();}}}}
+  // body
+  x.beginPath();x.ellipse(0,0,r*1.05,r*0.72,0,0,TAU);
+  const gr=x.createRadialGradient(-r*0.2,-r*0.3,r*0.1,0,0,r*1.1);gr.addColorStop(0,`hsl(${h},70%,66%)`);gr.addColorStop(0.7,`hsl(${h},55%,45%)`);gr.addColorStop(1,`hsl(${h},55%,30%)`);
+  if(c.isPlayer){x.shadowColor=`hsla(${h},90%,60%,.6)`;x.shadowBlur=16;}x.fillStyle=gr;x.fill();x.shadowBlur=0;x.lineWidth=Math.max(1.2,r*0.07);x.strokeStyle=`hsla(${h},70%,80%,0.7)`;x.stroke();
+  // spots
+  x.fillStyle=`hsla(${h},60%,80%,0.35)`;for(const [sx,sy,sr] of [[-0.3,-0.25,0.12],[0.1,0.3,0.1],[-0.55,0.2,0.09]]){x.beginPath();x.arc(sx*r,sy*r,sr*r,0,TAU);x.fill();}
+  // shell plates
+  if(g.shell>0){const rows=2+g.shell;for(let i=0;i<rows;i++){const px=lerp(r*0.45,-r*0.6,i/(rows-1||1));x.beginPath();x.ellipse(px,0,r*0.2,r*(0.55-Math.abs(px/r)*0.2),0,0,TAU);
+    x.fillStyle=`hsl(${h},25%,${30+i%2*6}%)`;x.fill();x.strokeStyle=`hsla(${h},30%,75%,0.5)`;x.lineWidth=r*0.04;x.stroke();}}
+  // head
+  const hx=r*1.05;x.beginPath();x.arc(hx,0,r*0.5,0,TAU);x.fillStyle=`hsl(${h},58%,52%)`;x.fill();x.strokeStyle=`hsla(${h},70%,80%,0.7)`;x.lineWidth=Math.max(1,r*0.06);x.stroke();
+  // horns
+  const HP=[[],[[0]],[[-1],[1]],[[-1],[1],[0]]][g.horns]||[];
+  for(const [sd] of HP){const a=sd*0.6;x.beginPath();x.moveTo(hx+Math.cos(a)*r*0.4,Math.sin(a)*r*0.4-r*0.08);x.quadraticCurveTo(hx+r*0.75,sd*r*0.55,hx+r*(0.8+0.1*g.horns),sd*r*0.25);x.lineTo(hx+Math.cos(a)*r*0.42,Math.sin(a)*r*0.42+r*0.08);x.closePath();x.fillStyle='#efe6d2';x.fill();x.strokeStyle='rgba(60,40,20,.5)';x.lineWidth=1;x.stroke();}
+  // mouth
+  if(g.mouth!=='carn'){x.beginPath();x.moveTo(hx+r*0.38,-r*0.16);x.quadraticCurveTo(hx+r*0.62,0,hx+r*0.38,r*0.16);x.fillStyle='#e8b74f';x.fill();}
+  if(g.mouth!=='herb'){x.fillStyle='#fff';for(let k=-2;k<=2;k++){x.beginPath();x.moveTo(hx+r*0.42,k*r*0.07-r*0.03);x.lineTo(hx+r*0.56,k*r*0.07);x.lineTo(hx+r*0.42,k*r*0.07+r*0.03);x.fill();}}
+  // eyes
+  const EP=[[],[[0.1,0]],[[0.12,-0.24],[0.12,0.24]],[[0.12,-0.28],[0.12,0.28],[-0.12,0]]][g.eyes]||[];
+  for(const [ex,ey] of EP){const er=r*0.15;x.beginPath();x.arc(hx+ex*r,ey*r,er,0,TAU);x.fillStyle='#f4fbff';x.fill();x.beginPath();x.arc(hx+ex*r+er*0.35,ey*r,er*0.55,0,TAU);x.fillStyle='#0a1520';x.fill();x.beginPath();x.arc(hx+ex*r+er*0.15,ey*r-er*0.3,er*0.2,0,TAU);x.fillStyle='#fff';x.fill();}
+  if(c.hurt>0){x.beginPath();x.ellipse(0,0,r*1.05,r*0.72,0,0,TAU);x.fillStyle=`rgba(255,120,130,${c.hurt*2.5})`;x.fill();}
+  x.restore();
+  if(c.mut>0){x.beginPath();x.arc(c.x,c.y,r*(1.4+(1.4-c.mut)*1.6),0,TAU);x.strokeStyle=`rgba(255,211,107,${c.mut/1.4})`;x.lineWidth=3;x.stroke();}
+  if(c.isPlayer&&lp.inv>0){x.beginPath();x.arc(c.x,c.y,r*1.5,0,TAU);x.strokeStyle=`rgba(143,240,200,${0.3+0.3*Math.sin(t*10)})`;x.lineWidth=2;x.stroke();}
+}
+function landDraw(){
+  const t=time;ctx.setTransform(DPR,0,0,DPR,0,0);ctx.fillStyle='#24452f';ctx.fillRect(0,0,VW,VH);
+  ctx.save();ctx.translate(VW/2,VH/2);ctx.scale(cam.zoom,cam.zoom);ctx.translate(-cam.x,-cam.y);
+  const hw=VW/2/cam.zoom+80,hh=VH/2/cam.zoom+80,vis=o=>Math.abs(o.x-cam.x)<hw&&Math.abs(o.y-cam.y)<hh;
+  // ground: meadow with soft patches, sand strip and sea on the west
+  ctx.fillStyle='#2f5a3a';ctx.fillRect(SHORE,0,LW-SHORE,LW);
+  for(let i=0;i<260;i++){const px=SHORE+((i*397)%(LW-SHORE)),py=(i*211)%LW;if(Math.abs(px-cam.x)>hw+80||Math.abs(py-cam.y)>hh+80)continue;ctx.beginPath();ctx.ellipse(px,py,60+(i%5)*20,34+(i%3)*14,i,0,TAU);ctx.fillStyle=i%3?'rgba(70,120,70,0.35)':'rgba(30,60,35,0.35)';ctx.fill();}
+  for(let i=0;i<500;i++){const px=SHORE+((i*733)%(LW-SHORE)),py=(i*389)%LW;if(Math.abs(px-cam.x)>hw||Math.abs(py-cam.y)>hh)continue;ctx.strokeStyle='rgba(140,200,110,0.35)';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(px+3,py-9);ctx.moveTo(px+4,py);ctx.lineTo(px+8,py-7);ctx.stroke();}
+  const sg=ctx.createLinearGradient(SHORE-160,0,SHORE+60,0);sg.addColorStop(0,'#e3cf98');sg.addColorStop(1,'rgba(227,207,152,0)');ctx.fillStyle=sg;ctx.fillRect(SHORE-160,0,220,LW);
+  ctx.fillStyle='#1c6f94';ctx.beginPath();ctx.moveTo(-3000,-3000);ctx.lineTo(SHORE-150,-3000);for(let y=-3000;y<=LW+3000;y+=60)ctx.lineTo(SHORE-150+Math.sin(y*0.02+t*1.2)*12,y);ctx.lineTo(-3000,LW+3000);ctx.fill();
+  ctx.strokeStyle='rgba(230,245,255,0.5)';ctx.lineWidth=3;ctx.beginPath();for(let y=Math.floor((cam.y-hh)/60)*60;y<=cam.y+hh;y+=60)ctx.lineTo(SHORE-146+Math.sin(y*0.02+t*1.2)*12,y);ctx.stroke();
+  ctx.fillStyle='rgba(1,8,14,0.45)';ctx.fillRect(SHORE-200,-3000,LW+3200,3000);ctx.fillRect(SHORE-200,LW,LW+3200,3000);ctx.fillRect(LW,0,3000,LW);
+  // nest
+  ctx.save();ctx.translate(nest.x,nest.y);ctx.beginPath();ctx.arc(0,0,150,0,TAU);ctx.fillStyle='rgba(143,240,200,0.06)';ctx.fill();ctx.strokeStyle='rgba(143,240,200,0.25)';ctx.setLineDash([8,10]);ctx.lineWidth=2;ctx.stroke();ctx.setLineDash([]);
+  for(let i=0;i<26;i++){const a=i/26*TAU;ctx.strokeStyle=i%2?'#7a5a32':'#9b7646';ctx.lineWidth=7;ctx.beginPath();ctx.moveTo(Math.cos(a)*38,Math.sin(a)*38);ctx.lineTo(Math.cos(a+0.5)*52,Math.sin(a+0.5)*52);ctx.stroke();}
+  for(const [ex,ey] of [[-10,-6],[10,-4],[0,10]]){ctx.beginPath();ctx.ellipse(ex,ey,11,14,0.3,0,TAU);ctx.fillStyle='#f3ead8';ctx.fill();ctx.fillStyle='rgba(95,211,255,0.5)';ctx.beginPath();ctx.arc(ex-3,ey-4,2.5,0,TAU);ctx.fill();}
+  ctx.restore();
+  // meat
+  for(const m of lmeat){if(!vis(m))continue;ctx.fillStyle=`rgba(200,70,70,${Math.min(1,m.life/4)})`;ctx.beginPath();ctx.ellipse(m.x,m.y,m.r*1.3,m.r,m.ph,0,TAU);ctx.fill();}
+  // bushes under creatures, trees above
+  for(const tr of trees){if(tr.big||!vis(tr))continue;drawTree(ctx,tr,t);}
+  const order=LE.filter(c=>vis(c)).sort((a,b)=>a.r-b.r);for(const c of order)drawCreature(ctx,c,t);
+  for(const c of order){if(c.isPlayer||c.hp>=c.st.maxHp-0.5)continue;const w=c.r*1.6;ctx.fillStyle='rgba(0,0,0,.5)';ctx.fillRect(c.x-w/2,c.y-c.r-14,w,4);ctx.fillStyle='#ff6b81';ctx.fillRect(c.x-w/2,c.y-c.r-14,w*Math.max(0,c.hp/c.st.maxHp),4);}
+  for(const tr of trees){if(!tr.big||!vis(tr))continue;const under=Math.hypot(tr.x-lp.x,tr.y-lp.y)<tr.r;ctx.globalAlpha=under?0.45:1;drawTree(ctx,tr,t);ctx.globalAlpha=1;}
+  for(const f of fx){ctx.fillStyle=`hsla(${f.hue},90%,70%,${f.life})`;ctx.beginPath();ctx.arc(f.x,f.y,f.r,0,TAU);ctx.fill();}
+  ctx.restore();
+  // soft vignette for sight range + arrow back to the nest
+  const px=VW/2+(lp.x-cam.x)*cam.zoom,py=VH/2+(lp.y-cam.y)*cam.zoom,vr=lp.st.vision*cam.zoom;
+  const vg=ctx.createRadialGradient(px,py,vr*0.7,px,py,vr*1.5);vg.addColorStop(0,'rgba(6,16,10,0)');vg.addColorStop(1,'rgba(6,16,10,0.7)');ctx.fillStyle=vg;ctx.fillRect(0,0,VW,VH);
+  const nx=VW/2+(nest.x-cam.x)*cam.zoom,ny=VH/2+(nest.y-cam.y)*cam.zoom;
+  if(nx<20||nx>VW-20||ny<20||ny>VH-20){const a=Math.atan2(ny-py,nx-px),m=50,mb=100,tx=Math.cos(a)>0?(VW-m-px)/Math.cos(a):(m-px)/Math.cos(a),ty=Math.sin(a)>0?(VH-mb-py)/Math.sin(a):(m-py)/Math.sin(a),tt=Math.min(Math.abs(tx),Math.abs(ty));
+    ctx.save();ctx.translate(px+Math.cos(a)*tt,py+Math.sin(a)*tt);ctx.rotate(a);ctx.fillStyle='#8ff0c8';ctx.globalAlpha=0.8;ctx.beginPath();ctx.moveTo(14,0);ctx.lineTo(-8,-9);ctx.lineTo(-4,0);ctx.lineTo(-8,9);ctx.closePath();ctx.fill();ctx.rotate(-a);ctx.font='600 11px system-ui';ctx.textAlign='center';ctx.fillText('nest',0,24);ctx.restore();}
+}
+function drawTree(x,tr,t){
+  if(tr.big){x.beginPath();x.ellipse(tr.x+10,tr.y+14,tr.r*1.05,tr.r*0.8,0,0,TAU);x.fillStyle='rgba(0,0,0,0.25)';x.fill();
+    for(let i=0;i<6;i++){const a=i/6*TAU+tr.ph,rr=tr.r*0.55;x.beginPath();x.arc(tr.x+Math.cos(a)*rr*0.6,tr.y+Math.sin(a)*rr*0.6,tr.r*0.62,0,TAU);x.fillStyle=i%2?'#2e6b3c':'#357a44';x.fill();}
+    x.beginPath();x.arc(tr.x-tr.r*0.2,tr.y-tr.r*0.25,tr.r*0.45,0,TAU);x.fillStyle='rgba(140,210,120,0.35)';x.fill();
+    for(let i=0;i<tr.fruit;i++){const a=i*2.1+tr.ph;x.beginPath();x.arc(tr.x+Math.cos(a)*tr.r*0.5,tr.y+Math.sin(a)*tr.r*0.5,6,0,TAU);x.fillStyle='#ff9a3c';x.fill();x.beginPath();x.arc(tr.x+Math.cos(a)*tr.r*0.5-2,tr.y+Math.sin(a)*tr.r*0.5-2,2,0,TAU);x.fillStyle='#ffe2b0';x.fill();}}
+  else{x.beginPath();x.arc(tr.x,tr.y,tr.r,0,TAU);x.fillStyle='#3d7d45';x.fill();x.beginPath();x.arc(tr.x-tr.r*0.3,tr.y-tr.r*0.3,tr.r*0.5,0,TAU);x.fillStyle='rgba(150,220,130,0.35)';x.fill();
+    for(let i=0;i<tr.fruit;i++){const a=i*2.6+tr.ph;x.beginPath();x.arc(tr.x+Math.cos(a)*tr.r*0.55,tr.y+Math.sin(a)*tr.r*0.55,4,0,TAU);x.fillStyle='#d94a8a';x.fill();}}
+}
+
+// ---- HUD & editor for land ----
+let lHudAcc=0;
+function landHud(dt){
+  lHudAcc+=dt;if(lHudAcc<0.25)return;lHudAcc=0;const p=lp,g=p.g;
+  $('dna').textContent=Math.floor(p.dna);$('hpBar').style.width=(100*Math.max(0,p.hp/p.st.maxHp))+'%';
+  $('sizeLbl').textContent='Size '+g.size+(g.size>=5?' (max)':'');const lo=LSIZE_AT[g.size-1]||0,hi=LSIZE_AT[g.size];
+  $('growBar').style.width=(g.size>=5?100:100*clamp((p.growth-lo)/(hi-lo),0,1))+'%';
+  const atNest=Math.hypot(lp.x-nest.x,lp.y-nest.y)<150;
+  const cheapest=Math.min(...Object.keys(LPARTS).filter(k=>g[k]<LPARTS[k].max).map(k=>LPARTS[k].cost),99);
+  $('evoBtn').classList.toggle('ready',atNest&&p.dna>=cheapest);$('evoBtn').textContent=atNest?'Evolve (E)':'Evolve at nest';
+  $('dashBar').style.width=(100*(1-p.dashCd/p.st.dashCd))+'%';$('dashBtn').classList.toggle('ready',p.dashCd<=0);
+  $('ecoList').innerHTML=landSpecies.map(s=>{const n=LE.filter(c=>c.sp===s).length;return `<div class="sp" data-id="${s.id}"><span class="dot" style="background:hsl(${s.hue},70%,58%)"></span><span class="n">${s.name} ${s.isNew>0?'<span class="new">NEW</span>':''}</span><span class="r">${s.role}</span><span class="c">${n}</span></div>`;}).join('');
+  $('nextEvo').textContent='Next evolution in '+fmtT(Math.ceil(ldir.t));$('dtVal').textContent=fmtYears(time*YEARS_PER_SEC);
+  $('ecoFood').firstElementChild.textContent='Fruit';
+  $('foodFill').style.width=(100*trees.reduce((a,t)=>a+t.fruit/t.max,0)/trees.length)+'%';
+  if(toastT>0){toastT-=0.25;if(toastT<=0)$('toast').classList.remove('show');}
+}
+function openLandEditor(){
+  if(!running||panel)return;
+  if(Math.hypot(lp.x-nest.x,lp.y-nest.y)>150){toast('Go back to your nest to evolve (follow the green arrow).');return;}
+  paused=true;panel='editor';edSnap=JSON.stringify(lp.g);$('editor').classList.remove('hidden');buildLandEditor();sfx('click');
+}
+function buildLandEditor(){
+  const p=lp,g=p.g;$('edDna').textContent=Math.floor(p.dna);document.querySelector('#editor h2').textContent='Evolve your creature';
+  $('partList').innerHTML=Object.entries(LPARTS).map(([k,d])=>{const n=g[k];return `<div class="row"><div class="info"><b>${d.name}</b><button class="q" data-l="${k==='legs'?'legs':k==='eyes'?'eye':k==='shell'?'armour':k==='horns'||k==='claws'?'spike':'land'}" title="Learn more">?</button> <span class="pips">${'●'.repeat(n)+'○'.repeat(d.max-n)}</span><span>${d.desc}</span></div>
+    <button data-p="${k}" data-a="-1" ${n<=(d.min||0)?'disabled':''}>−</button><button class="buy" data-p="${k}" data-a="1" ${n>=d.max||p.dna<d.cost?'disabled':''}>+ ${d.cost} DNA</button></div>`;}).join('');
+  $('mouthList').innerHTML=Object.entries(LMOUTHS).map(([k,d])=>{const cur=g.mouth===k;return `<button data-m="${k}" class="${cur?'cur':''}" ${cur||p.dna<d.cost?'disabled':''}>${d.name}<small>${cur?'Current':d.cost+' DNA'} · ${d.desc}</small></button>`;}).join('');
+  document.querySelectorAll('#partList button.q').forEach(b=>b.onclick=e=>{e.stopPropagation();openLearn(b.dataset.l);});
+  document.querySelectorAll('#partList button:not(.q)').forEach(b=>b.onclick=()=>{const k=b.dataset.p,a=+b.dataset.a,d=LPARTS[k];
+    if(a>0&&g[k]<d.max&&p.dna>=d.cost){g[k]++;p.dna-=d.cost;sfx('buy');}else if(a<0&&g[k]>(d.min||0)){g[k]--;p.dna+=d.cost;sfx('sell');}lRefresh(p);buildLandEditor();});
+  document.querySelectorAll('#mouthList button').forEach(b=>b.onclick=()=>{const k=b.dataset.m,d=LMOUTHS[k];if(p.dna>=d.cost&&g.mouth!==k){g.mouth=k;p.dna-=d.cost;sfx('buy');lRefresh(p);buildLandEditor();}});
+  const st=p.st,bars=[['Speed',st.speed/180],['Attack',st.atk/60],['Defence',st.armour/0.6],['Sight',(st.vision-300)/400+0.15]];
+  $('statbars').innerHTML=bars.map(([n,v])=>`<div class="srow"><span>${n}</span><div class="bar"><i style="width:${clamp(v,0.04,1)*100}%"></i></div></div>`).join('');
+  $('diet').textContent='Diet: '+(st.fruit&&st.meat?'fruit and meat':st.fruit?'fruit only':'meat only (hunt, then eat the red chunks)');
+}
+function drawLandPreview(){pctx.setTransform(1,0,0,1,0,0);pctx.clearRect(0,0,600,600);drawCreature(pctx,{x:270,y:300,r:110,g:lp.g,sp:{hue:PLAYER_HUE},angle:0,phase:1,walk:performance.now()/250,hurt:0,mut:0,isPlayer:false},performance.now()/1000);}
+
+// ---- leaving the water ----
+function goToLand(fromSave){
+  $('stage').classList.add('hidden');panel=null;paused=false;
+  const scenes=[{say:'Leaving the water.',title:true,d:(x,t,p,W,H,S,cx,cy)=>{fbg(x,W,H,'#7cc7e8','#f3d9a4');label(x,'Zoetica · the Creature stage',cx,cy-50*S,16*S,'rgba(20,60,80,.8)');label(x,'Leaving the water',cx,cy,44*S,'#0b2a3a');}},
+    Object.assign({},FILMS[4].scenes[4],{say:'Millions of years pass. Your cells team up into a body, and one day your species crawls out of the water and onto the land.'}),
+    {say:'Find food, build a nest, and evolve. The land is full of new dangers.',d:(x,t,p,W,H,S,cx,cy)=>{fbg(x,W,H,'#3b6d4f','#1d3a28');const c={x:cx,y:cy,r:70*S,g:{size:1,legs:2,tail:1,horns:0,claws:0,shell:0,eyes:2,mouth:'omni'},sp:{hue:PLAYER_HUE},angle:Math.sin(t)*0.3,phase:1,walk:t*4,hurt:0,mut:0,isPlayer:false};drawCreature(x,c,t);}}];
+  playCustomFilm(scenes,()=>{if(!lp)landInit();stage='land';cam.x=lp.x;cam.y=lp.y;$('leaveBtn').classList.add('hidden');AU.nextTrack=AU.trackMode==='shuffle'?'shore':null;
+    banner('Welcome to the land','Eat fruit from trees and bushes (or hunt, if you have fangs). Your nest is your home: return to it to heal and to evolve.','land');saveGame();});
+}
+
+// ---------- loop ----------
+let last=performance.now();
+function frame(now){
+  const dt=Math.min(0.05,(now-last)/1000);last=now;
+  if(running){
+    if(stage==='land'){if(!paused)landUpdate(dt);landDraw();landHud(dt);}
+    else{if(!paused)update(dt);draw();hud(dt);}
+    bannerTick(dt);musicTick();
+    if(panel==='editor'){if(stage==='land')drawLandPreview();else drawPreview();}
+    if(panel==='species')drawSpPreview();
+    if(panel==='film'){filmTick(dt);drawFilm();}
+  }else{
+    if(introOn){introTick();musicTick();}
+    // title background
+    ctx.setTransform(DPR,0,0,DPR,0,0);const bg=ctx.createLinearGradient(0,0,0,VH);bg.addColorStop(0,'#07405a');bg.addColorStop(1,'#03172a');ctx.fillStyle=bg;ctx.fillRect(0,0,VW,VH);
+    ctx.fillStyle='rgba(200,240,255,0.25)';const tt=now/1000;for(const m of motes){ctx.beginPath();ctx.arc(((m.x*VW+tt*12*m.z)%VW),((m.y*VH+Math.sin(tt*.3+m.x*9)*10)%VH),m.r,0,TAU);ctx.fill();}
+  }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+window.__life={setTrack,get mStep(){return mStep},set mStep(v){mStep=v},get lp(){return lp},get LE(){return LE},get landSpecies(){return landSpecies},get stage(){return stage},ldir,landEvolve,nest,AU,get player(){return player},get cells(){return cells},get species(){return species},dir,evolveStep,openEditor};
+})();
+</script>
+</body>
+</html>
