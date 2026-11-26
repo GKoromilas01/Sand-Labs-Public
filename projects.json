@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "2.4",
+  "pageVersion": "2.5",
   "updated": "2026-11-26",
   "projects": [
     {
@@ -33,13 +33,13 @@
       "id": "coin",
       "mark": "CI",
       "tint": "#E2B15E",
-      "name": "CoinIntel",
+      "name": "Coin Intel",
       "alias": "",
       "what": "Website for coin collectors: collection, valuations and watch alerts.",
       "st": "live",
       "stl": "Live beta",
       "main": {
-        "t": "CoinIntel — κανονική ιστοσελίδα",
+        "t": "Coin Intel — κανονική ιστοσελίδα",
         "u": "https://coinintel-beta-production.up.railway.app/",
         "d": "26 Nov 2026",
         "label": "Άνοιξε ιστοσελίδα"
@@ -69,7 +69,7 @@
       "id": "bio",
       "mark": "BI",
       "tint": "#C9A6E2",
-      "name": "BIOS",
+      "name": "Bios",
       "alias": "Formerly Vios / Digital Biography",
       "what": "Upload your photos and an AI biographer writes your life story, one question at a time.",
       "st": "dev",
@@ -174,26 +174,6 @@
       "version": "0.8.1 — uploaded baseline"
     },
     {
-      "id": "yt",
-      "mark": "DF",
-      "tint": "#F08F7A",
-      "name": "Déjà Future",
-      "alias": "YouTube channel · formerly Echoes Ahead",
-      "what": "Videos about science, AI, politics, biology and history.",
-      "st": "dev",
-      "stl": "Launch kit",
-      "main": {
-        "t": "Déjà Future launch kit",
-        "u": "https://claude.ai/artifact/HksyzR1vRd6TusMtT3x3bv",
-        "d": "24 Nov",
-        "label": "Δες launch kit"
-      },
-      "more": [],
-      "next": "Banner, logos, About text and first script are in the kit. Frank AI videos planned for later. Source not supplied here; external links retained and unverified.",
-      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/yt.md",
-      "version": "Version not verified"
-    },
-    {
       "id": "dd",
       "mark": "IS",
       "tint": "#9DB7E8",
@@ -221,15 +201,15 @@
     },
     {
       "id": "sw",
-      "mark": "SA",
+      "mark": "EA",
       "tint": "#B5CF86",
-      "name": "SoftOne Advisor",
-      "alias": "Software Agent",
+      "name": "ERP Advisor",
+      "alias": "Formerly SoftOne Advisor",
       "what": "Πρώτο demo: πηγές, αναζήτηση τοπικών κειμένων και προετοιμασία ερωτήματος. Δεν παρέχει ακόμη απαντήσεις AI ή σύνδεση ERP.",
       "st": "dev",
       "stl": "Δοκιμαστική εφαρμογή",
       "main": {
-        "t": "SoftOne Advisor — Library desk demo 0.1.0",
+        "t": "ERP Advisor — Library desk demo 0.1.0",
         "u": "apps/softone-advisor/index.html",
         "d": "26 Nov 2026",
         "label": "Άνοιξε demo"
