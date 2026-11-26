@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "3.1",
+  "pageVersion": "3.2",
   "updated": "2026-11-27",
   "projects": [
     {
@@ -159,9 +159,9 @@
           "d": "26 Nov 2026"
         }
       ],
-      "next": "Διορθώθηκε η διαρροή συμπτυγμένης προβολής από σπίτι σε φάρμα.35 τοπικοί έλεγχοι πέρασαν. Νέο πλήρες CI τρέχει· η v0.67 δεν έχει συγχωνευτεί ή κυκλοφορήσει.",
+      "next": "Required verification45899703466 passed on841d1a5. PR91 remains open; its separate run45899854784 is still pending. No v0.67 release yet.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sc.md",
-      "version": "Live v0.66 · v0.67: new CI running"
+      "version": "Live v0.66 · v0.67: required verification passed"
     },
     {
       "id": "life",
@@ -251,6 +251,46 @@
       "next": "Τα επίσημα εγχειρίδια δεν έχουν δοθεί ακόμη. Η βιβλιοθήκη156 εγχειριδίων του παλιού πλάνου δεν περιλαμβάνεται.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sw.md",
       "version": "0.1.0 web demo — χωρίς σύνδεση AI/ERP"
+    },
+    {
+      "id": "chronoscope",
+      "name": "Chronoscope",
+      "mark": "CH",
+      "tint": "#E5C78F",
+      "alias": "",
+      "what": "Science, history and biology channel: plan episodes, hooks and research sources.",
+      "st": "dev",
+      "stl": "Local working prototype",
+      "version": "0.1",
+      "main": {
+        "t": "Open Chronoscope",
+        "u": "apps/chronoscope/index.html",
+        "d": "27 Nov 2026",
+        "label": "Open app"
+      },
+      "more": [],
+      "next": "No connected account, automatic AI calls or paid services. Details and integrations are future work.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/chronoscope.md"
+    },
+    {
+      "id": "x-squared2",
+      "name": "X squared2",
+      "mark": "X²",
+      "tint": "#9DB7E8",
+      "alias": "",
+      "what": "Compare your tweet metrics and review drafts using locally entered data.",
+      "st": "dev",
+      "stl": "Local working prototype",
+      "version": "0.1",
+      "main": {
+        "t": "Open X squared2",
+        "u": "apps/x-squared2/index.html",
+        "d": "27 Nov 2026",
+        "label": "Open app"
+      },
+      "more": [],
+      "next": "No connected account, automatic AI calls or paid services. Details and integrations are future work.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/x-squared2.md"
     }
   ]
 }
