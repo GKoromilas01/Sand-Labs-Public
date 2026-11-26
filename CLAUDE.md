@@ -12,3 +12,6 @@ Sand Labs2.4 corrects CoinIntel main URL to owner-confirmed https://coinintel-be
 
 ## Latest Sand Labs naming —2.5
 Owner requests Coin Intel (formerly CoinIntel), Bios (capital B only, formerly BIOS/Vios), and ERP Advisor (formerly SoftOne Advisor). Déjà Future is removed from the dashboard, not deleted from historical notes. Preserve stable ids coin/bio/sw and existing source paths/working URLs. ERP Advisor demo still concerns SoftOne sources; rename does not implement other ERP support. Do not restore old names from historical handoffs. Seven dashboard projects remain.
+
+## Removed shared footer
+Owner requested removal of the entire Shared across projects footer, including Decisions and Roadmap and main-site-design links. Do not restore this section. Keep actual private agent handoff files intact.
