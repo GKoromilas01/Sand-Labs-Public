@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Zoetica — v0.8.1</title>
+<title>Zoetica — v0.8.2</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;overflow:hidden;background:#03121c;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#dff6ff;user-select:none;-webkit-user-select:none}
@@ -99,6 +99,7 @@ canvas#c{display:block;cursor:crosshair;touch-action:none}
 @media(max-width:560px){#actions button{padding:10px 12px;font-size:13px}}
 #actions button.ready{border-color:#8ff0c8;box-shadow:0 0 0 0 rgba(143,240,200,.6);animation:glow 1.6s infinite}
 @keyframes glow{0%{box-shadow:0 0 0 0 rgba(143,240,200,.55)}70%{box-shadow:0 0 0 14px rgba(143,240,200,0)}100%{box-shadow:0 0 0 0 rgba(143,240,200,0)}}
+#saveDesk button{background:#153d4c;color:#dff6ff;border:1px solid #528c91;border-radius:6px;min-height:44px;padding:6px 9px;cursor:pointer}#saveStatus{margin-top:5px;max-width:420px}
 #ver{position:fixed;bottom:10px;right:12px;font-size:11px;opacity:.4;pointer-events:none}
 #hint{position:fixed;bottom:12px;left:14px;font-size:12px;opacity:.5;pointer-events:none}
 .overlay{position:fixed;inset:0;background:rgba(1,10,16,.8);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center;z-index:10}
@@ -228,12 +229,13 @@ canvas#c{display:block;cursor:crosshair;touch-action:none}
 <div id="toast"></div>
 <div id="actions" class="hidden"><button id="filmsBtn">Films (F)</button><button id="dashBtn">Dash (Space)</button><button id="evoBtn">Evolve (E)</button><button id="leaveBtn" class="hidden ready">Leave the water</button></div>
 <div id="hint" class="hidden">Move: mouse, touch or WASD · Dash: Space · Evolve: E · Tree: T · Films: F</div>
-<div id="ver">Zoetica v0.8.1</div>
+<div id="saveDesk" style="position:fixed;bottom:100px;left:12px;z-index:25;max-width:calc(100vw - 24px);background:#102836;padding:8px;border-radius:10px;font-size:12px"><button id="saveBtn">Save now</button> <button id="backupBtn">Download backup</button> <button id="restoreBtn">Restore file</button><input id="restoreFile" type="file" accept=".json,application/json" hidden><div id="saveStatus" role="status">Autosaves every 8 seconds while playing. Backups use save format 1.</div><div id="restoreConfirm" hidden><span id="restoreName"></span> replaces your current life. <button id="restoreApply">Replace with backup</button> <button id="restoreCancel">Cancel</button></div></div>
+<div id="ver">Zoetica v0.8.2</div>
 
 <div id="title" class="overlay">
   <div class="card">
     <h1>Zoetica</h1>
-    <div class="sub">v0.8 · Cell and Creature stages · sound on</div>
+    <div class="sub">v0.8.2 · Cell and Creature stages · sound on</div>
     <ul>
       <li>Swim with the mouse (or touch / WASD). Eat green plants for DNA.</li>
       <li>Press <b>E</b> to evolve: spend DNA on spikes, flagella, armour, eyes and mouths.</li>
@@ -265,6 +267,7 @@ canvas#c{display:block;cursor:crosshair;touch-action:none}
   </div>
 </div>
 
+<script src="backup.js"></script>
 <script>
 (()=>{
 'use strict';
@@ -637,8 +640,8 @@ addEventListener('keydown',e=>{const k=e.key.toLowerCase();keys[k]=true;
 addEventListener('keyup',e=>{keys[e.key.toLowerCase()]=false;});
 addEventListener('pointerdown',()=>{if(AU.ctx&&AU.ctx.state==='suspended')AU.ctx.resume();});
 function showGame(){setTimeout(()=>unlockFilm(0),9000);audioInit();$('title').classList.add('hidden');['hud','eco','actions','hint','sndBtn'].forEach(i=>$(i).classList.remove('hidden'));running=true;sfx('click');}
-$('startBtn').onclick=()=>{clearSave();init();showGame();banner('A new life begins','Eat the green plants to gather DNA. Then press E to evolve.');};
-$('contBtn').onclick=()=>{const d=readSave();if(!d||!loadGame(d)){init();}showGame();banner('Welcome back','Your species and its whole world have been restored.');};
+$('startBtn').onclick=()=>{if(readSave()&&!confirm('Start a new life and replace the saved life? Download a backup first to keep it.'))return;clearSave();init();showGame();banner('A new life begins','Eat the green plants to gather DNA. Then press E to evolve.');};
+$('contBtn').onclick=()=>{const d=readSave();if(!d||!loadGame(d)){toast('Saved game is invalid. Restore a valid backup or start a new life.');return;}showGame();banner('Welcome back','Your species and its whole world have been restored.');};
 $('dashBtn').onclick=()=>dash();
 $('lnClose').onclick=()=>closeLearn();
 $('treeBtn').onclick=()=>openTree();
@@ -1061,20 +1064,21 @@ function draw(){
 const SAVE_KEY='lifeai-save-v1';
 const fmtT=t=>Math.floor(t/60)+':'+String(t%60).padStart(2,'0');
 function saveGame(){
-  if(!player||!running)return;
+  if(!player||!running)return false;
   try{
     const P=player,d={v:1,time,spId,dirT:dir.t,pressured:dir.pressured,random:dir.random,apexDone,stageShown,budget:Object.assign({},ROLE_BUDGET),
       patches:patches.map(p=>[p.x,p.y,p.food]),
       player:{g:P.g,dna:P.dna,growth:P.growth,x:P.x,y:P.y,kills:P.kills,deaths:P.deaths,plantDNA:P.plantDNA,meatDNA:P.meatDNA,sporesEaten:P.sporesEaten,apexKills:P.apexKills,forms:P.forms},
       all:Object.values(allSp).map(s=>({id:s.id,name:s.name,hue:s.hue,role:s.role,genome:s.genome,gen:s.gen,w:s.w,parentId:s.parentId,gained:s.gained,reason:s.reason,drift:s.drift,died:s.died,stage:s.stage,born:s.born,parent:s.parent})),
       live:species.map(s=>s.id),stage,land:landSerialize()};
-    localStorage.setItem(SAVE_KEY,JSON.stringify(d));
-  }catch(e){}
+    localStorage.setItem(SAVE_KEY,JSON.stringify(d));return true;
+  }catch(e){return false;}
 }
 function readSave(){try{return JSON.parse(localStorage.getItem(SAVE_KEY)||'null');}catch(e){return null;}}
 function clearSave(){try{localStorage.removeItem(SAVE_KEY);}catch(e){}}
 function loadGame(d){
   try{
+    ZoeticaBackup.validateBackup(d);
     init();
     cells=[];species=[];allSp={};
     for(const o of d.all){const s=Object.assign({target:0,isNew:0},o);fillG(s.genome);allSp[s.id]=s;}
@@ -1096,8 +1100,37 @@ function loadGame(d){
 }
 addEventListener('visibilitychange',()=>{if(document.hidden)saveGame();});
 addEventListener('pagehide',saveGame);
-(function titleSave(){const d=readSave();if(d&&d.player){$('contBtn').classList.remove('hidden');$('startBtn').textContent='New life';
+(function titleSave(){const d=readSave();try{ZoeticaBackup.validateBackup(d);}catch(e){return;}if(d&&d.player){$('contBtn').classList.remove('hidden');$('startBtn').textContent='New life';
   $('contInfo').textContent='Saved: '+(d.stage==='land'&&d.land?'Creature stage, size '+d.land.lp.g.size:'Cell stage, size '+d.player.g.size)+' · '+Math.floor(d.stage==='land'&&d.land?d.land.lp.dna:d.player.dna)+' DNA · '+fmtT(Math.floor(d.time))+' played';$('contInfo').classList.remove('hidden');}})();
+
+// Explicit restore is staged: file selection never replaces a life.
+let pendingBackup=null;
+const saveStatus=m=>$('saveStatus').textContent=m;
+$('saveBtn').onclick=()=>saveStatus(saveGame()?'Saved in this browser.':'Could not save. Start a life and allow browser storage.');
+$('backupBtn').onclick=()=>{
+ if(running&&!saveGame()){saveStatus('Could not save; backup was not created.');return;}
+ const d=readSave();try{ZoeticaBackup.validateBackup(d);}catch(e){saveStatus('Start a life before downloading a backup.');return;}
+ const url=URL.createObjectURL(new Blob([JSON.stringify(d)],{type:'application/json'}));
+ const a=document.createElement('a');a.href=url;a.download='zoetica-0.8.2-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);saveStatus('Backup downloaded (save format 1).');
+};
+$('restoreBtn').onclick=()=>$('restoreFile').click();
+$('restoreCancel').onclick=()=>{pendingBackup=null;$('restoreConfirm').hidden=true;saveStatus('Restore cancelled.');};
+$('restoreFile').onchange=async e=>{
+ pendingBackup=null;$('restoreConfirm').hidden=true;const f=e.target.files[0];e.target.value='';if(!f)return;
+ try{
+  if(f.size>ZoeticaBackup.MAX_BACKUP_BYTES)throw Error('Backup is too large (maximum 2 MB).');
+  const d=JSON.parse(await f.text());ZoeticaBackup.validateBackup(d);pendingBackup=d;
+  $('restoreName').textContent=f.name+' (format '+d.v+')';$('restoreConfirm').hidden=false;
+  saveStatus('Valid backup ready. Confirm replacement or cancel.');
+ }catch(err){saveStatus(err instanceof SyntaxError?'Invalid JSON backup. Your life is unchanged.':err.message+' Your life is unchanged.');}
+};
+$('restoreApply').onclick=()=>{
+ if(!pendingBackup)return;
+ if(panel||learnOpen){saveStatus('Close the current game panel before replacing this life.');return;}
+ // Write first: storage failure must not replace the current world.
+ try{localStorage.setItem(SAVE_KEY,JSON.stringify(pendingBackup));}catch(e){saveStatus('Storage unavailable. Current life unchanged.');return;}
+ if(loadGame(pendingBackup)){pendingBackup=null;$('restoreConfirm').hidden=true;paused=false;panel=null;showGame();saveStatus('Backup restored and saved in this browser.');}
+};
 
 // ---------- stage complete ----------
 function openStage(){
