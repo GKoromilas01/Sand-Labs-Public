@@ -2,7 +2,7 @@
 
 # Continue Sand Labs development
 
-## Latest integration: Sand Labs 4.7 — 27 November 2026
+## Latest integration: Sand Labs 4.8 — 28 November 2026
 
 This file is a public, non-sensitive continuation index for Claude and other AI assistants. Repository source and approved merged commits are authoritative; private chats are not synchronised. Check GitHub Pages deployment for the exact commit before asserting publication.
 
@@ -10,9 +10,9 @@ This file is a public, non-sensitive continuation index for Claude and other AI 
 |---|---|---|---|
 | Pavlos O Ellinaras | 0.3.1 | apps/pavlos | Connected café, square and harbour, cross-location items, original café puzzle; Greek/English, included synthetic narration with optional browser voices. Owner-supplied harbour welcome image. Preserve free beta. |
 | Coin Intel | 10.83.5 | Separate GKoromilas01/CoinIntel-Beta repository | Supplied collector artwork; original startup gating preserved. Existing Railway app, not a copied static preview. Inspect PR6/provider deployment. |
-| Bios | 0.4.1 | apps/bios | Device notebook create/continue, chapter reader, photos/manual source links, deeper questions, optional reviewed reflection and writing directions. Preserve existing local storage and JSON backups. Real account/cloud/social OAuth/live AI not built. |
+| Bios | 0.5 | apps/bios | Searchable memory timeline, chapter/date view filters and chapter-only draft protection; notebook/book/export order preserved. Device notebook create/continue, chapter reader, photos/manual source links, deeper questions, optional reviewed reflection and writing directions. Preserve existing local storage and JSON backups. Real account/cloud/social OAuth/live AI not built. |
 | Zoetica | 0.8.5 | apps/zoetica | Evolution progression and NPC evolution timers at 30% prior rate, responsive movement unchanged. New pickups; newly unlocked milestone highlights automatically reuse existing canvas scenes, Skip and maximum ten seconds. Longer library films remain optional. No newly generated video/audio. Preserve save format 1. |
-| Agora | 0.4.1 | apps/isegoria | News-first, saved local opinions/polls/interests and source/resource links. No shared public vote counts or forum backend. Refresh sources honestly, retain timestamped fallback. |
+| Agora | 0.5 | apps/isegoria | News-first with headline/saved-perspective search, local poll topic/answer filters and searchable saved discussions; saved local opinions/polls/interests and source/resource links. No shared public vote counts or forum backend. Refresh sources honestly, retain timestamped fallback. |
 | IT Consultant | 0.4.1 | apps/softone-advisor | Thirteen active company areas; archived notes from five removed categories remain accessible. Do not restore retired categories in navigation. No connected ERP or accounting backend. |
 | The Chronoscope | 0.5.1 | apps/chronoscope | Sixteen topics; Science/Famous scientists retired without deleting previous plans. Two external reference videos remain links/official embeds. Production paused; channel link is not OAuth/upload access. |
 | Pitch Lab | 0.10.1 | apps/pitchlab | Automatic on-open/button fixtures, forecasts and final scores, local IndexedDB record and graphs. No video intro or Manual desk. Legacy manual records export-only. No schedule, live wagers or guaranteed profitability. Do not replace missing data with invented scores. |

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "4.7",
-  "updated": "2026-11-27",
+  "pageVersion": "4.8",
+  "updated": "2026-11-28",
   "projects": [
     {
       "id": "sphinx",
@@ -71,9 +71,9 @@
       "st": "dev",
       "stl": "Working prototype",
       "main": {
-        "t": "Bios 0.4.1",
-        "u": "apps/bios/index.html?v=0.4.1",
-        "d": "27 Nov 2026",
+        "t": "Bios 0.5",
+        "u": "apps/bios/index.html?v=0.5",
+        "d": "28 Nov 2026",
         "label": "Open Bios"
       },
       "more": [
@@ -109,9 +109,9 @@
           "d": "20 Nov"
         }
       ],
-      "next": "Returning local notebook, chapters, photographs, source links and optional reflection. No connected social accounts or paid AI.",
+      "next": "Search memories, filter chapters and browse recognised dates while preserving notebook/export order. Chapter-only edits are protected. Local storage/backups unchanged; no connected AI/accounts.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/bio.md",
-      "version": "0.4.1",
+      "version": "0.5",
       "category": "tools"
     },
     {
@@ -198,9 +198,9 @@
       "st": "dev",
       "stl": "Working prototype",
       "main": {
-        "t": "Agora 0.4.1",
-        "u": "apps/isegoria/index.html?v=0.4.1",
-        "d": "27 Nov 2026",
+        "t": "Agora 0.5",
+        "u": "apps/isegoria/index.html?v=0.5",
+        "d": "28 Nov 2026",
         "label": "Open Agora"
       },
       "more": [
@@ -216,9 +216,9 @@
           "d": "26 Nov 2026"
         }
       ],
-      "next": "Saved local opinions, polls, interests and resource links; supplied public-square artwork. Shared participation backend remains unbuilt.",
+      "next": "Search headlines and saved perspectives; filter local polls by topic/answer; search saved discussions, polls and views. Device-only records, no shared public vote totals. Source timestamp and fallback preserved.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/dd.md",
-      "version": "0.4.1",
+      "version": "0.5",
       "category": "community"
     },
     {
