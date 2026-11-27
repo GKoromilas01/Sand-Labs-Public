@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "4.1",
+  "pageVersion": "4.2",
   "updated": "2026-11-27",
   "projects": [
     {
@@ -71,14 +71,14 @@
       "tint": "#C9A6E2",
       "name": "Bios",
       "alias": "Formerly Vios / Digital Biography",
-      "what": "Γράψε αναμνήσεις, αποθήκευσέ τις στη συσκευή και εξήγαγε το τετράδιό σου. Χωρίς αυτόματες κλήσεις AI.",
+      "what": "Your local biography notebook with optional private reflection and explicitly reviewed passages.",
       "st": "dev",
-      "stl": "Λειτουργικό τοπικό demo",
+      "stl": "Journal & optional reflection",
       "main": {
-        "t": "Bios0.1.0 — το προσωπικό σου τετράδιο",
-        "u": "apps/bios/index.html",
+        "t": "Bios0.2 — memories & optional reflection",
+        "u": "apps/bios/index.html?v=0.2",
         "d": "26 Nov 2026",
-        "label": "Άνοιξε Bios"
+        "label": "Open Bios"
       },
       "more": [
         {
@@ -113,9 +113,9 @@
           "d": "20 Nov"
         }
       ],
-      "next": "Λογαριασμοί, φωτογραφίες και social imports απαιτούν backend και παραμένουν επόμενα βήματα. Καμία χρήση owner AI credits από αυτό το demo.",
+      "next": "Guided local reflection and reviewed brief for an external AI account. No in-app AI/clinical service or owner-credit calls. Only approved selected passages enter the biography.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/bio.md",
-      "version": "0.1.0 local journal demo"
+      "version": "0.2"
     },
     {
       "id": "sc",
@@ -225,16 +225,16 @@
       "id": "sw",
       "mark": "EA",
       "tint": "#B5CF86",
-      "name": "ERP Advisor",
-      "alias": "Formerly SoftOne Advisor",
-      "what": "Πρώτο demo: πηγές, αναζήτηση τοπικών κειμένων και προετοιμασία ερωτήματος. Δεν παρέχει ακόμη απαντήσεις AI ή σύνδεση ERP.",
+      "name": "IT Consultant",
+      "alias": "Formerly ERP Advisor / SoftOne Advisor",
+      "what": "Company IT knowledge notebook: departments, systems, documentation, AI pilot plans and financial planning templates.",
       "st": "dev",
-      "stl": "Δοκιμαστική εφαρμογή",
+      "stl": "Company workspace · local prototype",
       "main": {
-        "t": "ERP Advisor — Library desk demo 0.1.0",
-        "u": "apps/softone-advisor/index.html",
+        "t": "IT Consultant0.2 — company knowledge & improvement desk",
+        "u": "apps/softone-advisor/index.html?v=0.2",
         "d": "26 Nov 2026",
-        "label": "Άνοιξε demo"
+        "label": "Open IT Consultant"
       },
       "more": [
         {
@@ -248,9 +248,9 @@
           "d": "19 Nov"
         }
       ],
-      "next": "Τα επίσημα εγχειρίδια δεν έχουν δοθεί ακόμη. Η βιβλιοθήκη156 εγχειριδίων του παλιού πλάνου δεν περιλαμβάνεται.",
+      "next": "18 knowledge areas, explicit local notes/backups and planning calculations. SoftOne remains under ERP/Coding with its original source desk. No company systems or AI service connected.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sw.md",
-      "version": "0.1.0 web demo — χωρίς σύνδεση AI/ERP"
+      "version": "0.2"
     },
     {
       "id": "chronoscope",
