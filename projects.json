@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "4.2",
+  "pageVersion": "4.3",
   "updated": "2026-11-27",
   "projects": [
     {
@@ -254,22 +254,28 @@
     },
     {
       "id": "chronoscope",
-      "name": "Chronoscope",
+      "name": "The Chronoscope",
       "mark": "CH",
       "tint": "#E5C78F",
       "alias": "",
-      "what": "Science, history and ideas explained clearly: watch a10-second original preview and browse a subject library.",
+      "what": "Science, history and ideas explained clearly: a subject library and creator planning desk.",
       "st": "dev",
-      "stl": "Video preview & subject library",
-      "version": "0.2",
+      "stl": "Subject library & YouTube channel",
+      "version": "0.3",
       "main": {
-        "t": "Chronoscope0.2 — Markov preview & subjects",
-        "u": "apps/chronoscope/index.html?v=0.2",
+        "t": "The Chronoscope 0.3 — library & channel",
+        "u": "apps/chronoscope/index.html?v=0.3",
         "d": "27 Nov 2026",
         "label": "Open app"
       },
-      "more": [],
-      "next": "Original10s MP4 plus owner-selected YouTube reference links. Reuse licences unverified; no footage copied or YouTube upload. Channel URL can be saved as a local public link only.",
+      "more": [
+        {
+          "t": "The Chronoscope on YouTube",
+          "u": "https://www.youtube.com/@The-Chronoscope",
+          "d": "27 Nov 2026"
+        }
+      ],
+      "next": "Official owner-provided channel link. External references remain on their creators’ channels; use subject playlists. Ten-second preview removed. OAuth and automatic synchronization are not connected.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/chronoscope.md"
     },
     {
