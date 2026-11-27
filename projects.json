@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "3.8",
+  "pageVersion": "3.9",
   "updated": "2026-11-27",
   "projects": [
     {
@@ -280,16 +280,16 @@
       "alias": "",
       "what": "Five-league football analysis: pre-match probabilities, results, team ratings and honest evaluation.",
       "st": "dev",
-      "stl": "Scheduled data refresh · paper research",
-      "version": "0.5",
+      "stl": "On-open refresh · daily/weekly graphs",
+      "version": "0.6",
       "main": {
-        "t": "PitchLab0.5 — scheduled snapshots & paper strategy research",
-        "u": "apps/pitchlab/index.html?v=0.5",
+        "t": "PitchLab0.6 — matches, performance & paper lab",
+        "u": "apps/pitchlab/index.html?v=0.6",
         "d": "27 Nov 2026",
         "label": "Open PitchLab"
       },
       "more": [],
-      "next": "English interface. Scheduled source/result/odds snapshots are being activated. Experimental probabilities and EUR10 paper test; no real betting or automatic narrative news.",
+      "next": "English tabbed interface. Source checks only on open/Refresh; results saved on this device. Major leagues plus Champions/Europa/Conference. No scheduled data refresh or real betting.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/pitchlab.md"
     }
   ]
