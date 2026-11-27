@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Zoetica — v0.8.5</title>
+<title>Zoetica — v0.8.6</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;overflow:hidden;background:#03121c;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#dff6ff;user-select:none;-webkit-user-select:none}
@@ -138,7 +138,7 @@ canvas#c{display:block;cursor:crosshair;touch-action:none}
 .mouths button.cur{border-color:#ffd36b;background:rgba(255,211,107,.12);opacity:1}
 #edClose{margin-top:18px;width:100%}
 </style>
-<style>#title{background:linear-gradient(90deg,#03172adb,#03172a55),url("media/landing.jpg") center/cover no-repeat}#title .card{background:#071d2ff2}</style></head>
+<style>#title{background:linear-gradient(90deg,#03172adb,#03172a55),url("media/landing.jpg") center/cover no-repeat}#title .card{background:#071d2ff2}</style><style>#goalGuide{margin:8px 0 12px;padding:9px;background:#092433dd;border:1px solid #35635e;border-radius:8px;font:11px/1.5 system-ui}#goalGuide b{color:#a7e6c2}#goalHint{margin:4px 0 0;color:#dbedf0}@media(max-width:560px){#hud{width:calc(50vw - 24px)}#eco{min-width:0;width:calc(50vw - 24px);font-size:11px;padding:8px}#ecoTip{font-size:10px}#goalGuide{font-size:10px;padding:7px}}</style></head>
 <body>
 <canvas id="c"></canvas>
 
@@ -149,7 +149,7 @@ canvas#c{display:block;cursor:crosshair;touch-action:none}
   <div class="bar"><i id="hpBar"></i></div>
   <div class="lbl"><span id="sizeLbl">Size 1</span> · growth</div>
   <div class="bar"><i id="growBar"></i></div>
-  <div class="lbl">Dash</div>
+  <div id="goalGuide"><b id="evolutionGoal">Your next step</b><p id="goalHint">Collect food to grow.</p></div><div class="lbl">Dash</div>
   <div class="bar"><i id="dashBar"></i></div>
 </div>
 <div id="eco" class="hidden"><div class="lbl">Ecosystem</div><div id="ecoList"></div><div id="ecoTip">Click a species to see its history</div><button id="treeBtn" class="lk" style="margin:4px 0 0;font-size:12px">Open the tree of life (T)</button><div id="ecoTime" title="Learn about deep time"><span>Deep time</span><b id="dtVal">0 years</b></div><div id="ecoFood" title="Learn about food webs"><span>Pond food</span><span id="foodBar"><i id="foodFill"></i></span></div><div id="nextEvo"></div></div>
@@ -230,12 +230,12 @@ canvas#c{display:block;cursor:crosshair;touch-action:none}
 <div id="actions" class="hidden"><button id="filmsBtn">Films (F)</button><button id="dashBtn">Dash (Space)</button><button id="evoBtn">Evolve (E)</button><button id="leaveBtn" class="hidden ready">Leave the water</button></div>
 <div id="hint" class="hidden">Move: mouse, touch or WASD · Dash: Space · Evolve: E · Tree: T · Films: F</div>
 <div id="saveDesk" style="position:fixed;bottom:100px;left:12px;z-index:25;max-width:calc(100vw - 24px);background:#102836;padding:8px;border-radius:10px;font-size:12px"><button id="saveBtn">Save now</button> <button id="backupBtn">Download backup</button> <button id="restoreBtn">Restore file</button><input id="restoreFile" type="file" accept=".json,application/json" hidden><div id="saveStatus" role="status">Autosaves every 8 seconds while playing. Backups use save format 1.</div><div id="restoreConfirm" hidden><span id="restoreName"></span> replaces your current life. <button id="restoreApply">Replace with backup</button> <button id="restoreCancel">Cancel</button></div></div>
-<div id="ver">Zoetica v0.8.5</div>
+<div id="ver">Zoetica v0.8.6</div>
 
 <div id="title" class="overlay">
   <div class="card">
     <h1>Zoetica</h1>
-    <div class="sub">v0.8.5 · Cell and Creature stages · sound on</div>
+    <div class="sub">v0.8.6 · Cell and Creature stages · sound on</div>
     <ul>
       <li>Swim with the mouse (or touch / WASD). Eat green plants for DNA.</li>
       <li>Press <b>E</b> to evolve: spend DNA on spikes, flagella, armour, eyes and mouths.</li>
@@ -267,7 +267,7 @@ canvas#c{display:block;cursor:crosshair;touch-action:none}
   </div>
 </div>
 
-<details id="itemGuide"><summary>Special items</summary><p>Mineral crystal: +1.2 DNA/growth. Repair vesicle: up to20 health. Current seed: short speed burst and ready dash. Swim or walk into an item to collect it.</p><p id="itemStatus" role="status">Explore to find three new item types.</p></details><style>#itemGuide{position:fixed;left:12px;bottom:64px;z-index:15;background:#102c30e8;color:#e6f4db;padding:9px 12px;border:1px solid #668d83;border-radius:9px;font:12px/1.6 system-ui;max-width:min(320px,calc(100vw - 24px))}#itemGuide summary{cursor:pointer}#itemGuide p{margin:6px 0}</style><script src="backup.js?v=0.8.5"></script><script src="items.js?v=0.8.5"></script>
+<details id="itemGuide"><summary>Special items</summary><p>Mineral crystal: +1.2 DNA/growth. Repair vesicle: up to20 health. Current seed: short speed burst and ready dash. Swim or walk into an item to collect it.</p><p id="itemStatus" role="status">Explore to find three new item types.</p></details><style>#itemGuide{position:fixed;left:12px;bottom:64px;z-index:15;background:#102c30e8;color:#e6f4db;padding:9px 12px;border:1px solid #668d83;border-radius:9px;font:12px/1.6 system-ui;max-width:min(320px,calc(100vw - 24px))}#itemGuide summary{cursor:pointer}#itemGuide p{margin:6px 0}</style><script src="backup.js?v=0.8.6"></script><script src="items.js?v=0.8.6"></script><script src="goals.js?v=0.8.6"></script>
 <script>
 (()=>{
 'use strict';
@@ -1182,6 +1182,7 @@ function hud(dt){
   const lo=SIZE_AT[g.size-1]||0,hi=SIZE_AT[g.size];
   $('growBar').style.width=(g.size>=5?100:100*clamp((p.growth-lo)/(hi-lo),0,1))+'%';
   const cheapest=Math.min(...Object.keys(PARTS).filter(k=>g[k]<PARTS[k].max).map(k=>PARTS[k].cost),99);
+  const goal=ZoeticaGoals.describe({stage:'cell',size:g.size,growth:p.growth,dna:p.dna,cost:cheapest,thresholds:SIZE_AT});$('evolutionGoal').textContent=goal.title;$('goalHint').textContent=goal.hint;
   $('evoBtn').classList.toggle('ready',p.dna>=cheapest);
   $('dashBar').style.width=(100*(1-p.dashCd/dashCdFor()))+'%';$('dashBtn').classList.toggle('ready',p.dashCd<=0);
   const rows=species.map(s=>{const n=cells.filter(c=>c.sp===s).length;
@@ -1858,6 +1859,7 @@ function landHud(dt){
   $('growBar').style.width=(g.size>=5?100:100*clamp((p.growth-lo)/(hi-lo),0,1))+'%';
   const atNest=Math.hypot(lp.x-nest.x,lp.y-nest.y)<150;
   const cheapest=Math.min(...Object.keys(LPARTS).filter(k=>g[k]<LPARTS[k].max).map(k=>LPARTS[k].cost),99);
+  const goal=ZoeticaGoals.describe({stage:'land',size:g.size,growth:p.growth,dna:p.dna,cost:cheapest,thresholds:LSIZE_AT,atNest});$('evolutionGoal').textContent=goal.title;$('goalHint').textContent=goal.hint;
   $('evoBtn').classList.toggle('ready',atNest&&p.dna>=cheapest);$('evoBtn').textContent=atNest?'Evolve (E)':'Evolve at nest';
   $('dashBar').style.width=(100*(1-p.dashCd/p.st.dashCd))+'%';$('dashBtn').classList.toggle('ready',p.dashCd<=0);
   $('ecoList').innerHTML=landSpecies.map(s=>{const n=LE.filter(c=>c.sp===s).length;return `<div class="sp" data-id="${s.id}"><span class="dot" style="background:hsl(${s.hue},70%,58%)"></span><span class="n">${s.name} ${s.isNew>0?'<span class="new">NEW</span>':''}</span><span class="r">${s.role}</span><span class="c">${n}</span></div>`;}).join('');
