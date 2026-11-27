@@ -1,0 +1,1 @@
+Original Pavlos fictional game dialogue, rendered locally with eSpeak NG (https://github.com/espeak-ng/espeak-ng, GPL-3.0 engine). No engine binaries/data redistributed here. These MP3s are synthetic narration output, not real or cloned speakers. Rebuild via scripts/pavlos/render_voice.py. No external TTS service/API used.

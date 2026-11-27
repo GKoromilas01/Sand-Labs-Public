@@ -1,3 +1,8 @@
+## Latest approved publication scope — Sand Labs 4.7
+Read AI-CONTINUATION.md first. Owner authorised publication of the completed non-Crowns apps, supplied illustrations, improved hub and current version registry. Approved client paths: apps/{pavlos,bios,isegoria,zoetica,softone-advisor,chronoscope,pitchlab}/ including their referenced client JS/CSS and media, plus assets/, index.html, dashboard.css and projects.json. Pavlos includes previously generated synthetic Greek/English narration and its provenance README. No private app CLAUDE.md, private-assets/, scripts, user data, memoirs, keys or private handoffs may be copied here. Public AI-CONTINUATION.md and release hashes contain only non-sensitive navigation/verification information.
+
+Shattered Crowns work is PAUSED by owner; preserve its existing launch target and do not change its game or integrate its supplied artwork. Catalogue refresh occurs only on open (historical 30-second polling below is superseded). English UI except bilingual Pavlos. Every new media generation needs individual owner approval; Private Mode ON in Leonardo. No new media generated or paid services enabled for this publication. Historical instructions below are superseded where they conflict.
+
 # Public dashboard instructions
 
 This repository is public. Never copy private memoirs, private handoffs, credentials, or unapproved application sources here. The owner-approved playable Pavlos beta is the explicit exception: only its four allowlisted client files belong in apps/pavlos/. Authoritative project records and agent handoffs live in the private GKoromilas01/Sand-Labs-Applications repository; obtain authorized access and read its CLAUDE.md and HANDOFF.md.

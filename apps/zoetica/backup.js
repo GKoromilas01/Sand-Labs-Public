@@ -9,6 +9,7 @@ function validateBackup(d){
  const text=v=>typeof v==='string'&&v.length<=600&&!/[<>\u0000-\u0008]/.test(v);
  const bool=v=>typeof v==='boolean';
  if(!obj(d))fail();if(d.v!==1)fail('Unsupported backup version. Zoetica supports save format 1.');
+ if(d.itemsCollected!==undefined&&(!obj(d.itemsCollected)||!Object.keys(d.itemsCollected).every(k=>['mineral','repair','current'].includes(k))||!['mineral','repair','current'].every(k=>int(d.itemsCollected[k]))))fail('Invalid item history.');
  // Reject prototype keys at any depth, including in optional history fields.
  const inspect=(v,depth=0)=>{if(depth>16)fail();if(v&&typeof v==='object'){for(const k of Object.keys(v)){if(['__proto__','prototype','constructor'].includes(k))fail();inspect(v[k],depth+1);}}else if(typeof v==='string'&&!text(v))fail();};inspect(d);
  const genome=(g,land=false)=>{

@@ -1,9 +1,7 @@
-# Sand Labs public site3.0
+# Sand Labs
 
 Live hub: https://gkoromilas01.github.io/Sand-Labs-Public/
 
-Public static dashboard and owner-approved browser app files only. Private handoffs and personal notes remain in GKoromilas01/Sand-Labs-Applications. Main project records: projects.json; index.html embeds a fallback snapshot and refreshes records over HTTP.
+Sand Labs 4.7 combines the latest approved browser app updates and owner-supplied illustrations. See [AI-CONTINUATION.md](AI-CONTINUATION.md) for application versions, current limitations and continuation steps. Public release hashes are recorded in RELEASE-MANIFEST.json. Check GitHub Pages for the exact deployed commit.
 
-Latest audio update: Pavlos0.1.3 starts an original fast synth-bouzouki intro on Play, with silent start/mute/volume. Zoetica0.8.3 carries its original ambient engine from the first splash click through title and gameplay, respecting saved mute/volume.
-
-Publish from main/root through GitHub Pages. Update actual app files, registry and embedded snapshot together; retain the explicit client-file allowlist in CLAUDE.md. Never copy private memoirs, API keys or user content. No paid service or runtime AI API is configured by this site.
+Private source, tests and full handoffs remain in GKoromilas01/Sand-Labs-Applications. Coin Intel has its own repository/hosting. Shattered Crowns development is paused. No scheduled refresh, runtime AI billing or automatic YouTube upload.

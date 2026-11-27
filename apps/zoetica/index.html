@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Zoetica — v0.8.3</title>
+<title>Zoetica — v0.8.5</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;overflow:hidden;background:#03121c;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#dff6ff;user-select:none;-webkit-user-select:none}
@@ -138,7 +138,7 @@ canvas#c{display:block;cursor:crosshair;touch-action:none}
 .mouths button.cur{border-color:#ffd36b;background:rgba(255,211,107,.12);opacity:1}
 #edClose{margin-top:18px;width:100%}
 </style>
-</head>
+<style>#title{background:linear-gradient(90deg,#03172adb,#03172a55),url("media/landing.jpg") center/cover no-repeat}#title .card{background:#071d2ff2}</style></head>
 <body>
 <canvas id="c"></canvas>
 
@@ -177,7 +177,7 @@ canvas#c{display:block;cursor:crosshair;touch-action:none}
 <div id="filmsP" class="overlay hidden">
   <div class="card">
     <h2 style="font-size:24px">Films</h2>
-    <div style="font-size:13px;opacity:.7;margin:4px 0 6px">Short films with a spoken voice that explain how evolution works. A new one unlocks at each milestone.</div>
+    <div style="font-size:13px;opacity:.7;margin:4px 0 6px">Evolution highlights play automatically for up to10 seconds. Skip at any time. Longer optional films remain in this library.</div>
     <div id="filmList"></div>
     <button class="btn" id="filmsClose" style="margin-top:10px">Back to the game</button>
   </div>
@@ -230,12 +230,12 @@ canvas#c{display:block;cursor:crosshair;touch-action:none}
 <div id="actions" class="hidden"><button id="filmsBtn">Films (F)</button><button id="dashBtn">Dash (Space)</button><button id="evoBtn">Evolve (E)</button><button id="leaveBtn" class="hidden ready">Leave the water</button></div>
 <div id="hint" class="hidden">Move: mouse, touch or WASD · Dash: Space · Evolve: E · Tree: T · Films: F</div>
 <div id="saveDesk" style="position:fixed;bottom:100px;left:12px;z-index:25;max-width:calc(100vw - 24px);background:#102836;padding:8px;border-radius:10px;font-size:12px"><button id="saveBtn">Save now</button> <button id="backupBtn">Download backup</button> <button id="restoreBtn">Restore file</button><input id="restoreFile" type="file" accept=".json,application/json" hidden><div id="saveStatus" role="status">Autosaves every 8 seconds while playing. Backups use save format 1.</div><div id="restoreConfirm" hidden><span id="restoreName"></span> replaces your current life. <button id="restoreApply">Replace with backup</button> <button id="restoreCancel">Cancel</button></div></div>
-<div id="ver">Zoetica v0.8.3</div>
+<div id="ver">Zoetica v0.8.5</div>
 
 <div id="title" class="overlay">
   <div class="card">
     <h1>Zoetica</h1>
-    <div class="sub">v0.8.3 · Cell and Creature stages · sound on</div>
+    <div class="sub">v0.8.5 · Cell and Creature stages · sound on</div>
     <ul>
       <li>Swim with the mouse (or touch / WASD). Eat green plants for DNA.</li>
       <li>Press <b>E</b> to evolve: spend DNA on spikes, flagella, armour, eyes and mouths.</li>
@@ -267,7 +267,7 @@ canvas#c{display:block;cursor:crosshair;touch-action:none}
   </div>
 </div>
 
-<script src="backup.js"></script>
+<details id="itemGuide"><summary>Special items</summary><p>Mineral crystal: +1.2 DNA/growth. Repair vesicle: up to20 health. Current seed: short speed burst and ready dash. Swim or walk into an item to collect it.</p><p id="itemStatus" role="status">Explore to find three new item types.</p></details><style>#itemGuide{position:fixed;left:12px;bottom:64px;z-index:15;background:#102c30e8;color:#e6f4db;padding:9px 12px;border:1px solid #668d83;border-radius:9px;font:12px/1.6 system-ui;max-width:min(320px,calc(100vw - 24px))}#itemGuide summary{cursor:pointer}#itemGuide p{margin:6px 0}</style><script src="backup.js?v=0.8.5"></script><script src="items.js?v=0.8.5"></script>
 <script>
 (()=>{
 'use strict';
@@ -329,6 +329,7 @@ const dir={t:150,kills:{},dealt:{},escapes:0,pressured:0,random:0};
 const ROLE_BUDGET={grazer:30,hunter:6,apex:0};
 const isPred=sp=>sp.role==='hunter'||sp.role==='apex';
 let spores=[],sporeAcc=0,apexDone=false,saveAcc=0,stageShown=false;
+let specialItems=[],itemClock=0,itemStage=null,itemStats={mineral:0,repair:0,current:0};
 
 function makeSpecies(o){if(o.genome)fillG(o.genome);const s=Object.assign({id:++spId,gen:1,w:1,target:0,isNew:0},o);species.push(s);allSp[s.id]=s;return s;}
 function newCell(sp,g,x,y,isPlayer){
@@ -348,6 +349,7 @@ function recomputeTargets(){
 }
 
 function init(){
+  specialItems=[];itemClock=0;itemStage=null;itemStats={mineral:0,repair:0,current:0};
   cells=[];plants=[];meat=[];fx=[];species=[];spId=0;time=0;allSp={};
   stage='cell';lp=null;LE=[];landSpecies=[];
   for(const p of patches)p.food=1;ROLE_BUDGET.grazer=30;ROLE_BUDGET.hunter=6;ROLE_BUDGET.apex=0;
@@ -611,11 +613,14 @@ function openLearn(k){const L=LEARN[k];if(!L)return;$('lnT').textContent=L[0];$(
 function closeLearn(){$('learn').classList.add('hidden');learnOpen=false;paused=!!panel;sfx('click');}
 const fmtYears=y=>y<1e9?Math.round(y/1e6)+' million years':(y/1e9).toFixed(2)+' billion years';
 const YEARS_PER_SEC=5e6;
+const EVOLUTION_RATE=0.30; // Owner: evolution progresses 70% more slowly; movement is unchanged.
 
 // ---------- UI helpers ----------
 const bannerQ=[];let bannerT=0;
+const evolutionFilms=[];
 function banner(t,s,lk){bannerQ.push([t,s,lk]);}
 function bannerTick(dt){
+  if(evolutionFilms.length&&!panel&&!paused&&running){playFilm(evolutionFilms.shift(),true);}
   if(bannerT>0){bannerT-=dt;if(bannerT<=0)$('banner').classList.remove('show');return;}
   if(bannerQ.length&&bannerT<=0){const[t,s,lk]=bannerQ.shift();$('bT').textContent=t;$('bS').textContent=s;const B=$('banner');B.dataset.lk=lk||'';B.classList.toggle('learnable',!!lk);B.classList.toggle('filmable',!!lk&&lk.startsWith('film:'));B.classList.add('show');bannerT=lk?8:6;}
 }
@@ -756,9 +761,17 @@ function contact(a,b,dt){
   if(b.isPlayer){player.calm=0;if(can('hurt',0.45))sfx('hurt');}
 }
 function burst(x,y,hue,n,spd){for(let i=0;i<n;i++){const a=rnd(0,TAU),s=rnd(.3,1)*spd;fx.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:rnd(.5,1),max:1,hue,r:rnd(1.5,3.5)});}}
-function gain(n,kind){player.dna+=n;player.growth+=n;if(kind)player[kind]+=n;const el=$('dna');el.classList.add('pulse');setTimeout(()=>el.classList.remove('pulse'),120);}
+function gain(n,kind){n*=EVOLUTION_RATE;player.dna+=n;player.growth+=n;if(kind)player[kind]+=n;const el=$('dna');el.classList.add('pulse');setTimeout(()=>el.classList.remove('pulse'),120);}
+
+function itemTick(actor,dt,limit){
+ if(itemStage!==stage){itemStage=stage;specialItems=[];itemClock=0;for(const [i,kind]of Object.keys(ZoeticaItems.types).entries()){const a=i*2.1;specialItems.push({kind,x:clamp(actor.x+Math.cos(a)*150,stage==='land'?SHORE+60:30,limit-30),y:clamp(actor.y+Math.sin(a)*150,30,limit-30),life:60});}}
+ itemClock+=dt;if(itemClock>12&&specialItems.length<6){itemClock=0;const kind=Object.keys(ZoeticaItems.types)[Math.floor(time/12)%3],a=time;specialItems.push({kind,x:clamp(actor.x+Math.cos(a)*280,stage==='land'?SHORE+60:30,limit-30),y:clamp(actor.y+Math.sin(a)*280,30,limit-30),life:55});}
+ for(let i=specialItems.length-1;i>=0;i--){const item=specialItems[i];item.life-=dt;if(Math.hypot(item.x-actor.x,item.y-actor.y)<actor.r+13){ZoeticaItems.apply(actor,item.kind,EVOLUTION_RATE);itemStats[item.kind]++;specialItems.splice(i,1);burst(item.x,item.y,item.kind==='repair'?320:150,8,60);$('itemStatus').textContent=ZoeticaItems.types[item.kind].name+' collected · '+Object.values(itemStats).reduce((a,b)=>a+b,0)+' special items found';}else if(item.life<=0)specialItems.splice(i,1);}
+}
+function drawItems(x,vis){for(const item of specialItems){if(!vis(item))continue;x.save();x.translate(item.x,item.y);x.rotate(time*.5);x.fillStyle=ZoeticaItems.types[item.kind].color;x.strokeStyle='#eaffed';x.lineWidth=2;x.beginPath();if(item.kind==='mineral'){x.moveTo(0,-12);x.lineTo(9,0);x.lineTo(0,12);x.lineTo(-9,0);x.closePath();}else x.arc(0,0,item.kind==='repair'?10:7,0,TAU);x.fill();x.stroke();x.restore();}}
 
 function update(dt){
+  itemTick(player,dt,WORLD);
   time+=dt;
   playerInput();
   for(const c of cells)if(!c.isPlayer)ai(c,dt);
@@ -836,7 +849,7 @@ function update(dt){
   // populations
   popAcc+=dt;if(popAcc>0.7){popAcc=0;populations();}
   // director
-  dir.t-=dt;if(dir.t<=0){dir.t=225;evolveStep();}
+  dir.t-=dt*EVOLUTION_RATE;if(dir.t<=0){dir.t=225;evolveStep();}
   for(const s of species)if(s.isNew>0)s.isNew-=dt;
   // camera
   const tz=(Math.min(VW,VH)/760)*(1.28-player.g.size*0.07);
@@ -911,7 +924,7 @@ function evolveStep(){
   doEvolve(best,part,reason);
 }
 function doEvolve(s,part,reason){
-  setTimeout(()=>unlockFilm(1),6500);
+  unlockFilm(1);
   const g=Object.assign({},s.genome);g[part]++;
   // pick the colour most different from every living species (and the player), within the role's colour family
   const reddish=h=>h>295||h<25;
@@ -1034,6 +1047,7 @@ function draw(){
   for(const m of meat){if(!vis(m))continue;const a=Math.min(1,m.life/4);ctx.fillStyle=`rgba(232,88,98,${a})`;ctx.beginPath();
     for(let i=0;i<=7;i++){const an=i/7*TAU,rr=m.r*(1+0.25*Math.sin(an*3+m.ph));i?ctx.lineTo(m.x+Math.cos(an)*rr,m.y+Math.sin(an)*rr):ctx.moveTo(m.x+Math.cos(an)*rr,m.y+Math.sin(an)*rr);}ctx.fill();
     ctx.fillStyle=`rgba(255,190,190,${a*0.7})`;ctx.beginPath();ctx.arc(m.x-m.r*0.25,m.y-m.r*0.25,m.r*0.3,0,TAU);ctx.fill();}
+  drawItems(ctx,vis);
   // golden spores
   for(const s of spores){if(!vis(s))continue;const pr=6+1.5*Math.sin(t*5+s.ph);
     const sg=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,pr*4);sg.addColorStop(0,'rgba(255,215,110,0.55)');sg.addColorStop(1,'rgba(255,215,110,0)');
@@ -1072,7 +1086,7 @@ const fmtT=t=>Math.floor(t/60)+':'+String(t%60).padStart(2,'0');
 function saveGame(){
   if(!player||!running)return false;
   try{
-    const P=player,d={v:1,time,spId,dirT:dir.t,pressured:dir.pressured,random:dir.random,apexDone,stageShown,budget:Object.assign({},ROLE_BUDGET),
+    const P=player,d={v:1,itemsCollected:{...itemStats},time,spId,dirT:dir.t,pressured:dir.pressured,random:dir.random,apexDone,stageShown,budget:Object.assign({},ROLE_BUDGET),
       patches:patches.map(p=>[p.x,p.y,p.food]),
       player:{g:P.g,dna:P.dna,growth:P.growth,x:P.x,y:P.y,kills:P.kills,deaths:P.deaths,plantDNA:P.plantDNA,meatDNA:P.meatDNA,sporesEaten:P.sporesEaten,apexKills:P.apexKills,forms:P.forms},
       all:Object.values(allSp).map(s=>({id:s.id,name:s.name,hue:s.hue,role:s.role,genome:s.genome,gen:s.gen,w:s.w,parentId:s.parentId,gained:s.gained,reason:s.reason,drift:s.drift,died:s.died,stage:s.stage,born:s.born,parent:s.parent})),
@@ -1092,6 +1106,7 @@ function loadGame(d){
     spId=d.spId;time=d.time;dir.t=d.dirT;dir.pressured=d.pressured;dir.random=d.random;apexDone=d.apexDone;stageShown=d.stageShown;
     Object.assign(ROLE_BUDGET,d.budget);
     d.patches.forEach((p,i)=>{if(patches[i]){patches[i].x=p[0];patches[i].y=p[1];patches[i].food=p[2];}});
+    itemStats={mineral:0,repair:0,current:0,...(d.itemsCollected||{})};
     const P=d.player;
     player=newCell(playerSp,P.g,P.x,P.y,true);
     Object.assign(player,{dna:P.dna,growth:P.growth,inv:2,calm:0,kills:P.kills||0,deaths:P.deaths||0,plantDNA:P.plantDNA||0,meatDNA:P.meatDNA||0,sporesEaten:P.sporesEaten||0,apexKills:P.apexKills||0,dashCd:0,boost:0,forms:P.forms||[]});
@@ -1172,7 +1187,7 @@ function hud(dt){
   const rows=species.map(s=>{const n=cells.filter(c=>c.sp===s).length;
     return `<div class="sp" data-id="${s.id}"><span class="dot" style="background:hsl(${s.hue},70%,58%)"></span><span class="n">${s.name} ${s.isNew>0?'<span class="new">NEW</span>':''}</span><span class="r">${s.role}</span><span class="c">${n}</span></div>`;}).join('');
   $('ecoList').innerHTML=rows;
-  $('nextEvo').textContent='Next evolution in '+fmtT(Math.ceil(dir.t));
+  $('nextEvo').textContent='Next evolution in '+fmtT(Math.ceil(dir.t/EVOLUTION_RATE));
   $('dtVal').textContent=fmtYears(time*YEARS_PER_SEC);
   $('ecoFood').firstElementChild.textContent='Pond food';
   $('foodFill').style.width=(100*patches.reduce((a,p)=>a+p.food,0)/patches.length)+'%';
@@ -1458,7 +1473,8 @@ try{const v=JSON.parse(localStorage.getItem('lifeai-films')||'null');if(Array.is
 function unlockFilm(i){
   if(filmsUnl[i])return;filmsUnl[i]=true;
   try{localStorage.setItem('lifeai-films',JSON.stringify(filmsUnl));}catch(e){}
-  banner('New film unlocked: '+FILMS[i].title,'A short film that explains what is happening in your pond. Press F any time to open your films.','film:'+i);
+  evolutionFilms.push(i);
+  if(!panel&&!paused&&running)playFilm(evolutionFilms.shift(),true);
   $('filmsBtn').classList.add('ready');
 }
 function openFilms(){
@@ -1488,13 +1504,14 @@ function speak(text){
   try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);filmVoice=filmVoice||pickVoice();if(filmVoice)u.voice=filmVoice;u.lang=(filmVoice&&filmVoice.lang)||'en-GB';u.rate=0.93;u.pitch=1.02;u.volume=1;
     const me=film;u.onend=u.onerror=()=>{if(film===me)film.spoken=true;};film.speaking=true;speechSynthesis.speak(u);}catch(e){film.speaking=false;}
 }
-function playFilm(i){
+function playFilm(i,short=false){
   if(!filmsUnl[i]||panel)return;
   const f=FILMS[i];
   const scenes=[{say:f.title+'.',title:true,d:(x,t,p,W,H,S,cx,cy)=>{water(x,W,H,t);label(x,'Zoetica · film '+(i+1),cx,cy-50*S,16*S,'rgba(143,240,200,.8)');label(x,f.title,cx,cy,44*S,'#dff6ff');}}]
     .concat(f.scenes,[{say:'The end.',title:true,d:(x,t,p,W,H,S,cx,cy)=>{water(x,W,H,t);label(x,'The end',cx,cy-10*S,40*S,'#dff6ff');label(x,'Back to the pond',cx,cy+40*S,16*S,'rgba(143,240,200,.8)');}}]);
-  film={i,scenes,si:-1,t:0,gap:0,paused:false};panel='film';paused=true;AU.filmMode=true;AU.danger=0;
+  film={i,scenes:short?f.scenes.slice(0,2):scenes,si:-1,t:0,gap:0,paused:false,short,elapsed:0};panel='film';paused=true;AU.filmMode=true;AU.danger=0;
   if(AU.music)AU.music.gain.setTargetAtTime(AU.mv*0.35,AU.ctx.currentTime,0.4);
+  $('fClose').textContent=film.short?'Skip':'Close ✕';$('fPause').hidden=!!film.short;$('fVoice').hidden=!!film.short;
   $('filmP').classList.remove('hidden');$('fVoice').textContent=voiceOn?'Voice: on':'Voice: off';
   nextScene();
 }
@@ -1503,11 +1520,12 @@ function nextScene(){
   const sc=film.scenes[film.si];film.t=0;film.gap=0;film.est=Math.max(3,sc.say.split(' ').length/2.3+1.2);
   $('filmCap').textContent=sc.title?'':sc.say;
   $('fDots').innerHTML=film.scenes.map((_,k)=>`<i class="${k<=film.si?'on':''}"></i>`).join('');
-  speak(sc.say);
+  if(film.short){film.est=9/film.scenes.length;}else speak(sc.say);
 }
 function playCustomFilm(scenes,onEnd){
   film={i:-1,scenes,si:-1,t:0,gap:0,paused:false,onEnd};panel='film';paused=true;AU.filmMode=true;AU.danger=0;
   if(AU.music)AU.music.gain.setTargetAtTime(AU.mv*0.35,AU.ctx.currentTime,0.4);
+  $('fClose').textContent=film.short?'Skip':'Close ✕';$('fPause').hidden=!!film.short;$('fVoice').hidden=!!film.short;
   $('filmP').classList.remove('hidden');$('fVoice').textContent=voiceOn?'Voice: on':'Voice: off';nextScene();
 }
 function endFilm(){
@@ -1520,7 +1538,9 @@ function endFilm(){
 function toggleFilmPause(){if(!film)return;film.paused=!film.paused;$('fPause').textContent=film.paused?'Play':'Pause';
   if(window.speechSynthesis)try{film.paused?speechSynthesis.pause():speechSynthesis.resume();}catch(e){}}
 function filmTick(dt){
-  if(!film||film.paused)return;film.t+=dt;
+  if(!film)return;film.elapsed=(film.elapsed||0)+dt;
+  if(film.short&&film.elapsed>=10){endFilm();return;}
+  if(film.paused)return;film.t+=dt;
   const speechDone=!film.speaking||film.spoken;
   if((speechDone&&film.t>=(film.speaking?Math.max(2.2,film.est*0.4):film.est))||film.t>film.est*1.9+2){film.gap+=dt;if(film.gap>0.9)nextScene();}
 }
@@ -1672,13 +1692,14 @@ function lContact(a,b,dt){
   if(b.isPlayer){lp.calm=0;if(can('hurt',0.45))sfx('hurt');}
 }
 function landDash(){if(!running||paused||lp.dashCd>0)return;if(lp.spd<0.05){lp.dx=Math.cos(lp.angle);lp.dy=Math.sin(lp.angle);}lp.spd=1;lp.boost=0.3;lp.dashCd=lp.st.dashCd;sfx('dash');}
-function landGain(n){lp.dna+=n;lp.growth+=n;const el=$('dna');el.classList.add('pulse');setTimeout(()=>el.classList.remove('pulse'),120);}
+function landGain(n){n*=EVOLUTION_RATE;lp.dna+=n;lp.growth+=n;const el=$('dna');el.classList.add('pulse');setTimeout(()=>el.classList.remove('pulse'),120);}
 function landDie(){
   burst(lp.x,lp.y,PLAYER_HUE,30,140);sfx('die');lp.deaths++;const lost=Math.floor(lp.dna*0.2);lp.dna-=lost;
   lp.x=nest.x+60;lp.y=nest.y;lp.vx=lp.vy=0;lp.hp=lp.st.maxHp;lp.inv=3;cam.x=lp.x;cam.y=lp.y;
   banner('You hatched again at your nest','You lost only '+lost+' DNA. Your nest keeps your species safe: return to it to heal and to evolve.','eggs');
 }
 function landUpdate(dt){
+  itemTick(lp,dt,LW);
   time+=dt;lInput();
   for(const c of LE)if(!c.isPlayer)lAI(c,dt);
   for(const c of LE)lMove(c,dt);
@@ -1716,7 +1737,7 @@ function landUpdate(dt){
     else if(mine.length>s.target){const far=mine.find(c=>Math.hypot(c.x-lp.x,c.y-lp.y)>VW/cam.zoom*0.8+200);if(far)LE.splice(LE.indexOf(far),1);}}
     landSpecies=landSpecies.filter(s=>{const keep=s.target>0||LE.some(c=>c.sp===s);if(!keep&&s.died==null)s.died=Math.floor(time);return keep;});}
   lEco+=dt;if(lEco>5){lEco=0;const tot=trees.reduce((a,t)=>a+t.fruit/t.max,0)/trees.length;LBUDGET.grazer=Math.round(14+14*tot);LBUDGET.hunter=clamp(Math.round(LE.filter(c=>c.sp.role==='grazer').length/5),3,6);lTargets();}
-  ldir.t-=dt;if(ldir.t<=0){ldir.t=250;landEvolve();}
+  ldir.t-=dt*EVOLUTION_RATE;if(ldir.t<=0){ldir.t=250;landEvolve();}
   for(const s of landSpecies)if(s.isNew>0)s.isNew-=dt;
   const chased=LE.some(c=>c.prey===lp&&c.rest<=0);AU.danger+=((chased?1:0)-AU.danger)*Math.min(1,dt*(chased?0.9:0.3));
   lSave+=dt;if(lSave>8){lSave=0;saveGame();}
@@ -1802,6 +1823,7 @@ function landDraw(){
   for(let i=0;i<26;i++){const a=i/26*TAU;ctx.strokeStyle=i%2?'#7a5a32':'#9b7646';ctx.lineWidth=7;ctx.beginPath();ctx.moveTo(Math.cos(a)*38,Math.sin(a)*38);ctx.lineTo(Math.cos(a+0.5)*52,Math.sin(a+0.5)*52);ctx.stroke();}
   for(const [ex,ey] of [[-10,-6],[10,-4],[0,10]]){ctx.beginPath();ctx.ellipse(ex,ey,11,14,0.3,0,TAU);ctx.fillStyle='#f3ead8';ctx.fill();ctx.fillStyle='rgba(95,211,255,0.5)';ctx.beginPath();ctx.arc(ex-3,ey-4,2.5,0,TAU);ctx.fill();}
   ctx.restore();
+  drawItems(ctx,vis);
   // meat
   for(const m of lmeat){if(!vis(m))continue;ctx.fillStyle=`rgba(200,70,70,${Math.min(1,m.life/4)})`;ctx.beginPath();ctx.ellipse(m.x,m.y,m.r*1.3,m.r,m.ph,0,TAU);ctx.fill();}
   // bushes under creatures, trees above
@@ -1839,7 +1861,7 @@ function landHud(dt){
   $('evoBtn').classList.toggle('ready',atNest&&p.dna>=cheapest);$('evoBtn').textContent=atNest?'Evolve (E)':'Evolve at nest';
   $('dashBar').style.width=(100*(1-p.dashCd/p.st.dashCd))+'%';$('dashBtn').classList.toggle('ready',p.dashCd<=0);
   $('ecoList').innerHTML=landSpecies.map(s=>{const n=LE.filter(c=>c.sp===s).length;return `<div class="sp" data-id="${s.id}"><span class="dot" style="background:hsl(${s.hue},70%,58%)"></span><span class="n">${s.name} ${s.isNew>0?'<span class="new">NEW</span>':''}</span><span class="r">${s.role}</span><span class="c">${n}</span></div>`;}).join('');
-  $('nextEvo').textContent='Next evolution in '+fmtT(Math.ceil(ldir.t));$('dtVal').textContent=fmtYears(time*YEARS_PER_SEC);
+  $('nextEvo').textContent='Next evolution in '+fmtT(Math.ceil(ldir.t/EVOLUTION_RATE));$('dtVal').textContent=fmtYears(time*YEARS_PER_SEC);
   $('ecoFood').firstElementChild.textContent='Fruit';
   $('foodFill').style.width=(100*trees.reduce((a,t)=>a+t.fruit/t.max,0)/trees.length)+'%';
   if(toastT>0){toastT-=0.25;if(toastT<=0)$('toast').classList.remove('show');}
@@ -1895,7 +1917,7 @@ function frame(now){
   requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
-window.__life={setTrack,get mStep(){return mStep},set mStep(v){mStep=v},get lp(){return lp},get LE(){return LE},get landSpecies(){return landSpecies},get stage(){return stage},ldir,landEvolve,nest,AU,get player(){return player},get cells(){return cells},get species(){return species},dir,evolveStep,openEditor};
+window.__life={setTrack,get mStep(){return mStep},set mStep(v){mStep=v},get lp(){return lp},get LE(){return LE},get landSpecies(){return landSpecies},get stage(){return stage},ldir,landEvolve,nest,AU,get items(){return specialItems},get itemStats(){return itemStats},get player(){return player},get cells(){return cells},get species(){return species},dir,evolveStep,openEditor};
 })();
 </script>
 </body>
