@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "4.0",
+  "pageVersion": "4.1",
   "updated": "2026-11-27",
   "projects": [
     {
@@ -258,18 +258,18 @@
       "mark": "CH",
       "tint": "#E5C78F",
       "alias": "",
-      "what": "Science, history and biology channel: plan episodes, hooks and research sources.",
+      "what": "Science, history and ideas explained clearly: watch a10-second original preview and browse a subject library.",
       "st": "dev",
-      "stl": "Local working prototype",
-      "version": "0.1",
+      "stl": "Video preview & subject library",
+      "version": "0.2",
       "main": {
-        "t": "Open Chronoscope",
-        "u": "apps/chronoscope/index.html",
+        "t": "Chronoscope0.2 — Markov preview & subjects",
+        "u": "apps/chronoscope/index.html?v=0.2",
         "d": "27 Nov 2026",
         "label": "Open app"
       },
       "more": [],
-      "next": "Owner reports YouTube channel setup is awaiting a24-hour verification. Channel URL not supplied yet. Episode planner available; no videos published by this app.",
+      "next": "Original10s MP4 plus owner-selected YouTube reference links. Reuse licences unverified; no footage copied or YouTube upload. Channel URL can be saved as a local public link only.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/chronoscope.md"
     },
     {
