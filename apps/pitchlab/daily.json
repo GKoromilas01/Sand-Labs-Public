@@ -1,9 +1,9 @@
 {
   "schema": 1,
-  "version": "0.2",
-  "updatedAt": "2026-11-27T10:17:53.589721Z",
+  "version": "0.3",
+  "updatedAt": "2026-11-27T10:50:48.190484Z",
   "timezone": "Europe/Athens",
-  "notice": "Owner confirmed these are today’s fixtures,27 Nov2026. Dates and times come from owner confirmation and screenshots, not independent verification. Brest opponent identity remains ambiguous (Paris). All probabilities are the unresearched equal-rating baseline, not team-specific forecasts.",
+  "notice": "Research checked before kickoff on27Nov2026. All five fixtures verified against ESPN; Paris is Paris FC. Original equal-rating baseline probabilities/timestamps remain unchanged. Research selections are a separate qualitative assessment, not calibrated probabilities. Team-specific injury/lineup verification is incomplete; no live update service is running.",
   "entries": [
     {
       "id": "2026-11-27-1",
@@ -14,34 +14,353 @@
       "kickoff": "2026-11-27T22:00:00+02:00",
       "recordedAt": "2026-11-27T10:15:54.044296Z",
       "fixtureConfirmed": true,
-      "fixtureSource": "Owner-provided Flashscore screenshot; owner explicitly confirmed27Nov2026 fixtures in chat.",
-      "researchStatus": "Not researched: BBC and Werder requests returned proxy403.",
-      "researchSources": [],
+      "fixtureSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261127",
+      "researchStatus": "Fixture, standings and recent results checked via ESPN. Confirmed injuries and final lineups not obtained. League-wide news is not treated as match-specific team news.",
+      "researchSources": [
+        {
+          "title": "ESPN fixture data",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261127",
+          "checkedAt": "2026-11-27T10:50:48.190484Z"
+        },
+        {
+          "title": "ESPN standings and recent match results",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401879225",
+          "checkedAt": "2026-11-27T10:50:48.190484Z"
+        },
+        {
+          "title": "BBC match page: fixture, table and form corroboration",
+          "url": "https://www.bbc.com/sport/football/live/cme3d91zygp8t",
+          "checkedAt": "2026-11-27T10:50:48.190484Z"
+        }
+      ],
       "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
       "settled": false,
-      "verificationNote": "Owner-confirmed, not independently verified."
+      "verificationNote": "Date, teams and kickoff corroborated by ESPN; original screenshot label retained separately.",
+      "originalFixtureLabel": {
+        "home": "Nottingham Forest",
+        "away": "Chelsea"
+      },
+      "research": {
+        "checkedAt": "2026-11-27T10:50:48.190484Z",
+        "teams": [
+          {
+            "side": "home",
+            "name": "Nottingham Forest",
+            "teamId": "393",
+            "table": {
+              "gamesPlayed": 11.0,
+              "losses": 6.0,
+              "pointDifferential": -6.0,
+              "points": 9.0,
+              "ties": 3.0,
+              "wins": 2.0,
+              "rank": 17.0
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-18T15:30Z",
+                "opponent": "Arsenal",
+                "homeGoals": "0",
+                "awayGoals": "1",
+                "homeTeamId": "393",
+                "awayTeamId": "359",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-10-23T19:00Z",
+                "opponent": "Ipswich Town",
+                "homeGoals": "1",
+                "awayGoals": "1",
+                "homeTeamId": "373",
+                "awayTeamId": "393",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-10-31T15:00Z",
+                "opponent": "Brentford",
+                "homeGoals": "2",
+                "awayGoals": "0",
+                "homeTeamId": "337",
+                "awayTeamId": "393",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-11-07T17:30Z",
+                "opponent": "Manchester City",
+                "homeGoals": "3",
+                "awayGoals": "1",
+                "homeTeamId": "393",
+                "awayTeamId": "382",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-11-21T15:00Z",
+                "opponent": "AFC Bournemouth",
+                "homeGoals": "2",
+                "awayGoals": "0",
+                "homeTeamId": "349",
+                "awayTeamId": "393",
+                "competition": "2026-27 English Premier League"
+              }
+            ]
+          },
+          {
+            "side": "away",
+            "name": "Chelsea",
+            "teamId": "363",
+            "table": {
+              "gamesPlayed": 11.0,
+              "losses": 5.0,
+              "pointDifferential": 0.0,
+              "points": 16.0,
+              "ties": 1.0,
+              "wins": 5.0,
+              "rank": 8.0
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-24T16:30Z",
+                "opponent": "Tottenham Hotspur",
+                "homeGoals": "0",
+                "awayGoals": "2",
+                "homeTeamId": "363",
+                "awayTeamId": "367",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-10-28T20:00Z",
+                "opponent": "Liverpool",
+                "homeGoals": "1",
+                "awayGoals": "1",
+                "homeTeamId": "364",
+                "awayTeamId": "363",
+                "competition": "2026-27 English Carabao Cup"
+              },
+              {
+                "date": "2026-10-31T12:30Z",
+                "opponent": "Manchester United",
+                "homeGoals": "2",
+                "awayGoals": "0",
+                "homeTeamId": "363",
+                "awayTeamId": "360",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-11-08T14:00Z",
+                "opponent": "Sunderland",
+                "homeGoals": "1",
+                "awayGoals": "0",
+                "homeTeamId": "366",
+                "awayTeamId": "363",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-11-21T15:00Z",
+                "opponent": "Leeds United",
+                "homeGoals": "1",
+                "awayGoals": "4",
+                "homeTeamId": "363",
+                "awayTeamId": "357",
+                "competition": "2026-27 English Premier League"
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "One main statistics provider; incomplete independent corroboration.",
+          "Recent-match lists can include cup/friendly matches and must not be equated with league-only form.",
+          "Injuries, suspensions and final lineups not confirmed; no numerical adjustment for them.",
+          "No fitted/calibrated probability model or backtest for these qualitative selections."
+        ],
+        "newsCheck": "Reviewed ESPN league news. No verified match-specific absence/lineup report was found in the retrieved material; unrelated transfer stories and PSG news were excluded."
+      },
+      "researchForecast": {
+        "pick": "away",
+        "recordedAt": "2026-11-27T10:50:48.190484Z",
+        "confidence": "Χαμηλή",
+        "reason": "Η Τσέλσι έχει16 βαθμούς έναντι9 της Φόρεστ και καλύτερη συνολική παραγωγή γκολ, αλλά πρόσφατες ήττες. Μικρή προτίμηση στην Τσέλσι, χωρίς ισχυρή εμπιστοσύνη.",
+        "method": "Qualitative table/form assessment v1; no probability estimate",
+        "status": "pre-match"
+      }
     },
     {
       "id": "2026-11-27-2",
       "day": "2026-11-27",
       "league": "Ligue 1",
       "home": "Brest",
-      "away": "Paris (as shown in screenshot)",
+      "away": "Paris FC",
       "kickoff": "2026-11-27T21:45:00+02:00",
       "recordedAt": "2026-11-27T10:15:54.044296Z",
-      "fixtureConfirmed": false,
-      "fixtureSource": "Owner-provided Flashscore screenshot; owner explicitly confirmed27Nov2026 fixtures in chat.",
-      "researchStatus": "Not researched: BBC and Werder requests returned proxy403.",
-      "researchSources": [],
+      "fixtureConfirmed": true,
+      "fixtureSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20261127",
+      "researchStatus": "Fixture, standings and recent results checked via ESPN. Confirmed injuries and final lineups not obtained. League-wide news is not treated as match-specific team news.",
+      "researchSources": [
+        {
+          "title": "ESPN fixture data",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20261127",
+          "checkedAt": "2026-11-27T10:50:48.190484Z"
+        },
+        {
+          "title": "ESPN standings and recent match results",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876392",
+          "checkedAt": "2026-11-27T10:50:48.190484Z"
+        }
+      ],
       "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
       "settled": false,
-      "verificationNote": "Owner confirmed date; exact Paris club still needs clarification."
+      "verificationNote": "Date, teams and kickoff corroborated by ESPN; original screenshot label retained separately.",
+      "originalFixtureLabel": {
+        "home": "Brest",
+        "away": "Paris (as shown in screenshot)"
+      },
+      "research": {
+        "checkedAt": "2026-11-27T10:50:48.190484Z",
+        "teams": [
+          {
+            "side": "home",
+            "name": "Brest",
+            "teamId": "6997",
+            "table": {
+              "gamesPlayed": 11.0,
+              "losses": 3.0,
+              "pointDifferential": 7.0,
+              "points": 18.0,
+              "ties": 3.0,
+              "wins": 5.0,
+              "rank": 6.0
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-17T18:45Z",
+                "opponent": "Lille",
+                "homeGoals": "1",
+                "awayGoals": "1",
+                "homeTeamId": "166",
+                "awayTeamId": "6997",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-10-23T18:45Z",
+                "opponent": "Nice",
+                "homeGoals": "1",
+                "awayGoals": "2",
+                "homeTeamId": "6997",
+                "awayTeamId": "2502",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-02T19:45Z",
+                "opponent": "Lorient",
+                "homeGoals": "0",
+                "awayGoals": "2",
+                "homeTeamId": "273",
+                "awayTeamId": "6997",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-08T16:15Z",
+                "opponent": "Lyon",
+                "homeGoals": "2",
+                "awayGoals": "0",
+                "homeTeamId": "6997",
+                "awayTeamId": "167",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-21T19:45Z",
+                "opponent": "Strasbourg",
+                "homeGoals": "0",
+                "awayGoals": "1",
+                "homeTeamId": "180",
+                "awayTeamId": "6997",
+                "competition": "2026-27 Ligue 1"
+              }
+            ]
+          },
+          {
+            "side": "away",
+            "name": "Paris FC",
+            "teamId": "6851",
+            "table": {
+              "gamesPlayed": 11.0,
+              "losses": 2.0,
+              "pointDifferential": 11.0,
+              "points": 23.0,
+              "ties": 2.0,
+              "wins": 7.0,
+              "rank": 2.0
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-18T15:15Z",
+                "opponent": "Stade Rennais",
+                "homeGoals": "4",
+                "awayGoals": "3",
+                "homeTeamId": "6851",
+                "awayTeamId": "169",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-10-24T18:45Z",
+                "opponent": "Lens",
+                "homeGoals": "2",
+                "awayGoals": "1",
+                "homeTeamId": "175",
+                "awayTeamId": "6851",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-01T16:15Z",
+                "opponent": "AS Monaco",
+                "homeGoals": "3",
+                "awayGoals": "1",
+                "homeTeamId": "6851",
+                "awayTeamId": "174",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-07T18:00Z",
+                "opponent": "AJ Auxerre",
+                "homeGoals": "0",
+                "awayGoals": "1",
+                "homeTeamId": "172",
+                "awayTeamId": "6851",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-22T14:00Z",
+                "opponent": "Angers",
+                "homeGoals": "4",
+                "awayGoals": "0",
+                "homeTeamId": "6851",
+                "awayTeamId": "7868",
+                "competition": "2026-27 Ligue 1"
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "One main statistics provider; incomplete independent corroboration.",
+          "Recent-match lists can include cup/friendly matches and must not be equated with league-only form.",
+          "Injuries, suspensions and final lineups not confirmed; no numerical adjustment for them.",
+          "No fitted/calibrated probability model or backtest for these qualitative selections."
+        ],
+        "newsCheck": "Reviewed ESPN league news. No verified match-specific absence/lineup report was found in the retrieved material; unrelated transfer stories and PSG news were excluded."
+      },
+      "researchForecast": {
+        "pick": "away",
+        "recordedAt": "2026-11-27T10:50:48.190484Z",
+        "confidence": "Χαμηλή",
+        "reason": "Η Paris FC έχει23 βαθμούς και διαφορά γκολ+11, έναντι18 και+7 της Μπρεστ. Και οι δύο έχουν πρόσφατες νίκες. Μικρή προτίμηση στην Paris FC, με ουσιαστικό κίνδυνο ισοπαλίας.",
+        "method": "Qualitative table/form assessment v1; no probability estimate",
+        "status": "pre-match"
+      }
     },
     {
       "id": "2026-11-27-3",
@@ -52,15 +371,172 @@
       "kickoff": "2026-11-27T21:30:00+02:00",
       "recordedAt": "2026-11-27T10:15:54.044296Z",
       "fixtureConfirmed": true,
-      "fixtureSource": "Owner-provided Flashscore screenshot; owner explicitly confirmed27Nov2026 fixtures in chat.",
-      "researchStatus": "Not researched: BBC and Werder requests returned proxy403.",
-      "researchSources": [],
+      "fixtureSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261127",
+      "researchStatus": "Fixture, standings and recent results checked via ESPN. Confirmed injuries and final lineups not obtained. League-wide news is not treated as match-specific team news.",
+      "researchSources": [
+        {
+          "title": "ESPN fixture data",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261127",
+          "checkedAt": "2026-11-27T10:50:48.190484Z"
+        },
+        {
+          "title": "ESPN standings and recent match results",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884720",
+          "checkedAt": "2026-11-27T10:50:48.190484Z"
+        }
+      ],
       "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
       "settled": false,
-      "verificationNote": "Owner-confirmed, not independently verified."
+      "verificationNote": "Date, teams and kickoff corroborated by ESPN; original screenshot label retained separately.",
+      "originalFixtureLabel": {
+        "home": "Werder Bremen",
+        "away": "Borussia Mönchengladbach"
+      },
+      "research": {
+        "checkedAt": "2026-11-27T10:50:48.190484Z",
+        "teams": [
+          {
+            "side": "home",
+            "name": "Werder Bremen",
+            "teamId": "137",
+            "table": {
+              "gamesPlayed": 10.0,
+              "losses": 2.0,
+              "pointDifferential": 6.0,
+              "points": 18.0,
+              "ties": 3.0,
+              "wins": 5.0,
+              "rank": 6.0
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-24T13:30Z",
+                "opponent": "Mainz",
+                "homeGoals": "2",
+                "awayGoals": "3",
+                "homeTeamId": "2950",
+                "awayTeamId": "137",
+                "competition": "2026-27 German Bundesliga"
+              },
+              {
+                "date": "2026-10-27T19:45Z",
+                "opponent": "Borussia Dortmund",
+                "homeGoals": "3",
+                "awayGoals": "2",
+                "homeTeamId": "124",
+                "awayTeamId": "137",
+                "competition": "2026-27 German Cup"
+              },
+              {
+                "date": "2026-10-31T14:30Z",
+                "opponent": "TSG Hoffenheim",
+                "homeGoals": "2",
+                "awayGoals": "0",
+                "homeTeamId": "137",
+                "awayTeamId": "7911",
+                "competition": "2026-27 German Bundesliga"
+              },
+              {
+                "date": "2026-11-07T17:30Z",
+                "opponent": "VfB Stuttgart",
+                "homeGoals": "1",
+                "awayGoals": "0",
+                "homeTeamId": "134",
+                "awayTeamId": "137",
+                "competition": "2026-27 German Bundesliga"
+              },
+              {
+                "date": "2026-11-22T16:30Z",
+                "opponent": "Hamburg SV",
+                "homeGoals": "4",
+                "awayGoals": "0",
+                "homeTeamId": "137",
+                "awayTeamId": "127",
+                "competition": "2026-27 German Bundesliga"
+              }
+            ]
+          },
+          {
+            "side": "away",
+            "name": "Borussia Mönchengladbach",
+            "teamId": "268",
+            "table": {
+              "gamesPlayed": 10.0,
+              "losses": 8.0,
+              "pointDifferential": -14.0,
+              "points": 4.0,
+              "ties": 1.0,
+              "wins": 1.0,
+              "rank": 18.0
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-27T19:45Z",
+                "opponent": "Karlsruher SC",
+                "homeGoals": "2",
+                "awayGoals": "0",
+                "homeTeamId": "268",
+                "awayTeamId": "4471",
+                "competition": "2026-27 German Cup"
+              },
+              {
+                "date": "2026-10-31T14:30Z",
+                "opponent": "SC Paderborn 07",
+                "homeGoals": "0",
+                "awayGoals": "0",
+                "homeTeamId": "268",
+                "awayTeamId": "3307",
+                "competition": "2026-27 German Bundesliga"
+              },
+              {
+                "date": "2026-11-06T19:30Z",
+                "opponent": "Hamburg SV",
+                "homeGoals": "3",
+                "awayGoals": "1",
+                "homeTeamId": "127",
+                "awayTeamId": "268",
+                "competition": "2026-27 German Bundesliga"
+              },
+              {
+                "date": "2026-11-12T13:00Z",
+                "opponent": "Standard Liege",
+                "homeGoals": "1",
+                "awayGoals": "0",
+                "homeTeamId": "268",
+                "awayTeamId": "559",
+                "competition": "2026 Club Friendly"
+              },
+              {
+                "date": "2026-11-21T14:30Z",
+                "opponent": "Borussia Dortmund",
+                "homeGoals": "0",
+                "awayGoals": "1",
+                "homeTeamId": "268",
+                "awayTeamId": "124",
+                "competition": "2026-27 German Bundesliga"
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "One main statistics provider; incomplete independent corroboration.",
+          "Recent-match lists can include cup/friendly matches and must not be equated with league-only form.",
+          "Injuries, suspensions and final lineups not confirmed; no numerical adjustment for them.",
+          "No fitted/calibrated probability model or backtest for these qualitative selections."
+        ],
+        "newsCheck": "Reviewed ESPN league news. No verified match-specific absence/lineup report was found in the retrieved material; unrelated transfer stories and PSG news were excluded."
+      },
+      "researchForecast": {
+        "pick": "home",
+        "recordedAt": "2026-11-27T10:50:48.190484Z",
+        "confidence": "Μέτρια",
+        "reason": "Η Βέρντερ έχει18 βαθμούς και+6 διαφορά γκολ· η Γκλάντμπαχ4 βαθμούς και−14. Η έδρα και η συνολική εικόνα στηρίζουν τη Βέρντερ. Δεν έχουν επιβεβαιωθεί απουσίες.",
+        "method": "Qualitative table/form assessment v1; no probability estimate",
+        "status": "pre-match"
+      }
     },
     {
       "id": "2026-11-27-4",
@@ -71,15 +547,172 @@
       "kickoff": "2026-11-27T22:00:00+02:00",
       "recordedAt": "2026-11-27T10:15:54.044296Z",
       "fixtureConfirmed": true,
-      "fixtureSource": "Owner-provided Flashscore screenshot; owner explicitly confirmed27Nov2026 fixtures in chat.",
-      "researchStatus": "Not researched: BBC and Werder requests returned proxy403.",
-      "researchSources": [],
+      "fixtureSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20261127",
+      "researchStatus": "Fixture, standings and recent results checked via ESPN. Confirmed injuries and final lineups not obtained. League-wide news is not treated as match-specific team news.",
+      "researchSources": [
+        {
+          "title": "ESPN fixture data",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20261127",
+          "checkedAt": "2026-11-27T10:50:48.190484Z"
+        },
+        {
+          "title": "ESPN standings and recent match results",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/summary?event=401882791",
+          "checkedAt": "2026-11-27T10:50:48.190484Z"
+        }
+      ],
       "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
       "settled": false,
-      "verificationNote": "Owner-confirmed, not independently verified."
+      "verificationNote": "Date, teams and kickoff corroborated by ESPN; original screenshot label retained separately.",
+      "originalFixtureLabel": {
+        "home": "Levante",
+        "away": "Racing Santander"
+      },
+      "research": {
+        "checkedAt": "2026-11-27T10:50:48.190484Z",
+        "teams": [
+          {
+            "side": "home",
+            "name": "Levante",
+            "teamId": "1538",
+            "table": {
+              "gamesPlayed": 13.0,
+              "losses": 5.0,
+              "pointDifferential": -5.0,
+              "points": 12.0,
+              "ties": 6.0,
+              "wins": 2.0,
+              "rank": 15.0
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-25T17:30Z",
+                "opponent": "Real Sociedad",
+                "homeGoals": "2",
+                "awayGoals": "1",
+                "homeTeamId": "89",
+                "awayTeamId": "1538",
+                "competition": "2026-27 LALIGA"
+              },
+              {
+                "date": "2026-10-31T13:00Z",
+                "opponent": "Atlético Madrid",
+                "homeGoals": "0",
+                "awayGoals": "2",
+                "homeTeamId": "1538",
+                "awayTeamId": "1068",
+                "competition": "2026-27 LALIGA"
+              },
+              {
+                "date": "2026-11-08T17:30Z",
+                "opponent": "Celta Vigo",
+                "homeGoals": "0",
+                "awayGoals": "0",
+                "homeTeamId": "85",
+                "awayTeamId": "1538",
+                "competition": "2026-27 LALIGA"
+              },
+              {
+                "date": "2026-11-12T18:00Z",
+                "opponent": "CD Tarancon",
+                "homeGoals": "1",
+                "awayGoals": "2",
+                "homeTeamId": "133837",
+                "awayTeamId": "1538",
+                "competition": "2026-27 Spanish Copa del Rey"
+              },
+              {
+                "date": "2026-11-23T20:00Z",
+                "opponent": "Elche",
+                "homeGoals": "1",
+                "awayGoals": "1",
+                "homeTeamId": "1538",
+                "awayTeamId": "3751",
+                "competition": "2026-27 LALIGA"
+              }
+            ]
+          },
+          {
+            "side": "away",
+            "name": "Racing Santander",
+            "teamId": "87",
+            "table": {
+              "gamesPlayed": 13.0,
+              "losses": 6.0,
+              "pointDifferential": -12.0,
+              "points": 17.0,
+              "ties": 2.0,
+              "wins": 5.0,
+              "rank": 7.0
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-24T14:15Z",
+                "opponent": "Espanyol",
+                "homeGoals": "2",
+                "awayGoals": "1",
+                "homeTeamId": "87",
+                "awayTeamId": "88",
+                "competition": "2026-27 LALIGA"
+              },
+              {
+                "date": "2026-10-29T20:00Z",
+                "opponent": "Ribadesella",
+                "homeGoals": "0",
+                "awayGoals": "2",
+                "homeTeamId": "133842",
+                "awayTeamId": "87",
+                "competition": "2026-27 Spanish Copa del Rey"
+              },
+              {
+                "date": "2026-11-01T15:15Z",
+                "opponent": "Real Madrid",
+                "homeGoals": "0",
+                "awayGoals": "3",
+                "homeTeamId": "87",
+                "awayTeamId": "86",
+                "competition": "2026-27 LALIGA"
+              },
+              {
+                "date": "2026-11-07T13:00Z",
+                "opponent": "Málaga",
+                "homeGoals": "1",
+                "awayGoals": "2",
+                "homeTeamId": "99",
+                "awayTeamId": "87",
+                "competition": "2026-27 LALIGA"
+              },
+              {
+                "date": "2026-11-22T15:15Z",
+                "opponent": "Real Sociedad",
+                "homeGoals": "3",
+                "awayGoals": "2",
+                "homeTeamId": "87",
+                "awayTeamId": "89",
+                "competition": "2026-27 LALIGA"
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "One main statistics provider; incomplete independent corroboration.",
+          "Recent-match lists can include cup/friendly matches and must not be equated with league-only form.",
+          "Injuries, suspensions and final lineups not confirmed; no numerical adjustment for them.",
+          "No fitted/calibrated probability model or backtest for these qualitative selections."
+        ],
+        "newsCheck": "Reviewed ESPN league news. No verified match-specific absence/lineup report was found in the retrieved material; unrelated transfer stories and PSG news were excluded."
+      },
+      "researchForecast": {
+        "pick": "away",
+        "recordedAt": "2026-11-27T10:50:48.190484Z",
+        "confidence": "Χαμηλή",
+        "reason": "Η Σανταντέρ έχει17 βαθμούς έναντι12 και πρόσφατες νίκες, αλλά χειρότερη συνολική διαφορά γκολ (−12 έναντι−5) και παίζει εκτός. Οριακή προτίμηση στη Σανταντέρ, το πιο αμφίρροπο από τα πέντε.",
+        "method": "Qualitative table/form assessment v1; no probability estimate",
+        "status": "pre-match"
+      }
     },
     {
       "id": "2026-11-27-5",
@@ -90,15 +723,172 @@
       "kickoff": "2026-11-27T21:45:00+02:00",
       "recordedAt": "2026-11-27T10:15:54.044296Z",
       "fixtureConfirmed": true,
-      "fixtureSource": "Owner-provided Flashscore screenshot; owner explicitly confirmed27Nov2026 fixtures in chat.",
-      "researchStatus": "Not researched: BBC and Werder requests returned proxy403.",
-      "researchSources": [],
+      "fixtureSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20261127",
+      "researchStatus": "Fixture, standings and recent results checked via ESPN. Confirmed injuries and final lineups not obtained. League-wide news is not treated as match-specific team news.",
+      "researchSources": [
+        {
+          "title": "ESPN fixture data",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20261127",
+          "checkedAt": "2026-11-27T10:50:48.190484Z"
+        },
+        {
+          "title": "ESPN standings and recent match results",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/summary?event=401875004",
+          "checkedAt": "2026-11-27T10:50:48.190484Z"
+        }
+      ],
       "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
       "settled": false,
-      "verificationNote": "Owner-confirmed, not independently verified."
+      "verificationNote": "Date, teams and kickoff corroborated by ESPN; original screenshot label retained separately.",
+      "originalFixtureLabel": {
+        "home": "Venezia",
+        "away": "Bologna"
+      },
+      "research": {
+        "checkedAt": "2026-11-27T10:50:48.190484Z",
+        "teams": [
+          {
+            "side": "home",
+            "name": "Venezia",
+            "teamId": "17530",
+            "table": {
+              "gamesPlayed": 12.0,
+              "losses": 10.0,
+              "pointDifferential": -17.0,
+              "points": 6.0,
+              "ties": 0.0,
+              "wins": 2.0,
+              "rank": 20.0
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-25T14:00Z",
+                "opponent": "Genoa",
+                "homeGoals": "1",
+                "awayGoals": "0",
+                "homeTeamId": "3263",
+                "awayTeamId": "17530",
+                "competition": "2026-27 Italian Serie A"
+              },
+              {
+                "date": "2026-10-28T17:30Z",
+                "opponent": "Internazionale",
+                "homeGoals": "0",
+                "awayGoals": "2",
+                "homeTeamId": "17530",
+                "awayTeamId": "110",
+                "competition": "2026-27 Italian Serie A"
+              },
+              {
+                "date": "2026-11-01T11:30Z",
+                "opponent": "Como",
+                "homeGoals": "1",
+                "awayGoals": "0",
+                "homeTeamId": "2572",
+                "awayTeamId": "17530",
+                "competition": "2026-27 Italian Serie A"
+              },
+              {
+                "date": "2026-11-06T19:45Z",
+                "opponent": "Udinese",
+                "homeGoals": "2",
+                "awayGoals": "1",
+                "homeTeamId": "17530",
+                "awayTeamId": "118",
+                "competition": "2026-27 Italian Serie A"
+              },
+              {
+                "date": "2026-11-22T11:30Z",
+                "opponent": "Juventus",
+                "homeGoals": "4",
+                "awayGoals": "0",
+                "homeTeamId": "111",
+                "awayTeamId": "17530",
+                "competition": "2026-27 Italian Serie A"
+              }
+            ]
+          },
+          {
+            "side": "away",
+            "name": "Bologna",
+            "teamId": "107",
+            "table": {
+              "gamesPlayed": 12.0,
+              "losses": 4.0,
+              "pointDifferential": 2.0,
+              "points": 18.0,
+              "ties": 3.0,
+              "wins": 5.0,
+              "rank": 9.0
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-24T13:00Z",
+                "opponent": "Cagliari",
+                "homeGoals": "0",
+                "awayGoals": "2",
+                "homeTeamId": "2925",
+                "awayTeamId": "107",
+                "competition": "2026-27 Italian Serie A"
+              },
+              {
+                "date": "2026-10-28T17:30Z",
+                "opponent": "AC Milan",
+                "homeGoals": "2",
+                "awayGoals": "4",
+                "homeTeamId": "103",
+                "awayTeamId": "107",
+                "competition": "2026-27 Italian Serie A"
+              },
+              {
+                "date": "2026-10-31T14:00Z",
+                "opponent": "Monza",
+                "homeGoals": "2",
+                "awayGoals": "1",
+                "homeTeamId": "107",
+                "awayTeamId": "4007",
+                "competition": "2026-27 Italian Serie A"
+              },
+              {
+                "date": "2026-11-07T17:00Z",
+                "opponent": "Parma",
+                "homeGoals": "1",
+                "awayGoals": "2",
+                "homeTeamId": "115",
+                "awayTeamId": "107",
+                "competition": "2026-27 Italian Serie A"
+              },
+              {
+                "date": "2026-11-22T14:00Z",
+                "opponent": "Udinese",
+                "homeGoals": "1",
+                "awayGoals": "1",
+                "homeTeamId": "107",
+                "awayTeamId": "118",
+                "competition": "2026-27 Italian Serie A"
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "One main statistics provider; incomplete independent corroboration.",
+          "Recent-match lists can include cup/friendly matches and must not be equated with league-only form.",
+          "Injuries, suspensions and final lineups not confirmed; no numerical adjustment for them.",
+          "No fitted/calibrated probability model or backtest for these qualitative selections."
+        ],
+        "newsCheck": "Reviewed ESPN league news. No verified match-specific absence/lineup report was found in the retrieved material; unrelated transfer stories and PSG news were excluded."
+      },
+      "researchForecast": {
+        "pick": "away",
+        "recordedAt": "2026-11-27T10:50:48.190484Z",
+        "confidence": "Μέτρια",
+        "reason": "Η Μπολόνια έχει18 βαθμούς, ενώ η Βενέτσια6 με10 ήττες σε12 αγώνες. Η Μπολόνια έχει τέσσερις νίκες και μία ισοπαλία στα τελευταία πέντε διαθέσιμα παιχνίδια. Προτίμηση στη Μπολόνια.",
+        "method": "Qualitative table/form assessment v1; no probability estimate",
+        "status": "pre-match"
+      }
     }
   ]
 }
