@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "4.5",
+  "pageVersion": "4.6",
   "updated": "2026-11-27",
   "projects": [
     {
@@ -286,16 +286,16 @@
       "alias": "",
       "what": "Five-league football analysis: pre-match probabilities, results, team ratings and honest evaluation.",
       "st": "dev",
-      "stl": "Research desk · refreshed interface",
-      "version": "0.8.1",
+      "stl": "Automatic predictions & results",
+      "version": "0.9",
       "main": {
-        "t": "Pitch Lab 0.8.1 — football research dashboard",
-        "u": "apps/pitchlab/index.html?v=0.8.1",
+        "t": "Pitch Lab 0.9 — automatic analysis & session intro",
+        "u": "apps/pitchlab/index.html?v=0.9",
         "d": "27 Nov 2026",
         "label": "Open Pitch Lab"
       },
       "more": [],
-      "next": "Renamed Pitch Lab. Existing app path, recorded forecasts, device data, charts and on-open/manual refresh preserved; no scheduled updates.",
+      "next": "No typed match data needed. Open the app or press Refresh predictions & results for source fixtures, automatic estimates and verified final scores; historical forecasts stay frozen. Optional manual sandbox is separate. Owner-selected Alefantos YouTube intro opens on first click per tab session; source-player settings may affect playback.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/pitchlab.md"
     }
   ]
