@@ -1,9 +1,9 @@
 {
   "schema": 1,
-  "version": "0.5",
-  "updatedAt": "2026-11-27T11:45:33.588928Z",
+  "version": "0.6",
+  "updatedAt": "2026-11-27T11:43:16.576159Z",
   "timezone": "Europe/Athens",
-  "notice": "Automatic daily snapshots and final-score checks are scheduled. Original forecasts are retained; research opinions are separate from unfitted experimental Poisson. No automatic narrative-news/lineup research, calibrated accuracy or betting-profit claim. See last successful update; schedules may be delayed.",
+  "notice": "Published starting record. PitchLab now refreshes only when opened or when Refresh is pressed, saving new observations in this browser’s device database. No scheduled collection. Export device data for transfer or shared-database review.",
   "entries": [
     {
       "id": "2026-11-27-1",
@@ -229,16 +229,6 @@
         },
         {
           "observedAt": "2026-11-27T11:43:16.576159Z",
-          "provider": "DraftKings",
-          "homeOdds": 2.35,
-          "drawOdds": 3.4,
-          "awayOdds": 3.05,
-          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401879225",
-          "providerUpdatedAt": null,
-          "note": "Observed source snapshot; no executable-price or closing-line claim."
-        },
-        {
-          "observedAt": "2026-11-27T11:45:33.588928Z",
           "provider": "DraftKings",
           "homeOdds": 2.35,
           "drawOdds": 3.4,
@@ -475,16 +465,6 @@
           "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876392",
           "providerUpdatedAt": null,
           "note": "Observed source snapshot; no executable-price or closing-line claim."
-        },
-        {
-          "observedAt": "2026-11-27T11:45:33.588928Z",
-          "provider": "DraftKings",
-          "homeOdds": 3.45,
-          "drawOdds": 3.4,
-          "awayOdds": 2.15,
-          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876392",
-          "providerUpdatedAt": null,
-          "note": "Observed source snapshot; no executable-price or closing-line claim."
         }
       ]
     },
@@ -707,16 +687,6 @@
         },
         {
           "observedAt": "2026-11-27T11:43:16.576159Z",
-          "provider": "DraftKings",
-          "homeOdds": 1.625,
-          "drawOdds": 4.1,
-          "awayOdds": 4.4,
-          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884720",
-          "providerUpdatedAt": null,
-          "note": "Observed source snapshot; no executable-price or closing-line claim."
-        },
-        {
-          "observedAt": "2026-11-27T11:45:33.588928Z",
           "provider": "DraftKings",
           "homeOdds": 1.625,
           "drawOdds": 4.1,
@@ -953,16 +923,6 @@
           "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/summary?event=401882791",
           "providerUpdatedAt": null,
           "note": "Observed source snapshot; no executable-price or closing-line claim."
-        },
-        {
-          "observedAt": "2026-11-27T11:45:33.588928Z",
-          "provider": "DraftKings",
-          "homeOdds": 2.0,
-          "drawOdds": 4.0,
-          "awayOdds": 3.3,
-          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/summary?event=401882791",
-          "providerUpdatedAt": null,
-          "note": "Observed source snapshot; no executable-price or closing-line claim."
         }
       ]
     },
@@ -1185,16 +1145,6 @@
         },
         {
           "observedAt": "2026-11-27T11:43:16.576159Z",
-          "provider": "DraftKings",
-          "homeOdds": 2.9,
-          "drawOdds": 3.1,
-          "awayOdds": 2.4,
-          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/summary?event=401875004",
-          "providerUpdatedAt": null,
-          "note": "Observed source snapshot; no executable-price or closing-line claim."
-        },
-        {
-          "observedAt": "2026-11-27T11:45:33.588928Z",
           "provider": "DraftKings",
           "homeOdds": 2.9,
           "drawOdds": 3.1,
@@ -1426,16 +1376,6 @@
           "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/summary?event=401880129",
           "providerUpdatedAt": null,
           "note": "Observed source snapshot; no executable-price or closing-line claim."
-        },
-        {
-          "observedAt": "2026-11-27T11:45:33.588928Z",
-          "provider": "DraftKings",
-          "homeOdds": 3.25,
-          "drawOdds": 3.8,
-          "awayOdds": 2.1,
-          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/summary?event=401880129",
-          "providerUpdatedAt": null,
-          "note": "Observed source snapshot; no executable-price or closing-line claim."
         }
       ]
     },
@@ -1652,16 +1592,6 @@
         },
         {
           "observedAt": "2026-11-27T11:43:16.576159Z",
-          "provider": "DraftKings",
-          "homeOdds": 2.35,
-          "drawOdds": 3.05,
-          "awayOdds": 3.25,
-          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/summary?event=401883102",
-          "providerUpdatedAt": null,
-          "note": "Observed source snapshot; no executable-price or closing-line claim."
-        },
-        {
-          "observedAt": "2026-11-27T11:45:33.588928Z",
           "provider": "DraftKings",
           "homeOdds": 2.35,
           "drawOdds": 3.05,
@@ -1892,16 +1822,6 @@
           "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885047",
           "providerUpdatedAt": null,
           "note": "Observed source snapshot; no executable-price or closing-line claim."
-        },
-        {
-          "observedAt": "2026-11-27T11:45:33.588928Z",
-          "provider": "DraftKings",
-          "homeOdds": 2.2,
-          "drawOdds": 3.8,
-          "awayOdds": 2.95,
-          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885047",
-          "providerUpdatedAt": null,
-          "note": "Observed source snapshot; no executable-price or closing-line claim."
         }
       ]
     },
@@ -2118,16 +2038,6 @@
         },
         {
           "observedAt": "2026-11-27T11:43:16.576159Z",
-          "provider": "DraftKings",
-          "homeOdds": 1.6666666666666665,
-          "drawOdds": 4.1,
-          "awayOdds": 4.7,
-          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885045",
-          "providerUpdatedAt": null,
-          "note": "Observed source snapshot; no executable-price or closing-line claim."
-        },
-        {
-          "observedAt": "2026-11-27T11:45:33.588928Z",
           "provider": "DraftKings",
           "homeOdds": 1.6666666666666665,
           "drawOdds": 4.1,
@@ -2358,16 +2268,6 @@
           "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/summary?event=401875536",
           "providerUpdatedAt": null,
           "note": "Observed source snapshot; no executable-price or closing-line claim."
-        },
-        {
-          "observedAt": "2026-11-27T11:45:33.588928Z",
-          "provider": "DraftKings",
-          "homeOdds": 1.2857142857142856,
-          "drawOdds": 6.0,
-          "awayOdds": 8.5,
-          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/summary?event=401875536",
-          "providerUpdatedAt": null,
-          "note": "Observed source snapshot; no executable-price or closing-line claim."
         }
       ]
     }
@@ -2408,70 +2308,8 @@
     "notes": "Two singles, no accumulator. No fees/taxes or real wager. No model value/positive-expectation claim. Pending matches do not count as losses."
   },
   "automation": {
-    "status": "success",
-    "lastSuccessAt": "2026-11-27T11:45:33.588928Z",
-    "lastMode": "daily",
-    "timezone": "Europe/Athens",
-    "selectionRule": "Up to10 per Athens day; fixed league priority, then kickoff/event ID; at least30min before kickoff. Not confidence-based selection.",
-    "lastAdded": [],
-    "candidatePool": [
-      {
-        "eventId": "401879225",
-        "league": "eng.1",
-        "kickoff": "2026-11-27T20:00Z"
-      },
-      {
-        "eventId": "401876392",
-        "league": "fra.1",
-        "kickoff": "2026-11-27T19:45Z"
-      },
-      {
-        "eventId": "401884720",
-        "league": "ger.1",
-        "kickoff": "2026-11-27T19:30Z"
-      },
-      {
-        "eventId": "401882791",
-        "league": "esp.1",
-        "kickoff": "2026-11-27T20:00Z"
-      },
-      {
-        "eventId": "401875004",
-        "league": "ita.1",
-        "kickoff": "2026-11-27T19:45Z"
-      },
-      {
-        "eventId": "401880129",
-        "league": "eng.2",
-        "kickoff": "2026-11-27T20:00Z"
-      },
-      {
-        "eventId": "401883102",
-        "league": "esp.2",
-        "kickoff": "2026-11-27T19:30Z"
-      },
-      {
-        "eventId": "401885047",
-        "league": "ger.2",
-        "kickoff": "2026-11-27T17:30Z"
-      },
-      {
-        "eventId": "401885045",
-        "league": "ger.2",
-        "kickoff": "2026-11-27T17:30Z"
-      },
-      {
-        "eventId": "401875536",
-        "league": "ned.1",
-        "kickoff": "2026-11-27T19:00Z"
-      }
-    ],
-    "scheduleUTC": [
-      "07:17 daily selection + results",
-      "16:17 results + pre-match price observations",
-      "23:17 results only"
-    ],
-    "source": "ESPN public data endpoint; availability not guaranteed; no paid plan or AI calls",
-    "historicalCatchupDays": 7
+    "enabled": false,
+    "mode": "on-open/manual only",
+    "note": "GitHub schedule disabled at owner request; no scheduled data refresh."
   }
 }

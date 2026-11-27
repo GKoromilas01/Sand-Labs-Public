@@ -1,76 +1,24 @@
-name: PitchLab refresh and Pages
+name: Publish Sand Labs
 on:
   push:
     branches: [main]
-  schedule:
-    - cron: '17 7 * * *'
-    - cron: '17 16 * * *'
-    - cron: '17 23 * * *'
   workflow_dispatch:
-    inputs:
-      mode:
-        description: Data update mode
-        type: choice
-        options: [results, daily]
-        default: results
 concurrency:
   group: sand-labs-pages
   cancel-in-progress: false
 permissions:
   contents: read
+  pages: write
+  id-token: write
 jobs:
-  refresh:
-    if: github.event_name != 'push'
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      contents: write
-    outputs:
-      commit: ${{ steps.commit.outputs.sha }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: main
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - run: python3 automation/test_pitchlab_update.py
-      - name: Refresh verified source data
-        env:
-          UPDATE_MODE: ${{ github.event_name == 'workflow_dispatch' && inputs.mode || (github.event.schedule == '17 7 * * *' && 'daily' || 'results') }}
-        run: python3 automation/pitchlab_update.py --mode "$UPDATE_MODE"
-      - name: Validate client-side record
-        run: node -e "require('./apps/pitchlab/ledger.js').validate(require('./apps/pitchlab/daily.json'))"
-      - name: Commit source snapshot
-        id: commit
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add apps/pitchlab/daily.json
-          if ! git diff --cached --quiet; then
-            git commit -m 'Update PitchLab source snapshots and final results'
-            git push origin HEAD:main
-          fi
-          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
   deploy:
-    needs: [refresh]
-    if: always() && (needs.refresh.result == 'success' || needs.refresh.result == 'skipped')
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ needs.refresh.outputs.commit || github.sha }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

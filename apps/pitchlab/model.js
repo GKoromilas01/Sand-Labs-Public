@@ -1,5 +1,5 @@
 (function(root){
-const leagues=['Premier League','La Liga','Serie A','Bundesliga','Ligue 1','EFL Championship','La Liga 2','2. Bundesliga','Eredivisie'];
+const leagues=['Premier League','La Liga','Serie A','Bundesliga','Ligue 1','EFL Championship','La Liga 2','2. Bundesliga','Eredivisie','Champions League','Europa League','Conference League'];
 const initial=()=>({schema:1,ratings:{},predictions:[],results:[]});
 function checkMatch(m){if(!m||!leagues.includes(m.league)||typeof m.home!=='string'||typeof m.away!=='string'||!m.home.trim()||!m.away.trim()||m.home.trim()===m.away.trim()||m.home.length>100||m.away.length>100||!Number.isFinite(Date.parse(m.kickoff)))throw Error('Choose a league, two different teams and a valid kickoff.');}
 const key=(m,t)=>JSON.stringify([m.league,t.trim().toLowerCase()]);
