@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "4.3",
+  "pageVersion": "4.4",
   "updated": "2026-11-27",
   "projects": [
     {
@@ -11,10 +11,10 @@
       "alias": "Formerly The Grumpy Sphinx",
       "what": "Ελληνικό καρτουνίστικο καφενείο: ένας γρίφος, δύο χαρακτήρες και πρωτότυπη παράξενη μουσική.",
       "st": "dev",
-      "stl": "Δωρεάν playable beta",
+      "stl": "Free beta · title & play guide",
       "main": {
-        "t": "Cafe beta0.1.3 — γρήγορο μπουζούκι στην αρχή",
-        "u": "apps/pavlos/index.html?v=0.1.3",
+        "t": "Pavlos 0.1.4 — title screen, guide & inventory",
+        "u": "apps/pavlos/index.html?v=0.1.4",
         "d": "27 Nov 2026",
         "label": "Παίξε"
       },
@@ -25,9 +25,9 @@
           "d": "26 Nov 2026"
         }
       ],
-      "next": "Το Παίξε με μουσική ξεκινά το πρωτότυπο synth-bouzouki intro. Υπάρχουν σίγαση, ένταση και Παίξε χωρίς ήχο. Δωρεάν beta.",
+      "next": "Branded title screen, How to play, clear next steps and highlighted inventory. Collect Spoon, then use Radio. Free one-scene café puzzle; no walking between locations.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sphinx.md",
-      "version": "0.1.3 cafe beta"
+      "version": "0.1.4"
     },
     {
       "id": "coin",
@@ -61,7 +61,7 @@
           "d": "29 Oct"
         }
       ],
-      "next": "Το πραγματικό URL επιβεβαιώθηκε από τον ιδιοκτήτη. Το πλάνο/screenshots του Claude παραμένει ξεχωριστός σύνδεσμος.",
+      "next": "Saved-session promotion flash fix merged in CoinIntel-Beta PR4. Browser regression passed; Railway live confirmation pending because this environment cannot access the domain.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/coin.md",
       "version": "v10.83.3 Beta — έκδοση repository"
     },
@@ -73,11 +73,11 @@
       "alias": "Formerly Vios / Digital Biography",
       "what": "Your local biography notebook with optional private reflection and explicitly reviewed passages.",
       "st": "dev",
-      "stl": "Journal & optional reflection",
+      "stl": "Local journal · clear save feedback",
       "main": {
-        "t": "Bios0.2 — memories & optional reflection",
-        "u": "apps/bios/index.html?v=0.2",
-        "d": "26 Nov 2026",
+        "t": "Bios 0.3 — visible device-save confirmation",
+        "u": "apps/bios/index.html?v=0.3",
+        "d": "27 Nov 2026",
         "label": "Open Bios"
       },
       "more": [
@@ -113,9 +113,9 @@
           "d": "20 Nov"
         }
       ],
-      "next": "Guided local reflection and reviewed brief for an external AI account. No in-app AI/clinical service or owner-credit calls. Only approved selected passages enter the biography.",
+      "next": "Device-save button confirms success beside the control with a timestamp. Storage failures show Retry. JSON/TXT exports and existing notebook data stay compatible.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/bio.md",
-      "version": "0.2"
+      "version": "0.3"
     },
     {
       "id": "sc",
@@ -229,11 +229,11 @@
       "alias": "Formerly ERP Advisor / SoftOne Advisor",
       "what": "Company IT knowledge notebook: departments, systems, documentation, AI pilot plans and financial planning templates.",
       "st": "dev",
-      "stl": "Company workspace · local prototype",
+      "stl": "Company desk · refreshed navigation",
       "main": {
-        "t": "IT Consultant0.2 — company knowledge & improvement desk",
-        "u": "apps/softone-advisor/index.html?v=0.2",
-        "d": "26 Nov 2026",
+        "t": "IT Consultant 0.3 — clearer company workspace",
+        "u": "apps/softone-advisor/index.html?v=0.3",
+        "d": "27 Nov 2026",
         "label": "Open IT Consultant"
       },
       "more": [
@@ -248,9 +248,9 @@
           "d": "19 Nov"
         }
       ],
-      "next": "18 knowledge areas, explicit local notes/backups and planning calculations. SoftOne remains under ERP/Coding with its original source desk. No company systems or AI service connected.",
+      "next": "Quick links to areas, writing, notebook and backups; clearer company-area cards and mobile layout. Existing local notes and finance/reflection workflows preserved. No backend or paid AI enabled.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sw.md",
-      "version": "0.2"
+      "version": "0.3"
     },
     {
       "id": "chronoscope",
@@ -260,11 +260,11 @@
       "alias": "",
       "what": "Science, history and ideas explained clearly: a subject library and creator planning desk.",
       "st": "dev",
-      "stl": "Subject library & YouTube channel",
-      "version": "0.3",
+      "stl": "Video library · refreshed discovery desk",
+      "version": "0.4",
       "main": {
-        "t": "The Chronoscope 0.3 — library & channel",
-        "u": "apps/chronoscope/index.html?v=0.3",
+        "t": "The Chronoscope 0.4 — refreshed video library",
+        "u": "apps/chronoscope/index.html?v=0.4",
         "d": "27 Nov 2026",
         "label": "Open app"
       },
@@ -275,7 +275,7 @@
           "d": "27 Nov 2026"
         }
       ],
-      "next": "Official owner-provided channel link. External references remain on their creators’ channels; use subject playlists. Ten-second preview removed. OAuth and automatic synchronization are not connected.",
+      "next": "New navy/turquoise discovery desk and approved logo, subject cards and direct library navigation. Video production remains paused for cost/quality review. No automatic YouTube upload.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/chronoscope.md"
     },
     {
@@ -286,16 +286,16 @@
       "alias": "",
       "what": "Five-league football analysis: pre-match probabilities, results, team ratings and honest evaluation.",
       "st": "dev",
-      "stl": "On-demand · source scorecard",
-      "version": "0.7",
+      "stl": "Research desk · refreshed interface",
+      "version": "0.8",
       "main": {
-        "t": "PitchLab0.7 — published forecasts & paper experiments",
-        "u": "apps/pitchlab/index.html?v=0.7",
+        "t": "PitchLab 0.8 — refreshed research dashboard",
+        "u": "apps/pitchlab/index.html?v=0.8",
         "d": "27 Nov 2026",
         "label": "Open PitchLab"
       },
       "more": [],
-      "next": "Sources tab tracks captured BBC forecasters separately; no reliability ranking yet. Independent paper trial B added. On-open/manual refresh only; new data saved on this device.",
+      "next": "Refreshed dashboard, clearer tab navigation and mobile refresh control. Existing forecasts, paper experiments and device data preserved; no scheduled refresh or model change.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/pitchlab.md"
     }
   ]
