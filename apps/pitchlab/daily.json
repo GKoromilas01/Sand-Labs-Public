@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "version": "0.2",
-  "updatedAt": "2026-11-27T10:15:54.044296Z",
+  "updatedAt": "2026-11-27T10:17:53.589721Z",
   "timezone": "Europe/Athens",
-  "notice": "Fixtures transcribed from owner screenshots. The screenshot does not display the fixture calendar date;27 Nov2026 is inferred from the owner request and must be independently confirmed. Paris team identity also unconfirmed. All entries are provisional. Equal starting ratings: these are unresearched baseline probabilities, not team-specific forecasts.",
+  "notice": "Owner confirmed these are today’s fixtures,27 Nov2026. Dates and times come from owner confirmation and screenshots, not independent verification. Brest opponent identity remains ambiguous (Paris). All probabilities are the unresearched equal-rating baseline, not team-specific forecasts.",
   "entries": [
     {
       "id": "2026-11-27-1",
@@ -13,15 +13,16 @@
       "away": "Chelsea",
       "kickoff": "2026-11-27T22:00:00+02:00",
       "recordedAt": "2026-11-27T10:15:54.044296Z",
-      "fixtureConfirmed": false,
-      "fixtureSource": "Owner-provided Flashscore screenshots in chat; date not visible.",
+      "fixtureConfirmed": true,
+      "fixtureSource": "Owner-provided Flashscore screenshot; owner explicitly confirmed27Nov2026 fixtures in chat.",
       "researchStatus": "Not researched: BBC and Werder requests returned proxy403.",
       "researchSources": [],
       "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
-      "settled": false
+      "settled": false,
+      "verificationNote": "Owner-confirmed, not independently verified."
     },
     {
       "id": "2026-11-27-2",
@@ -32,14 +33,15 @@
       "kickoff": "2026-11-27T21:45:00+02:00",
       "recordedAt": "2026-11-27T10:15:54.044296Z",
       "fixtureConfirmed": false,
-      "fixtureSource": "Owner-provided Flashscore screenshots in chat; date not visible.",
+      "fixtureSource": "Owner-provided Flashscore screenshot; owner explicitly confirmed27Nov2026 fixtures in chat.",
       "researchStatus": "Not researched: BBC and Werder requests returned proxy403.",
       "researchSources": [],
       "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
-      "settled": false
+      "settled": false,
+      "verificationNote": "Owner confirmed date; exact Paris club still needs clarification."
     },
     {
       "id": "2026-11-27-3",
@@ -49,15 +51,16 @@
       "away": "Borussia Mönchengladbach",
       "kickoff": "2026-11-27T21:30:00+02:00",
       "recordedAt": "2026-11-27T10:15:54.044296Z",
-      "fixtureConfirmed": false,
-      "fixtureSource": "Owner-provided Flashscore screenshots in chat; date not visible.",
+      "fixtureConfirmed": true,
+      "fixtureSource": "Owner-provided Flashscore screenshot; owner explicitly confirmed27Nov2026 fixtures in chat.",
       "researchStatus": "Not researched: BBC and Werder requests returned proxy403.",
       "researchSources": [],
       "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
-      "settled": false
+      "settled": false,
+      "verificationNote": "Owner-confirmed, not independently verified."
     },
     {
       "id": "2026-11-27-4",
@@ -67,15 +70,16 @@
       "away": "Racing Santander",
       "kickoff": "2026-11-27T22:00:00+02:00",
       "recordedAt": "2026-11-27T10:15:54.044296Z",
-      "fixtureConfirmed": false,
-      "fixtureSource": "Owner-provided Flashscore screenshots in chat; date not visible.",
+      "fixtureConfirmed": true,
+      "fixtureSource": "Owner-provided Flashscore screenshot; owner explicitly confirmed27Nov2026 fixtures in chat.",
       "researchStatus": "Not researched: BBC and Werder requests returned proxy403.",
       "researchSources": [],
       "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
-      "settled": false
+      "settled": false,
+      "verificationNote": "Owner-confirmed, not independently verified."
     },
     {
       "id": "2026-11-27-5",
@@ -85,15 +89,16 @@
       "away": "Bologna",
       "kickoff": "2026-11-27T21:45:00+02:00",
       "recordedAt": "2026-11-27T10:15:54.044296Z",
-      "fixtureConfirmed": false,
-      "fixtureSource": "Owner-provided Flashscore screenshots in chat; date not visible.",
+      "fixtureConfirmed": true,
+      "fixtureSource": "Owner-provided Flashscore screenshot; owner explicitly confirmed27Nov2026 fixtures in chat.",
       "researchStatus": "Not researched: BBC and Werder requests returned proxy403.",
       "researchSources": [],
       "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
-      "settled": false
+      "settled": false,
+      "verificationNote": "Owner-confirmed, not independently verified."
     }
   ]
 }
