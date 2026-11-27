@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "sourceUrl": "https://www.bbc.com/news",
+  "capturedAt": "2026-11-27T14:38:41.264164+00:00",
+  "scope": "Headline links captured from BBC News. Article publication times were not supplied by this homepage capture.",
+  "stories": [
+    {
+      "id": "c820q9wgrpyyo",
+      "title": "Zelensky criticises 'strange' Trump-Putin friendship in BBC interview",
+      "url": "https://www.bbc.com/news/articles/c820q9wgrpyyo",
+      "source": "BBC News",
+      "publishedAt": null
+    },
+    {
+      "id": "cre3dj5n7dpwo",
+      "title": "Hundreds of thousands still without power after storms hit US on Thanksgiving",
+      "url": "https://www.bbc.com/news/articles/cre3dj5n7dpwo",
+      "source": "BBC News",
+      "publishedAt": null
+    },
+    {
+      "id": "c6ly7jgv7jzdo",
+      "title": "Inside Saudi Arabia, Houthi attacks test kingdom's image of security",
+      "url": "https://www.bbc.com/news/articles/c6ly7jgv7jzdo",
+      "source": "BBC News",
+      "publishedAt": null
+    },
+    {
+      "id": "ckr5gr4g8gn5o",
+      "title": "Leaders clash in final Spain election debate as housing dominates run-in",
+      "url": "https://www.bbc.com/news/articles/ckr5gr4g8gn5o",
+      "source": "BBC News",
+      "publishedAt": null
+    },
+    {
+      "id": "ck792lq4xrero",
+      "title": "'I wouldn't be here without you': Student praises man who stopped UK train attacker",
+      "url": "https://www.bbc.com/news/articles/ck792lq4xrero",
+      "source": "BBC News",
+      "publishedAt": null
+    },
+    {
+      "id": "ckr5grlq78n9o",
+      "title": "Ex-media executive admits saying Australian child sex abuse survivor 'looking to be raped again'",
+      "url": "https://www.bbc.com/news/articles/ckr5grlq78n9o",
+      "source": "BBC News",
+      "publishedAt": null
+    },
+    {
+      "id": "cm5y1380q3vgo",
+      "title": "Rare turtles found inside baggage at Amsterdam airport",
+      "url": "https://www.bbc.com/news/articles/cm5y1380q3vgo",
+      "source": "BBC News",
+      "publishedAt": null
+    },
+    {
+      "id": "crx209ekq5xdo",
+      "title": "Ex-Kenyan governor jailed for 25 years over pregnant girlfriend's murder",
+      "url": "https://www.bbc.com/news/articles/crx209ekq5xdo",
+      "source": "BBC News",
+      "publishedAt": null
+    }
+  ]
+}

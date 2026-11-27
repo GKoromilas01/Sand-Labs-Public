@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "4.4",
+  "pageVersion": "4.5",
   "updated": "2026-11-27",
   "projects": [
     {
@@ -11,12 +11,12 @@
       "alias": "Formerly The Grumpy Sphinx",
       "what": "Ελληνικό καρτουνίστικο καφενείο: ένας γρίφος, δύο χαρακτήρες και πρωτότυπη παράξενη μουσική.",
       "st": "dev",
-      "stl": "Free beta · title & play guide",
+      "stl": "Greek / English · free beta",
       "main": {
-        "t": "Pavlos 0.1.4 — title screen, guide & inventory",
-        "u": "apps/pavlos/index.html?v=0.1.4",
+        "t": "Pavlos 0.2.0 — languages, subtitles & bouzouki",
+        "u": "apps/pavlos/index.html?v=0.2.0",
         "d": "27 Nov 2026",
-        "label": "Παίξε"
+        "label": "Play / Παίξε"
       },
       "more": [
         {
@@ -25,9 +25,9 @@
           "d": "26 Nov 2026"
         }
       ],
-      "next": "Branded title screen, How to play, clear next steps and highlighted inventory. Collect Spoon, then use Radio. Free one-scene café puzzle; no walking between locations.",
+      "next": "Choose Greek or English at the start. Compact subtitles, inventory drawer and original plucked-string bouzouki-style music. Optional local device voices speak the visible subtitle; voice availability depends on browser/OS. Free beta.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sphinx.md",
-      "version": "0.1.4"
+      "version": "0.2.0"
     },
     {
       "id": "coin",
@@ -39,10 +39,10 @@
       "st": "live",
       "stl": "Live beta",
       "main": {
-        "t": "Coin Intel — κανονική ιστοσελίδα",
+        "t": "Coin Intel 10.83.4 — startup flash fix",
         "u": "https://coinintel-beta-production.up.railway.app/",
-        "d": "26 Nov 2026",
-        "label": "Άνοιξε ιστοσελίδα"
+        "d": "27 Nov 2026",
+        "label": "Open Coin Intel"
       },
       "more": [
         {
@@ -61,9 +61,9 @@
           "d": "29 Oct"
         }
       ],
-      "next": "Saved-session promotion flash fix merged in CoinIntel-Beta PR4. Browser regression passed; Railway live confirmation pending because this environment cannot access the domain.",
+      "next": "Initial home rendering and saved-session restoration now use a neutral loading state. Slow local-data regression passed with zero premature hero frames. Railway reported successful deployment for PR5 / 8984b455.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/coin.md",
-      "version": "v10.83.3 Beta — έκδοση repository"
+      "version": "10.83.4 Beta"
     },
     {
       "id": "bio",
@@ -191,18 +191,18 @@
     },
     {
       "id": "dd",
-      "mark": "IS",
+      "mark": "AG",
       "tint": "#9DB7E8",
-      "name": "Isegoria",
-      "alias": "Formerly Digital Democracy / Instant Democracy",
-      "what": "Διατύπωσε μια πρόταση, κράτησε πρόχειρο και δοκίμασε μια ουδέτερη ψηφοφορία σε αυτόν τον browser.",
+      "name": "Agora",
+      "alias": "Formerly Isegoria / Digital Democracy",
+      "what": "Read sourced headlines, keep your perspective and develop suggestions for discussion.",
       "st": "dev",
-      "stl": "Τοπικές προτάσεις & poll",
+      "stl": "News & local perspectives",
       "main": {
-        "t": "Isegoria0.2 — προτάσεις & δοκιμαστική ψηφοφορία",
-        "u": "apps/isegoria/index.html",
-        "d": "26 Nov 2026",
-        "label": "Άνοιξε Isegoria"
+        "t": "Agora 0.3 — news, perspectives & suggestions",
+        "u": "apps/isegoria/index.html?v=0.3",
+        "d": "27 Nov 2026",
+        "label": "Open Agora"
       },
       "more": [
         {
@@ -217,9 +217,9 @@
           "d": "26 Nov 2026"
         }
       ],
-      "next": "Δεν είναι δημόσια ψηφοφορία ή αντιπροσωπευτικό δείγμα. Κοινοί λογαριασμοί, συζητήσεις και moderation απαιτούν backend.",
+      "next": "News-first homepage with sourced BBC headline links and capture time. Manual refresh attempts the source with an honest snapshot fallback. Suggestions and discussion drafts are separate; views/votes stay on this device, not a shared public forum.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/dd.md",
-      "version": "0.2 local participation demo"
+      "version": "0.3"
     },
     {
       "id": "sw",
@@ -280,22 +280,22 @@
     },
     {
       "id": "pitchlab",
-      "name": "PitchLab",
+      "name": "Pitch Lab",
       "mark": "PL",
       "tint": "#9DB7E8",
       "alias": "",
       "what": "Five-league football analysis: pre-match probabilities, results, team ratings and honest evaluation.",
       "st": "dev",
       "stl": "Research desk · refreshed interface",
-      "version": "0.8",
+      "version": "0.8.1",
       "main": {
-        "t": "PitchLab 0.8 — refreshed research dashboard",
-        "u": "apps/pitchlab/index.html?v=0.8",
+        "t": "Pitch Lab 0.8.1 — football research dashboard",
+        "u": "apps/pitchlab/index.html?v=0.8.1",
         "d": "27 Nov 2026",
-        "label": "Open PitchLab"
+        "label": "Open Pitch Lab"
       },
       "more": [],
-      "next": "Refreshed dashboard, clearer tab navigation and mobile refresh control. Existing forecasts, paper experiments and device data preserved; no scheduled refresh or model change.",
+      "next": "Renamed Pitch Lab. Existing app path, recorded forecasts, device data, charts and on-open/manual refresh preserved; no scheduled updates.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/pitchlab.md"
     }
   ]
