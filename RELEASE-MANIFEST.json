@@ -1,7 +1,12 @@
 {
-  "version": "4.7",
-  "date": "2026-11-27",
+  "version": "4.8",
+  "date": "2026-11-28",
   "files": [
+    {
+      "path": "index.html",
+      "sha256": "2aec890644d34f43b13ace4db32d8edec0344aa4e699b183e2c20de6e8848d15",
+      "bytes": 22421
+    },
     {
       "path": "dashboard.css",
       "sha256": "6521f535d6b8e6b6aad31879c282486ff50537abb75d1ba0b91e223782277310",
@@ -9,28 +14,28 @@
     },
     {
       "path": "projects.json",
-      "sha256": "677a92c2149daef4401ccd1676580489b1645b9cb9423409094a7db3d34ca465",
-      "bytes": 10841
+      "sha256": "7c92829465d07c832b1344714e2915245f834559d71eaa09bf8360b3e4c1edd8",
+      "bytes": 10970
     },
     {
       "path": "apps/bios/app.js",
-      "sha256": "ff26cfc110fb68a37511350dffbddb685a669ee92aa54923fdd6dbe1e23aa58f",
-      "bytes": 15863
+      "sha256": "2cfefa144de4045e12d33c57d90735dc5c9d5af8995d06481e829abfdb302288",
+      "bytes": 17078
     },
     {
       "path": "apps/bios/index.html",
-      "sha256": "5b5d95be5b00c12757b6d5fe5305c8f0a855d4df59a195c064013e86f864824c",
-      "bytes": 12527
+      "sha256": "2d21420bc18c7d4d0769c59685b8fc98b4641e8674d83715818c3665d92bd373",
+      "bytes": 13388
     },
     {
       "path": "apps/bios/model.js",
-      "sha256": "2bffb1addafe650c3b491a01012767dad7f934dae14a3ab52559727f55f1ed66",
-      "bytes": 4538
+      "sha256": "20adab7b9160e8382d006b18f9705f1e0543d83582f36a171425ea03c5b25f64",
+      "bytes": 5526
     },
     {
       "path": "apps/bios/style.css",
-      "sha256": "d102de5b3525c25dbbc93fec1ee1315e54be8f8c58a4b9e53e3ea992127a4aa0",
-      "bytes": 5043
+      "sha256": "b770e45e7a66ea1bfbd787e25236503c5ab1e17ed175e155738ac95bad272af9",
+      "bytes": 5476
     },
     {
       "path": "apps/bios/reflection-ui.js",
@@ -74,18 +79,18 @@
     },
     {
       "path": "apps/isegoria/index.html",
-      "sha256": "715861289e92a0e8bbfa88d0f22fedb6aad9b8e48c8d63384a61860889c20c1a",
-      "bytes": 9523
+      "sha256": "2d90e528cb24dc053806f3ebb9e422d374282a30391b6037fd75abbb4060c68a",
+      "bytes": 10911
     },
     {
       "path": "apps/isegoria/model.js",
-      "sha256": "5234e80e2a9644a1508243a0e271d4b091ba76bcfd4ec0c401b7303b5570895b",
-      "bytes": 1369
+      "sha256": "c2afdbaef942a122bb1ff540e062b01558f7efc4c1823ce2d8fbca80f26de866",
+      "bytes": 1995
     },
     {
       "path": "apps/isegoria/style.css",
-      "sha256": "ce1c7902e3fb196254362690f6f952a5980e803f6729e22b0731f71ce3ec9511",
-      "bytes": 12917
+      "sha256": "4c95723cb8a8c66e193b4ac7da5793c79990edb1d953a8c26b01d6a9de588b45",
+      "bytes": 13765
     },
     {
       "path": "apps/isegoria/news.json",
@@ -94,8 +99,8 @@
     },
     {
       "path": "apps/isegoria/news.js",
-      "sha256": "d864a3c74b16f4285d371e647ff3fa622dbfddb942676272aa89a7eb18c8b37f",
-      "bytes": 10769
+      "sha256": "fdb0120c2fa54c462753e59e9fc08bdf42fa25fe01e2c371f9f79c22ca8aa986",
+      "bytes": 13438
     },
     {
       "path": "apps/pavlos/engine.js",
@@ -603,6 +608,11 @@
       "bytes": 164311
     },
     {
+      "path": "assets/shattered-crowns-settlement.jpg",
+      "sha256": "8e98265f3dcac3535ba475f38546ffba8528a9353505f18e0076414b20d68d68",
+      "bytes": 406118
+    },
+    {
       "path": "assets/sand-labs-hourglass.png",
       "sha256": "fd20b71577c4cf2061866205e91e80ad1093575aff644bdac935f29e93f8ddca",
       "bytes": 1125718
@@ -611,16 +621,6 @@
       "path": "assets/coin-intel-desk.jpg",
       "sha256": "14132771729b6a5ee6fcba7ec7543c311d7586be271efe28336a3a01af992cd0",
       "bytes": 358070
-    },
-    {
-      "path": "index.html",
-      "sha256": "82c125f66cfd1235cacec019ca00fcd48176d58f95465da9dd4df03402cee800",
-      "bytes": 22292
-    },
-    {
-      "path": "assets/shattered-crowns-settlement.jpg",
-      "sha256": "8e98265f3dcac3535ba475f38546ffba8528a9353505f18e0076414b20d68d68",
-      "bytes": 406118
     }
   ]
 }
