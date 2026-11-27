@@ -1,9 +1,9 @@
 {
   "schema": 1,
-  "version": "0.4",
-  "updatedAt": "2026-11-27T11:25:27.380384Z",
+  "version": "0.5",
+  "updatedAt": "2026-11-27T11:41:01.875152Z",
   "timezone": "Europe/Athens",
-  "notice": "Ten fixtures verified via ESPN before kickoff. Expanded scope: Championship, La Liga2,2.Bundesliga and Eredivisie. Source/statistical inconsistencies flagged. Original forecasts remain unchanged; separate qualitative research, experimental Poisson estimates and hypothetical EUR10 paper record. No calibrated-accuracy/profit guarantee, verified lineups or automated updates.",
+  "notice": "Automatic daily snapshots and final-score checks are scheduled. Original forecasts are retained; research opinions are separate from unfitted experimental Poisson. No automatic narrative-news/lineup research, calibrated accuracy or betting-profit claim. See last successful update; schedules may be delayed.",
   "entries": [
     {
       "id": "2026-11-27-1",
@@ -209,7 +209,25 @@
         "recordedAt": "2026-11-27T11:25:27.380384Z",
         "pick": "home",
         "limitations": "Small league-only sample, generic unfitted priors; no opponent adjustment, xG, absences or calibration."
-      }
+      },
+      "researchEnglish": {
+        "confidence": "Low",
+        "reason": "Chelsea have16 points to Forest’s9 and a stronger season scoring record, but recent defeats limit confidence. A narrow Chelsea preference.",
+        "note": "Faithful English display translation; original archived forecast retained."
+      },
+      "providerStatus": "STATUS_SCHEDULED",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-27T11:41:01.875152Z",
+          "provider": "DraftKings",
+          "homeOdds": 2.35,
+          "drawOdds": 3.4,
+          "awayOdds": 3.05,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401879225",
+          "providerUpdatedAt": null,
+          "note": "Observed source snapshot; no executable-price or closing-line claim."
+        }
+      ]
     },
     {
       "id": "2026-11-27-2",
@@ -410,7 +428,25 @@
         "recordedAt": "2026-11-27T11:25:27.380384Z",
         "pick": "home",
         "limitations": "Small league-only sample, generic unfitted priors; no opponent adjustment, xG, absences or calibration."
-      }
+      },
+      "researchEnglish": {
+        "confidence": "Low",
+        "reason": "Paris FC have23 points and+11 goal difference against Brest’s18 and+7. Both have recent wins. A narrow Paris FC preference, with material draw risk.",
+        "note": "Faithful English display translation; original archived forecast retained."
+      },
+      "providerStatus": "STATUS_SCHEDULED",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-27T11:41:01.875152Z",
+          "provider": "DraftKings",
+          "homeOdds": 3.45,
+          "drawOdds": 3.4,
+          "awayOdds": 2.15,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876392",
+          "providerUpdatedAt": null,
+          "note": "Observed source snapshot; no executable-price or closing-line claim."
+        }
+      ]
     },
     {
       "id": "2026-11-27-3",
@@ -611,7 +647,25 @@
         "recordedAt": "2026-11-27T11:25:27.380384Z",
         "pick": "home",
         "limitations": "Small league-only sample, generic unfitted priors; no opponent adjustment, xG, absences or calibration."
-      }
+      },
+      "researchEnglish": {
+        "confidence": "Medium",
+        "reason": "Werder have18 points and+6 goal difference; Gladbach have4 points and−14. Home advantage and the season record support Werder, without confirmed absence information.",
+        "note": "Faithful English display translation; original archived forecast retained."
+      },
+      "providerStatus": "STATUS_SCHEDULED",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-27T11:41:01.875152Z",
+          "provider": "DraftKings",
+          "homeOdds": 1.625,
+          "drawOdds": 4.1,
+          "awayOdds": 4.4,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884720",
+          "providerUpdatedAt": null,
+          "note": "Observed source snapshot; no executable-price or closing-line claim."
+        }
+      ]
     },
     {
       "id": "2026-11-27-4",
@@ -812,7 +866,25 @@
         "recordedAt": "2026-11-27T11:25:27.380384Z",
         "pick": "home",
         "limitations": "Small league-only sample; generic unfitted priors; no absences, opponent adjustment or calibration."
-      }
+      },
+      "researchEnglish": {
+        "confidence": "Low",
+        "reason": "Santander have17 points to Levante’s12 and recent wins, but a worse goal difference(−12 versus−5) and an away fixture. A marginal Santander preference in a closely contested match.",
+        "note": "Faithful English display translation; original archived forecast retained."
+      },
+      "providerStatus": "STATUS_SCHEDULED",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-27T11:41:01.875152Z",
+          "provider": "DraftKings",
+          "homeOdds": 2.0,
+          "drawOdds": 4.0,
+          "awayOdds": 3.3,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/summary?event=401882791",
+          "providerUpdatedAt": null,
+          "note": "Observed source snapshot; no executable-price or closing-line claim."
+        }
+      ]
     },
     {
       "id": "2026-11-27-5",
@@ -1013,7 +1085,25 @@
         "recordedAt": "2026-11-27T11:25:27.380384Z",
         "pick": "away",
         "limitations": "Small league-only sample, generic unfitted priors; no opponent adjustment, xG, absences or calibration."
-      }
+      },
+      "researchEnglish": {
+        "confidence": "Medium",
+        "reason": "Bologna have18 points versus Venezia’s6; Venezia have10 losses in12 league games. Bologna’s available recent record includes four wins and a draw. Preference: Bologna.",
+        "note": "Faithful English display translation; original archived forecast retained."
+      },
+      "providerStatus": "STATUS_SCHEDULED",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-27T11:41:01.875152Z",
+          "provider": "DraftKings",
+          "homeOdds": 2.9,
+          "drawOdds": 3.1,
+          "awayOdds": 2.4,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/summary?event=401875004",
+          "providerUpdatedAt": null,
+          "note": "Observed source snapshot; no executable-price or closing-line claim."
+        }
+      ]
     },
     {
       "id": "2026-11-27-6",
@@ -1209,7 +1299,25 @@
         "recordedAt": "2026-11-27T11:25:27.380384Z",
         "pick": "home",
         "limitations": "Small league-only sample, generic unfitted priors; no opponent adjustment, xG, absences or calibration."
-      }
+      },
+      "researchEnglish": {
+        "confidence": "Low",
+        "reason": "Middlesbrough lead on35 points versus28, while Southampton have home advantage and a positive goal difference. Tentative draw selection. Source Southampton points disagree with its W-D-L record; independent verification is needed.",
+        "note": "Faithful English display translation; original archived forecast retained."
+      },
+      "providerStatus": "STATUS_SCHEDULED",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-27T11:41:01.875152Z",
+          "provider": "DraftKings",
+          "homeOdds": 3.25,
+          "drawOdds": 3.8,
+          "awayOdds": 2.1,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/summary?event=401880129",
+          "providerUpdatedAt": null,
+          "note": "Observed source snapshot; no executable-price or closing-line claim."
+        }
+      ]
     },
     {
       "id": "2026-11-27-7",
@@ -1404,7 +1512,25 @@
         "recordedAt": "2026-11-27T11:25:27.380384Z",
         "pick": "home",
         "limitations": "Small league-only sample, generic unfitted priors; no opponent adjustment, xG, absences or calibration."
-      }
+      },
+      "researchEnglish": {
+        "confidence": "Low",
+        "reason": "Only one point separates these teams. Leganés have two recent league wins and home advantage, while Sabadell have many draws. A marginal Leganés preference.",
+        "note": "Faithful English display translation; original archived forecast retained."
+      },
+      "providerStatus": "STATUS_SCHEDULED",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-27T11:41:01.875152Z",
+          "provider": "DraftKings",
+          "homeOdds": 2.35,
+          "drawOdds": 3.05,
+          "awayOdds": 3.25,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/summary?event=401883102",
+          "providerUpdatedAt": null,
+          "note": "Observed source snapshot; no executable-price or closing-line claim."
+        }
+      ]
     },
     {
       "id": "2026-11-27-8",
@@ -1599,7 +1725,25 @@
         "recordedAt": "2026-11-27T11:25:27.380384Z",
         "pick": "away",
         "limitations": "Small league-only sample, generic unfitted priors; no opponent adjustment, xG, absences or calibration."
-      }
+      },
+      "researchEnglish": {
+        "confidence": "Low",
+        "reason": "Nürnberg have24 points and+12 goal difference, compared with Heidenheim’s16 and−3. Preference: Nürnberg, tempered by playing away and a recent defeat.",
+        "note": "Faithful English display translation; original archived forecast retained."
+      },
+      "providerStatus": "STATUS_SCHEDULED",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-27T11:41:01.875152Z",
+          "provider": "DraftKings",
+          "homeOdds": 2.2,
+          "drawOdds": 3.8,
+          "awayOdds": 2.95,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885047",
+          "providerUpdatedAt": null,
+          "note": "Observed source snapshot; no executable-price or closing-line claim."
+        }
+      ]
     },
     {
       "id": "2026-11-27-9",
@@ -1794,7 +1938,25 @@
         "recordedAt": "2026-11-27T11:25:27.380384Z",
         "pick": "home",
         "limitations": "Small league-only sample, generic unfitted priors; no opponent adjustment, xG, absences or calibration."
-      }
+      },
+      "researchEnglish": {
+        "confidence": "Low",
+        "reason": "Bochum have14 points versus Darmstadt’s12 and a better goal difference. Slight home preference, with a small strength gap and significant uncertainty.",
+        "note": "Faithful English display translation; original archived forecast retained."
+      },
+      "providerStatus": "STATUS_SCHEDULED",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-27T11:41:01.875152Z",
+          "provider": "DraftKings",
+          "homeOdds": 1.6666666666666665,
+          "drawOdds": 4.1,
+          "awayOdds": 4.7,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885045",
+          "providerUpdatedAt": null,
+          "note": "Observed source snapshot; no executable-price or closing-line claim."
+        }
+      ]
     },
     {
       "id": "2026-11-27-10",
@@ -1989,7 +2151,25 @@
         "recordedAt": "2026-11-27T11:25:27.380384Z",
         "pick": "home",
         "limitations": "Small league-only sample, generic unfitted priors; no opponent adjustment, xG, absences or calibration."
-      }
+      },
+      "researchEnglish": {
+        "confidence": "Medium",
+        "reason": "Groningen have15 points; Willem II have3 and no wins in13 league games. The season record supports Groningen, but Groningen’s own recent defeats limit confidence.",
+        "note": "Faithful English display translation; original archived forecast retained."
+      },
+      "providerStatus": "STATUS_SCHEDULED",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-27T11:41:01.875152Z",
+          "provider": "DraftKings",
+          "homeOdds": 1.2857142857142856,
+          "drawOdds": 6.0,
+          "awayOdds": 8.5,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/summary?event=401875536",
+          "providerUpdatedAt": null,
+          "note": "Observed source snapshot; no executable-price or closing-line claim."
+        }
+      ]
     }
   ],
   "paperTicket": {
@@ -2026,5 +2206,21 @@
       }
     ],
     "notes": "Two singles, no accumulator. No fees/taxes or real wager. No model value/positive-expectation claim. Pending matches do not count as losses."
+  },
+  "automation": {
+    "status": "success",
+    "lastSuccessAt": "2026-11-27T11:41:01.875152Z",
+    "lastMode": "results",
+    "timezone": "Europe/Athens",
+    "selectionRule": "Up to10 per Athens day; fixed league priority, then kickoff/event ID; at least30min before kickoff. Not confidence-based selection.",
+    "lastAdded": [],
+    "candidatePool": [],
+    "scheduleUTC": [
+      "07:17 daily selection + results",
+      "16:17 results + pre-match price observations",
+      "23:17 results only"
+    ],
+    "source": "ESPN public data endpoint; availability not guaranteed; no paid plan or AI calls",
+    "historicalCatchupDays": 7
   }
 }
