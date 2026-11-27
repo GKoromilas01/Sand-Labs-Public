@@ -1,3 +1,5 @@
+**Owner-approved hub-only exception:** the supplied medieval settlement image now illustrates the Shattered Crowns card. This does not resume game development, media generation or a game release. Existing crown icon remains; no separate bespoke game logo has been created.
+
 # Continue Sand Labs development
 
 ## Latest integration: Sand Labs 4.7 — 27 November 2026

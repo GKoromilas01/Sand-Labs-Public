@@ -3,11 +3,6 @@
   "date": "2026-11-27",
   "files": [
     {
-      "path": "index.html",
-      "sha256": "4b4580239006be7bbfe65ed875591655e6543c5fccbe88067c8dd0883bcbc94d",
-      "bytes": 22248
-    },
-    {
       "path": "dashboard.css",
       "sha256": "6521f535d6b8e6b6aad31879c282486ff50537abb75d1ba0b91e223782277310",
       "bytes": 10883
@@ -616,6 +611,16 @@
       "path": "assets/coin-intel-desk.jpg",
       "sha256": "14132771729b6a5ee6fcba7ec7543c311d7586be271efe28336a3a01af992cd0",
       "bytes": 358070
+    },
+    {
+      "path": "index.html",
+      "sha256": "82c125f66cfd1235cacec019ca00fcd48176d58f95465da9dd4df03402cee800",
+      "bytes": 22292
+    },
+    {
+      "path": "assets/shattered-crowns-settlement.jpg",
+      "sha256": "8e98265f3dcac3535ba475f38546ffba8528a9353505f18e0076414b20d68d68",
+      "bytes": 406118
     }
   ]
 }
