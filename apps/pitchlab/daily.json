@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "0.6",
+  "version": "0.7",
   "updatedAt": "2026-11-27T11:43:16.576159Z",
   "timezone": "Europe/Athens",
   "notice": "Published starting record. PitchLab now refreshes only when opened or when Refresh is pressed, saving new observations in this browser’s device database. No scheduled collection. Export device data for transfer or shared-database review.",
@@ -2311,5 +2311,92 @@
     "enabled": false,
     "mode": "on-open/manual only",
     "note": "GitHub schedule disabled at owner request; no scheduled data refresh."
-  }
+  },
+  "paperExperiments": [
+    {
+      "id": "paper-2026-11-27-02",
+      "label": "Experiment B — price-focused comparison",
+      "currency": "EUR",
+      "budget": 10,
+      "recordedAt": "2026-11-27T12:09:08.316342Z",
+      "mode": "hypothetical only",
+      "market": "90-minute home/draw/away; hypothetical settlement including added time, no extra time/penalties; void returns stake",
+      "bets": [
+        {
+          "matchId": "2026-11-27-5",
+          "pick": "away",
+          "stake": 6,
+          "decimalOdds": 2.4,
+          "americanOdds": 140,
+          "recordedAt": "2026-11-27T12:09:08.316342Z",
+          "observedAt": "2026-11-27T12:05:47.491741Z",
+          "provider": "DraftKings",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/summary?event=401875004",
+          "providerUpdatedAt": null,
+          "priceNote": "Observed ESPN snapshot; provider update time unavailable. Not an executable price."
+        },
+        {
+          "matchId": "2026-11-27-8",
+          "pick": "away",
+          "stake": 4,
+          "decimalOdds": 2.95,
+          "americanOdds": 195,
+          "recordedAt": "2026-11-27T12:09:08.316342Z",
+          "observedAt": "2026-11-27T12:05:47.491741Z",
+          "provider": "DraftKings",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/summary?event=401885047",
+          "providerUpdatedAt": null,
+          "priceNote": "Observed ESPN snapshot; provider update time unavailable. Not an executable price."
+        }
+      ],
+      "notes": "Separate EUR10 paper experiment, not additional real staking or an optimized allocation. Original experiment A unchanged. Uncalibrated model probabilities motivate a hypothesis only; no validated positive expectation or fees/taxes modelled."
+    }
+  ],
+  "sourceForecasts": [
+    {
+      "id": "2026-11-27-forest-chelsea-bbc-sutton",
+      "matchId": "2026-11-27-1",
+      "providerId": "bbc-sutton",
+      "providerName": "Chris Sutton",
+      "publisher": "BBC Sport",
+      "url": "https://www.bbc.com/sport/football/articles/c3n0l29lrr27o",
+      "publishedAt": "2026-11-26T15:01:48.725Z",
+      "capturedAt": "2026-11-27T12:09:08.316342Z",
+      "homeGoals": 2,
+      "awayGoals": 1,
+      "pick": "home",
+      "pageSha256": "075d6a1db88ca04486a9e077d90e146219db1c21cb8525ab3b984ed2a3b8bc2e",
+      "note": "Score selection transcribed from the Friday Forest–Chelsea section. Three forecasters share one publisher; not independent sources. No probability estimate supplied."
+    },
+    {
+      "id": "2026-11-27-forest-chelsea-bbc-followill",
+      "matchId": "2026-11-27-1",
+      "providerId": "bbc-followill",
+      "providerName": "Nathan Followill (guest)",
+      "publisher": "BBC Sport",
+      "url": "https://www.bbc.com/sport/football/articles/c3n0l29lrr27o",
+      "publishedAt": "2026-11-26T15:01:48.725Z",
+      "capturedAt": "2026-11-27T12:09:08.316342Z",
+      "homeGoals": 1,
+      "awayGoals": 1,
+      "pick": "draw",
+      "pageSha256": "075d6a1db88ca04486a9e077d90e146219db1c21cb8525ab3b984ed2a3b8bc2e",
+      "note": "Score selection transcribed from the Friday Forest–Chelsea section. Three forecasters share one publisher; not independent sources. No probability estimate supplied."
+    },
+    {
+      "id": "2026-11-27-forest-chelsea-bbc-article-ai",
+      "matchId": "2026-11-27-1",
+      "providerId": "bbc-article-ai",
+      "providerName": "AI prediction as labelled by BBC article",
+      "publisher": "BBC Sport",
+      "url": "https://www.bbc.com/sport/football/articles/c3n0l29lrr27o",
+      "publishedAt": "2026-11-26T15:01:48.725Z",
+      "capturedAt": "2026-11-27T12:09:08.316342Z",
+      "homeGoals": 1,
+      "awayGoals": 2,
+      "pick": "away",
+      "pageSha256": "075d6a1db88ca04486a9e077d90e146219db1c21cb8525ab3b984ed2a3b8bc2e",
+      "note": "Score selection transcribed from the Friday Forest–Chelsea section. Three forecasters share one publisher; not independent sources. No probability estimate supplied."
+    }
+  ]
 }
