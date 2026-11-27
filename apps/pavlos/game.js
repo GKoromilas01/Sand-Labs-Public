@@ -80,6 +80,7 @@
  $('sound').addEventListener('click',()=>{wanted=!wanted;soundUI();if(wanted)playSound();else stopSound();});
  $('volume').addEventListener('input',()=>{if(context&&active)master.gain.setValueAtTime(Number($('volume').value)/100*.4,context.currentTime);});
  document.addEventListener('visibilitychange',()=>{if(document.hidden)stopSound();else if(wanted)playSound();});
+ document.addEventListener('pavlos:external-video',()=>{wanted=false;stopSound();soundUI();});
  window.addEventListener('pagehide',stopSound);
  render();
 })();

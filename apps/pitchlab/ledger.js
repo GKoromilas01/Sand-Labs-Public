@@ -5,5 +5,16 @@ function summary(entries){const days={};for(const p of entries){const d=days[p.d
 function validate(data){if(!data||data.schema!==1||!Array.isArray(data.entries))throw Error('Invalid daily archive.');const ids=new Set();for(const p of data.entries){if(!p||typeof p.id!=='string'||ids.has(p.id)||!/^\d{4}-\d{2}-\d{2}$/.test(p.day)||typeof p.home!=='string'||typeof p.away!=='string')throw Error('Invalid or duplicate archive entry.');ids.add(p.id);}return data;}
 function researchSummary(entries){let selected=0,completed=0,hits=0;for(const p of entries){const r=p.researchForecast;if(!r||!['home','draw','away'].includes(r.pick))continue;selected++;if(p.settled&&eligible(p)&&Number.isFinite(Date.parse(r.recordedAt))&&Date.parse(r.recordedAt)<Date.parse(p.kickoff)){completed++;if(r.pick===(p.hg>p.ag?'home':p.hg===p.ag?'draw':'away'))hits++;}}return {selected,completed,hits,accuracy:completed?hits/completed:null};}
 function algorithmSummary(entries){let selected=0,completed=0,hits=0,loss=0;for(const p of entries){const r=p.algorithmForecast;if(!r)continue;selected++;if(p.settled&&eligible({...p,...r})&&Number.isFinite(Date.parse(r.recordedAt))&&Date.parse(r.recordedAt)<Date.parse(p.kickoff)){completed++;const actual=p.hg>p.ag?'home':p.hg===p.ag?'draw':'away';if(pick(r)===actual)hits++;loss-=Math.log(Math.max(r[actual+'P'],1e-12));}}return {selected,completed,hits,accuracy:completed?hits/completed:null,logLoss:completed?loss/completed:null};}
-const api={pick,eligible,summary,validate,researchSummary,algorithmSummary};if(typeof module!=='undefined')module.exports=api;root.PitchLedger=api;
+function comparison(p){
+ const research=p.researchForecast,algorithm=p.algorithmForecast;
+ let selection,method,recordedAt,validForecast=eligible({...p,settled:false});
+ if(research){selection=research.pick;method='Research selection';recordedAt=research.recordedAt;}
+ else if(algorithm){selection=pick(algorithm);method='Experimental Poisson';recordedAt=algorithm.recordedAt;validForecast=validForecast&&eligible({...p,...algorithm,settled:false});}
+ else {selection=pick(p);method='Original baseline';recordedAt=p.recordedAt;}
+ validForecast=validForecast&&['home','draw','away'].includes(selection)&&Number.isFinite(Date.parse(recordedAt))&&Date.parse(recordedAt)<Date.parse(p.kickoff);
+ const validResult=!!p.settled&&eligible(p)&&!p.resultReview,actual=validResult?(p.hg>p.ag?'home':p.hg===p.ag?'draw':'away'):null;
+ const status=p.resultReview||(p.settled&&!validResult)?'Needs review':!validForecast?'Unverified forecast':!validResult?'Pending':selection===actual?'Correct':'Incorrect';
+ return {pick:selection,method,recordedAt,validForecast,validResult,actual,status};
+}
+const api={pick,eligible,summary,validate,researchSummary,algorithmSummary,comparison};if(typeof module!=='undefined')module.exports=api;root.PitchLedger=api;
 })(typeof window!=='undefined'?window:globalThis);

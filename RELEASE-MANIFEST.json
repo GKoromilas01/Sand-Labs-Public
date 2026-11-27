@@ -1,11 +1,11 @@
 {
-  "version": "4.8",
+  "version": "4.9",
   "date": "2026-11-28",
   "files": [
     {
       "path": "index.html",
-      "sha256": "2aec890644d34f43b13ace4db32d8edec0344aa4e699b183e2c20de6e8848d15",
-      "bytes": 22421
+      "sha256": "ae31aa1dfdaefe9eee03063ab2275bd8b05b0dbbb14e0ac4ca3c9b0fd0ddfa80",
+      "bytes": 22628
     },
     {
       "path": "dashboard.css",
@@ -14,8 +14,8 @@
     },
     {
       "path": "projects.json",
-      "sha256": "7c92829465d07c832b1344714e2915245f834559d71eaa09bf8360b3e4c1edd8",
-      "bytes": 10970
+      "sha256": "2a28791a5a3d31537fa8265fffcaa1aa7f0cdc948e70f09bb19499386549d3b8",
+      "bytes": 11177
     },
     {
       "path": "apps/bios/app.js",
@@ -109,22 +109,22 @@
     },
     {
       "path": "apps/pavlos/game.js",
-      "sha256": "84807b0184b51d03e8a040451f5f42afe790f20152e5c9b1e63ee02e5bde8231",
-      "bytes": 11748
+      "sha256": "b56b3fdf4b4fc5c5455b03e76cc6efba564aaa9c30cc333c1dcee617b79af00b",
+      "bytes": 11843
     },
     {
       "path": "apps/pavlos/index.html",
-      "sha256": "7f8ce07c81e6e1a22d3cdb8385a68c66637d2fe31f57bbefec4e5267e44e4fc0",
-      "bytes": 21323
+      "sha256": "f3ed73d7b603755e7e8ade163b08c8ea45627f1fd1fe6e994916ec30e98606a9",
+      "bytes": 21817
     },
     {
       "path": "apps/pavlos/style.css",
-      "sha256": "f067833f32252ae34534162382bbaffbfde43db2ec50d6725fc53a65e1484560",
-      "bytes": 19716
+      "sha256": "1ca81039265c154aa5bf959e443f78ccb1effde0d8a35916da70f27b44d0abda",
+      "bytes": 23402
     },
     {
       "path": "apps/pavlos/language.js",
-      "sha256": "bef0fd59072591be4359da39f096d17b421d17af79a26e112934ffc229e32f9c",
+      "sha256": "5cf2461bdb218697d54b4bfad33aa895267ea97cf845a72d7bcfd8356f4cea57",
       "bytes": 27912
     },
     {
@@ -143,6 +143,11 @@
       "bytes": 996
     },
     {
+      "path": "apps/pavlos/videos.js",
+      "sha256": "590678aabef48798f3eba97a818cf94fd05397cd1edcb1b71690b057085c3ba5",
+      "bytes": 3426
+    },
+    {
       "path": "apps/pavlos/voice-clips.js",
       "sha256": "cdecd842b29e46763700226f37903c80d55682441ed4b0d66f2d7def9c8a9227",
       "bytes": 8611
@@ -154,8 +159,8 @@
     },
     {
       "path": "apps/pitchlab/daily.js",
-      "sha256": "382253546f2e6cea3623d9d88ad0713afcde8aa0800315c7c142537d552db92f",
-      "bytes": 10057
+      "sha256": "79a286290cdc4dd40aef048ed91a2293a2c7580ff324c4dbc36b1564573ed22f",
+      "bytes": 11032
     },
     {
       "path": "apps/pitchlab/daily.json",
@@ -164,13 +169,13 @@
     },
     {
       "path": "apps/pitchlab/index.html",
-      "sha256": "4dcc721fc143ed514e3d2f7b1ce744acb64b46e45b02ec6da4791f8407d4b61f",
-      "bytes": 10699
+      "sha256": "01a3f0fb7a5f242a64f4253f6e02178c4fef9a2a9fcae199778b3d2cfadba780",
+      "bytes": 11504
     },
     {
       "path": "apps/pitchlab/ledger.js",
-      "sha256": "4e1965d26c911e90b0ba518286d4bbb04d97a31ec99f5c1214eadebd3f9d248e",
-      "bytes": 2535
+      "sha256": "d7cdbb6721e366b7b9d6a97d306f7a21e5da19da12cd306b89215d6e4aa9367a",
+      "bytes": 3626
     },
     {
       "path": "apps/pitchlab/model.js",
@@ -179,8 +184,8 @@
     },
     {
       "path": "apps/pitchlab/style.css",
-      "sha256": "8ab85f5a6e88efe067b8899f8c9c6936def9538978aa18da9f18a29a62a8f181",
-      "bytes": 8377
+      "sha256": "161641fdae7cbfaf34688cc43f66b8a5b26c7074e27418309b35f4e6c7f502f6",
+      "bytes": 9253
     },
     {
       "path": "apps/pitchlab/poisson.js",
@@ -199,8 +204,8 @@
     },
     {
       "path": "apps/pitchlab/charts.js",
-      "sha256": "c8c7db009728e5ddd9564dde421b2e5d2897bc91eee94c1e05add2897a9dfddb",
-      "bytes": 3643
+      "sha256": "4f16de42bf8fbf57fd37b4f4cb820fbde2d47b29ec561f9d9c5fb5d92258739c",
+      "bytes": 4753
     },
     {
       "path": "apps/pitchlab/legacy.js",
@@ -224,8 +229,8 @@
     },
     {
       "path": "apps/softone-advisor/index.html",
-      "sha256": "4f33777d611e53f911040ae33c31b95f6ced30b86daf160b3740a007502e0915",
-      "bytes": 6059
+      "sha256": "e413c50ec3383eca34908c3f82c9c9ecfa9f8c510b13851786259b9a1c6f30ad",
+      "bytes": 6543
     },
     {
       "path": "apps/softone-advisor/workspace.css",
@@ -234,13 +239,13 @@
     },
     {
       "path": "apps/softone-advisor/workspace-ui.js",
-      "sha256": "4eb24d00da864a5fa9cfe4d53726c2b38cc7b83fa3e2fd07801c5213793e58d8",
-      "bytes": 8067
+      "sha256": "36f83ea61e44c60dfc9831bae42d8df96e860ff19459b594b15b8e8355627486",
+      "bytes": 8828
     },
     {
       "path": "apps/softone-advisor/workspace.js",
-      "sha256": "4e107c4818dad1a6706a67c8889ceb6cb800356d640f4657dd77c785200604d5",
-      "bytes": 6073
+      "sha256": "c6a841b66cd831f5c5d8bec2bdc03408050a6ca130dfccc9da8d740cf809870c",
+      "bytes": 6308
     },
     {
       "path": "apps/softone-advisor/library.html",
@@ -254,13 +259,18 @@
     },
     {
       "path": "apps/zoetica/index.html",
-      "sha256": "a02fb1d3914df003aa5d95ddd9303f35b997b7076836a679321a0a04916fff97",
-      "bytes": 169746
+      "sha256": "cd4a9d7a1cb55899d2c90209c369ce2bff08e3742f41a65f4e91057b3d641967",
+      "bytes": 170697
     },
     {
       "path": "apps/zoetica/intro.mp4",
       "sha256": "0bdba7f76019957f41c9024bc98f9744b1eeeadce501fc11a2d609e6214322e7",
       "bytes": 3963740
+    },
+    {
+      "path": "apps/zoetica/goals.js",
+      "sha256": "0a85f5d187b6ec487a3362b6254e50e2fb69069a38434bd83878fe0d953499cf",
+      "bytes": 915
     },
     {
       "path": "apps/zoetica/items.js",
