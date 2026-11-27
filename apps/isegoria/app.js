@@ -1,7 +1,7 @@
 'use strict';
 const $=id=>document.getElementById(id);
 let store;
-try{store=Isegoria.createStore(localStorage)}catch(error){$('form-status').textContent='Browser storage is unavailable. Saving, submitting and voting require browser storage.';document.querySelectorAll('button').forEach(b=>b.disabled=true)}
+try{store=Isegoria.createStore(localStorage)}catch(error){$('form-status').textContent='Browser storage is unavailable. Saving, submitting and voting require browser storage.';document.querySelectorAll('#participatePanel button').forEach(b=>b.disabled=true)}
 if(store){
 const labels={problem:'Problem',people:'Affected people / missing voices',solution:'Proposed change',costs:'Costs and uncertainties',drawbacks:'Drawbacks and alternative views',discussion:'Open discussion question'};
 const input=()=>Object.fromEntries(Isegoria.fields.map(f=>[f,$(f).value]));

@@ -4,6 +4,10 @@
  let state=PavlosPuzzle.initial(),selected=null,started=false;
  const targets=[...document.querySelectorAll('[data-target]')];
  const main=document.querySelector('.cabinet');main.inert=true;
+ $('gameLanguage').addEventListener('change',()=>PavlosLanguage.set($('gameLanguage').value));
+ $('inventoryToggle').addEventListener('click',()=>{const open=$('inventoryDrawer').hidden;$('inventoryDrawer').hidden=!open;$('inventoryToggle').setAttribute('aria-expanded',String(open));});
+ $('stopVoice').addEventListener('click',()=>{$('voiceEnabled').checked=false;PavlosVoice.stop();});
+ $('replayLine').addEventListener('click',()=>PavlosVoice.say(PavlosLanguage.text(state.line),true));
  document.querySelectorAll('.guide-copy').forEach(host=>host.append($('guideTemplate').content.cloneNode(true)));
  $('howTo').addEventListener('click',()=>$('howToDialog').showModal());
  $('closeHowTo').addEventListener('click',()=>$('howToDialog').close());
@@ -17,9 +21,10 @@
   $('objective').textContent=state.won?'Ο Μήτσος γέλασε. Εσύ αύριο πλένεις.':state.distracted?'Τώρα! Ρίξε μια ματιά στο τεφτέρι.':'Ρίξε μια ματιά στο τεφτέρι.';
   $('progress').textContent=state.won?'Ο γρίφος τελείωσε. Το βερεσέ όχι.':state.distracted?'Ο Μήτσος ψάχνει από πού έρχεται το μπάσο.':state.fixed?'Το ραδιόφωνο παίζει. Χρειάζεσαι μια ιδέα για διάγγελμα.':'Πρώτα πρέπει να τραβήξεις αλλού την προσοχή του Μήτσου.';
   $('inventory').replaceChildren();
-  if(state.inventory.length){const button=document.createElement('button');button.id='inventory-spoon';button.textContent='🥄 Spoon · Κουτάλι';button.setAttribute('aria-pressed',String(selected==='spoon'));button.addEventListener('click',()=>{selected=selected?'': 'spoon';render();$('inventory-spoon').focus();});$('inventory').append(button);}
+  if(state.inventory.length){const button=document.createElement('button');button.id='inventory-spoon';button.textContent='🥄 Spoon';button.setAttribute('aria-pressed',String(selected==='spoon'));button.addEventListener('click',()=>{selected=selected?'': 'spoon';render();$('inventory-spoon').focus();});$('inventory').append(button);}
   else{const p=document.createElement('p');p.className='empty';p.textContent=state.fixed?'Spoon used to fix the radio.':'No items yet. Click Spoon to pick it up.';$('inventory').append(p);}
-  $('selection').textContent=selected?'✓ Spoon selected. Click Radio (Ραδιόφωνο) to use it. Escape: deselect.':state.fixed?'Item used. Follow the next step in the goal panel.':'Items you collect appear here. Click an item to select it.';
+  $('inventoryCount').textContent=String(state.inventory.length);
+  $('selection').textContent=selected?'✓ Spoon selected. Click Radio to use it. Escape: deselect.':state.fixed?'Item used. Follow the next step in the goal panel.':'Items you collect appear here. Click an item to select it.';
   document.querySelector('.pockets').classList.toggle('has-item',state.inventory.length>0);
   $('objective').textContent=state.won?'Chapter complete. The debt remains €18.50.':!state.fixed?(state.inventory.includes('spoon')?'Next: use Spoon on Radio.':'First: pick up the Spoon.'):!state.poster?'Next: read the Poster.':!state.distracted?'Next: Make a speech to distract Mitsos.':'Now: inspect the Ledger.';
   targets.forEach(t=>t.disabled=state.won);$('hint').disabled=state.won;
@@ -31,23 +36,24 @@
   if(!previous.inventory.includes('spoon')&&state.inventory.includes('spoon'))selected='spoon';
   if(state.fixed&&!previous.fixed)selected=null;
   render();
-  if(!previous.inventory.includes('spoon')&&state.inventory.includes('spoon'))$('inventoryTitle').scrollIntoView({block:'nearest',behavior:'auto'});
+  PavlosVoice.say(PavlosLanguage.text(state.line));
+  if(!previous.inventory.includes('spoon')&&state.inventory.includes('spoon')){$('inventoryDrawer').hidden=false;$('inventoryToggle').setAttribute('aria-expanded','true');$('inventoryTitle').scrollIntoView({block:'nearest',behavior:'auto'});}
   if(!previous.won&&state.won){$('endingTitle').focus();$('ending').scrollIntoView({behavior:'auto',block:'nearest'});}
  }));
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&started&&!$('howToDialog').open){const restore=document.activeElement?.id==='inventory-spoon';selected=null;render();if(restore)$('inventory-spoon')?.focus();}});
  $('hint').addEventListener('click',()=>{
   $('hintText').textContent=!state.fixed?(state.inventory.includes('spoon')?'Διάλεξε το κουτάλι από τις τσέπες σου και πάτησε το ραδιόφωνο.':'Το κουμπί του ραδιοφώνου λείπει. Κοίτα το κουτάλι πάνω στον πάγκο.'):!state.poster?'Η αφίσα αριστερά γράφει ποιος ζητάει ομιλητές.':!state.distracted?'Πάτησε τον Παύλο για να βγάλει το πιο άχρηστο διάγγελμα της χρονιάς.':'Το τεφτέρι είναι στη δεξιά άκρη του πάγκου. Τώρα είναι η στιγμή.';
  });
- function reset(){state=PavlosPuzzle.initial();selected=null;$('hintText').textContent='';render();document.querySelector('.spot.poster').focus();document.querySelector('.play-area').scrollIntoView({block:'nearest'});}
+ function reset(){PavlosVoice.stop();$('inventoryDrawer').hidden=true;$('inventoryToggle').setAttribute('aria-expanded','false');state=PavlosPuzzle.initial();selected=null;$('hintText').textContent='';render();document.querySelector('.spot.poster').focus();document.querySelector('.play-area').scrollIntoView({block:'nearest'});}
  $('restart').addEventListener('click',reset);$('again').addEventListener('click',reset);
- function begin(music){started=true;$('welcome').hidden=true;main.inert=false;document.querySelector('.spot.mitsos').focus();if(music){wanted=true;noteIndex=0;soundUI();playSound();}}
+ function begin(music){PavlosLanguage.set($('gameLanguage').value);started=true;$('welcome').hidden=true;main.inert=false;document.querySelector('.spot.mitsos').focus();if(music){wanted=true;noteIndex=0;soundUI();playSound();}}
  $('start').addEventListener('click',()=>begin(true));$('startSilent').addEventListener('click',()=>begin(false));
  // Keep keyboard focus within visible title-screen controls until the scene begins.
- $('start').focus({preventScroll:true});$('welcome').addEventListener('keydown',e=>{if(e.key==='Tab'){e.preventDefault();const buttons=[...$('welcome').querySelectorAll('button,a,summary')].filter(el=>el.getClientRects().length>0);const i=buttons.indexOf(document.activeElement);buttons[(i+(e.shiftKey?-1:1)+buttons.length)%buttons.length].focus();}});
+ $('start').focus({preventScroll:true});$('welcome').addEventListener('keydown',e=>{if(e.key==='Tab'){e.preventDefault();const buttons=[...$('welcome').querySelectorAll('button,a,summary,select,input')].filter(el=>el.getClientRects().length>0);const i=buttons.indexOf(document.activeElement);buttons[(i+(e.shiftKey?-1:1)+buttons.length)%buttons.length].focus();}});
  // Original fast six-eight bouzouki-style overture; no recordings or borrowed melody.
  let context,master,stringsWave,noise,timer=null,noteIndex=0,wanted=false,active=false;
- const intro=[74,77,76,74,73,69,70,73,74,0,81,79,77,76,74,69,73,74,81,79,77,76,74,0,74,86,81,77,76,74,73,69,70,73,74,0,77,76,74,73,69,65,64,65,69,73,74,0];
- const melody=[74,0,77,81,79,0,76,77,74,0,69,72,74,0,77,76,73,69];
+ const intro=[74,0,78,81,79,78,76,0,73,76,79,78,76,74,73,0,74,78,81,86,85,81,79,0,78,76,74,73,74,0,69,0];
+ const melody=[74,78,81,0,79,78,76,0,73,76,79,0,78,76,74,0];
  const hz=m=>440*Math.pow(2,(m-69)/12);
  function tone(midi,when,duration,amount,type='triangle',cutoff=1800,slide=0){
   const osc=context.createOscillator(),env=context.createGain(),filter=context.createBiquadFilter();
@@ -58,14 +64,12 @@
   osc.connect(filter);filter.connect(env);env.connect(master);osc.start(when);osc.stop(when+duration+.02);
   osc.onended=()=>{osc.disconnect();filter.disconnect();env.disconnect();};
  }
+ const stringBuffers=new Map();
  function pluck(midi,when,strength){
-  for(const cents of [-4,4]){
-   const osc=context.createOscillator(),filter=context.createBiquadFilter(),env=context.createGain();
-   osc.setPeriodicWave(stringsWave);osc.frequency.setValueAtTime(hz(midi),when);osc.detune.setValueAtTime(cents,when);
-   filter.type='lowpass';filter.Q.value=.65;filter.frequency.setValueAtTime(6000,when);filter.frequency.exponentialRampToValueAtTime(800,when+.28);
-   env.gain.setValueAtTime(0,when);env.gain.linearRampToValueAtTime(strength*.5,when+.002);env.gain.exponentialRampToValueAtTime(.0001,when+.36);
-   osc.connect(filter);filter.connect(env);env.connect(master);osc.start(when);osc.stop(when+.38);
-   osc.onended=()=>{osc.disconnect();filter.disconnect();env.disconnect();};
+  if(!stringBuffers.has(midi)){const samples=PavlosBouzouki.samples(midi,context.sampleRate);const buffer=context.createBuffer(1,samples.length,context.sampleRate);buffer.copyToChannel(samples,0);stringBuffers.set(midi,buffer);}
+  for(const cents of [-3,3]){
+   const source=context.createBufferSource(),body=context.createBiquadFilter(),env=context.createGain();source.buffer=stringBuffers.get(midi);source.playbackRate.value=Math.pow(2,cents/1200);body.type='peaking';body.frequency.value=1100;body.Q.value=.9;body.gain.value=4;
+   env.gain.setValueAtTime(strength*.65,when);env.gain.exponentialRampToValueAtTime(.0001,when+1.15);source.connect(body);body.connect(env);env.connect(master);source.start(when);source.onended=()=>{source.disconnect();body.disconnect();env.disconnect();};
   }
  }
  function tap(when){
@@ -78,10 +82,10 @@
   const t=context.currentTime+.02,isIntro=noteIndex<intro.length;
   const step=isIntro?noteIndex:noteIndex-intro.length,n=isIntro?intro[step]:melody[step%melody.length];
   if(n){pluck(n,t,isIntro?.22:.13);if(step%6===2||step%6===5)pluck(n,t+.055,isIntro?.13:.07);}
-  if(step%6===0||step%6===3)tone(step%12<6?38:45,t,.18,isIntro?.3:.2,'sine',300);
+  if(step%4===0){pluck(step%8<4?50:57,t,.11);pluck(step%8<4?57:61,t+.025,.07);tone(step%8<4?38:45,t,.18,.08,'sine',300);}
   if(step%3===2)tap(t);
   if(isIntro&&step%12===10)tone(57,t,.16,.12,'triangle',1200,-12);
-  noteIndex++;timer=setTimeout(beat,isIntro?118:155);
+  noteIndex++;timer=setTimeout(beat,isIntro?Math.max(115,185-step*2):165);
  }
  function stopSound(){active=false;clearTimeout(timer);timer=null;document.body.classList.remove('music-playing');if(context){master.gain.cancelScheduledValues(context.currentTime);master.gain.setValueAtTime(0,context.currentTime);context.suspend().catch(()=>{});}}
  function soundUI(){const button=$('sound');button.setAttribute('aria-pressed',String(wanted));button.textContent=wanted?'♫ Μουσική: ανοιχτή · σίγαση':'♫ Μουσική: κλειστή';}
