@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "4.6",
+  "pageVersion": "4.7",
   "updated": "2026-11-27",
   "projects": [
     {
@@ -9,25 +9,20 @@
       "tint": "#E5C78F",
       "name": "Pavlos O Ellinaras",
       "alias": "Formerly The Grumpy Sphinx",
-      "what": "Ελληνικό καρτουνίστικο καφενείο: ένας γρίφος, δύο χαρακτήρες και πρωτότυπη παράξενη μουσική.",
+      "what": "A comic Greek caf\u00e9 adventure. Collect objects, outsmart Mitsos and choose Greek or English.",
       "st": "dev",
-      "stl": "Greek / English · free beta",
+      "stl": "Playable beta",
       "main": {
-        "t": "Pavlos 0.2.0 — languages, subtitles & bouzouki",
-        "u": "apps/pavlos/index.html?v=0.2.0",
+        "t": "Pavlos O Ellinaras 0.3.1",
+        "u": "apps/pavlos/index.html?v=0.3.1",
         "d": "27 Nov 2026",
-        "label": "Play / Παίξε"
+        "label": "Play Pavlos"
       },
-      "more": [
-        {
-          "t": "Agent handoff and continuation notes (private GitHub file)",
-          "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/apps/grumpy-sphinx/CLAUDE.md",
-          "d": "26 Nov 2026"
-        }
-      ],
-      "next": "Choose Greek or English at the start. Compact subtitles, inventory drawer and original plucked-string bouzouki-style music. Optional local device voices speak the visible subtitle; voice availability depends on browser/OS. Free beta.",
+      "more": [],
+      "next": "Connected island adventure, Greek/English included narration, and supplied harbour artwork.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sphinx.md",
-      "version": "0.2.0"
+      "version": "0.3.1",
+      "category": "games"
     },
     {
       "id": "coin",
@@ -35,18 +30,18 @@
       "tint": "#E2B15E",
       "name": "Coin Intel",
       "alias": "",
-      "what": "Website for coin collectors: collection, valuations and watch alerts.",
+      "what": "A workspace for coin collectors: organize your collection and explore market evidence.",
       "st": "live",
-      "stl": "Live beta",
+      "stl": "Working prototype",
       "main": {
-        "t": "Coin Intel 10.83.4 — startup flash fix",
+        "t": "Coin Intel 10.83.5",
         "u": "https://coinintel-beta-production.up.railway.app/",
         "d": "27 Nov 2026",
         "label": "Open Coin Intel"
       },
       "more": [
         {
-          "t": "Πλάνο και screenshots — Claude",
+          "t": "Plan and screenshots \u2014 Claude",
           "u": "https://claude.ai/artifact/5XEMguf3RYKwTomWWEJCoP",
           "d": "23 Nov"
         },
@@ -61,9 +56,10 @@
           "d": "29 Oct"
         }
       ],
-      "next": "Initial home rendering and saved-session restoration now use a neutral loading state. Slow local-data regression passed with zero premature hero frames. Railway reported successful deployment for PR5 / 8984b455.",
+      "next": "Supplied collector artwork; startup gating preserved. PR6 merged at b6c3779; Railway primary and backup statuses report successful deployment. Direct live UI remains unobserved here.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/coin.md",
-      "version": "10.83.4 Beta"
+      "version": "10.83.5",
+      "category": "tools"
     },
     {
       "id": "bio",
@@ -71,21 +67,21 @@
       "tint": "#C9A6E2",
       "name": "Bios",
       "alias": "Formerly Vios / Digital Biography",
-      "what": "Your local biography notebook with optional private reflection and explicitly reviewed passages.",
+      "what": "Turn your memories into a personal biography, one story at a time.",
       "st": "dev",
-      "stl": "Local journal · clear save feedback",
+      "stl": "Working prototype",
       "main": {
-        "t": "Bios 0.3 — visible device-save confirmation",
-        "u": "apps/bios/index.html?v=0.3",
+        "t": "Bios 0.4.1",
+        "u": "apps/bios/index.html?v=0.4.1",
         "d": "27 Nov 2026",
         "label": "Open Bios"
       },
       "more": [
         {
-          "t": "Προηγούμενο mockup — Vios/Bios",
+          "t": "Previous mockup \u2014 Vios/Bios",
           "u": "https://claude.ai/artifact/EdjaspGHDYqHC1iiL7DaqT",
           "d": "24 Nov",
-          "label": "Δες mockup"
+          "label": "View mockup"
         },
         {
           "t": "Biographer agent: design and questions",
@@ -113,9 +109,10 @@
           "d": "20 Nov"
         }
       ],
-      "next": "Device-save button confirms success beside the control with a timestamp. Storage failures show Retry. JSON/TXT exports and existing notebook data stay compatible.",
+      "next": "Returning local notebook, chapters, photographs, source links and optional reflection. No connected social accounts or paid AI.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/bio.md",
-      "version": "0.3"
+      "version": "0.4.1",
+      "category": "tools"
     },
     {
       "id": "sc",
@@ -123,18 +120,18 @@
       "tint": "#E6B96E",
       "name": "Shattered Crowns",
       "alias": "",
-      "what": "Medieval real-time strategy: grow a village into a kingdom.",
+      "what": "Build a medieval city, grow your kingdom and discover its living world.",
       "st": "live",
       "stl": "Playable v0.66",
       "main": {
-        "t": "Παίξε τη δημοσιευμένη v0.66",
+        "t": "Play published v0.66",
         "u": "https://gkoromilas01.github.io/Shattered-Crowns/",
         "d": "24 Nov, 17:25",
-        "label": "Παίξε"
+        "label": "Play Shattered Crowns"
       },
       "more": [
         {
-          "t": "Νέος έλεγχος v0.67 — commit841d1a5",
+          "t": "New v0.67 verification \u2014 commit841d1a5",
           "u": "https://github.com/GKoromilas01/Shattered-Crowns/actions/runs/45899703466",
           "d": "26 Nov 2026"
         },
@@ -154,29 +151,30 @@
           "d": "26 Nov 2026"
         },
         {
-          "t": "v0.67 — αποτελέσματα ελέγχων (verify failed)",
+          "t": "v0.67 \u2014 verification results (failed)",
           "u": "https://github.com/GKoromilas01/Shattered-Crowns/actions/runs/45883868851",
           "d": "26 Nov 2026"
         }
       ],
       "next": "Required verification45899703466 passed on841d1a5. PR91 remains open; its separate run45899854784 is still pending. No v0.67 release yet.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sc.md",
-      "version": "Live v0.66 · v0.67: required verification passed"
+      "version": "Live v0.66 \u00b7 v0.67: required verification passed",
+      "category": "games"
     },
     {
       "id": "life",
       "mark": "ZO",
       "tint": "#8FD3C2",
       "name": "Zoetica",
-      "alias": "The Spore-like game · formerly Life AI",
-      "what": "Evolution game: from a single cell to a creature, and one day to a god of the galaxy.",
+      "alias": "The Spore-like game \u00b7 formerly Life AI",
+      "what": "Begin as a single cell and explore an evolving world of creatures.",
       "st": "live",
-      "stl": "Playable v0.8.3",
+      "stl": "Playable beta",
       "main": {
-        "t": "Zoetica v0.8.3 — ambient από το πρώτο πάτημα",
-        "u": "apps/zoetica/index.html?v=0.8.3",
+        "t": "Zoetica 0.8.5",
+        "u": "apps/zoetica/index.html?v=0.8.5",
         "d": "27 Nov 2026",
-        "label": "Παίξε"
+        "label": "Play Zoetica"
       },
       "more": [
         {
@@ -185,9 +183,10 @@
           "d": "24 Nov"
         }
       ],
-      "next": "Η πρωτότυπη ambient συνεχίζει από την εισαγωγή στο παιχνίδι. Σίγαση/ένταση διατηρούνται· save και backup παραμένουν διαθέσιμα.",
+      "next": "Evolution progression at 30% of the prior rate; automatic existing-animation milestone highlights with Skip and a ten-second cap; new pickups and supplied artwork.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/life.md",
-      "version": "0.8.3"
+      "version": "0.8.5",
+      "category": "games"
     },
     {
       "id": "dd",
@@ -195,31 +194,32 @@
       "tint": "#9DB7E8",
       "name": "Agora",
       "alias": "Formerly Isegoria / Digital Democracy",
-      "what": "Read sourced headlines, keep your perspective and develop suggestions for discussion.",
+      "what": "Read the news, explore different perspectives and develop ideas for a better society.",
       "st": "dev",
-      "stl": "News & local perspectives",
+      "stl": "Working prototype",
       "main": {
-        "t": "Agora 0.3 — news, perspectives & suggestions",
-        "u": "apps/isegoria/index.html?v=0.3",
+        "t": "Agora 0.4.1",
+        "u": "apps/isegoria/index.html?v=0.4.1",
         "d": "27 Nov 2026",
         "label": "Open Agora"
       },
       "more": [
         {
-          "t": "Προηγούμενο preview Isegoria",
+          "t": "Previous Isegoria preview",
           "u": "https://claude.ai/artifact/ApSffgV6QiSumWpmK8Mha5",
           "d": "24 Nov",
-          "label": "Δες preview"
+          "label": "View preview"
         },
         {
-          "t": "Digital Democracy — supplied earlier page (private GitHub file)",
+          "t": "Digital Democracy \u2014 supplied earlier page (private GitHub file)",
           "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/apps/digital-democracy/index.html",
           "d": "26 Nov 2026"
         }
       ],
-      "next": "News-first homepage with sourced BBC headline links and capture time. Manual refresh attempts the source with an honest snapshot fallback. Suggestions and discussion drafts are separate; views/votes stay on this device, not a shared public forum.",
+      "next": "Saved local opinions, polls, interests and resource links; supplied public-square artwork. Shared participation backend remains unbuilt.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/dd.md",
-      "version": "0.3"
+      "version": "0.4.1",
+      "category": "community"
     },
     {
       "id": "sw",
@@ -227,12 +227,12 @@
       "tint": "#B5CF86",
       "name": "IT Consultant",
       "alias": "Formerly ERP Advisor / SoftOne Advisor",
-      "what": "Company IT knowledge notebook: departments, systems, documentation, AI pilot plans and financial planning templates.",
+      "what": "Organize business knowledge, document systems and plan practical IT improvements.",
       "st": "dev",
-      "stl": "Company desk · refreshed navigation",
+      "stl": "Working prototype",
       "main": {
-        "t": "IT Consultant 0.3 — clearer company workspace",
-        "u": "apps/softone-advisor/index.html?v=0.3",
+        "t": "IT Consultant 0.4.1",
+        "u": "apps/softone-advisor/index.html?v=0.4.1",
         "d": "27 Nov 2026",
         "label": "Open IT Consultant"
       },
@@ -248,9 +248,10 @@
           "d": "19 Nov"
         }
       ],
-      "next": "Quick links to areas, writing, notebook and backups; clearer company-area cards and mobile layout. Existing local notes and finance/reflection workflows preserved. No backend or paid AI enabled.",
+      "next": "Thirteen active company areas, archived note recovery and supplied technology artwork. Removed categories stay absent.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sw.md",
-      "version": "0.3"
+      "version": "0.4.1",
+      "category": "tools"
     },
     {
       "id": "chronoscope",
@@ -258,15 +259,15 @@
       "mark": "CH",
       "tint": "#E5C78F",
       "alias": "",
-      "what": "Science, history and ideas explained clearly: a subject library and creator planning desk.",
+      "what": "Explore science, history and big ideas through a growing video library.",
       "st": "dev",
-      "stl": "Video library · refreshed discovery desk",
-      "version": "0.4",
+      "stl": "Working prototype",
+      "version": "0.5.1",
       "main": {
-        "t": "The Chronoscope 0.4 — refreshed video library",
-        "u": "apps/chronoscope/index.html?v=0.4",
+        "t": "The Chronoscope 0.5.1",
+        "u": "apps/chronoscope/index.html?v=0.5.1",
         "d": "27 Nov 2026",
-        "label": "Open app"
+        "label": "Open The Chronoscope"
       },
       "more": [
         {
@@ -275,8 +276,9 @@
           "d": "27 Nov 2026"
         }
       ],
-      "next": "New navy/turquoise discovery desk and approved logo, subject cards and direct library navigation. Video production remains paused for cost/quality review. No automatic YouTube upload.",
-      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/chronoscope.md"
+      "next": "Sixteen subject shelves and supplied discovery artwork. Retired topics preserve old episode plans. Video production remains paused.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/chronoscope.md",
+      "category": "creative"
     },
     {
       "id": "pitchlab",
@@ -284,19 +286,20 @@
       "mark": "PL",
       "tint": "#9DB7E8",
       "alias": "",
-      "what": "Five-league football analysis: pre-match probabilities, results, team ratings and honest evaluation.",
+      "what": "Explore football predictions, follow final results and see how the analysis performs.",
       "st": "dev",
-      "stl": "Automatic predictions & results",
-      "version": "0.9",
+      "stl": "Working prototype",
+      "version": "0.10.1",
       "main": {
-        "t": "Pitch Lab 0.9 — automatic analysis & session intro",
-        "u": "apps/pitchlab/index.html?v=0.9",
+        "t": "Pitch Lab 0.10.1",
+        "u": "apps/pitchlab/index.html?v=0.10.1",
         "d": "27 Nov 2026",
         "label": "Open Pitch Lab"
       },
       "more": [],
-      "next": "No typed match data needed. Open the app or press Refresh predictions & results for source fixtures, automatic estimates and verified final scores; historical forecasts stay frozen. Optional manual sandbox is separate. Owner-selected Alefantos YouTube intro opens on first click per tab session; source-player settings may affect playback.",
-      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/pitchlab.md"
+      "next": "Automatic on-open/button predictions and results; video intro and manual desk removed; old manual records exportable. Supplied football artwork.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/pitchlab.md",
+      "category": "tools"
     }
   ]
 }

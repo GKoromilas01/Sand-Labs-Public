@@ -1,0 +1,621 @@
+{
+  "version": "4.7",
+  "date": "2026-11-27",
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "4b4580239006be7bbfe65ed875591655e6543c5fccbe88067c8dd0883bcbc94d",
+      "bytes": 22248
+    },
+    {
+      "path": "dashboard.css",
+      "sha256": "6521f535d6b8e6b6aad31879c282486ff50537abb75d1ba0b91e223782277310",
+      "bytes": 10883
+    },
+    {
+      "path": "projects.json",
+      "sha256": "677a92c2149daef4401ccd1676580489b1645b9cb9423409094a7db3d34ca465",
+      "bytes": 10841
+    },
+    {
+      "path": "apps/bios/app.js",
+      "sha256": "ff26cfc110fb68a37511350dffbddb685a669ee92aa54923fdd6dbe1e23aa58f",
+      "bytes": 15863
+    },
+    {
+      "path": "apps/bios/index.html",
+      "sha256": "5b5d95be5b00c12757b6d5fe5305c8f0a855d4df59a195c064013e86f864824c",
+      "bytes": 12527
+    },
+    {
+      "path": "apps/bios/model.js",
+      "sha256": "2bffb1addafe650c3b491a01012767dad7f934dae14a3ab52559727f55f1ed66",
+      "bytes": 4538
+    },
+    {
+      "path": "apps/bios/style.css",
+      "sha256": "d102de5b3525c25dbbc93fec1ee1315e54be8f8c58a4b9e53e3ea992127a4aa0",
+      "bytes": 5043
+    },
+    {
+      "path": "apps/bios/reflection-ui.js",
+      "sha256": "6f4d3ce5704c7a9401ea028ade42c80a670fc443e3ead924226f1fc619de31d0",
+      "bytes": 2931
+    },
+    {
+      "path": "apps/bios/reflection.js",
+      "sha256": "c234702bcd1b3ba7bc1e008ede07668ea517cdc27d2c35892d457b1e7b39d925",
+      "bytes": 1710
+    },
+    {
+      "path": "apps/chronoscope/app.js",
+      "sha256": "751aa8d8fe86f77d961836586e9defd2e0ed3ec9cbd98e958426de53b6bb592d",
+      "bytes": 2307
+    },
+    {
+      "path": "apps/chronoscope/index.html",
+      "sha256": "1cc32ac93e0370f9c177a80b60e5e683be597ce90e074a7932069c6cb0d361e6",
+      "bytes": 5480
+    },
+    {
+      "path": "apps/chronoscope/style.css",
+      "sha256": "7426771e684ae65aa3f097c2faf23422955e09f2b6117e3a0c8df662db1a364b",
+      "bytes": 6099
+    },
+    {
+      "path": "apps/chronoscope/library.js",
+      "sha256": "3a6f6d01dafd2ffbf0f0b758fe0720c30caed24913bfe200c68f426e0e3f684c",
+      "bytes": 1990
+    },
+    {
+      "path": "apps/chronoscope/library-ui.js",
+      "sha256": "961562ddde7f96050dfc80d538c09f85caa33e6d5d31aad460d0787d90466fb3",
+      "bytes": 3197
+    },
+    {
+      "path": "apps/isegoria/app.js",
+      "sha256": "e8d54b11b16bbf88b49e8681cb8fb00e1b76fad968c59176835e860114961613",
+      "bytes": 3314
+    },
+    {
+      "path": "apps/isegoria/index.html",
+      "sha256": "715861289e92a0e8bbfa88d0f22fedb6aad9b8e48c8d63384a61860889c20c1a",
+      "bytes": 9523
+    },
+    {
+      "path": "apps/isegoria/model.js",
+      "sha256": "5234e80e2a9644a1508243a0e271d4b091ba76bcfd4ec0c401b7303b5570895b",
+      "bytes": 1369
+    },
+    {
+      "path": "apps/isegoria/style.css",
+      "sha256": "ce1c7902e3fb196254362690f6f952a5980e803f6729e22b0731f71ce3ec9511",
+      "bytes": 12917
+    },
+    {
+      "path": "apps/isegoria/news.json",
+      "sha256": "06a8588a95ecc7791d37b3c46689954335a877bda2b9d81443f1afba83f6413e",
+      "bytes": 2278
+    },
+    {
+      "path": "apps/isegoria/news.js",
+      "sha256": "d864a3c74b16f4285d371e647ff3fa622dbfddb942676272aa89a7eb18c8b37f",
+      "bytes": 10769
+    },
+    {
+      "path": "apps/pavlos/engine.js",
+      "sha256": "8afc48b583e937827a54d8f548599b5e0f404c3d100c47ed095d5bce66f81af2",
+      "bytes": 6761
+    },
+    {
+      "path": "apps/pavlos/game.js",
+      "sha256": "84807b0184b51d03e8a040451f5f42afe790f20152e5c9b1e63ee02e5bde8231",
+      "bytes": 11748
+    },
+    {
+      "path": "apps/pavlos/index.html",
+      "sha256": "7f8ce07c81e6e1a22d3cdb8385a68c66637d2fe31f57bbefec4e5267e44e4fc0",
+      "bytes": 21323
+    },
+    {
+      "path": "apps/pavlos/style.css",
+      "sha256": "f067833f32252ae34534162382bbaffbfde43db2ec50d6725fc53a65e1484560",
+      "bytes": 19716
+    },
+    {
+      "path": "apps/pavlos/language.js",
+      "sha256": "bef0fd59072591be4359da39f096d17b421d17af79a26e112934ffc229e32f9c",
+      "bytes": 27912
+    },
+    {
+      "path": "apps/pavlos/world.js",
+      "sha256": "7c456e3fda4664e7fac87e12ef872e36aaff71450222d292da4de52d0d142e4d",
+      "bytes": 9896
+    },
+    {
+      "path": "apps/pavlos/voice.js",
+      "sha256": "ac7520958e710d1f96830101b7e49c068273841acdbde29891a42764ceb1f24a",
+      "bytes": 2936
+    },
+    {
+      "path": "apps/pavlos/bouzouki.js",
+      "sha256": "9731334123a0c1eb579463cff4a91babd989de6f9886460ead8650a2fe37aaf7",
+      "bytes": 996
+    },
+    {
+      "path": "apps/pavlos/voice-clips.js",
+      "sha256": "cdecd842b29e46763700226f37903c80d55682441ed4b0d66f2d7def9c8a9227",
+      "bytes": 8611
+    },
+    {
+      "path": "apps/pitchlab/app.js",
+      "sha256": "a95ef59bf925baa80c0bf6f5f862c39b3c3445d2747c39365e0b6a39f3d651bc",
+      "bytes": 3597
+    },
+    {
+      "path": "apps/pitchlab/daily.js",
+      "sha256": "382253546f2e6cea3623d9d88ad0713afcde8aa0800315c7c142537d552db92f",
+      "bytes": 10057
+    },
+    {
+      "path": "apps/pitchlab/daily.json",
+      "sha256": "16cca962b2c5434cb45aa47b909c82bef7c4dfd85076c89d37853ac250826080",
+      "bytes": 93966
+    },
+    {
+      "path": "apps/pitchlab/index.html",
+      "sha256": "4dcc721fc143ed514e3d2f7b1ce744acb64b46e45b02ec6da4791f8407d4b61f",
+      "bytes": 10699
+    },
+    {
+      "path": "apps/pitchlab/ledger.js",
+      "sha256": "4e1965d26c911e90b0ba518286d4bbb04d97a31ec99f5c1214eadebd3f9d248e",
+      "bytes": 2535
+    },
+    {
+      "path": "apps/pitchlab/model.js",
+      "sha256": "204e03add0b92e572fe65cd44619046e1d9349affaa77771be347f8498a567ca",
+      "bytes": 3093
+    },
+    {
+      "path": "apps/pitchlab/style.css",
+      "sha256": "8ab85f5a6e88efe067b8899f8c9c6936def9538978aa18da9f18a29a62a8f181",
+      "bytes": 8377
+    },
+    {
+      "path": "apps/pitchlab/poisson.js",
+      "sha256": "784af01b079aa3aa91e35902c90040757462253a32eb0fb4f0e3dc9325bc20f0",
+      "bytes": 1426
+    },
+    {
+      "path": "apps/pitchlab/paper.js",
+      "sha256": "ede674ba5823f846b3c0bd4a4f24e3aae824cf161fff6ca94ae111ac1fd2aa3f",
+      "bytes": 1328
+    },
+    {
+      "path": "apps/pitchlab/ui.js",
+      "sha256": "671f78f129cfc7593e14140c82b1b9ddb0639ef52dbabef5428b7d0284bd8e85",
+      "bytes": 748
+    },
+    {
+      "path": "apps/pitchlab/charts.js",
+      "sha256": "c8c7db009728e5ddd9564dde421b2e5d2897bc91eee94c1e05add2897a9dfddb",
+      "bytes": 3643
+    },
+    {
+      "path": "apps/pitchlab/legacy.js",
+      "sha256": "8012f65bcfd0210f86f587b1dc7f7e5be2eed9ea266dbd44695be6ee0337927d",
+      "bytes": 953
+    },
+    {
+      "path": "apps/pitchlab/sources.js",
+      "sha256": "da2bbeea454568825adfd1f17a39202132e4f74d2b2b2d892203e3cb0d0ea89f",
+      "bytes": 2624
+    },
+    {
+      "path": "apps/pitchlab/live.js",
+      "sha256": "a7a6d86ea53937a9df6ac8b434ce1799b2c452ce0e625e3fba0c81098e0b66c2",
+      "bytes": 9454
+    },
+    {
+      "path": "apps/softone-advisor/guide.js",
+      "sha256": "d0c2804ae3b501b2fb2e64c6c28cc916396cc783f09d36e9677fe45827bd16c6",
+      "bytes": 3360
+    },
+    {
+      "path": "apps/softone-advisor/index.html",
+      "sha256": "4f33777d611e53f911040ae33c31b95f6ced30b86daf160b3740a007502e0915",
+      "bytes": 6059
+    },
+    {
+      "path": "apps/softone-advisor/workspace.css",
+      "sha256": "932be2c58eda57f71464f25d83e870c66652beaa2ded819f6bb990da6418e29f",
+      "bytes": 7778
+    },
+    {
+      "path": "apps/softone-advisor/workspace-ui.js",
+      "sha256": "4eb24d00da864a5fa9cfe4d53726c2b38cc7b83fa3e2fd07801c5213793e58d8",
+      "bytes": 8067
+    },
+    {
+      "path": "apps/softone-advisor/workspace.js",
+      "sha256": "4e107c4818dad1a6706a67c8889ceb6cb800356d640f4657dd77c785200604d5",
+      "bytes": 6073
+    },
+    {
+      "path": "apps/softone-advisor/library.html",
+      "sha256": "fc880e6c8eddb1c046fae7e09082732829744e0f5c1a2868f00c310dc95f012e",
+      "bytes": 10418
+    },
+    {
+      "path": "apps/zoetica/backup.js",
+      "sha256": "9fb062ca8ae7815429dba7a106d6dde6c13172af50ac241a4484f4efa597f94b",
+      "bytes": 3522
+    },
+    {
+      "path": "apps/zoetica/index.html",
+      "sha256": "a02fb1d3914df003aa5d95ddd9303f35b997b7076836a679321a0a04916fff97",
+      "bytes": 169746
+    },
+    {
+      "path": "apps/zoetica/intro.mp4",
+      "sha256": "0bdba7f76019957f41c9024bc98f9744b1eeeadce501fc11a2d609e6214322e7",
+      "bytes": 3963740
+    },
+    {
+      "path": "apps/zoetica/items.js",
+      "sha256": "aa2976d92279cedd2d9c499fea35110897d53e2ef4bd89e234e06f0677c9d54d",
+      "bytes": 823
+    },
+    {
+      "path": "apps/bios/media/landing.jpg",
+      "sha256": "313b953d80f1c681b286ddb1c408066a69502ad47f11df9fb8ac10b6673d2bf9",
+      "bytes": 304261
+    },
+    {
+      "path": "apps/chronoscope/media/landing.jpg",
+      "sha256": "603a2310242e71c9abc0f2aa1eb5e444ca6e79e58c786fb32430ba670c847a10",
+      "bytes": 356114
+    },
+    {
+      "path": "apps/chronoscope/media/chronoscope-logo.png",
+      "sha256": "bd1d2bcc2d10d478ebe86721de7ed3222954173aa81a59bb14c8cd3b8a71d083",
+      "bytes": 1355645
+    },
+    {
+      "path": "apps/isegoria/media/landing.jpg",
+      "sha256": "0574e45d8c0ba6243b866fefe39f3562c2c6001c95775f21ecdd7abb07386e97",
+      "bytes": 304162
+    },
+    {
+      "path": "apps/pavlos/media/island-harbour.jpg",
+      "sha256": "702f0284f221a57fd4b5b1878ac8033a310197083e085020c24fd4393a181669",
+      "bytes": 304376
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-3b48e8fd50e3.mp3",
+      "sha256": "47a7626aa9b44ea62e3e327d4913a6d8e7dd7e8ccd55e4d43cf808f1a3017de3",
+      "bytes": 24128
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-c9fb96ad1078.mp3",
+      "sha256": "556a33a5bb6e09d3647e148eb651f4e4fb172ed53260ef68d844122a8a5a55da",
+      "bytes": 17989
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-d019b6e52a77.mp3",
+      "sha256": "495d6e1d4263eda1204788e5ae0257cafdc6557509a82009f5dc9e3f882fe0c3",
+      "bytes": 23736
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-0dde612824d9.mp3",
+      "sha256": "570f5aa2fc229bf9ae341465e3878b333e4274bcd6683dd23df8ef80593843e4",
+      "bytes": 42414
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-ab1e22aee0b3.mp3",
+      "sha256": "66773f68043f278d85cc41504a7a7d6f741e959b35e197601bb748f0f2fc8b1e",
+      "bytes": 31834
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-6a01a355fad6.mp3",
+      "sha256": "9007cd4a4896f9e81a4f8a67a5f3dafa71d374429337963298dcdf76e70f5dfd",
+      "bytes": 27001
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-a04ebb911743.mp3",
+      "sha256": "892ffb744c224b76d831ac563cf6a92d50fda274102fbb6765c0b798c86ab8cd",
+      "bytes": 43197
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-8a7b923eb4ba.mp3",
+      "sha256": "e4ca2017d15926dba4bef49cb983dc9c033cb6ebff37ba433c48f11e56bfbd32",
+      "bytes": 21777
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-155c0edfc502.mp3",
+      "sha256": "af8829d7f5ac89d5d41a3d27b057d8ddc8170f2be4c58571670e3388c765178a",
+      "bytes": 39410
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-1b69c2b93e5c.mp3",
+      "sha256": "bcea5bd4b8877330b924a16c29eba6d3b1242a6faf2c60c2dfa26b1f6d85ace5",
+      "bytes": 11197
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-932d9084650b.mp3",
+      "sha256": "2da328426ef2aa28778ec0f70749c619a2642689720a8037263fcc540ef2f3fe",
+      "bytes": 22561
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-8729d04c332b.mp3",
+      "sha256": "bfb18a2e09057a52b344bd0cadc05d37b5674ce498ab992c6427f8adeb2e69e0",
+      "bytes": 17597
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-d29cf8a24556.mp3",
+      "sha256": "2e68ca30a4da7fa413946fc2c2b6c2f431d4039579acc10162da8bdec4846828",
+      "bytes": 28177
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-ab675a8e64b5.mp3",
+      "sha256": "62a3cbf84c6862e1b68ed7f19861a95deeb6aa63b9e028cd4ffb0e72c7283427",
+      "bytes": 29222
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-78a8e693fbf8.mp3",
+      "sha256": "1b7a14cafbdbc78ca8dfb2632ac1da291ba69c8040296e4be2716e777c95f193",
+      "bytes": 16161
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-e10d328d03ba.mp3",
+      "sha256": "97b81a031eb07a1703bfb80c0da99b23a1950b107675f51f2f0a0f58b0e18512",
+      "bytes": 21908
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-a25ae4afad50.mp3",
+      "sha256": "fb84e50b62aa9d53d1181e2170f5609cfe98d3bce140b6bc64807852088ce533",
+      "bytes": 27132
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-198e7611d236.mp3",
+      "sha256": "d06d6209e7536c79a9ce4cea361641acdd3eceb899e41d855c0d17da1be7ae0b",
+      "bytes": 31442
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-16d2b1bc5c46.mp3",
+      "sha256": "d7fd4399d3aaa66a1a02fdc3ae5a1591fd3a5a971f511fa48de2eb253d603a83",
+      "bytes": 22561
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-7b97d4da1f46.mp3",
+      "sha256": "90a1e97162342fbde9dabf545f8dce62e0047784d0688b601563d27afd85f6db",
+      "bytes": 22561
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-c6e1106e8a88.mp3",
+      "sha256": "3a0fb949bfa14d06848dbc9060960414a13e45be028028ea136d30bab5d23df7",
+      "bytes": 24259
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-48089e608983.mp3",
+      "sha256": "498692561173dad15de7caa43a7e3ea6ebdf38c98ec639d3d79c266a8da5bd1b",
+      "bytes": 30659
+    },
+    {
+      "path": "apps/pavlos/media/voice/README.txt",
+      "sha256": "f0319d032eba896302fc2c3fab6c3166ecf7d8bcc9614b2afa0f4fd650be56ec",
+      "bytes": 325
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-3cedc3dfba88.mp3",
+      "sha256": "7f77df89502209b49d91a74a27cd6d4ec20153fef16009a0ef67c214e607f64e",
+      "bytes": 31573
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-d4e69d5c8c70.mp3",
+      "sha256": "25cecfd82cceefc0fd9135a495e80e071609d84c7a0699366d71eb608237dccd",
+      "bytes": 29091
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-862634f3f513.mp3",
+      "sha256": "8d09e2c9b60765c72c52d7f6fae25cd0d18fa31fde0aa6bd65b80777425b66cc",
+      "bytes": 16161
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-7c645fece5be.mp3",
+      "sha256": "9e81e9dd6ee29090c37e3699cb53c9f238de58967ba75f5604c3d4439220355e",
+      "bytes": 18120
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-19a5c6e044df.mp3",
+      "sha256": "64f8abc2eae89e4e8508fbba6b02c1fb64f53deafaf741336a8aaf724b704a4f",
+      "bytes": 33401
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-3f88b555c0ad.mp3",
+      "sha256": "48ba5bc8bcdf7d8bda941b05e0a63154051ac429ea8e1963ff91fbdb655d3395",
+      "bytes": 15899
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-68ded7b7d61b.mp3",
+      "sha256": "31510b25cd9a080a55a675c8cd5f7f86fa155aee8817df8d4965bb851288f06a",
+      "bytes": 20863
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-99890b158bcf.mp3",
+      "sha256": "cd2195c2607195eb229e8927e097c3f06442cf127dad5496bea8c22827160b27",
+      "bytes": 15899
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-9f9990a07d19.mp3",
+      "sha256": "e5f7d31d6640e2f74e312810ad1dd46301d3b7d6060c7f7fbbef8f58e24fb449",
+      "bytes": 22038
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-e4d1fb793360.mp3",
+      "sha256": "693e480f517c9febd923bc02e7f451e555c5b22c1138aee521bd709401196154",
+      "bytes": 32356
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-e225fb355fef.mp3",
+      "sha256": "ec405ce98f22c68a68b4082ed87bab1532dc6d4cf6afb0baf3aed1c2b05d6d8a",
+      "bytes": 17205
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-b02c3888a3da.mp3",
+      "sha256": "285feb1035139d990aa8c8054306984b9cfe552435be0bf6e68ff2783191a8a1",
+      "bytes": 19818
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-3c42d4822e44.mp3",
+      "sha256": "6fbbba88b267cccc8c64f452df28c92fa15e4a9f728056d0a332d727821a9f3e",
+      "bytes": 16683
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-26660d5d6bbb.mp3",
+      "sha256": "e1636028752baae6eb960da1ccad5dd8908d6fab2f50438197c46e576f87a656",
+      "bytes": 45548
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-55046f1d52fe.mp3",
+      "sha256": "db817d69f4791be6411eefb56ab2944384ac503b1b21c7494f6840b313a4c8a3",
+      "bytes": 28177
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-3ad242e6ca80.mp3",
+      "sha256": "6bbc91dc90f03cf6146dfe739b9a04260a04d4e17d05103ac1baed0ce51d5c91",
+      "bytes": 23214
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-e6891a29ee35.mp3",
+      "sha256": "c13dcbd0a0c9d545e4067d135a3bafb9f7e2befd6e751eea69478fdddea25bb1",
+      "bytes": 25173
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-bd53ecadaa59.mp3",
+      "sha256": "4aa19fea207a8b9a89d519cce5f7856df114e19652c4a6c3867d9bab922fb3e2",
+      "bytes": 23997
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-f312c92a6d34.mp3",
+      "sha256": "4312819d24031201b1ef82fc26a084b1df8964ff81f7966bb1a656550cc79821",
+      "bytes": 22561
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-ff85ab2d019c.mp3",
+      "sha256": "7d14f3920e358748eebf7f9a0ac077b171fb6de163af5e7064e2f7987007950e",
+      "bytes": 31573
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-18a4cc9016e0.mp3",
+      "sha256": "5947c7626da0647993a3f9e0cf4bd6275856a143714d21e5a5deff8e4e3cd2da",
+      "bytes": 23344
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-2d36a2124470.mp3",
+      "sha256": "280316c433e3cb07da86fedd984e95b7a5f44524c53046a4477fa5b368e46204",
+      "bytes": 20340
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-dfbfad84ce6a.mp3",
+      "sha256": "e739b1b5977b5a5c0302ff49fb476b4751d14fb7d70f93062ffc28ebe854b667",
+      "bytes": 30789
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-83c5be883bca.mp3",
+      "sha256": "0ed0af132029b331cc8e94de4c700481e071888e9258ed72d01742461d53174d",
+      "bytes": 21516
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-a83dd93cca0a.mp3",
+      "sha256": "725f4795ac9ad9fec91eae3aa9da4a4702c70612c7474228503789acf1dfcf29",
+      "bytes": 24128
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-b8851a91e30e.mp3",
+      "sha256": "86248f1f5437002a8e1491f5ed3fa83ec6cdd2f03dfd4ce5e7038f9d2d2ec9f8",
+      "bytes": 21908
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-1e321fc4d3f5.mp3",
+      "sha256": "ad1aebd150a3d2045bfdff2215fcab9051da2043aa0404fab81e922b4867da64",
+      "bytes": 25042
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-7e5385f92796.mp3",
+      "sha256": "521265c60b19f5f9502dfa5f594cb5aa62ed554e9bf2893dc0532b61055ea28b",
+      "bytes": 21124
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-e977286d0c9e.mp3",
+      "sha256": "c442984ffee6edc50717cc88022f19875a73b79ce0fa7fa06dc1006586e467c5",
+      "bytes": 26740
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-9b939fa70efb.mp3",
+      "sha256": "ca870779f3e8da5acae1760c7c28497c335a66e149b99f455c8bae5be3bf8121",
+      "bytes": 49467
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-75ac030d2470.mp3",
+      "sha256": "92001c7ad899222114ad156e77f34073277a45754b8c58ac821800332973a4d8",
+      "bytes": 29352
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-b620dc584c0f.mp3",
+      "sha256": "418012b88dc1c3cac71422ec63f055787d6fb9cca6a50e020d7f7fbf131732d0",
+      "bytes": 36144
+    },
+    {
+      "path": "apps/pavlos/media/voice/en-d864b2b70c96.mp3",
+      "sha256": "12395ad23a4c0dc842f775124217636042a0ccc4281d1a8f45957628074a80b0",
+      "bytes": 26087
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-51ddb42bc9a8.mp3",
+      "sha256": "ccb96d8d8baaf2a6c67c74a88ad901379899f36a8728150d9c3b5278e9b655ad",
+      "bytes": 29222
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-441c01aa5556.mp3",
+      "sha256": "b5fe83ab96342f5bddcc84f7187dee9c5e91d46571a759537657a1a48e465098",
+      "bytes": 25042
+    },
+    {
+      "path": "apps/pavlos/media/voice/el-7065d70d0cb7.mp3",
+      "sha256": "babd8a53d0e11dd32b8d05cc6056a214106794c3fc2d147c63b94971a033d9f7",
+      "bytes": 24259
+    },
+    {
+      "path": "apps/pitchlab/media/landing.jpg",
+      "sha256": "9d1d7c4f20ce0f674a4d54267537e76c93e16fa6cada947d90b7bb42974e54b9",
+      "bytes": 274281
+    },
+    {
+      "path": "apps/softone-advisor/media/landing.jpg",
+      "sha256": "e7f4c741e6a550d0c1c2a70f7d9e0f9e92b3ba26848c7006b24133dcfeaa4379",
+      "bytes": 222900
+    },
+    {
+      "path": "apps/zoetica/media/landing.jpg",
+      "sha256": "2ccc99d089d490dc5e6de652721e43a9938c9a706141340dd452abc80b0fa813",
+      "bytes": 275841
+    },
+    {
+      "path": "assets/sand-labs-studio.jpg",
+      "sha256": "456df82993e5a31dcaf86d12c6ee73567638f541859ad2e27ba714433e96edb1",
+      "bytes": 164311
+    },
+    {
+      "path": "assets/sand-labs-hourglass.png",
+      "sha256": "fd20b71577c4cf2061866205e91e80ad1093575aff644bdac935f29e93f8ddca",
+      "bytes": 1125718
+    },
+    {
+      "path": "assets/coin-intel-desk.jpg",
+      "sha256": "14132771729b6a5ee6fcba7ec7543c311d7586be271efe28336a3a01af992cd0",
+      "bytes": 358070
+    }
+  ]
+}
