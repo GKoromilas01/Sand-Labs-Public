@@ -1,0 +1,7 @@
+(function(root){
+const pick=p=>{const xs=[p.homeP,p.drawP,p.awayP];return ['home','draw','away'][xs.indexOf(Math.max(...xs))]};
+function eligible(p){const ps=[p.homeP,p.drawP,p.awayP];return !!p.fixtureConfirmed&&Number.isFinite(Date.parse(p.kickoff))&&Number.isFinite(Date.parse(p.recordedAt))&&Date.parse(p.recordedAt)<Date.parse(p.kickoff)&&ps.every(x=>Number.isFinite(x)&&x>=0&&x<=1)&&Math.abs(ps.reduce((a,b)=>a+b,0)-1)<1e-8&&(!p.settled||[p.hg,p.ag].every(x=>Number.isInteger(x)&&x>=0&&x<=30));}
+function summary(entries){const days={};for(const p of entries){const d=days[p.day]||(days[p.day]={day:p.day,selected:0,completed:0,hits:0,unverified:0,accuracy:null});d.selected++;if(!p.fixtureConfirmed)d.unverified++;if(p.settled&&eligible(p)){d.completed++;if(pick(p)===(p.hg>p.ag?'home':p.hg===p.ag?'draw':'away'))d.hits++;}}return Object.values(days).sort((a,b)=>b.day.localeCompare(a.day)).map(d=>({...d,accuracy:d.completed?d.hits/d.completed:null}));}
+function validate(data){if(!data||data.schema!==1||!Array.isArray(data.entries))throw Error('Invalid daily archive.');const ids=new Set();for(const p of data.entries){if(!p||typeof p.id!=='string'||ids.has(p.id)||!/^\d{4}-\d{2}-\d{2}$/.test(p.day)||typeof p.home!=='string'||typeof p.away!=='string')throw Error('Invalid or duplicate archive entry.');ids.add(p.id);}return data;}
+const api={pick,eligible,summary,validate};if(typeof module!=='undefined')module.exports=api;root.PitchLedger=api;
+})(typeof window!=='undefined'?window:globalThis);
