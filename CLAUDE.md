@@ -1,3 +1,5 @@
+**Current publication: Sand Labs 4.8, Bios 0.5 and Agora 0.5.** Read AI-CONTINUATION.md for latest behaviour, limitations and continuation instructions. Owner authorises these updates and final hub links; no new media generation. Shattered Crowns remains paused. Historical version entries below are superseded.
+
 ## Latest approved publication scope — Sand Labs 4.7
 Read AI-CONTINUATION.md first. Owner authorised publication of the completed non-Crowns apps, supplied illustrations, improved hub and current version registry. Approved client paths: apps/{pavlos,bios,isegoria,zoetica,softone-advisor,chronoscope,pitchlab}/ including their referenced client JS/CSS and media, plus assets/, index.html, dashboard.css and projects.json. Pavlos includes previously generated synthetic Greek/English narration and its provenance README. No private app CLAUDE.md, private-assets/, scripts, user data, memoirs, keys or private handoffs may be copied here. Public AI-CONTINUATION.md and release hashes contain only non-sensitive navigation/verification information.
 
