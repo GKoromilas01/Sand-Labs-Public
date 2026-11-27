@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "3.6",
+  "pageVersion": "3.7",
   "updated": "2026-11-27",
   "projects": [
     {
@@ -280,16 +280,16 @@
       "alias": "",
       "what": "Five-league football analysis: pre-match probabilities, results, team ratings and honest evaluation.",
       "st": "dev",
-      "stl": "Sourced research snapshot",
-      "version": "0.3",
+      "stl": "10 matches · Poisson experiment",
+      "version": "0.4",
       "main": {
-        "t": "PitchLab0.3 — research selections & daily record",
-        "u": "apps/pitchlab/index.html?v=0.3",
+        "t": "PitchLab0.4 —10 matches, algorithms & virtual EUR10",
+        "u": "apps/pitchlab/index.html?v=0.4",
         "d": "27 Nov 2026",
         "label": "Open PitchLab"
       },
       "more": [],
-      "next": "Five fixtures verified via ESPN, including Paris FC. Qualitative research selections tracked separately from unchanged initial baseline. Injuries/lineups incomplete; no automated updates.",
+      "next": "10 verified fixtures; separate research and experimental Poisson forecasts. Private SQLite retains historical results. EUR10 paper ticket only; no real wagers or automated updates.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/pitchlab.md"
     }
   ]
