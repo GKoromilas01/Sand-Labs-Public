@@ -1,11 +1,11 @@
 {
-  "version": "4.19",
+  "version": "4.20",
   "date": "2026-11-28",
   "files": [
     {
       "path": "index.html",
-      "sha256": "41ff4c203aaa8b7bf3c88f24d1159fdbbb85fb6f60427492dc0ba18bce3ead1d",
-      "bytes": 28965
+      "sha256": "eb1f828226d0247ba0b2e7505bcf2bafd387dce21c1351366e94c04a162dd152",
+      "bytes": 31641
     },
     {
       "path": "dashboard.css",
@@ -14,8 +14,8 @@
     },
     {
       "path": "projects.json",
-      "sha256": "e0a5b18f0dc94d55cbc86de65d42e9cc85898f8c96fb1e5052cf67a1df8af6e9",
-      "bytes": 10779
+      "sha256": "7e55ee8fc196379ee38234fd44c4fe973fa131cc2bc96ebbfc6228e0edbef261",
+      "bytes": 13047
     },
     {
       "path": "apps/bios/app.js",
@@ -656,6 +656,106 @@
       "path": "apps/lens/media/lens-logo.jpg",
       "sha256": "52a7b43cd2e2b3c6c0864d1c62f383dbcb2bc883977f41603e2a05d675acf7f2",
       "bytes": 64519
+    },
+    {
+      "path": "apps/chess/index.html",
+      "sha256": "7285646e2d625dbfde07f0eeb4a2e113cb252afbc382136e9cd1c332c2fc1998",
+      "bytes": 2990
+    },
+    {
+      "path": "apps/chess/app.js",
+      "sha256": "8acb9162012964057953c0d3435d7868a64ad39d6440e77ae13cbee4e996442e",
+      "bytes": 7475
+    },
+    {
+      "path": "apps/chess/style.css",
+      "sha256": "0a8e67a8c1aae88ffd90abc6f91585b77c8a834a38bc3d84527cab3988c212f7",
+      "bytes": 3985
+    },
+    {
+      "path": "apps/chess/vendor/LICENSE-chess.txt",
+      "sha256": "0b3a3c2b4432a26bb18f9d06f5bba4de015bcc980306b7db28b06025495e2186",
+      "bytes": 1315
+    },
+    {
+      "path": "apps/chess/vendor/chess.mjs",
+      "sha256": "76c7c34f0e2e9ab076521a5d6fe786a9cce537bb1b6f29d32a9c9970b5b232d2",
+      "bytes": 107052
+    },
+    {
+      "path": "apps/chess/vendor/NOTICE.md",
+      "sha256": "6605e61fe6c7e3328c3ab975b86bdf25730e8b74f511385a4845a077372dfef3",
+      "bytes": 346
+    },
+    {
+      "path": "apps/chess/media/logo.svg",
+      "sha256": "33a59937a6df9fa95b2d44b772a3479844f278de4c69f54853cf55fa8f7d76d7",
+      "bytes": 417
+    },
+    {
+      "path": "apps/chess/media/landing.svg",
+      "sha256": "24a43a778425bbe6dc0612dc69a4616a0ba48986a6c1b494c5de1cd01183cbef",
+      "bytes": 1073
+    },
+    {
+      "path": "apps/go/index.html",
+      "sha256": "c67c7c93dcfba8f6eb676112799729c0fb74ea8b0e4caf73ac8e3045ba39e626",
+      "bytes": 3150
+    },
+    {
+      "path": "apps/go/app.js",
+      "sha256": "414e94200396d515168ff653032f2fc70667556eff077b580d40b6414517f0de",
+      "bytes": 5328
+    },
+    {
+      "path": "apps/go/engine.js",
+      "sha256": "691743017e07aa4ce5af033996c284caae84b2dc432599a3c3f98fd2e3e369ea",
+      "bytes": 4485
+    },
+    {
+      "path": "apps/go/style.css",
+      "sha256": "0c2b897848df4c5f5f45c9ca0e2c65ceb38a276f00ba6e3dd63fa5628519ae62",
+      "bytes": 4566
+    },
+    {
+      "path": "apps/go/media/logo.svg",
+      "sha256": "20550a4d4abbe6364b999f9d42c2b292436eb3e4724e59df5acb4445c79d4c79",
+      "bytes": 460
+    },
+    {
+      "path": "apps/go/media/landing.svg",
+      "sha256": "38a99131aac17c96ba0888910b7c9698dbdef66e5b834b9ef458637e0d937c9b",
+      "bytes": 1116
+    },
+    {
+      "path": "apps/ninth-door/index.html",
+      "sha256": "17f526bb28541bb030bab8704596d05d8d4ea7db06f1b8b85aeb087a792217b5",
+      "bytes": 3366
+    },
+    {
+      "path": "apps/ninth-door/app.js",
+      "sha256": "f0e1bfc38ef37e7fed847998a563154bbcda5600d0204367adfc7b2da418b44a",
+      "bytes": 7632
+    },
+    {
+      "path": "apps/ninth-door/engine.js",
+      "sha256": "dabe84359b76ea12a749ceff90314a321bf1e348e5de66b2700b6a287c27a58b",
+      "bytes": 4280
+    },
+    {
+      "path": "apps/ninth-door/style.css",
+      "sha256": "0877c46a850e347358dc64c9e2aeb2feacfbcae26d9ca951db830b2a13e1422b",
+      "bytes": 4060
+    },
+    {
+      "path": "apps/ninth-door/media/logo.svg",
+      "sha256": "72808d2fe8454301f11f1edb24535bdd8e515907e36db82146aab97dded35c6e",
+      "bytes": 567
+    },
+    {
+      "path": "apps/ninth-door/media/landing.svg",
+      "sha256": "da16e7837c5a4e3f54d349b8f9a4e2c56f36de68543e52a5874815d5550c865f",
+      "bytes": 1223
     }
   ]
 }
