@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "4.20",
+  "pageVersion": "4.21",
   "updated": "2026-11-28",
   "projects": [
     {
@@ -26,7 +26,7 @@
           "label": "View preview"
         },
         {
-          "t": "Digital Democracy \u2014 supplied earlier page (private GitHub file)",
+          "t": "Digital Democracy — supplied earlier page (private GitHub file)",
           "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/apps/digital-democracy/index.html",
           "d": "26 Nov 2026"
         }
@@ -53,7 +53,7 @@
       },
       "more": [
         {
-          "t": "Previous mockup \u2014 Vios/Bios",
+          "t": "Previous mockup — Vios/Bios",
           "u": "https://claude.ai/artifact/EdjaspGHDYqHC1iiL7DaqT",
           "d": "24 Nov",
           "label": "View mockup"
@@ -98,15 +98,15 @@
       "what": "A local two-player chess board with legal moves, promotion, castling and saved games.",
       "st": "dev",
       "stl": "Playable first version",
-      "version": "0.1",
+      "version": "0.1.1",
       "main": {
-        "t": "Chess0.1",
-        "u": "apps/chess/index.html?v=0.1",
+        "t": "Chess 0.1.1",
+        "u": "apps/chess/index.html?v=0.1.1",
         "d": "28 Nov 2026",
         "label": "Play Chess"
       },
       "more": [],
-      "next": "Desktop first. Local saves and backup/export available. Original provisional graphics; owner prompts recorded.",
+      "next": "Desktop first. Owner-supplied logo and landing artwork installed; local saves and backups available.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/chess.md",
       "category": "games"
     },
@@ -127,7 +127,7 @@
       },
       "more": [
         {
-          "t": "Plan and screenshots \u2014 Claude",
+          "t": "Plan and screenshots — Claude",
           "u": "https://claude.ai/artifact/5XEMguf3RYKwTomWWEJCoP",
           "d": "23 Nov"
         },
@@ -153,18 +153,18 @@
       "mark": "GO",
       "tint": "#9CE0C9",
       "alias": "",
-      "what": "Learn and play local9\u00d79 Go with captures, ko protection and agreed area scoring.",
+      "what": "Learn and play local9×9 Go with captures, ko protection and agreed area scoring.",
       "st": "dev",
       "stl": "Playable first version",
-      "version": "0.1",
+      "version": "0.1.1",
       "main": {
-        "t": "Go0.1",
-        "u": "apps/go/index.html?v=0.1",
+        "t": "Go 0.1.1",
+        "u": "apps/go/index.html?v=0.1.1",
         "d": "28 Nov 2026",
         "label": "Play Go"
       },
       "more": [],
-      "next": "Desktop first. Local saves and backup/export available. Original provisional graphics; owner prompts recorded.",
+      "next": "Desktop first. Owner-supplied logo and landing artwork installed; local saves and backups available.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/go.md",
       "category": "games"
     },
@@ -205,7 +205,7 @@
       "name": "Lens",
       "mark": "LN",
       "tint": "#E94E78",
-      "alias": "Photography community \u00b7 working name",
+      "alias": "Photography community · working name",
       "what": "Build a personal photo gallery, practise critiques, explore lessons and download your own digital photography book.",
       "st": "dev",
       "stl": "Device studio prototype",
@@ -229,16 +229,16 @@
       "alias": "",
       "what": "An original point-and-click mechanics preview. Explore three test rooms while we develop the story together.",
       "st": "dev",
-      "stl": "Mechanics preview \u2014 scenario pending",
-      "version": "0.1",
+      "stl": "Mechanics preview — scenario pending",
+      "version": "0.1.1",
       "main": {
-        "t": "Ninth Door0.1",
-        "u": "apps/ninth-door/index.html?v=0.1",
+        "t": "Ninth Door 0.1.1",
+        "u": "apps/ninth-door/index.html?v=0.1.1",
         "d": "28 Nov 2026",
         "label": "Open Ninth Door"
       },
       "more": [],
-      "next": "Desktop first. Local saves and backup/export available. Original provisional graphics; owner prompts recorded.",
+      "next": "Desktop first. Owner-supplied logo and landing artwork installed; local saves and backups available.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/ninth-door.md",
       "category": "games"
     },
@@ -301,7 +301,7 @@
       },
       "more": [
         {
-          "t": "New v0.67 verification \u2014 commit841d1a5",
+          "t": "New v0.67 verification — commit841d1a5",
           "u": "https://github.com/GKoromilas01/Shattered-Crowns/actions/runs/45899703466",
           "d": "26 Nov 2026"
         },
@@ -321,14 +321,14 @@
           "d": "26 Nov 2026"
         },
         {
-          "t": "v0.67 \u2014 verification results (failed)",
+          "t": "v0.67 — verification results (failed)",
           "u": "https://github.com/GKoromilas01/Shattered-Crowns/actions/runs/45883868851",
           "d": "26 Nov 2026"
         }
       ],
       "next": "Required verification45899703466 passed on841d1a5. PR91 remains open; its separate run45899854784 is still pending. No v0.67 release yet.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sc.md",
-      "version": "Live v0.66 \u00b7 v0.67: required verification passed",
+      "version": "Live v0.66 · v0.67: required verification passed",
       "category": "games"
     },
     {
@@ -336,7 +336,7 @@
       "mark": "ZO",
       "tint": "#8FD3C2",
       "name": "Zoetica",
-      "alias": "The Spore-like game \u00b7 formerly Life AI",
+      "alias": "The Spore-like game · formerly Life AI",
       "what": "Guide life from water to land. Choose adaptations with real survival benefits and tradeoffs.",
       "st": "live",
       "stl": "Playable beta",

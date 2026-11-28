@@ -74,3 +74,7 @@ This file is a public, non-sensitive continuation index for Claude and other AI 
 - Every future update: inspect source/approved main; record changes, tests, limitations, exact next step and actual release evidence. Update the app, registry, continuation notes and hashes together. Never claim a candidate is released.
 
 Full private working records: GKoromilas01/Sand-Labs-Applications, root CLAUDE.md and docs/CONTINUE-HERE.md (requires separately authorised repository access). Public index: https://gkoromilas01.github.io/Sand-Labs-Public/
+
+
+## Owner artwork update — 2026-11-28
+Chess, Go and Ninth Door 0.1.1 use the six owner-uploaded Leonardo JPEGs: square logos in headers and wide landing artwork in both opening screens and Sand Labs cards. Originals preserved byte-for-byte; SVG fallbacks retained. No generation credits spent. Sand Labs 4.21 remains alphabetical and desktop first. Ninth Door scenario remains undecided; preview is noncanonical. Save formats unchanged.

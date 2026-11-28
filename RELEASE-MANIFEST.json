@@ -1,11 +1,11 @@
 {
-  "version": "4.20",
+  "version": "4.21",
   "date": "2026-11-28",
   "files": [
     {
       "path": "index.html",
-      "sha256": "eb1f828226d0247ba0b2e7505bcf2bafd387dce21c1351366e94c04a162dd152",
-      "bytes": 31641
+      "sha256": "2857bf6d491477f7551c8e432b5cd1add8ead9690b6aa22aa418ad6ce78f8ba0",
+      "bytes": 31598
     },
     {
       "path": "dashboard.css",
@@ -14,8 +14,8 @@
     },
     {
       "path": "projects.json",
-      "sha256": "7e55ee8fc196379ee38234fd44c4fe973fa131cc2bc96ebbfc6228e0edbef261",
-      "bytes": 13047
+      "sha256": "a766a0f8889cefa6ba77b9f99d54307bc089b97770514b681343cfe28743be8c",
+      "bytes": 13004
     },
     {
       "path": "apps/bios/app.js",
@@ -659,8 +659,8 @@
     },
     {
       "path": "apps/chess/index.html",
-      "sha256": "7285646e2d625dbfde07f0eeb4a2e113cb252afbc382136e9cd1c332c2fc1998",
-      "bytes": 2990
+      "sha256": "d8b1bbffe77eea6ce733d7e29d5ed192c468d020cdd4e6802a414aef81933501",
+      "bytes": 2996
     },
     {
       "path": "apps/chess/app.js",
@@ -669,8 +669,8 @@
     },
     {
       "path": "apps/chess/style.css",
-      "sha256": "0a8e67a8c1aae88ffd90abc6f91585b77c8a834a38bc3d84527cab3988c212f7",
-      "bytes": 3985
+      "sha256": "3394cee95bbe8807934873f2fb686482ee022492961216a7445d776703a385d7",
+      "bytes": 4268
     },
     {
       "path": "apps/chess/vendor/LICENSE-chess.txt",
@@ -699,8 +699,8 @@
     },
     {
       "path": "apps/go/index.html",
-      "sha256": "c67c7c93dcfba8f6eb676112799729c0fb74ea8b0e4caf73ac8e3045ba39e626",
-      "bytes": 3150
+      "sha256": "75c93ac26bfbad5355759fc32f67f21aa1d411af69bbf9317b4adc4e25187f03",
+      "bytes": 3158
     },
     {
       "path": "apps/go/app.js",
@@ -714,8 +714,8 @@
     },
     {
       "path": "apps/go/style.css",
-      "sha256": "0c2b897848df4c5f5f45c9ca0e2c65ceb38a276f00ba6e3dd63fa5628519ae62",
-      "bytes": 4566
+      "sha256": "02bd3c6438cedfc480b3f132cc8d7ca7200b51e59f16afe4d5f80de969039242",
+      "bytes": 4849
     },
     {
       "path": "apps/go/media/logo.svg",
@@ -729,8 +729,8 @@
     },
     {
       "path": "apps/ninth-door/index.html",
-      "sha256": "17f526bb28541bb030bab8704596d05d8d4ea7db06f1b8b85aeb087a792217b5",
-      "bytes": 3366
+      "sha256": "fca5c98c29b6c1dd3c0e2db2bb52b92c0ed3a47c7e1e044c9c2c71f10b3cf9af",
+      "bytes": 3374
     },
     {
       "path": "apps/ninth-door/app.js",
@@ -744,8 +744,8 @@
     },
     {
       "path": "apps/ninth-door/style.css",
-      "sha256": "0877c46a850e347358dc64c9e2aeb2feacfbcae26d9ca951db830b2a13e1422b",
-      "bytes": 4060
+      "sha256": "1be7a37083e9d316e6eb58ee3153b5e703b84dcbad3c055e692f3fd1b7dfb865",
+      "bytes": 4343
     },
     {
       "path": "apps/ninth-door/media/logo.svg",
@@ -756,6 +756,36 @@
       "path": "apps/ninth-door/media/landing.svg",
       "sha256": "da16e7837c5a4e3f54d349b8f9a4e2c56f36de68543e52a5874815d5550c865f",
       "bytes": 1223
+    },
+    {
+      "path": "apps/ninth-door/media/logo.jpg",
+      "sha256": "fb5177709e0fdd99456a4a148af72b59e5cf291bec69e2217131b9d55dacdef1",
+      "bytes": 69732
+    },
+    {
+      "path": "apps/ninth-door/media/landing.jpg",
+      "sha256": "821f7460776c91e9954b445caf65eccc266f1e00e4f657837a0591724dfd76ba",
+      "bytes": 138120
+    },
+    {
+      "path": "apps/chess/media/logo.jpg",
+      "sha256": "9866d3893db61812910113bd07acb292510cf4dce14c8de24226cdfd97ab043f",
+      "bytes": 95147
+    },
+    {
+      "path": "apps/chess/media/landing.jpg",
+      "sha256": "af825b56d133c60c10f95ed115348efb6133798e7e5776ac549e1f12570584d0",
+      "bytes": 156084
+    },
+    {
+      "path": "apps/go/media/logo.jpg",
+      "sha256": "12ef27550cf0ff93494ab831598c124d650f245ace5371e0627a78873763f01e",
+      "bytes": 84946
+    },
+    {
+      "path": "apps/go/media/landing.jpg",
+      "sha256": "0a3464d7b296604079ef6a721d0e335b73521c53db635b0efdc82f324a1abcf8",
+      "bytes": 291681
     }
   ]
 }
