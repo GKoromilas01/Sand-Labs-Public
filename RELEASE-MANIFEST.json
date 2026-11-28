@@ -1,11 +1,11 @@
 {
-  "version": "4.12",
+  "version": "4.13",
   "date": "2026-11-28",
   "files": [
     {
       "path": "index.html",
-      "sha256": "9baa39c12e647bc8c74f905731c792f4e1344287531d10621221c85859edb8a2",
-      "bytes": 24791
+      "sha256": "61ea3559836b8d7efbb0bbbb2dc8a3514fd4732d9af89aa3dbdad8afcc7f0ff1",
+      "bytes": 24762
     },
     {
       "path": "dashboard.css",
@@ -14,8 +14,8 @@
     },
     {
       "path": "projects.json",
-      "sha256": "5f1076b921274b43a9f1f94f27e65fa9b39fad0cf0b1949371ff6001ffb7f179",
-      "bytes": 11055
+      "sha256": "c1d633a22ad7b5028ea7c6d112b429ff5b459de7b9ffb821700acd3c384e36d7",
+      "bytes": 11026
     },
     {
       "path": "apps/bios/app.js",
@@ -109,13 +109,13 @@
     },
     {
       "path": "apps/pavlos/game.js",
-      "sha256": "ed6cb9e9a2163cfa37d4dedd4c09298843676fbcef936251630c360c19be1f59",
-      "bytes": 13111
+      "sha256": "53e4e621e9861d03015c39f6f225e2dcf53d1c7230c47f9710eaddc0832444b1",
+      "bytes": 12528
     },
     {
       "path": "apps/pavlos/index.html",
-      "sha256": "198397b8e25b26fd31e12c54de61efeb6bcb5470c9c1b8aee7ce989d6a161bf3",
-      "bytes": 22324
+      "sha256": "0e9bbe041f096129773a93b443ea00cf411eab977e11634902947ab31a8cb764",
+      "bytes": 21810
     },
     {
       "path": "apps/pavlos/style.css",
@@ -124,8 +124,8 @@
     },
     {
       "path": "apps/pavlos/language.js",
-      "sha256": "0790e7a8303a6cb0fc18ab3b9058778ddd94241d87f24dd8b00e52267404ccd3",
-      "bytes": 28362
+      "sha256": "8e782b8b8b5385b6edc74d88275bbc702d4a9d7c3d287a25bf882c4ea2faa248",
+      "bytes": 28251
     },
     {
       "path": "apps/pavlos/world.js",
@@ -631,11 +631,6 @@
       "path": "assets/coin-intel-desk.jpg",
       "sha256": "14132771729b6a5ee6fcba7ec7543c311d7586be271efe28336a3a01af992cd0",
       "bytes": 358070
-    },
-    {
-      "path": "apps/pavlos/radio.js",
-      "sha256": "a67f7c1620c9fc96a5d09ff4c078f4f8e0f0fb60e6fd4325a9915591e92990b9",
-      "bytes": 4011
     }
   ]
 }

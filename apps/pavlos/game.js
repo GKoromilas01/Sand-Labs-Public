@@ -1,6 +1,6 @@
 'use strict';
 (()=>{
- const $=id=>document.getElementById(id);let state=PavlosPuzzle.initial(),selected=null,started=false,room='cafe',radioSelected=false;const main=document.querySelector('.cabinet');main.inert=true;
+ const $=id=>document.getElementById(id);let state=PavlosPuzzle.initial(),selected=null,started=false,room='cafe';const main=document.querySelector('.cabinet');main.inert=true;
  const svg=$('scene').querySelector('svg'),cafeArt=svg.innerHTML,hero=$('pavlos-art').outerHTML;
  const labels={mitsos:'Talk to Mitsos',radio:'Use Radio',spoon:'Pick up Spoon',ledger:'Inspect Ledger',speech:'Make a speech',grinder:'Coffee grinder',poster:'Read Poster',clerk:'Talk to the clerk',fountain:'The fountain',key:'Pick up brass key',boat:'Talk to the captain',gull:'The gull'};
  const items={spoon:'🥄 Spoon',key:'Brass key',coffee:'Coffee',permit:'Festival permit'};
@@ -9,9 +9,9 @@
  $('inventoryToggle').onclick=()=>{const open=$('inventoryDrawer').hidden;$('inventoryDrawer').hidden=!open;$('inventoryToggle').setAttribute('aria-expanded',String(open));};
  $('howTo').onclick=()=>$('howToDialog').showModal();$('closeHowTo').onclick=()=>$('howToDialog').close();$('howToDialog').addEventListener('close',()=>$('howTo').focus());
  $('stopVoice').onclick=()=>{$('voiceEnabled').checked=false;PavlosVoice.stop();};$('replayLine').onclick=()=>PavlosVoice.say(PavlosLanguage.text(state.line),true);
- function travel(where){if(!PavlosWorld.rooms[where])return;if(where!==room)radioSelected=false;room=where;svg.innerHTML=room==='cafe'?cafeArt:PavlosWorld.rooms[room].art+hero;document.querySelectorAll('.scene>.spot').forEach(el=>el.hidden=room!=='cafe');$('scene').dataset.room=room;document.querySelectorAll('[data-room]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.room===room)));const controls=document.querySelector('.object-buttons');controls.replaceChildren();for(const action of PavlosWorld.rooms[room].actions){const b=document.createElement('button');b.dataset.target=action;b.textContent=labels[action];controls.append(b);}render();if(started)syncAudio();}
+ function travel(where){if(!PavlosWorld.rooms[where])return;room=where;svg.innerHTML=room==='cafe'?cafeArt:PavlosWorld.rooms[room].art+hero;document.querySelectorAll('.scene>.spot').forEach(el=>el.hidden=room!=='cafe');$('scene').dataset.room=room;document.querySelectorAll('[data-room]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.room===room)));const controls=document.querySelector('.object-buttons');controls.replaceChildren();for(const action of PavlosWorld.rooms[room].actions){const b=document.createElement('button');b.dataset.target=action;b.textContent=labels[action];controls.append(b);}render();if(started)syncAudio();}
  function render(){
-  document.dispatchEvent(new CustomEvent('pavlos:radio-ready',{detail:{room,started}}));$('speaker').textContent=state.speaker.toLocaleUpperCase('el');$('line').textContent=state.line;
+  $('speaker').textContent=state.speaker.toLocaleUpperCase('el');$('line').textContent=state.line;
   if(room==='cafe'){$('radio-spoon')?.setAttribute('visibility',state.fixed?'visible':'hidden');if($('spoon-art'))$('spoon-art').style.opacity=state.inventory.includes('spoon')||state.fixed?'0':'1';if($('ledger-art'))$('ledger-art').style.opacity=state.won?'.3':'1';}
   $('step1').classList.toggle('done',state.fixed);$('step2').classList.toggle('done',state.poster);$('step3').classList.toggle('done',state.distracted);
   $('objective').textContent=selected==='key'?'Take the brass key to the café grinder.':selected==='coffee'?'Take the coffee to the clerk in the square.':selected==='permit'?'Show the permit to the harbour captain.':state.journeyWon?'The festival ferry is approved. You can still visit every location.':state.won?'Explore the harbour for a key; Mitsos needs it for his grinder.':!state.fixed?(state.inventory.includes('spoon')?'Next: use Spoon on Radio.':'First: pick up the Spoon, or explore the other locations.'):!state.poster?'Next: read the Poster in the square.':!state.distracted?'Return to Mitsos and Make a speech.':'Now: inspect the Ledger.';
@@ -19,11 +19,11 @@
   $('inventoryCount').textContent=String(state.inventory.length);$('selection').textContent=selected==='spoon'?'✓ Spoon selected. Click Radio to use it. Escape: deselect.':selected?PavlosLanguage.text(items[selected])+': '+PavlosLanguage.text('Selected. Click the object or person to use it.'):'Items you collect appear here. Click an item to select it.';
   document.querySelector('.pockets').classList.toggle('has-item',state.inventory.length>0);$('hint').disabled=false;$('ending').hidden=!state.won;$('journeyEnding').hidden=!state.journeyWon;
  }
- document.addEventListener('click',e=>{const b=e.target.closest('[data-target]');if(!b||!started||b.hidden)return;const previous=state;state=PavlosPuzzle.act(state,b.dataset.target,selected);const added=state.inventory.find(x=>!previous.inventory.includes(x));if(added){selected=added;$('inventoryDrawer').hidden=false;$('inventoryToggle').setAttribute('aria-expanded','true');}else if(selected&&!state.inventory.includes(selected))selected=null;render();if(b.dataset.target==='radio'&&room==='cafe'){radioSelected=true;wanted=true;syncAudio();}if(!document.body.classList.contains("radio-playing"))PavlosVoice.say(PavlosLanguage.text(state.line));if(added)$('inventoryTitle').scrollIntoView({block:'nearest'});if(!previous.won&&state.won){$('endingTitle').focus();$('ending').scrollIntoView({block:'nearest'});}});
+ document.addEventListener('click',e=>{const b=e.target.closest('[data-target]');if(!b||!started||b.hidden)return;const previous=state;state=PavlosPuzzle.act(state,b.dataset.target,selected);const added=state.inventory.find(x=>!previous.inventory.includes(x));if(added){selected=added;$('inventoryDrawer').hidden=false;$('inventoryToggle').setAttribute('aria-expanded','true');}else if(selected&&!state.inventory.includes(selected))selected=null;render();PavlosVoice.say(PavlosLanguage.text(state.line));if(added)$('inventoryTitle').scrollIntoView({block:'nearest'});if(!previous.won&&state.won){$('endingTitle').focus();$('ending').scrollIntoView({block:'nearest'});}});
  document.querySelectorAll('[data-room]').forEach(b=>b.onclick=()=>travel(b.dataset.room));
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&started&&!$('howToDialog').open){const id=document.activeElement?.id;selected=null;render();$(id)?.focus();}});
  $('hint').onclick=()=>{$('hintText').textContent=state.won&&!state.journeyWon?'Harbour key → café grinder → coffee to the square clerk → permit to the harbour captain.':!state.fixed?'Pick up the Spoon and use it on the Radio.':!state.poster?'Travel to the square and read the Poster.':!state.distracted?'Return to the café and Make a speech.':'Inspect the Ledger. You can also explore the harbour and help the festival.';};
- function reset(){PavlosVoice.stop();state=PavlosPuzzle.initial();selected=null;radioSelected=false;$('hintText').textContent='';$('inventoryDrawer').hidden=true;$('inventoryToggle').setAttribute('aria-expanded','false');travel('cafe');document.querySelector('.object-buttons button').focus({preventScroll:true});window.scrollTo(0,0);fitScene();}
+ function reset(){PavlosVoice.stop();state=PavlosPuzzle.initial();selected=null;$('hintText').textContent='';$('inventoryDrawer').hidden=true;$('inventoryToggle').setAttribute('aria-expanded','false');travel('cafe');document.querySelector('.object-buttons button').focus({preventScroll:true});window.scrollTo(0,0);fitScene();}
  $('restart').onclick=reset;$('again').onclick=reset;
  function fitScene(){
   if(!started)return;
@@ -86,9 +86,8 @@
    if(!active){active=true;beat();}document.body.classList.add('music-playing');
   }catch(e){wanted=false;stopSound();soundUI();$('hintText').textContent='Ο ήχος δεν είναι διαθέσιμος σε αυτόν τον browser. Το παιχνίδι συνεχίζεται κανονικά.';}
  }
- function syncAudio(){soundUI();if(!wanted||document.hidden){stopSound();window.PavlosRadio?.stop();return;}if(room==='cafe'&&radioSelected&&window.PavlosRadio){stopSound();window.PavlosRadio.start();}else{window.PavlosRadio?.stop();playSound();}}
+ function syncAudio(){soundUI();if(!wanted||document.hidden){stopSound();return;}playSound();}
  $('sound').addEventListener('click',()=>{wanted=!wanted;syncAudio();});
- document.addEventListener('pavlos:radio-request',e=>{radioSelected=!!e.detail;if(radioSelected)wanted=true;syncAudio();});
  $('volume').addEventListener('input',()=>{if(context&&active)master.gain.setValueAtTime(Number($('volume').value)/100*.4,context.currentTime);});
  document.addEventListener('visibilitychange',syncAudio);
  document.addEventListener('pavlos:external-video',()=>{wanted=false;stopSound();soundUI();});
