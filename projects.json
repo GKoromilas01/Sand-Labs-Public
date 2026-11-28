@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "4.16",
+  "pageVersion": "4.17",
   "updated": "2026-11-28",
   "projects": [
     {
@@ -252,33 +252,6 @@
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sw.md",
       "version": "0.5",
       "category": "tools"
-    },
-    {
-      "id": "chronoscope",
-      "name": "The Chronoscope",
-      "mark": "CH",
-      "tint": "#E5C78F",
-      "alias": "",
-      "what": "Explore science, history and big ideas through a growing video library.",
-      "st": "dev",
-      "stl": "Working prototype",
-      "version": "0.5.1",
-      "main": {
-        "t": "The Chronoscope 0.5.1",
-        "u": "apps/chronoscope/index.html?v=0.5.1",
-        "d": "27 Nov 2026",
-        "label": "Open The Chronoscope"
-      },
-      "more": [
-        {
-          "t": "The Chronoscope on YouTube",
-          "u": "https://www.youtube.com/@The-Chronoscope",
-          "d": "27 Nov 2026"
-        }
-      ],
-      "next": "Sixteen subject shelves and supplied discovery artwork. Retired topics preserve old episode plans. Video production remains paused.",
-      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/chronoscope.md",
-      "category": "creative"
     },
     {
       "id": "pitchlab",

@@ -1,3 +1,7 @@
+## Sand Labs4.17 — The Chronoscope removed
+The owner cancelled The Chronoscope and requested removal from Sand Labs. Removed its catalogue/search/feedback entry and public hosted app files; retain private source/backlog only as an archive. Do not restore, develop, generate media or upload anything for it unless the owner explicitly requests it again. No action on the separately owned YouTube channel. Other app versions unchanged.
+Eight active catalogue entries remain.
+
 ## Sand Labs4.16 / Pavlos0.4
 Pavlos0.4: The Festival That Nobody Organized. Five freely reachable locations including new original SVG community hall/backstage; tools/cable microphone repair, rope/curtain programme recovery, hall lectern, captain supply delivery and festival finale. Original café and permit endings/debt preserved and can run in parallel. Three-step hints, current-location label, full-height subtitles, validated format1 local autosave/Continue, JSON export and reviewed in-game/title restore. Corrupt saved bytes can be downloaded unchanged; storage failure stays playable. Original music retained, no YouTube radio, no new generated media or paid voice service. New dialogue uses existing optional speech fallback where available, not newly recorded natural voices.
 Authoritative source and verification are in private Sand-Labs-Applications, apps/pavlos/CLAUDE.md and docs/plans/2026-11-28-pavlos-festival.md. Backups remain private to the user/device. All other app versions unchanged.

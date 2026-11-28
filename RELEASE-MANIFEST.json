@@ -1,11 +1,11 @@
 {
-  "version": "4.16",
+  "version": "4.17",
   "date": "2026-11-28",
   "files": [
     {
       "path": "index.html",
-      "sha256": "f724543787141efcf470f8a001948a88c4cd836807166f5aeb18cbc1287ff369",
-      "bytes": 28996
+      "sha256": "f7b78a3c48a2b9c7854ce792a317ae37d914e577f18853e05c903438f673e3d6",
+      "bytes": 27866
     },
     {
       "path": "dashboard.css",
@@ -14,8 +14,8 @@
     },
     {
       "path": "projects.json",
-      "sha256": "488ac5a003bfa4571817bb573e64a17544ea6811631742d3e752035799132f83",
-      "bytes": 10877
+      "sha256": "bcc01cb24cd8611a7b434448d77ea4919b15e0d78d67a8592597665329dfe744",
+      "bytes": 9919
     },
     {
       "path": "apps/bios/app.js",
@@ -46,31 +46,6 @@
       "path": "apps/bios/reflection.js",
       "sha256": "c234702bcd1b3ba7bc1e008ede07668ea517cdc27d2c35892d457b1e7b39d925",
       "bytes": 1710
-    },
-    {
-      "path": "apps/chronoscope/app.js",
-      "sha256": "751aa8d8fe86f77d961836586e9defd2e0ed3ec9cbd98e958426de53b6bb592d",
-      "bytes": 2307
-    },
-    {
-      "path": "apps/chronoscope/index.html",
-      "sha256": "1cc32ac93e0370f9c177a80b60e5e683be597ce90e074a7932069c6cb0d361e6",
-      "bytes": 5480
-    },
-    {
-      "path": "apps/chronoscope/style.css",
-      "sha256": "7426771e684ae65aa3f097c2faf23422955e09f2b6117e3a0c8df662db1a364b",
-      "bytes": 6099
-    },
-    {
-      "path": "apps/chronoscope/library.js",
-      "sha256": "3a6f6d01dafd2ffbf0f0b758fe0720c30caed24913bfe200c68f426e0e3f684c",
-      "bytes": 1990
-    },
-    {
-      "path": "apps/chronoscope/library-ui.js",
-      "sha256": "961562ddde7f96050dfc80d538c09f85caa33e6d5d31aad460d0787d90466fb3",
-      "bytes": 3197
     },
     {
       "path": "apps/isegoria/app.js",
@@ -281,16 +256,6 @@
       "path": "apps/bios/media/landing.jpg",
       "sha256": "313b953d80f1c681b286ddb1c408066a69502ad47f11df9fb8ac10b6673d2bf9",
       "bytes": 304261
-    },
-    {
-      "path": "apps/chronoscope/media/landing.jpg",
-      "sha256": "603a2310242e71c9abc0f2aa1eb5e444ca6e79e58c786fb32430ba670c847a10",
-      "bytes": 356114
-    },
-    {
-      "path": "apps/chronoscope/media/chronoscope-logo.png",
-      "sha256": "bd1d2bcc2d10d478ebe86721de7ed3222954173aa81a59bb14c8cd3b8a71d083",
-      "bytes": 1355645
     },
     {
       "path": "apps/isegoria/media/landing.jpg",
