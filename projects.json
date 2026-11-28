@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "4.11",
+  "pageVersion": "4.12",
   "updated": "2026-11-28",
   "projects": [
     {
@@ -289,15 +289,15 @@
       "what": "Explore football predictions, follow final results and see how the analysis performs.",
       "st": "dev",
       "stl": "Working prototype",
-      "version": "0.11.0",
+      "version": "0.12.0",
       "main": {
-        "t": "Pitch Lab 0.11.0",
-        "u": "apps/pitchlab/index.html?v=0.11.0",
+        "t": "Pitch Lab 0.12.0",
+        "u": "apps/pitchlab/index.html?v=0.12.0",
         "d": "28 Nov 2026",
         "label": "Open Pitch Lab"
       },
       "more": [],
-      "next": "All-date counts and visible prediction-versus-result status; Statistics includes daily, weekly, monthly and overall displayed-prediction results. Existing history retained; device data not inspected here.",
+      "next": "Refresh fixtures, pre-match news warnings and results. Matching duplicate records count once, with original predictions preserved.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/pitchlab.md",
       "category": "tools"
     }
