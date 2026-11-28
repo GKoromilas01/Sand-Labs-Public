@@ -1,41 +1,41 @@
 {
-  "version": "4.13",
+  "version": "4.14",
   "date": "2026-11-28",
   "files": [
     {
       "path": "index.html",
-      "sha256": "61ea3559836b8d7efbb0bbbb2dc8a3514fd4732d9af89aa3dbdad8afcc7f0ff1",
-      "bytes": 24762
+      "sha256": "bcecce12216e7fa2dac4e88f5c60df93423277e11511caa22237f7288670027f",
+      "bytes": 28978
     },
     {
       "path": "dashboard.css",
-      "sha256": "6521f535d6b8e6b6aad31879c282486ff50537abb75d1ba0b91e223782277310",
-      "bytes": 10883
+      "sha256": "4e16b4ae580a9c1a1e1ed6fb4954c7895f33ae2acf65a05e2e95eef446c379e2",
+      "bytes": 12756
     },
     {
       "path": "projects.json",
-      "sha256": "c1d633a22ad7b5028ea7c6d112b429ff5b459de7b9ffb821700acd3c384e36d7",
-      "bytes": 11026
+      "sha256": "57abbe6a3c776510600b36e24a49217e383b0f3d2d8aa4ee528e4a44fbb091eb",
+      "bytes": 10859
     },
     {
       "path": "apps/bios/app.js",
-      "sha256": "2cfefa144de4045e12d33c57d90735dc5c9d5af8995d06481e829abfdb302288",
-      "bytes": 17078
+      "sha256": "e395f3aab5d5a050db92e077bd34dc6ef1d16649c84cd2f97166e8285c189d57",
+      "bytes": 23092
     },
     {
       "path": "apps/bios/index.html",
-      "sha256": "2d21420bc18c7d4d0769c59685b8fc98b4641e8674d83715818c3665d92bd373",
-      "bytes": 13388
+      "sha256": "dadc528e1f79f6fd71819a1e3bdef41d90bfb7c66a9b815a15548e792ad2662b",
+      "bytes": 14509
     },
     {
       "path": "apps/bios/model.js",
-      "sha256": "20adab7b9160e8382d006b18f9705f1e0543d83582f36a171425ea03c5b25f64",
-      "bytes": 5526
+      "sha256": "91cc879bcd9074f25a3e93fc6c3ae872df10de3cc4e1703973c8948585a34fa2",
+      "bytes": 6943
     },
     {
       "path": "apps/bios/style.css",
-      "sha256": "b770e45e7a66ea1bfbd787e25236503c5ab1e17ed175e155738ac95bad272af9",
-      "bytes": 5476
+      "sha256": "48aa01c47ac1556d1e32599535ad7eee75ac3952df00eae8dbf461875cd09f92",
+      "bytes": 6677
     },
     {
       "path": "apps/bios/reflection-ui.js",
@@ -79,28 +79,28 @@
     },
     {
       "path": "apps/isegoria/index.html",
-      "sha256": "2d90e528cb24dc053806f3ebb9e422d374282a30391b6037fd75abbb4060c68a",
-      "bytes": 10911
+      "sha256": "3d7a3dfc86a33d962d57553a5d2e8b8ca4de41246fa5fe3561818745e353246d",
+      "bytes": 11938
     },
     {
       "path": "apps/isegoria/model.js",
-      "sha256": "c2afdbaef942a122bb1ff540e062b01558f7efc4c1823ce2d8fbca80f26de866",
-      "bytes": 1995
+      "sha256": "b39f1ca653f38e261250f34b84df01e0ff27c006184b89549fb9511015857b02",
+      "bytes": 5351
     },
     {
       "path": "apps/isegoria/style.css",
-      "sha256": "4c95723cb8a8c66e193b4ac7da5793c79990edb1d953a8c26b01d6a9de588b45",
-      "bytes": 13765
+      "sha256": "eaf37c625b9fad150441446f2127b5f83c0e86476de1c5398e8ba7f9e492b767",
+      "bytes": 15742
     },
     {
       "path": "apps/isegoria/news.json",
-      "sha256": "06a8588a95ecc7791d37b3c46689954335a877bda2b9d81443f1afba83f6413e",
-      "bytes": 2278
+      "sha256": "2fdc613da2950047cde98204ffdfb2d17d5390ffad9d2cc682fb5b5d21d9fda3",
+      "bytes": 2228
     },
     {
       "path": "apps/isegoria/news.js",
-      "sha256": "fdb0120c2fa54c462753e59e9fc08bdf42fa25fe01e2c371f9f79c22ca8aa986",
-      "bytes": 13438
+      "sha256": "d3f75cbd3073e5532c38a5b0b2756a342e97bc13249b07f7629a9af6ab932165",
+      "bytes": 20066
     },
     {
       "path": "apps/pavlos/engine.js",

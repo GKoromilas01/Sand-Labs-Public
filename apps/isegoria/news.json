@@ -1,62 +1,62 @@
 {
   "schema": 1,
   "sourceUrl": "https://www.bbc.com/news",
-  "capturedAt": "2026-11-27T14:38:41.264164+00:00",
+  "capturedAt": "2026-11-28T07:46:24.680225+00:00",
   "scope": "Headline links captured from BBC News. Article publication times were not supplied by this homepage capture.",
   "stories": [
     {
-      "id": "c820q9wgrpyyo",
-      "title": "Zelensky criticises 'strange' Trump-Putin friendship in BBC interview",
-      "url": "https://www.bbc.com/news/articles/c820q9wgrpyyo",
+      "id": "cm5y10yydln3o",
+      "title": "Two staff killed in Israeli strike on Gaza medical clinic, MSF says",
+      "url": "https://www.bbc.com/news/articles/cm5y10yydln3o",
       "source": "BBC News",
       "publishedAt": null
     },
     {
-      "id": "cre3dj5n7dpwo",
-      "title": "Hundreds of thousands still without power after storms hit US on Thanksgiving",
-      "url": "https://www.bbc.com/news/articles/cre3dj5n7dpwo",
+      "id": "c8wy5p4gdnwvo",
+      "title": "Spanish PM and rivals rally supporters in final pitch for votes",
+      "url": "https://www.bbc.com/news/articles/c8wy5p4gdnwvo",
       "source": "BBC News",
       "publishedAt": null
     },
     {
-      "id": "c6ly7jgv7jzdo",
-      "title": "Inside Saudi Arabia, Houthi attacks test kingdom's image of security",
-      "url": "https://www.bbc.com/news/articles/c6ly7jgv7jzdo",
+      "id": "cmx2898wq2qjo",
+      "title": "'Poison seller' Kenneth Law apologises in court to the families of his victims",
+      "url": "https://www.bbc.com/news/articles/cmx2898wq2qjo",
       "source": "BBC News",
       "publishedAt": null
     },
     {
-      "id": "ckr5gr4g8gn5o",
-      "title": "Leaders clash in final Spain election debate as housing dominates run-in",
-      "url": "https://www.bbc.com/news/articles/ckr5gr4g8gn5o",
+      "id": "cq36gk151xkdo",
+      "title": "Turkish officials 'destroyed' pro-opposition TV channel, owner tells BBC",
+      "url": "https://www.bbc.com/news/articles/cq36gk151xkdo",
       "source": "BBC News",
       "publishedAt": null
     },
     {
-      "id": "ck792lq4xrero",
-      "title": "'I wouldn't be here without you': Student praises man who stopped UK train attacker",
-      "url": "https://www.bbc.com/news/articles/ck792lq4xrero",
+      "id": "cme3d4y094x7o",
+      "title": "Behind China's spectacular rise, voices who defied it say they are being drowned out",
+      "url": "https://www.bbc.com/news/articles/cme3d4y094x7o",
       "source": "BBC News",
       "publishedAt": null
     },
     {
-      "id": "ckr5grlq78n9o",
-      "title": "Ex-media executive admits saying Australian child sex abuse survivor 'looking to be raped again'",
-      "url": "https://www.bbc.com/news/articles/ckr5grlq78n9o",
+      "id": "c6zxvy9j0wpjo",
+      "title": "Catherine's emotional cancer documentary strips away the stiff upper lip",
+      "url": "https://www.bbc.com/news/articles/c6zxvy9j0wpjo",
       "source": "BBC News",
       "publishedAt": null
     },
     {
-      "id": "cm5y1380q3vgo",
-      "title": "Rare turtles found inside baggage at Amsterdam airport",
-      "url": "https://www.bbc.com/news/articles/cm5y1380q3vgo",
+      "id": "cvwy08g70ldko",
+      "title": "Australian wrestler Bronson Reed dies aged 38, WWE says",
+      "url": "https://www.bbc.com/news/articles/cvwy08g70ldko",
       "source": "BBC News",
       "publishedAt": null
     },
     {
-      "id": "crx209ekq5xdo",
-      "title": "Ex-Kenyan governor jailed for 25 years over pregnant girlfriend's murder",
-      "url": "https://www.bbc.com/news/articles/crx209ekq5xdo",
+      "id": "cwp9d85mlp88o",
+      "title": "Eight killed in Peruvian military helicopter crash",
+      "url": "https://www.bbc.com/news/articles/cwp9d85mlp88o",
       "source": "BBC News",
       "publishedAt": null
     }
