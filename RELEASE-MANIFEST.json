@@ -1,21 +1,21 @@
 {
-  "version": "4.17",
+  "version": "4.18",
   "date": "2026-11-28",
   "files": [
     {
       "path": "index.html",
-      "sha256": "f7b78a3c48a2b9c7854ce792a317ae37d914e577f18853e05c903438f673e3d6",
-      "bytes": 27866
+      "sha256": "0a7cbaf18af2c81d65e050159080d3d72c6f973a8e70789708ac70a5b41596e5",
+      "bytes": 28885
     },
     {
       "path": "dashboard.css",
-      "sha256": "4e16b4ae580a9c1a1e1ed6fb4954c7895f33ae2acf65a05e2e95eef446c379e2",
-      "bytes": 12756
+      "sha256": "e32efc0db1053c18472e44cd2075ea0bc0b578bb4da270d40c8a6426c293c2b8",
+      "bytes": 12831
     },
     {
       "path": "projects.json",
-      "sha256": "bcc01cb24cd8611a7b434448d77ea4919b15e0d78d67a8592597665329dfe744",
-      "bytes": 9919
+      "sha256": "27648345fcf59cdb8ec8f83af75df71876c7fe896130217f3585ebd3a9e14868",
+      "bytes": 10779
     },
     {
       "path": "apps/bios/app.js",
@@ -606,6 +606,56 @@
       "path": "apps/pavlos/save.js",
       "sha256": "45d238f2bd14b5b73c098d0425834c5b0ec595fa325d1751454cbd0e25fc962c",
       "bytes": 2543
+    },
+    {
+      "path": "apps/lens/index.html",
+      "sha256": "67b5802f07c9fc86c1f4af11dddcd1aafe0a038c2aca6474c199c7b5b5bb4007",
+      "bytes": 10909
+    },
+    {
+      "path": "apps/lens/app.js",
+      "sha256": "b1496c607cef3faa1a1e333c8d1370e23633601fee6dc36c44d1c6b6c1eca36d",
+      "bytes": 19013
+    },
+    {
+      "path": "apps/lens/model.js",
+      "sha256": "4e2a969ff669523bc803d3582a6c242b4ca9db46a97604b31325aa77e07d7ead",
+      "bytes": 4720
+    },
+    {
+      "path": "apps/lens/style.css",
+      "sha256": "40ddd5edad49838a1bfd5c5cba3676ab80f6febdcaf8705a419babb4c17bc6b0",
+      "bytes": 8240
+    },
+    {
+      "path": "apps/lens/store.js",
+      "sha256": "59dd6c591ca42aeef66fe0c6c986abd69c197fa4052609312ea23aab85ed7409",
+      "bytes": 776
+    },
+    {
+      "path": "apps/lens/media/exhibition.jpg",
+      "sha256": "4171e357fc2b232ea4085e6511ac5051cf1f742a904979814d80a68f179f1399",
+      "bytes": 184699
+    },
+    {
+      "path": "apps/lens/media/hero-vibrant.jpg",
+      "sha256": "72f0e35fc1d5e0a4f3d97aa59209158e7db940d8925af8a83fb0fd0d6d07a433",
+      "bytes": 259201
+    },
+    {
+      "path": "apps/lens/media/exhibition-2.jpg",
+      "sha256": "3942e76a242a5c49e615463d57822f93bdbccd68c4be693053e39c7ffccba7f8",
+      "bytes": 223880
+    },
+    {
+      "path": "apps/lens/media/studio.jpg",
+      "sha256": "d7457b7f79b055b363b063a96f72d8a97b45cb572ab5ce86ef332c2a738e4604",
+      "bytes": 179941
+    },
+    {
+      "path": "apps/lens/media/lens-logo.jpg",
+      "sha256": "52a7b43cd2e2b3c6c0864d1c62f383dbcb2bc883977f41603e2a05d675acf7f2",
+      "bytes": 64519
     }
   ]
 }

@@ -110,7 +110,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;b
 <script id="project-data" type="application/json">
 {
   "schemaVersion": 1,
-  "pageVersion": "4.17",
+  "pageVersion": "4.18",
   "updated": "2026-11-28",
   "projects": [
     {
@@ -383,6 +383,27 @@ footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;b
       "next": "Refresh fixtures, pre-match news warnings and results. Matching duplicate records count once, with original predictions preserved.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/pitchlab.md",
       "category": "tools"
+    },
+    {
+      "id": "lens",
+      "name": "Lens",
+      "mark": "LN",
+      "tint": "#E94E78",
+      "alias": "Photography community \u00b7 working name",
+      "what": "Build a personal photo gallery, practise critiques, explore lessons and download your own digital photography book.",
+      "st": "dev",
+      "stl": "Device studio prototype",
+      "version": "0.2",
+      "main": {
+        "t": "Lens 0.2",
+        "u": "apps/lens/index.html?v=0.2",
+        "d": "28 Nov 2026",
+        "label": "Open Lens"
+      },
+      "more": [],
+      "next": "Try local galleries, ordered collections, photography/gear notes and digital book downloads. Shared accounts, public galleries and voting are future backend work.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/lens.md",
+      "category": "creative"
     }
   ]
 }
@@ -396,6 +417,7 @@ const safeUrl=u=>{try{const v=new URL(u,location.href);return ['http:','https:',
 const link=(u,inner,cls)=>`<a ${cls?`class="${cls}" `:''}href="${esc(safeUrl(u))}" target="_blank" rel="noopener">${inner}</a>`;
 const projectIcon=id=>{
  const drawings={
+ lens:'<circle cx="20" cy="20" r="15"/><circle cx="20" cy="20" r="6"/><path d="m13 7 7 7m13 0-8 3m-1 17-2-8M6 23l8-2"/>',
  pitchlab:'<circle cx="20" cy="20" r="15"/><path d="m20 12 8 6-3 9H15l-3-9 8-6ZM20 5v7M6 16l6 2m2 16 1-7m10 0 2 7m1-16 6-2"/>',
  sphinx:'<path d="M8 15h22v10a7 7 0 0 1-7 7h-8a7 7 0 0 1-7-7V15Zm22 2h2a5 5 0 0 1 0 10h-3M13 9V5m7 4V3m7 6V5M5 36h30"/>',
  coin:'<ellipse cx="20" cy="20" rx="13" ry="15"/><ellipse cx="20" cy="20" rx="9" ry="11"/><path d="M23 14h-5a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-5m3-15v18"/>',
@@ -407,7 +429,7 @@ const projectIcon=id=>{
  return '<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(drawings[id]||'<circle cx="20" cy="20" r="12"/>')+'</svg>';
 };
 const categories={games:'Games',tools:'Tools',creative:'Creative',community:'Community'};
-const appArtwork={sc:"assets/shattered-crowns-settlement.jpg",sphinx:"apps/pavlos/media/island-harbour.jpg",coin:"assets/coin-intel-desk.jpg",bio:"apps/bios/media/landing.jpg",life:"apps/zoetica/media/landing.jpg",dd:"apps/isegoria/media/landing.jpg",sw:"apps/softone-advisor/media/landing.jpg",pitchlab:"apps/pitchlab/media/landing.jpg"};
+const appArtwork={lens:"apps/lens/media/lens-logo.jpg",sc:"assets/shattered-crowns-settlement.jpg",sphinx:"apps/pavlos/media/island-harbour.jpg",coin:"assets/coin-intel-desk.jpg",bio:"apps/bios/media/landing.jpg",life:"apps/zoetica/media/landing.jpg",dd:"apps/isegoria/media/landing.jpg",sw:"apps/softone-advisor/media/landing.jpg",pitchlab:"apps/pitchlab/media/landing.jpg"};
 const card=p=>`<article class="card" data-project="${esc(p.id)}"><div class="card-identity"><div class="mark" aria-hidden="true">${projectIcon(p.id)}</div><span class="category">${esc(categories[p.category]||'Tools')}</span></div>${appArtwork[p.id]?`<img class="app-artwork" src="${appArtwork[p.id]}" width="1344" height="768" alt="" loading="lazy" decoding="async">`:""}<h2>${esc(p.name)}</h2><p class="what">${esc(p.what)}</p>${p.main?link(p.main.u,esc(p.main.label||'Open app'),'open'):'<p class="none">Coming soon</p>'}<a class="app-feedback" href="#feedback" data-feedback="${esc(p.id)}">Feedback on ${esc(p.name)}</a></article>`;
 const grid=document.getElementById('grid'),count=document.getElementById('count'),search=document.getElementById('appSearch');let f='all';
 function render(){const query=search.value.trim().toLowerCase(),list=P.filter(p=>(f==='all'||p.category===f)&&(!query||(p.name+' '+p.what).toLowerCase().includes(query)));grid.innerHTML=list.length?list.map(card).join(''):'<p class="empty-search">No apps match this search. Try another name or choose All apps.</p>';count.textContent=list.length+' app'+(list.length===1?'':'s');document.querySelectorAll('[data-f]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.f===f)));renderPaths();}
