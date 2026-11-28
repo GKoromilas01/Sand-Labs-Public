@@ -36,3 +36,7 @@ Approved public browser apps now include Isegoria(index/style/model/app) and Bio
 
 ## Standing publication requirement
 Every approved app update must include actual source files, current version/launch links on Sand Labs and shared continuation notes. First-click music is now explicit for Pavlos0.1.3 and Zoetica0.8.3. Keep silent/mute/volume paths; use only original or properly cleared audio. Do not publish private handoffs or personal memory notes.
+
+
+## Owner artwork update — 2026-11-28
+Chess, Go and Ninth Door 0.1.1 use the six owner-uploaded Leonardo JPEGs: square logos in headers and wide landing artwork in both opening screens and Sand Labs cards. Originals preserved byte-for-byte; SVG fallbacks retained. No generation credits spent. Sand Labs 4.21 remains alphabetical and desktop first. Ninth Door scenario remains undecided; preview is noncanonical. Save formats unchanged.
