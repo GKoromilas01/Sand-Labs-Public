@@ -1,11 +1,11 @@
 {
-  "version": "4.15",
+  "version": "4.16",
   "date": "2026-11-28",
   "files": [
     {
       "path": "index.html",
-      "sha256": "c9d0092b126bc99fdffbb8d03af5e5d269e69549f82d33c365fd708653645908",
-      "bytes": 28949
+      "sha256": "f724543787141efcf470f8a001948a88c4cd836807166f5aeb18cbc1287ff369",
+      "bytes": 28996
     },
     {
       "path": "dashboard.css",
@@ -14,8 +14,8 @@
     },
     {
       "path": "projects.json",
-      "sha256": "f52175f599eb5c881c3640cda6b06ad56496046252894a0aebc0540b3bd821e2",
-      "bytes": 10830
+      "sha256": "488ac5a003bfa4571817bb573e64a17544ea6811631742d3e752035799132f83",
+      "bytes": 10877
     },
     {
       "path": "apps/bios/app.js",
@@ -104,18 +104,18 @@
     },
     {
       "path": "apps/pavlos/engine.js",
-      "sha256": "8afc48b583e937827a54d8f548599b5e0f404c3d100c47ed095d5bce66f81af2",
-      "bytes": 6761
+      "sha256": "e4bdf8d2cf294efde5885baf18819c31bd3143299a80c7eb317ed2035714b1ad",
+      "bytes": 12091
     },
     {
       "path": "apps/pavlos/game.js",
-      "sha256": "53e4e621e9861d03015c39f6f225e2dcf53d1c7230c47f9710eaddc0832444b1",
-      "bytes": 12528
+      "sha256": "19cefd4df31f67b1af723cf29849fdecd396443995d79ec806e6da0d56fa4b48",
+      "bytes": 17138
     },
     {
       "path": "apps/pavlos/index.html",
-      "sha256": "0e9bbe041f096129773a93b443ea00cf411eab977e11634902947ab31a8cb764",
-      "bytes": 21810
+      "sha256": "077c6df6dbea442fc63ada647c2cadd13afb3be7a9e8bae002eb019886e8d02a",
+      "bytes": 24109
     },
     {
       "path": "apps/pavlos/style.css",
@@ -124,13 +124,13 @@
     },
     {
       "path": "apps/pavlos/language.js",
-      "sha256": "8e782b8b8b5385b6edc74d88275bbc702d4a9d7c3d287a25bf882c4ea2faa248",
-      "bytes": 28251
+      "sha256": "35c1943ec7a65e7619e18da3fd94a940d810a0df1145721bcaa7f7adc5dd8f41",
+      "bytes": 42489
     },
     {
       "path": "apps/pavlos/world.js",
-      "sha256": "7c456e3fda4664e7fac87e12ef872e36aaff71450222d292da4de52d0d142e4d",
-      "bytes": 9896
+      "sha256": "6f3083ed18d29ad23787ba186d7092d66722dc964d555cfeb71ed1ebb829a1f8",
+      "bytes": 12498
     },
     {
       "path": "apps/pavlos/voice.js",
@@ -636,6 +636,11 @@
       "path": "apps/zoetica/adaptations.js",
       "sha256": "35e0a77e29b15d2b70704b030678dcdc5cc2e6fad56b1990a88599c38d943c9f",
       "bytes": 1541
+    },
+    {
+      "path": "apps/pavlos/save.js",
+      "sha256": "45d238f2bd14b5b73c098d0425834c5b0ec595fa325d1751454cbd0e25fc962c",
+      "bytes": 2543
     }
   ]
 }
