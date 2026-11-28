@@ -1,3 +1,5 @@
+**Owner override —28 November2026:** The Chronoscope is cancelled and removed from the Sand Labs catalogue and hosted apps in4.17. Do not restore it from historical instructions below. See AI-CONTINUATION.md.
+
 **Latest candidate: Sand Labs 4.9** — Pavlos0.3.3, Pitch Lab0.11.0, IT Consultant0.5, Zoetica0.8.6. Read the current AI continuation index and source handoffs; publication must be verified. No new voice/media generation, no paid API, no Shattered Crowns work.
 
 **Current publication: Sand Labs 4.8, Bios 0.5 and Agora 0.5.** Read AI-CONTINUATION.md for latest behaviour, limitations and continuation instructions. Owner authorises these updates and final hub links; no new media generation. Shattered Crowns remains paused. Historical version entries below are superseded.
