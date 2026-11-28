@@ -1,11 +1,11 @@
 {
-  "version": "4.22",
+  "version": "4.23",
   "date": "2026-11-28",
   "files": [
     {
       "path": "index.html",
-      "sha256": "3dd89e97dc4c5b7bff30e4f1acd3ca78989a75bcd74dbcb22460f4c722ee2846",
-      "bytes": 31822
+      "sha256": "c29856700d1ac4861f7a5a775e7418a18e58b45faa3d8fce981d68cc17ecc25c",
+      "bytes": 29328
     },
     {
       "path": "dashboard.css",
@@ -14,8 +14,8 @@
     },
     {
       "path": "projects.json",
-      "sha256": "afa45b2616c679c17f222ad07849ce1a476c88a4d0e775e8146a336edaa1db30",
-      "bytes": 13228
+      "sha256": "4fcfb0ffa67b207d41bbe493df662785421ca89723950d1ecd1e8bd003bdee85",
+      "bytes": 13238
     },
     {
       "path": "apps/bios/app.js",
@@ -786,6 +786,16 @@
       "path": "apps/go/media/landing.jpg",
       "sha256": "0a3464d7b296604079ef6a721d0e335b73521c53db635b0efdc82f324a1abcf8",
       "bytes": 291681
+    },
+    {
+      "path": "previews/shattered-crowns-0.68/index.html",
+      "sha256": "521ba8cfbbfb2c109ce670c74d1876fe44b882ae0c15f13321770f3ca101d5e2",
+      "bytes": 51185610
+    },
+    {
+      "path": "previews/shattered-crowns-0.68/provenance.json",
+      "sha256": "9acfa08b7b3e49e9f0b4ab27f8d63538b1bdb51ed6defde8e554d1cda0c64e2f",
+      "bytes": 286
     }
   ]
 }
