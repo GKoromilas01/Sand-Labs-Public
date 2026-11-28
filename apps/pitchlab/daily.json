@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "version": "0.7",
-  "updatedAt": "2026-11-27T11:43:16.576159Z",
+  "updatedAt": "2026-11-28T12:50:39.404375Z",
   "timezone": "Europe/Athens",
-  "notice": "Published starting record. PitchLab now refreshes only when opened or when Refresh is pressed, saving new observations in this browser’s device database. No scheduled collection. Export device data for transfer or shared-database review.",
+  "notice": "Manual shared record update for28 November2026. Ten new pre-match forecasts and observed odds; yesterday source finals reconciled. No scheduled refresh and no real wager. Forecasts/price snapshots are not calibrated or guaranteed.",
   "entries": [
     {
       "id": "2026-11-27-1",
@@ -37,7 +37,7 @@
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
-      "settled": false,
+      "settled": true,
       "verificationNote": "Date, teams and kickoff corroborated by ESPN; original screenshot label retained separately.",
       "originalFixtureLabel": {
         "home": "Nottingham Forest",
@@ -51,13 +51,13 @@
             "name": "Nottingham Forest",
             "teamId": "393",
             "table": {
-              "gamesPlayed": 11.0,
-              "losses": 6.0,
-              "pointDifferential": -6.0,
-              "points": 9.0,
-              "ties": 3.0,
-              "wins": 2.0,
-              "rank": 17.0
+              "gamesPlayed": 11,
+              "losses": 6,
+              "pointDifferential": -6,
+              "points": 9,
+              "ties": 3,
+              "wins": 2,
+              "rank": 17
             },
             "recentMatches": [
               {
@@ -112,13 +112,13 @@
             "name": "Chelsea",
             "teamId": "363",
             "table": {
-              "gamesPlayed": 11.0,
-              "losses": 5.0,
-              "pointDifferential": 0.0,
-              "points": 16.0,
-              "ties": 1.0,
-              "wins": 5.0,
-              "rank": 8.0
+              "gamesPlayed": 11,
+              "losses": 5,
+              "pointDifferential": 0,
+              "points": 16,
+              "ties": 1,
+              "wins": 5,
+              "rank": 8
             },
             "recentMatches": [
               {
@@ -237,7 +237,12 @@
           "providerUpdatedAt": null,
           "note": "Observed source snapshot; no executable-price or closing-line claim."
         }
-      ]
+      ],
+      "hg": 3,
+      "ag": 2,
+      "outcome": "home",
+      "resultSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20261127",
+      "resultCheckedAt": "2026-11-28T12:47:56.000Z"
     },
     {
       "id": "2026-11-27-2",
@@ -266,7 +271,7 @@
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
-      "settled": false,
+      "settled": true,
       "verificationNote": "Date, teams and kickoff corroborated by ESPN; original screenshot label retained separately.",
       "originalFixtureLabel": {
         "home": "Brest",
@@ -280,13 +285,13 @@
             "name": "Brest",
             "teamId": "6997",
             "table": {
-              "gamesPlayed": 11.0,
-              "losses": 3.0,
-              "pointDifferential": 7.0,
-              "points": 18.0,
-              "ties": 3.0,
-              "wins": 5.0,
-              "rank": 6.0
+              "gamesPlayed": 11,
+              "losses": 3,
+              "pointDifferential": 7,
+              "points": 18,
+              "ties": 3,
+              "wins": 5,
+              "rank": 6
             },
             "recentMatches": [
               {
@@ -341,13 +346,13 @@
             "name": "Paris FC",
             "teamId": "6851",
             "table": {
-              "gamesPlayed": 11.0,
-              "losses": 2.0,
-              "pointDifferential": 11.0,
-              "points": 23.0,
-              "ties": 2.0,
-              "wins": 7.0,
-              "rank": 2.0
+              "gamesPlayed": 11,
+              "losses": 2,
+              "pointDifferential": 11,
+              "points": 23,
+              "ties": 2,
+              "wins": 7,
+              "rank": 2
             },
             "recentMatches": [
               {
@@ -466,7 +471,12 @@
           "providerUpdatedAt": null,
           "note": "Observed source snapshot; no executable-price or closing-line claim."
         }
-      ]
+      ],
+      "hg": 1,
+      "ag": 0,
+      "outcome": "home",
+      "resultSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20261127",
+      "resultCheckedAt": "2026-11-28T12:47:56.000Z"
     },
     {
       "id": "2026-11-27-3",
@@ -495,7 +505,7 @@
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
-      "settled": false,
+      "settled": true,
       "verificationNote": "Date, teams and kickoff corroborated by ESPN; original screenshot label retained separately.",
       "originalFixtureLabel": {
         "home": "Werder Bremen",
@@ -509,13 +519,13 @@
             "name": "Werder Bremen",
             "teamId": "137",
             "table": {
-              "gamesPlayed": 10.0,
-              "losses": 2.0,
-              "pointDifferential": 6.0,
-              "points": 18.0,
-              "ties": 3.0,
-              "wins": 5.0,
-              "rank": 6.0
+              "gamesPlayed": 10,
+              "losses": 2,
+              "pointDifferential": 6,
+              "points": 18,
+              "ties": 3,
+              "wins": 5,
+              "rank": 6
             },
             "recentMatches": [
               {
@@ -570,13 +580,13 @@
             "name": "Borussia Mönchengladbach",
             "teamId": "268",
             "table": {
-              "gamesPlayed": 10.0,
-              "losses": 8.0,
-              "pointDifferential": -14.0,
-              "points": 4.0,
-              "ties": 1.0,
-              "wins": 1.0,
-              "rank": 18.0
+              "gamesPlayed": 10,
+              "losses": 8,
+              "pointDifferential": -14,
+              "points": 4,
+              "ties": 1,
+              "wins": 1,
+              "rank": 18
             },
             "recentMatches": [
               {
@@ -695,7 +705,12 @@
           "providerUpdatedAt": null,
           "note": "Observed source snapshot; no executable-price or closing-line claim."
         }
-      ]
+      ],
+      "hg": 3,
+      "ag": 3,
+      "outcome": "draw",
+      "resultSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20261127",
+      "resultCheckedAt": "2026-11-28T12:47:56.000Z"
     },
     {
       "id": "2026-11-27-4",
@@ -724,7 +739,7 @@
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
-      "settled": false,
+      "settled": true,
       "verificationNote": "Date, teams and kickoff corroborated by ESPN; original screenshot label retained separately.",
       "originalFixtureLabel": {
         "home": "Levante",
@@ -738,13 +753,13 @@
             "name": "Levante",
             "teamId": "1538",
             "table": {
-              "gamesPlayed": 13.0,
-              "losses": 5.0,
-              "pointDifferential": -5.0,
-              "points": 12.0,
-              "ties": 6.0,
-              "wins": 2.0,
-              "rank": 15.0
+              "gamesPlayed": 13,
+              "losses": 5,
+              "pointDifferential": -5,
+              "points": 12,
+              "ties": 6,
+              "wins": 2,
+              "rank": 15
             },
             "recentMatches": [
               {
@@ -799,13 +814,13 @@
             "name": "Racing Santander",
             "teamId": "87",
             "table": {
-              "gamesPlayed": 13.0,
-              "losses": 6.0,
-              "pointDifferential": -12.0,
-              "points": 17.0,
-              "ties": 2.0,
-              "wins": 5.0,
-              "rank": 7.0
+              "gamesPlayed": 13,
+              "losses": 6,
+              "pointDifferential": -12,
+              "points": 17,
+              "ties": 2,
+              "wins": 5,
+              "rank": 7
             },
             "recentMatches": [
               {
@@ -907,8 +922,8 @@
         {
           "observedAt": "2026-11-27T11:41:01.875152Z",
           "provider": "DraftKings",
-          "homeOdds": 2.0,
-          "drawOdds": 4.0,
+          "homeOdds": 2,
+          "drawOdds": 4,
           "awayOdds": 3.3,
           "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/summary?event=401882791",
           "providerUpdatedAt": null,
@@ -917,14 +932,19 @@
         {
           "observedAt": "2026-11-27T11:43:16.576159Z",
           "provider": "DraftKings",
-          "homeOdds": 2.0,
-          "drawOdds": 4.0,
+          "homeOdds": 2,
+          "drawOdds": 4,
           "awayOdds": 3.3,
           "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/summary?event=401882791",
           "providerUpdatedAt": null,
           "note": "Observed source snapshot; no executable-price or closing-line claim."
         }
-      ]
+      ],
+      "hg": 1,
+      "ag": 3,
+      "outcome": "away",
+      "resultSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20261127",
+      "resultCheckedAt": "2026-11-28T12:47:56.000Z"
     },
     {
       "id": "2026-11-27-5",
@@ -953,7 +973,7 @@
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
-      "settled": false,
+      "settled": true,
       "verificationNote": "Date, teams and kickoff corroborated by ESPN; original screenshot label retained separately.",
       "originalFixtureLabel": {
         "home": "Venezia",
@@ -967,13 +987,13 @@
             "name": "Venezia",
             "teamId": "17530",
             "table": {
-              "gamesPlayed": 12.0,
-              "losses": 10.0,
-              "pointDifferential": -17.0,
-              "points": 6.0,
-              "ties": 0.0,
-              "wins": 2.0,
-              "rank": 20.0
+              "gamesPlayed": 12,
+              "losses": 10,
+              "pointDifferential": -17,
+              "points": 6,
+              "ties": 0,
+              "wins": 2,
+              "rank": 20
             },
             "recentMatches": [
               {
@@ -1028,13 +1048,13 @@
             "name": "Bologna",
             "teamId": "107",
             "table": {
-              "gamesPlayed": 12.0,
-              "losses": 4.0,
-              "pointDifferential": 2.0,
-              "points": 18.0,
-              "ties": 3.0,
-              "wins": 5.0,
-              "rank": 9.0
+              "gamesPlayed": 12,
+              "losses": 4,
+              "pointDifferential": 2,
+              "points": 18,
+              "ties": 3,
+              "wins": 5,
+              "rank": 9
             },
             "recentMatches": [
               {
@@ -1153,7 +1173,12 @@
           "providerUpdatedAt": null,
           "note": "Observed source snapshot; no executable-price or closing-line claim."
         }
-      ]
+      ],
+      "hg": 0,
+      "ag": 0,
+      "outcome": "draw",
+      "resultSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20261127",
+      "resultCheckedAt": "2026-11-28T12:47:56.000Z"
     },
     {
       "id": "2026-11-27-6",
@@ -1182,7 +1207,7 @@
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
-      "settled": false,
+      "settled": true,
       "research": {
         "checkedAt": "2026-11-27T11:25:27.380384Z",
         "teams": [
@@ -1191,13 +1216,13 @@
             "name": "Southampton",
             "teamId": "376",
             "table": {
-              "gamesPlayed": 17.0,
-              "losses": 3.0,
-              "pointDifferential": 16.0,
-              "points": 28.0,
-              "ties": 5.0,
-              "wins": 9.0,
-              "rank": 6.0
+              "gamesPlayed": 17,
+              "losses": 3,
+              "pointDifferential": 16,
+              "points": 28,
+              "ties": 5,
+              "wins": 9,
+              "rank": 6
             },
             "recentMatches": [
               {
@@ -1252,13 +1277,13 @@
             "name": "Middlesbrough",
             "teamId": "369",
             "table": {
-              "gamesPlayed": 17.0,
-              "losses": 2.0,
-              "pointDifferential": 14.0,
-              "points": 35.0,
-              "ties": 5.0,
-              "wins": 10.0,
-              "rank": 1.0
+              "gamesPlayed": 17,
+              "losses": 2,
+              "pointDifferential": 14,
+              "points": 35,
+              "ties": 5,
+              "wins": 10,
+              "rank": 1
             },
             "recentMatches": [
               {
@@ -1377,7 +1402,12 @@
           "providerUpdatedAt": null,
           "note": "Observed source snapshot; no executable-price or closing-line claim."
         }
-      ]
+      ],
+      "hg": 2,
+      "ag": 0,
+      "outcome": "home",
+      "resultSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20261127",
+      "resultCheckedAt": "2026-11-28T12:47:56.000Z"
     },
     {
       "id": "2026-11-27-7",
@@ -1406,7 +1436,7 @@
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
-      "settled": false,
+      "settled": true,
       "research": {
         "checkedAt": "2026-11-27T11:25:27.380384Z",
         "teams": [
@@ -1415,13 +1445,13 @@
             "name": "Leganés",
             "teamId": "17534",
             "table": {
-              "gamesPlayed": 15.0,
-              "losses": 7.0,
-              "pointDifferential": -8.0,
-              "points": 18.0,
-              "ties": 3.0,
-              "wins": 5.0,
-              "rank": 15.0
+              "gamesPlayed": 15,
+              "losses": 7,
+              "pointDifferential": -8,
+              "points": 18,
+              "ties": 3,
+              "wins": 5,
+              "rank": 15
             },
             "recentMatches": [
               {
@@ -1476,13 +1506,13 @@
             "name": "CD Sabadell",
             "teamId": "11487",
             "table": {
-              "gamesPlayed": 15.0,
-              "losses": 4.0,
-              "pointDifferential": -1.0,
-              "points": 19.0,
-              "ties": 7.0,
-              "wins": 4.0,
-              "rank": 14.0
+              "gamesPlayed": 15,
+              "losses": 4,
+              "pointDifferential": -1,
+              "points": 19,
+              "ties": 7,
+              "wins": 4,
+              "rank": 14
             },
             "recentMatches": [
               {
@@ -1600,7 +1630,12 @@
           "providerUpdatedAt": null,
           "note": "Observed source snapshot; no executable-price or closing-line claim."
         }
-      ]
+      ],
+      "hg": 0,
+      "ag": 0,
+      "outcome": "draw",
+      "resultSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/scoreboard?dates=20261127",
+      "resultCheckedAt": "2026-11-28T12:47:56.000Z"
     },
     {
       "id": "2026-11-27-8",
@@ -1629,7 +1664,7 @@
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
-      "settled": false,
+      "settled": true,
       "research": {
         "checkedAt": "2026-11-27T11:25:27.380384Z",
         "teams": [
@@ -1638,13 +1673,13 @@
             "name": "1. FC Heidenheim 1846",
             "teamId": "6418",
             "table": {
-              "gamesPlayed": 12.0,
-              "losses": 4.0,
-              "pointDifferential": -3.0,
-              "points": 16.0,
-              "ties": 4.0,
-              "wins": 4.0,
-              "rank": 7.0
+              "gamesPlayed": 12,
+              "losses": 4,
+              "pointDifferential": -3,
+              "points": 16,
+              "ties": 4,
+              "wins": 4,
+              "rank": 7
             },
             "recentMatches": [
               {
@@ -1699,13 +1734,13 @@
             "name": "1. FC Nürnberg",
             "teamId": "269",
             "table": {
-              "gamesPlayed": 12.0,
-              "losses": 2.0,
-              "pointDifferential": 12.0,
-              "points": 24.0,
-              "ties": 3.0,
-              "wins": 7.0,
-              "rank": 2.0
+              "gamesPlayed": 12,
+              "losses": 2,
+              "pointDifferential": 12,
+              "points": 24,
+              "ties": 3,
+              "wins": 7,
+              "rank": 2
             },
             "recentMatches": [
               {
@@ -1823,7 +1858,12 @@
           "providerUpdatedAt": null,
           "note": "Observed source snapshot; no executable-price or closing-line claim."
         }
-      ]
+      ],
+      "hg": 3,
+      "ag": 1,
+      "outcome": "home",
+      "resultSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/scoreboard?dates=20261127",
+      "resultCheckedAt": "2026-11-28T12:47:56.000Z"
     },
     {
       "id": "2026-11-27-9",
@@ -1852,7 +1892,7 @@
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
-      "settled": false,
+      "settled": true,
       "research": {
         "checkedAt": "2026-11-27T11:25:27.380384Z",
         "teams": [
@@ -1861,13 +1901,13 @@
             "name": "VfL Bochum",
             "teamId": "121",
             "table": {
-              "gamesPlayed": 12.0,
-              "losses": 6.0,
-              "pointDifferential": -4.0,
-              "points": 14.0,
-              "ties": 2.0,
-              "wins": 4.0,
-              "rank": 11.0
+              "gamesPlayed": 12,
+              "losses": 6,
+              "pointDifferential": -4,
+              "points": 14,
+              "ties": 2,
+              "wins": 4,
+              "rank": 11
             },
             "recentMatches": [
               {
@@ -1922,13 +1962,13 @@
             "name": "SV Darmstadt 98",
             "teamId": "3812",
             "table": {
-              "gamesPlayed": 12.0,
-              "losses": 6.0,
-              "pointDifferential": -10.0,
-              "points": 12.0,
-              "ties": 3.0,
-              "wins": 3.0,
-              "rank": 16.0
+              "gamesPlayed": 12,
+              "losses": 6,
+              "pointDifferential": -10,
+              "points": 12,
+              "ties": 3,
+              "wins": 3,
+              "rank": 16
             },
             "recentMatches": [
               {
@@ -2046,7 +2086,12 @@
           "providerUpdatedAt": null,
           "note": "Observed source snapshot; no executable-price or closing-line claim."
         }
-      ]
+      ],
+      "hg": 2,
+      "ag": 0,
+      "outcome": "home",
+      "resultSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/scoreboard?dates=20261127",
+      "resultCheckedAt": "2026-11-28T12:47:56.000Z"
     },
     {
       "id": "2026-11-27-10",
@@ -2075,7 +2120,7 @@
       "homeP": 0.4265756860207189,
       "drawP": 0.28,
       "awayP": 0.2934243139792811,
-      "settled": false,
+      "settled": true,
       "research": {
         "checkedAt": "2026-11-27T11:25:27.380384Z",
         "teams": [
@@ -2084,13 +2129,13 @@
             "name": "FC Groningen",
             "teamId": "145",
             "table": {
-              "gamesPlayed": 13.0,
-              "losses": 6.0,
-              "pointDifferential": -1.0,
-              "points": 15.0,
-              "ties": 3.0,
-              "wins": 4.0,
-              "rank": 10.0
+              "gamesPlayed": 13,
+              "losses": 6,
+              "pointDifferential": -1,
+              "points": 15,
+              "ties": 3,
+              "wins": 4,
+              "rank": 10
             },
             "recentMatches": [
               {
@@ -2145,13 +2190,13 @@
             "name": "Willem II",
             "teamId": "156",
             "table": {
-              "gamesPlayed": 13.0,
-              "losses": 10.0,
-              "pointDifferential": -30.0,
-              "points": 3.0,
-              "ties": 3.0,
-              "wins": 0.0,
-              "rank": 18.0
+              "gamesPlayed": 13,
+              "losses": 10,
+              "pointDifferential": -30,
+              "points": 3,
+              "ties": 3,
+              "wins": 0,
+              "rank": 18
             },
             "recentMatches": [
               {
@@ -2253,7 +2298,7 @@
           "observedAt": "2026-11-27T11:41:01.875152Z",
           "provider": "DraftKings",
           "homeOdds": 1.2857142857142856,
-          "drawOdds": 6.0,
+          "drawOdds": 6,
           "awayOdds": 8.5,
           "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/summary?event=401875536",
           "providerUpdatedAt": null,
@@ -2263,11 +2308,2077 @@
           "observedAt": "2026-11-27T11:43:16.576159Z",
           "provider": "DraftKings",
           "homeOdds": 1.2857142857142856,
-          "drawOdds": 6.0,
+          "drawOdds": 6,
           "awayOdds": 8.5,
           "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/summary?event=401875536",
           "providerUpdatedAt": null,
           "note": "Observed source snapshot; no executable-price or closing-line claim."
+        }
+      ],
+      "hg": 1,
+      "ag": 1,
+      "outcome": "draw",
+      "resultSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20261127",
+      "resultCheckedAt": "2026-11-28T12:47:56.000Z"
+    },
+    {
+      "id": "espn-eng.1-401879226",
+      "providerEventId": "401879226",
+      "day": "2026-11-28",
+      "league": "Premier League",
+      "home": "Manchester United",
+      "away": "Brentford",
+      "kickoff": "2026-11-28T15:00Z",
+      "recordedAt": "2026-11-28T12:47:56.000Z",
+      "fixtureConfirmed": true,
+      "fixtureSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401879226",
+      "homeP": 0.4265756860207189,
+      "drawP": 0.28,
+      "awayP": 0.2934243139792811,
+      "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
+      "settled": false,
+      "researchStatus": "On-demand source facts; no human selection or verified injury/lineup news.",
+      "researchSources": [
+        {
+          "title": "ESPN fixture, standings and recent scores",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401879226",
+          "checkedAt": "2026-11-28T12:47:56.000Z"
+        }
+      ],
+      "research": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "teams": [
+          {
+            "side": "home",
+            "name": "Manchester United",
+            "teamId": "360",
+            "table": {
+              "gamesPlayed": 11,
+              "losses": 5,
+              "pointDifferential": -9,
+              "points": 8,
+              "ties": 5,
+              "wins": 1,
+              "rank": 19
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-31T12:30Z",
+                "opponent": "Chelsea",
+                "homeGoals": "2",
+                "awayGoals": "0",
+                "homeTeamId": "363",
+                "awayTeamId": "360",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-11-03T20:00Z",
+                "opponent": "AS Roma",
+                "homeGoals": "3",
+                "awayGoals": "2",
+                "homeTeamId": "360",
+                "awayTeamId": "104",
+                "competition": "2026-27 UEFA Champions League"
+              },
+              {
+                "date": "2026-11-08T16:30Z",
+                "opponent": "Aston Villa",
+                "homeGoals": "4",
+                "awayGoals": "4",
+                "homeTeamId": "360",
+                "awayTeamId": "362",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-11-22T16:30Z",
+                "opponent": "Liverpool",
+                "homeGoals": "4",
+                "awayGoals": "0",
+                "homeTeamId": "364",
+                "awayTeamId": "360",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-11-25T20:00Z",
+                "opponent": "Sporting CP",
+                "homeGoals": "2",
+                "awayGoals": "2",
+                "homeTeamId": "2250",
+                "awayTeamId": "360",
+                "competition": "2026-27 UEFA Champions League"
+              }
+            ]
+          },
+          {
+            "side": "away",
+            "name": "Brentford",
+            "teamId": "337",
+            "table": {
+              "gamesPlayed": 11,
+              "losses": 2,
+              "pointDifferential": 9,
+              "points": 17,
+              "ties": 5,
+              "wins": 4,
+              "rank": 6
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-25T14:00Z",
+                "opponent": "Hull City",
+                "homeGoals": "1",
+                "awayGoals": "1",
+                "homeTeamId": "306",
+                "awayTeamId": "337",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-10-28T19:45Z",
+                "opponent": "Sunderland",
+                "homeGoals": "3",
+                "awayGoals": "2",
+                "homeTeamId": "366",
+                "awayTeamId": "337",
+                "competition": "2026-27 English Carabao Cup"
+              },
+              {
+                "date": "2026-10-31T15:00Z",
+                "opponent": "Nottingham Forest",
+                "homeGoals": "2",
+                "awayGoals": "0",
+                "homeTeamId": "337",
+                "awayTeamId": "393",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-11-08T14:00Z",
+                "opponent": "Brighton & Hove Albion",
+                "homeGoals": "2",
+                "awayGoals": "0",
+                "homeTeamId": "331",
+                "awayTeamId": "337",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-11-23T20:00Z",
+                "opponent": "Everton",
+                "homeGoals": "4",
+                "awayGoals": "0",
+                "homeTeamId": "337",
+                "awayTeamId": "368",
+                "competition": "2026-27 English Premier League"
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "Single main provider.",
+          "Small league-only samples, generic priors, no calibration or verified absences."
+        ],
+        "newsCheck": "This refresh retrieves source statistics, not narrative news or a human opinion."
+      },
+      "newsAssessment": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "articles": [
+          {
+            "headline": "Transfer rumors, news: Manchester United's Bruno Fernandes still eyeing way out",
+            "description": "Manchester United captain Bruno Fernandes is still considering his options despite his contract extension. Transfer Talk has the latest.",
+            "published": "2026-11-28T09:57:13Z",
+            "url": "https://www.espn.com/soccer/story/_/id/50619950/transfer-rumors-news-fernandes-manchester-united",
+            "caution": false
+          }
+        ],
+        "caution": false,
+        "probabilitiesAdjusted": false,
+        "method": "Pre-kickoff team-name and availability-keyword screening; not AI interpretation or verified player availability.",
+        "predictionUse": "No eligible availability warning found; absence of a warning does not confirm full availability."
+      },
+      "algorithmForecast": {
+        "homeP": 0.29898846639947335,
+        "drawP": 0.24252294888153111,
+        "awayP": 0.4584885847189956,
+        "mostLikelyScore": "1–1",
+        "scoreP": 0.11330372823496161,
+        "homeLambda": 1.27875,
+        "awayLambda": 1.6387500000000002,
+        "method": "Poisson recent-league goals v1; prior5 games at1.3 goals; home1.08/away0.92; not fitted",
+        "inputs": {
+          "home": {
+            "games": 3,
+            "goalsFor": 4,
+            "goalsAgainst": 10
+          },
+          "away": {
+            "games": 4,
+            "goalsFor": 7,
+            "goalsAgainst": 3
+          }
+        },
+        "recordedAt": "2026-11-28T12:47:56.000Z",
+        "pick": "away",
+        "limitations": "Small league-only sample; unfitted priors; no opponent adjustment or verified absences."
+      },
+      "kickoffAthens": "28/11/2026, 17:00:00",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-28T12:47:56.000Z",
+          "provider": "DraftKings",
+          "homeOdds": 2.3,
+          "drawOdds": 3.7,
+          "awayOdds": 2.9,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401879226",
+          "providerUpdatedAt": null,
+          "note": "Observed ESPN/DraftKings snapshot, no executable or closing-price claim."
+        }
+      ]
+    },
+    {
+      "id": "espn-eng.1-401879227",
+      "providerEventId": "401879227",
+      "day": "2026-11-28",
+      "league": "Premier League",
+      "home": "Leeds United",
+      "away": "Coventry City",
+      "kickoff": "2026-11-28T15:00Z",
+      "recordedAt": "2026-11-28T12:47:56.000Z",
+      "fixtureConfirmed": true,
+      "fixtureSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401879227",
+      "homeP": 0.4265756860207189,
+      "drawP": 0.28,
+      "awayP": 0.2934243139792811,
+      "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
+      "settled": false,
+      "researchStatus": "On-demand source facts; no human selection or verified injury/lineup news.",
+      "researchSources": [
+        {
+          "title": "ESPN fixture, standings and recent scores",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401879227",
+          "checkedAt": "2026-11-28T12:47:56.000Z"
+        }
+      ],
+      "research": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "teams": [
+          {
+            "side": "home",
+            "name": "Leeds United",
+            "teamId": "357",
+            "table": {
+              "gamesPlayed": 11,
+              "losses": 2,
+              "pointDifferential": 5,
+              "points": 17,
+              "ties": 5,
+              "wins": 4,
+              "rank": 7
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-18T13:00Z",
+                "opponent": "Manchester United",
+                "homeGoals": "1",
+                "awayGoals": "1",
+                "homeTeamId": "357",
+                "awayTeamId": "360",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-10-25T16:30Z",
+                "opponent": "Sunderland",
+                "homeGoals": "0",
+                "awayGoals": "0",
+                "homeTeamId": "366",
+                "awayTeamId": "357",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-10-31T15:00Z",
+                "opponent": "AFC Bournemouth",
+                "homeGoals": "2",
+                "awayGoals": "0",
+                "homeTeamId": "349",
+                "awayTeamId": "357",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-11-07T12:30Z",
+                "opponent": "Tottenham Hotspur",
+                "homeGoals": "1",
+                "awayGoals": "0",
+                "homeTeamId": "357",
+                "awayTeamId": "367",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-11-21T15:00Z",
+                "opponent": "Chelsea",
+                "homeGoals": "1",
+                "awayGoals": "4",
+                "homeTeamId": "363",
+                "awayTeamId": "357",
+                "competition": "2026-27 English Premier League"
+              }
+            ]
+          },
+          {
+            "side": "away",
+            "name": "Coventry City",
+            "teamId": "388",
+            "table": {
+              "gamesPlayed": 11,
+              "losses": 7,
+              "pointDifferential": -8,
+              "points": 12,
+              "ties": 0,
+              "wins": 4,
+              "rank": 15
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-19T19:00Z",
+                "opponent": "Tottenham Hotspur",
+                "homeGoals": "3",
+                "awayGoals": "1",
+                "homeTeamId": "367",
+                "awayTeamId": "388",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-10-24T14:00Z",
+                "opponent": "Fulham",
+                "homeGoals": "0",
+                "awayGoals": "1",
+                "homeTeamId": "388",
+                "awayTeamId": "370",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-10-31T15:00Z",
+                "opponent": "Sunderland",
+                "homeGoals": "3",
+                "awayGoals": "1",
+                "homeTeamId": "388",
+                "awayTeamId": "366",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-11-06T20:00Z",
+                "opponent": "Everton",
+                "homeGoals": "3",
+                "awayGoals": "1",
+                "homeTeamId": "368",
+                "awayTeamId": "388",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-11-21T15:00Z",
+                "opponent": "Crystal Palace",
+                "homeGoals": "3",
+                "awayGoals": "2",
+                "homeTeamId": "388",
+                "awayTeamId": "384",
+                "competition": "2026-27 English Premier League"
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "Single main provider.",
+          "Small league-only samples, generic priors, no calibration or verified absences."
+        ],
+        "newsCheck": "This refresh retrieves source statistics, not narrative news or a human opinion."
+      },
+      "newsAssessment": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "articles": [],
+        "caution": false,
+        "probabilitiesAdjusted": false,
+        "method": "Pre-kickoff team-name and availability-keyword screening; not AI interpretation or verified player availability.",
+        "predictionUse": "No eligible availability warning found; absence of a warning does not confirm full availability."
+      },
+      "algorithmForecast": {
+        "homeP": 0.4694789608601903,
+        "drawP": 0.25090398626531074,
+        "awayP": 0.27961705287449895,
+        "mostLikelyScore": "1–1",
+        "scoreP": 0.11910933096495123,
+        "homeLambda": 1.566,
+        "awayLambda": 1.1500000000000001,
+        "method": "Poisson recent-league goals v1; prior5 games at1.3 goals; home1.08/away0.92; not fitted",
+        "inputs": {
+          "home": {
+            "games": 5,
+            "goalsFor": 6,
+            "goalsAgainst": 4
+          },
+          "away": {
+            "games": 5,
+            "goalsFor": 8,
+            "goalsAgainst": 10
+          }
+        },
+        "recordedAt": "2026-11-28T12:47:56.000Z",
+        "pick": "home",
+        "limitations": "Small league-only sample; unfitted priors; no opponent adjustment or verified absences."
+      },
+      "kickoffAthens": "28/11/2026, 17:00:00",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-28T12:47:56.000Z",
+          "provider": "DraftKings",
+          "homeOdds": 1.4878048780487805,
+          "drawOdds": 4.5,
+          "awayOdds": 6.5,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401879227",
+          "providerUpdatedAt": null,
+          "note": "Observed ESPN/DraftKings snapshot, no executable or closing-price claim."
+        }
+      ]
+    },
+    {
+      "id": "espn-eng.1-401878752",
+      "providerEventId": "401878752",
+      "day": "2026-11-28",
+      "league": "Premier League",
+      "home": "Ipswich Town",
+      "away": "Aston Villa",
+      "kickoff": "2026-11-28T17:30Z",
+      "recordedAt": "2026-11-28T12:47:56.000Z",
+      "fixtureConfirmed": true,
+      "fixtureSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401878752",
+      "homeP": 0.4265756860207189,
+      "drawP": 0.28,
+      "awayP": 0.2934243139792811,
+      "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
+      "settled": false,
+      "researchStatus": "On-demand source facts; no human selection or verified injury/lineup news.",
+      "researchSources": [
+        {
+          "title": "ESPN fixture, standings and recent scores",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401878752",
+          "checkedAt": "2026-11-28T12:47:56.000Z"
+        }
+      ],
+      "research": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "teams": [
+          {
+            "side": "home",
+            "name": "Ipswich Town",
+            "teamId": "373",
+            "table": {
+              "gamesPlayed": 11,
+              "losses": 6,
+              "pointDifferential": -7,
+              "points": 11,
+              "ties": 2,
+              "wins": 3,
+              "rank": 17
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-17T14:00Z",
+                "opponent": "Manchester City",
+                "homeGoals": "3",
+                "awayGoals": "2",
+                "homeTeamId": "382",
+                "awayTeamId": "373",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-10-23T19:00Z",
+                "opponent": "Nottingham Forest",
+                "homeGoals": "1",
+                "awayGoals": "1",
+                "homeTeamId": "373",
+                "awayTeamId": "393",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-10-31T15:00Z",
+                "opponent": "Hull City",
+                "homeGoals": "2",
+                "awayGoals": "2",
+                "homeTeamId": "306",
+                "awayTeamId": "373",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-11-08T14:00Z",
+                "opponent": "AFC Bournemouth",
+                "homeGoals": "1",
+                "awayGoals": "2",
+                "homeTeamId": "373",
+                "awayTeamId": "349",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-11-21T15:00Z",
+                "opponent": "Tottenham Hotspur",
+                "homeGoals": "2",
+                "awayGoals": "0",
+                "homeTeamId": "367",
+                "awayTeamId": "373",
+                "competition": "2026-27 English Premier League"
+              }
+            ]
+          },
+          {
+            "side": "away",
+            "name": "Aston Villa",
+            "teamId": "362",
+            "table": {
+              "gamesPlayed": 11,
+              "losses": 3,
+              "pointDifferential": -3,
+              "points": 14,
+              "ties": 5,
+              "wins": 3,
+              "rank": 12
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-31T20:00Z",
+                "opponent": "Fulham",
+                "homeGoals": "1",
+                "awayGoals": "1",
+                "homeTeamId": "362",
+                "awayTeamId": "370",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-11-03T20:00Z",
+                "opponent": "Barcelona",
+                "homeGoals": "3",
+                "awayGoals": "0",
+                "homeTeamId": "83",
+                "awayTeamId": "362",
+                "competition": "2026-27 UEFA Champions League"
+              },
+              {
+                "date": "2026-11-08T16:30Z",
+                "opponent": "Manchester United",
+                "homeGoals": "4",
+                "awayGoals": "4",
+                "homeTeamId": "360",
+                "awayTeamId": "362",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-11-21T15:00Z",
+                "opponent": "Sunderland",
+                "homeGoals": "0",
+                "awayGoals": "0",
+                "homeTeamId": "362",
+                "awayTeamId": "366",
+                "competition": "2026-27 English Premier League"
+              },
+              {
+                "date": "2026-11-24T17:45Z",
+                "opponent": "Galatasaray",
+                "homeGoals": "1",
+                "awayGoals": "0",
+                "homeTeamId": "432",
+                "awayTeamId": "362",
+                "competition": "2026-27 UEFA Champions League"
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "Single main provider.",
+          "Small league-only samples, generic priors, no calibration or verified absences."
+        ],
+        "newsCheck": "This refresh retrieves source statistics, not narrative news or a human opinion."
+      },
+      "newsAssessment": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "articles": [],
+        "caution": false,
+        "probabilitiesAdjusted": false,
+        "method": "Pre-kickoff team-name and availability-keyword screening; not AI interpretation or verified player availability.",
+        "predictionUse": "No eligible availability warning found; absence of a warning does not confirm full availability."
+      },
+      "algorithmForecast": {
+        "homeP": 0.3823863066359511,
+        "drawP": 0.2491303182757207,
+        "awayP": 0.36848337508832824,
+        "mostLikelyScore": "1–1",
+        "scoreP": 0.1166891364562586,
+        "homeLambda": 1.4512500000000002,
+        "awayLambda": 1.42025,
+        "method": "Poisson recent-league goals v1; prior5 games at1.3 goals; home1.08/away0.92; not fitted",
+        "inputs": {
+          "home": {
+            "games": 5,
+            "goalsFor": 6,
+            "goalsAgainst": 10
+          },
+          "away": {
+            "games": 3,
+            "goalsFor": 5,
+            "goalsAgainst": 5
+          }
+        },
+        "recordedAt": "2026-11-28T12:47:56.000Z",
+        "pick": "home",
+        "limitations": "Small league-only sample; unfitted priors; no opponent adjustment or verified absences."
+      },
+      "kickoffAthens": "28/11/2026, 19:30:00",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-28T12:47:56.000Z",
+          "provider": "DraftKings",
+          "homeOdds": 3.4,
+          "drawOdds": 3.75,
+          "awayOdds": 2.05,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401878752",
+          "providerUpdatedAt": null,
+          "note": "Observed ESPN/DraftKings snapshot, no executable or closing-price claim."
+        }
+      ]
+    },
+    {
+      "id": "espn-fra.1-401876394",
+      "providerEventId": "401876394",
+      "day": "2026-11-28",
+      "league": "Ligue 1",
+      "home": "Angers",
+      "away": "Lens",
+      "kickoff": "2026-11-28T16:15Z",
+      "recordedAt": "2026-11-28T12:47:56.000Z",
+      "fixtureConfirmed": true,
+      "fixtureSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876394",
+      "homeP": 0.4265756860207189,
+      "drawP": 0.28,
+      "awayP": 0.2934243139792811,
+      "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
+      "settled": false,
+      "researchStatus": "On-demand source facts; no human selection or verified injury/lineup news.",
+      "researchSources": [
+        {
+          "title": "ESPN fixture, standings and recent scores",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876394",
+          "checkedAt": "2026-11-28T12:47:56.000Z"
+        }
+      ],
+      "research": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "teams": [
+          {
+            "side": "home",
+            "name": "Angers",
+            "teamId": "7868",
+            "table": {
+              "gamesPlayed": 11,
+              "losses": 7,
+              "pointDifferential": -14,
+              "points": 8,
+              "ties": 2,
+              "wins": 2,
+              "rank": 17
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-18T13:00Z",
+                "opponent": "Marseille",
+                "homeGoals": "2",
+                "awayGoals": "5",
+                "homeTeamId": "7868",
+                "awayTeamId": "176",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-10-25T16:15Z",
+                "opponent": "Lorient",
+                "homeGoals": "0",
+                "awayGoals": "0",
+                "homeTeamId": "7868",
+                "awayTeamId": "273",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-01T16:15Z",
+                "opponent": "Lyon",
+                "homeGoals": "2",
+                "awayGoals": "0",
+                "homeTeamId": "167",
+                "awayTeamId": "7868",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-08T16:15Z",
+                "opponent": "Nice",
+                "homeGoals": "0",
+                "awayGoals": "2",
+                "homeTeamId": "7868",
+                "awayTeamId": "2502",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-22T14:00Z",
+                "opponent": "Paris FC",
+                "homeGoals": "4",
+                "awayGoals": "0",
+                "homeTeamId": "6851",
+                "awayTeamId": "7868",
+                "competition": "2026-27 Ligue 1"
+              }
+            ]
+          },
+          {
+            "side": "away",
+            "name": "Lens",
+            "teamId": "175",
+            "table": {
+              "gamesPlayed": 11,
+              "losses": 5,
+              "pointDifferential": 2,
+              "points": 14,
+              "ties": 2,
+              "wins": 4,
+              "rank": 11
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-30T20:05Z",
+                "opponent": "Lille",
+                "homeGoals": "1",
+                "awayGoals": "0",
+                "homeTeamId": "166",
+                "awayTeamId": "175",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-04T20:00Z",
+                "opponent": "Como",
+                "homeGoals": "1",
+                "awayGoals": "9",
+                "homeTeamId": "175",
+                "awayTeamId": "2572",
+                "competition": "2026-27 UEFA Champions League"
+              },
+              {
+                "date": "2026-11-08T19:45Z",
+                "opponent": "Marseille",
+                "homeGoals": "1",
+                "awayGoals": "2",
+                "homeTeamId": "175",
+                "awayTeamId": "176",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-21T19:45Z",
+                "opponent": "Toulouse",
+                "homeGoals": "1",
+                "awayGoals": "1",
+                "homeTeamId": "175",
+                "awayTeamId": "179",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-24T20:00Z",
+                "opponent": "RB Leipzig",
+                "homeGoals": "3",
+                "awayGoals": "1",
+                "homeTeamId": "11420",
+                "awayTeamId": "175",
+                "competition": "2026-27 UEFA Champions League"
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "Single main provider.",
+          "Small league-only samples, generic priors, no calibration or verified absences."
+        ],
+        "newsCheck": "This refresh retrieves source statistics, not narrative news or a human opinion."
+      },
+      "newsAssessment": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "articles": [],
+        "caution": false,
+        "probabilitiesAdjusted": false,
+        "method": "Pre-kickoff team-name and availability-keyword screening; not AI interpretation or verified player availability.",
+        "predictionUse": "No eligible availability warning found; absence of a warning does not confirm full availability."
+      },
+      "algorithmForecast": {
+        "homeP": 0.31622534105289646,
+        "drawP": 0.2648051742517327,
+        "awayP": 0.4189694846953709,
+        "mostLikelyScore": "1–1",
+        "scoreP": 0.12591103784092011,
+        "homeLambda": 1.16775,
+        "awayLambda": 1.38575,
+        "method": "Poisson recent-league goals v1; prior5 games at1.3 goals; home1.08/away0.92; not fitted",
+        "inputs": {
+          "home": {
+            "games": 5,
+            "goalsFor": 2,
+            "goalsAgainst": 13
+          },
+          "away": {
+            "games": 3,
+            "goalsFor": 2,
+            "goalsAgainst": 4
+          }
+        },
+        "recordedAt": "2026-11-28T12:47:56.000Z",
+        "pick": "away",
+        "limitations": "Small league-only sample; unfitted priors; no opponent adjustment or verified absences."
+      },
+      "kickoffAthens": "28/11/2026, 18:15:00",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-28T12:47:56.000Z",
+          "provider": "DraftKings",
+          "homeOdds": 4.7,
+          "drawOdds": 4.1,
+          "awayOdds": 1.6896551724137931,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876394",
+          "providerUpdatedAt": null,
+          "note": "Observed ESPN/DraftKings snapshot, no executable or closing-price claim."
+        }
+      ]
+    },
+    {
+      "id": "espn-fra.1-401876387",
+      "providerEventId": "401876387",
+      "day": "2026-11-28",
+      "league": "Ligue 1",
+      "home": "Paris Saint-Germain",
+      "away": "Lorient",
+      "kickoff": "2026-11-28T19:45Z",
+      "recordedAt": "2026-11-28T12:47:56.000Z",
+      "fixtureConfirmed": true,
+      "fixtureSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876387",
+      "homeP": 0.4265756860207189,
+      "drawP": 0.28,
+      "awayP": 0.2934243139792811,
+      "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
+      "settled": false,
+      "researchStatus": "On-demand source facts; no human selection or verified injury/lineup news.",
+      "researchSources": [
+        {
+          "title": "ESPN fixture, standings and recent scores",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876387",
+          "checkedAt": "2026-11-28T12:47:56.000Z"
+        }
+      ],
+      "research": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "teams": [
+          {
+            "side": "home",
+            "name": "Paris Saint-Germain",
+            "teamId": "160",
+            "table": {
+              "gamesPlayed": 11,
+              "losses": 1,
+              "pointDifferential": 13,
+              "points": 26,
+              "ties": 2,
+              "wins": 8,
+              "rank": 1
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-30T18:00Z",
+                "opponent": "Le Havre AC",
+                "homeGoals": "1",
+                "awayGoals": "5",
+                "homeTeamId": "3236",
+                "awayTeamId": "160",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-03T20:00Z",
+                "opponent": "Villarreal",
+                "homeGoals": "0",
+                "awayGoals": "6",
+                "homeTeamId": "102",
+                "awayTeamId": "160",
+                "competition": "2026-27 UEFA Champions League"
+              },
+              {
+                "date": "2026-11-07T20:05Z",
+                "opponent": "Troyes",
+                "homeGoals": "1",
+                "awayGoals": "0",
+                "homeTeamId": "160",
+                "awayTeamId": "170",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-21T16:15Z",
+                "opponent": "Nice",
+                "homeGoals": "2",
+                "awayGoals": "3",
+                "homeTeamId": "2502",
+                "awayTeamId": "160",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-25T20:00Z",
+                "opponent": "AS Roma",
+                "homeGoals": "2",
+                "awayGoals": "2",
+                "homeTeamId": "160",
+                "awayTeamId": "104",
+                "competition": "2026-27 UEFA Champions League"
+              }
+            ]
+          },
+          {
+            "side": "away",
+            "name": "Lorient",
+            "teamId": "273",
+            "table": {
+              "gamesPlayed": 11,
+              "losses": 3,
+              "pointDifferential": 1,
+              "points": 16,
+              "ties": 4,
+              "wins": 4,
+              "rank": 10
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-18T15:15Z",
+                "opponent": "AS Monaco",
+                "homeGoals": "1",
+                "awayGoals": "0",
+                "homeTeamId": "273",
+                "awayTeamId": "174",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-10-25T16:15Z",
+                "opponent": "Angers",
+                "homeGoals": "0",
+                "awayGoals": "0",
+                "homeTeamId": "7868",
+                "awayTeamId": "273",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-02T19:45Z",
+                "opponent": "Brest",
+                "homeGoals": "0",
+                "awayGoals": "2",
+                "homeTeamId": "273",
+                "awayTeamId": "6997",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-08T16:15Z",
+                "opponent": "Le Havre AC",
+                "homeGoals": "0",
+                "awayGoals": "2",
+                "homeTeamId": "3236",
+                "awayTeamId": "273",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-22T16:15Z",
+                "opponent": "Stade Rennais",
+                "homeGoals": "1",
+                "awayGoals": "1",
+                "homeTeamId": "273",
+                "awayTeamId": "169",
+                "competition": "2026-27 Ligue 1"
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "Single main provider.",
+          "Small league-only samples, generic priors, no calibration or verified absences."
+        ],
+        "newsCheck": "This refresh retrieves source statistics, not narrative news or a human opinion."
+      },
+      "newsAssessment": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "articles": [
+          {
+            "headline": "Luis Enrique insists PSG won't 'start crying' over Doué, Kvaratskhelia injuries",
+            "description": "Paris Saint-Germain boss Luis Enrique insisted the club will cope with long-term injuries to key players Désiré Doué and Khvicha Kvaratskhelia.",
+            "published": "2026-11-24T19:21:12Z",
+            "url": "https://www.espn.com/soccer/story/_/id/50584788/psg-luis-enrique-injuries-desire-doue-khvicha-kvaratskhelia",
+            "caution": true
+          },
+          {
+            "headline": "Paris Saint-Germain drop one of this season's best kits in latest Jordan collab",
+            "description": "Three months into the season, Paris Saint-Germain finally unveiled their 2026-27 third kit in collaboration with the Jordan brand. It was worth the wait.",
+            "published": "2026-11-24T13:21:57Z",
+            "url": "https://www.espn.com/soccer/story/_/id/50581189/psg-kit-nike-jordan-champions-league",
+            "caution": false
+          }
+        ],
+        "caution": true,
+        "probabilitiesAdjusted": false,
+        "method": "Pre-kickoff team-name and availability-keyword screening; not AI interpretation or verified player availability.",
+        "predictionUse": "Team-news uncertainty flagged: review before relying on this statistical pick."
+      },
+      "algorithmForecast": {
+        "homeP": 0.49611198997468686,
+        "drawP": 0.25363714936657344,
+        "awayP": 0.25025086065873964,
+        "mostLikelyScore": "1–1",
+        "scoreP": 0.12057724646810938,
+        "homeLambda": 1.5592500000000002,
+        "awayLambda": 1.02925,
+        "method": "Poisson recent-league goals v1; prior5 games at1.3 goals; home1.08/away0.92; not fitted",
+        "inputs": {
+          "home": {
+            "games": 3,
+            "goalsFor": 9,
+            "goalsAgainst": 3
+          },
+          "away": {
+            "games": 5,
+            "goalsFor": 4,
+            "goalsAgainst": 3
+          }
+        },
+        "recordedAt": "2026-11-28T12:47:56.000Z",
+        "pick": "home",
+        "limitations": "Small league-only sample; unfitted priors; no opponent adjustment or verified absences."
+      },
+      "kickoffAthens": "28/11/2026, 21:45:00",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-28T12:47:56.000Z",
+          "provider": "DraftKings",
+          "homeOdds": 1.1904761904761905,
+          "drawOdds": 7.5,
+          "awayOdds": 13,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876387",
+          "providerUpdatedAt": null,
+          "note": "Observed ESPN/DraftKings snapshot, no executable or closing-price claim."
+        }
+      ]
+    },
+    {
+      "id": "espn-fra.1-401876388",
+      "providerEventId": "401876388",
+      "day": "2026-11-28",
+      "league": "Ligue 1",
+      "home": "Nice",
+      "away": "Troyes",
+      "kickoff": "2026-11-28T19:45Z",
+      "recordedAt": "2026-11-28T12:47:56.000Z",
+      "fixtureConfirmed": true,
+      "fixtureSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876388",
+      "homeP": 0.4265756860207189,
+      "drawP": 0.28,
+      "awayP": 0.2934243139792811,
+      "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
+      "settled": false,
+      "researchStatus": "On-demand source facts; no human selection or verified injury/lineup news.",
+      "researchSources": [
+        {
+          "title": "ESPN fixture, standings and recent scores",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876388",
+          "checkedAt": "2026-11-28T12:47:56.000Z"
+        }
+      ],
+      "research": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "teams": [
+          {
+            "side": "home",
+            "name": "Nice",
+            "teamId": "2502",
+            "table": {
+              "gamesPlayed": 11,
+              "losses": 4,
+              "pointDifferential": 2,
+              "points": 17,
+              "ties": 2,
+              "wins": 5,
+              "rank": 7
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-18T18:45Z",
+                "opponent": "Lyon",
+                "homeGoals": "2",
+                "awayGoals": "1",
+                "homeTeamId": "167",
+                "awayTeamId": "2502",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-10-23T18:45Z",
+                "opponent": "Brest",
+                "homeGoals": "1",
+                "awayGoals": "2",
+                "homeTeamId": "6997",
+                "awayTeamId": "2502",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-10-30T18:00Z",
+                "opponent": "Stade Rennais",
+                "homeGoals": "5",
+                "awayGoals": "2",
+                "homeTeamId": "2502",
+                "awayTeamId": "169",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-08T16:15Z",
+                "opponent": "Angers",
+                "homeGoals": "0",
+                "awayGoals": "2",
+                "homeTeamId": "7868",
+                "awayTeamId": "2502",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-21T16:15Z",
+                "opponent": "Paris Saint-Germain",
+                "homeGoals": "2",
+                "awayGoals": "3",
+                "homeTeamId": "2502",
+                "awayTeamId": "160",
+                "competition": "2026-27 Ligue 1"
+              }
+            ]
+          },
+          {
+            "side": "away",
+            "name": "Troyes",
+            "teamId": "170",
+            "table": {
+              "gamesPlayed": 11,
+              "losses": 6,
+              "pointDifferential": -8,
+              "points": 11,
+              "ties": 2,
+              "wins": 3,
+              "rank": 14
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-17T18:45Z",
+                "opponent": "Lens",
+                "homeGoals": "1",
+                "awayGoals": "3",
+                "homeTeamId": "170",
+                "awayTeamId": "175",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-10-25T16:15Z",
+                "opponent": "Toulouse",
+                "homeGoals": "0",
+                "awayGoals": "0",
+                "homeTeamId": "179",
+                "awayTeamId": "170",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-10-31T19:45Z",
+                "opponent": "Le Mans",
+                "homeGoals": "2",
+                "awayGoals": "0",
+                "homeTeamId": "170",
+                "awayTeamId": "2697",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-07T20:05Z",
+                "opponent": "Paris Saint-Germain",
+                "homeGoals": "1",
+                "awayGoals": "0",
+                "homeTeamId": "160",
+                "awayTeamId": "170",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-20T19:45Z",
+                "opponent": "Le Havre AC",
+                "homeGoals": "3",
+                "awayGoals": "1",
+                "homeTeamId": "170",
+                "awayTeamId": "3236",
+                "competition": "2026-27 Ligue 1"
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "Single main provider.",
+          "Small league-only samples, generic priors, no calibration or verified absences."
+        ],
+        "newsCheck": "This refresh retrieves source statistics, not narrative news or a human opinion."
+      },
+      "newsAssessment": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "articles": [
+          {
+            "headline": "PSG star Désiré Doué suffers 'serious' knee injury in win over Nice",
+            "description": "PSG forward Désiré Doué was carried off on a stretcher with a serious knee injury late in the first half of the team's 3-2 win at Nice in Ligue 1 on Saturday.",
+            "published": "2026-11-22T16:54:39Z",
+            "url": "https://www.espn.com/soccer/story/_/id/50554155/psg-desire-doue-injury-nice-knee",
+            "caution": true
+          }
+        ],
+        "caution": true,
+        "probabilitiesAdjusted": false,
+        "method": "Pre-kickoff team-name and availability-keyword screening; not AI interpretation or verified player availability.",
+        "predictionUse": "Team-news uncertainty flagged: review before relying on this statistical pick."
+      },
+      "algorithmForecast": {
+        "homeP": 0.46205988055127406,
+        "drawP": 0.24469212421084044,
+        "awayP": 0.2932479952378856,
+        "mostLikelyScore": "1–1",
+        "scoreP": 0.11499681263223537,
+        "homeLambda": 1.62,
+        "awayLambda": 1.2420000000000002,
+        "method": "Poisson recent-league goals v1; prior5 games at1.3 goals; home1.08/away0.92; not fitted",
+        "inputs": {
+          "home": {
+            "games": 5,
+            "goalsFor": 12,
+            "goalsAgainst": 8
+          },
+          "away": {
+            "games": 5,
+            "goalsFor": 6,
+            "goalsAgainst": 5
+          }
+        },
+        "recordedAt": "2026-11-28T12:47:56.000Z",
+        "pick": "home",
+        "limitations": "Small league-only sample; unfitted priors; no opponent adjustment or verified absences."
+      },
+      "kickoffAthens": "28/11/2026, 21:45:00",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-28T12:47:56.000Z",
+          "provider": "DraftKings",
+          "homeOdds": 1.7407407407407407,
+          "drawOdds": 3.9,
+          "awayOdds": 4.6,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876388",
+          "providerUpdatedAt": null,
+          "note": "Observed ESPN/DraftKings snapshot, no executable or closing-price claim."
+        }
+      ]
+    },
+    {
+      "id": "espn-fra.1-401876390",
+      "providerEventId": "401876390",
+      "day": "2026-11-28",
+      "league": "Ligue 1",
+      "home": "Le Mans",
+      "away": "Lille",
+      "kickoff": "2026-11-28T19:45Z",
+      "recordedAt": "2026-11-28T12:47:56.000Z",
+      "fixtureConfirmed": true,
+      "fixtureSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876390",
+      "homeP": 0.4265756860207189,
+      "drawP": 0.28,
+      "awayP": 0.2934243139792811,
+      "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
+      "settled": false,
+      "researchStatus": "On-demand source facts; no human selection or verified injury/lineup news.",
+      "researchSources": [
+        {
+          "title": "ESPN fixture, standings and recent scores",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876390",
+          "checkedAt": "2026-11-28T12:47:56.000Z"
+        }
+      ],
+      "research": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "teams": [
+          {
+            "side": "home",
+            "name": "Le Mans",
+            "teamId": "2697",
+            "table": {
+              "gamesPlayed": 11,
+              "losses": 4,
+              "pointDifferential": -6,
+              "points": 11,
+              "ties": 5,
+              "wins": 2,
+              "rank": 13
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-16T18:45Z",
+                "opponent": "Toulouse",
+                "homeGoals": "0",
+                "awayGoals": "3",
+                "homeTeamId": "2697",
+                "awayTeamId": "179",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-10-25T16:15Z",
+                "opponent": "AJ Auxerre",
+                "homeGoals": "1",
+                "awayGoals": "1",
+                "homeTeamId": "172",
+                "awayTeamId": "2697",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-10-31T19:45Z",
+                "opponent": "Troyes",
+                "homeGoals": "2",
+                "awayGoals": "0",
+                "homeTeamId": "170",
+                "awayTeamId": "2697",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-08T16:15Z",
+                "opponent": "AS Monaco",
+                "homeGoals": "1",
+                "awayGoals": "1",
+                "homeTeamId": "2697",
+                "awayTeamId": "174",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-22T19:45Z",
+                "opponent": "Marseille",
+                "homeGoals": "2",
+                "awayGoals": "3",
+                "homeTeamId": "176",
+                "awayTeamId": "2697",
+                "competition": "2026-27 Ligue 1"
+              }
+            ]
+          },
+          {
+            "side": "away",
+            "name": "Lille",
+            "teamId": "166",
+            "table": {
+              "gamesPlayed": 11,
+              "losses": 2,
+              "pointDifferential": 6,
+              "points": 21,
+              "ties": 3,
+              "wins": 6,
+              "rank": 4
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-30T20:05Z",
+                "opponent": "Lens",
+                "homeGoals": "1",
+                "awayGoals": "0",
+                "homeTeamId": "166",
+                "awayTeamId": "175",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-03T20:00Z",
+                "opponent": "Bodo/Glimt",
+                "homeGoals": "0",
+                "awayGoals": "0",
+                "homeTeamId": "2980",
+                "awayTeamId": "166",
+                "competition": "2026-27 UEFA Champions League"
+              },
+              {
+                "date": "2026-11-08T14:00Z",
+                "opponent": "Stade Rennais",
+                "homeGoals": "1",
+                "awayGoals": "2",
+                "homeTeamId": "169",
+                "awayTeamId": "166",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-21T19:45Z",
+                "opponent": "Lyon",
+                "homeGoals": "0",
+                "awayGoals": "1",
+                "homeTeamId": "166",
+                "awayTeamId": "167",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-25T20:00Z",
+                "opponent": "Bayern Munich",
+                "homeGoals": "2",
+                "awayGoals": "1",
+                "homeTeamId": "166",
+                "awayTeamId": "132",
+                "competition": "2026-27 UEFA Champions League"
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "Single main provider.",
+          "Small league-only samples, generic priors, no calibration or verified absences."
+        ],
+        "newsCheck": "This refresh retrieves source statistics, not narrative news or a human opinion."
+      },
+      "newsAssessment": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "articles": [],
+        "caution": false,
+        "probabilitiesAdjusted": false,
+        "method": "Pre-kickoff team-name and availability-keyword screening; not AI interpretation or verified player availability.",
+        "predictionUse": "No eligible availability warning found; absence of a warning does not confirm full availability."
+      },
+      "algorithmForecast": {
+        "homeP": 0.3480887343997234,
+        "drawP": 0.27283751358147335,
+        "awayP": 0.37907375201880333,
+        "mostLikelyScore": "1–1",
+        "scoreP": 0.12930947251896485,
+        "homeLambda": 1.19475,
+        "awayLambda": 1.25925,
+        "method": "Poisson recent-league goals v1; prior5 games at1.3 goals; home1.08/away0.92; not fitted",
+        "inputs": {
+          "home": {
+            "games": 5,
+            "goalsFor": 5,
+            "goalsAgainst": 9
+          },
+          "away": {
+            "games": 3,
+            "goalsFor": 3,
+            "goalsAgainst": 2
+          }
+        },
+        "recordedAt": "2026-11-28T12:47:56.000Z",
+        "pick": "away",
+        "limitations": "Small league-only sample; unfitted priors; no opponent adjustment or verified absences."
+      },
+      "kickoffAthens": "28/11/2026, 21:45:00",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-28T12:47:56.000Z",
+          "provider": "DraftKings",
+          "homeOdds": 4,
+          "drawOdds": 3.55,
+          "awayOdds": 1.9523809523809523,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876390",
+          "providerUpdatedAt": null,
+          "note": "Observed ESPN/DraftKings snapshot, no executable or closing-price claim."
+        }
+      ]
+    },
+    {
+      "id": "espn-fra.1-401876391",
+      "providerEventId": "401876391",
+      "day": "2026-11-28",
+      "league": "Ligue 1",
+      "home": "Le Havre AC",
+      "away": "Strasbourg",
+      "kickoff": "2026-11-28T19:45Z",
+      "recordedAt": "2026-11-28T12:47:56.000Z",
+      "fixtureConfirmed": true,
+      "fixtureSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876391",
+      "homeP": 0.4265756860207189,
+      "drawP": 0.28,
+      "awayP": 0.2934243139792811,
+      "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
+      "settled": false,
+      "researchStatus": "On-demand source facts; no human selection or verified injury/lineup news.",
+      "researchSources": [
+        {
+          "title": "ESPN fixture, standings and recent scores",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876391",
+          "checkedAt": "2026-11-28T12:47:56.000Z"
+        }
+      ],
+      "research": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "teams": [
+          {
+            "side": "home",
+            "name": "Le Havre AC",
+            "teamId": "3236",
+            "table": {
+              "gamesPlayed": 11,
+              "losses": 9,
+              "pointDifferential": -15,
+              "points": 2,
+              "ties": 2,
+              "wins": 0,
+              "rank": 18
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-18T15:15Z",
+                "opponent": "AJ Auxerre",
+                "homeGoals": "1",
+                "awayGoals": "3",
+                "homeTeamId": "3236",
+                "awayTeamId": "172",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-10-25T16:15Z",
+                "opponent": "Marseille",
+                "homeGoals": "4",
+                "awayGoals": "3",
+                "homeTeamId": "176",
+                "awayTeamId": "3236",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-10-30T18:00Z",
+                "opponent": "Paris Saint-Germain",
+                "homeGoals": "1",
+                "awayGoals": "5",
+                "homeTeamId": "3236",
+                "awayTeamId": "160",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-08T16:15Z",
+                "opponent": "Lorient",
+                "homeGoals": "0",
+                "awayGoals": "2",
+                "homeTeamId": "3236",
+                "awayTeamId": "273",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-20T19:45Z",
+                "opponent": "Troyes",
+                "homeGoals": "3",
+                "awayGoals": "1",
+                "homeTeamId": "170",
+                "awayTeamId": "3236",
+                "competition": "2026-27 Ligue 1"
+              }
+            ]
+          },
+          {
+            "side": "away",
+            "name": "Strasbourg",
+            "teamId": "180",
+            "table": {
+              "gamesPlayed": 11,
+              "losses": 7,
+              "pointDifferential": -5,
+              "points": 10,
+              "ties": 1,
+              "wins": 3,
+              "rank": 16
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-17T15:15Z",
+                "opponent": "Paris Saint-Germain",
+                "homeGoals": "1",
+                "awayGoals": "3",
+                "homeTeamId": "180",
+                "awayTeamId": "160",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-10-25T16:15Z",
+                "opponent": "Stade Rennais",
+                "homeGoals": "3",
+                "awayGoals": "0",
+                "homeTeamId": "169",
+                "awayTeamId": "180",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-01T14:00Z",
+                "opponent": "AJ Auxerre",
+                "homeGoals": "5",
+                "awayGoals": "1",
+                "homeTeamId": "180",
+                "awayTeamId": "172",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-06T19:45Z",
+                "opponent": "Toulouse",
+                "homeGoals": "3",
+                "awayGoals": "1",
+                "homeTeamId": "179",
+                "awayTeamId": "180",
+                "competition": "2026-27 Ligue 1"
+              },
+              {
+                "date": "2026-11-21T19:45Z",
+                "opponent": "Brest",
+                "homeGoals": "0",
+                "awayGoals": "1",
+                "homeTeamId": "180",
+                "awayTeamId": "6997",
+                "competition": "2026-27 Ligue 1"
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "Single main provider.",
+          "Small league-only samples, generic priors, no calibration or verified absences."
+        ],
+        "newsCheck": "This refresh retrieves source statistics, not narrative news or a human opinion."
+      },
+      "newsAssessment": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "articles": [],
+        "caution": false,
+        "probabilitiesAdjusted": false,
+        "method": "Pre-kickoff team-name and availability-keyword screening; not AI interpretation or verified player availability.",
+        "predictionUse": "No eligible availability warning found; absence of a warning does not confirm full availability."
+      },
+      "algorithmForecast": {
+        "homeP": 0.36818210655123396,
+        "drawP": 0.2291985050267458,
+        "awayP": 0.4026193884220204,
+        "mostLikelyScore": "1–1",
+        "scoreP": 0.0994828689891006,
+        "homeLambda": 1.62,
+        "awayLambda": 1.7020000000000002,
+        "method": "Poisson recent-league goals v1; prior5 games at1.3 goals; home1.08/away0.92; not fitted",
+        "inputs": {
+          "home": {
+            "games": 5,
+            "goalsFor": 6,
+            "goalsAgainst": 17
+          },
+          "away": {
+            "games": 5,
+            "goalsFor": 7,
+            "goalsAgainst": 11
+          }
+        },
+        "recordedAt": "2026-11-28T12:47:56.000Z",
+        "pick": "away",
+        "limitations": "Small league-only sample; unfitted priors; no opponent adjustment or verified absences."
+      },
+      "kickoffAthens": "28/11/2026, 21:45:00",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-28T12:47:56.000Z",
+          "provider": "DraftKings",
+          "homeOdds": 3.25,
+          "drawOdds": 3.5,
+          "awayOdds": 2.2,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876391",
+          "providerUpdatedAt": null,
+          "note": "Observed ESPN/DraftKings snapshot, no executable or closing-price claim."
+        }
+      ]
+    },
+    {
+      "id": "espn-ger.1-401884719",
+      "providerEventId": "401884719",
+      "day": "2026-11-28",
+      "league": "Bundesliga",
+      "home": "SC Paderborn 07",
+      "away": "Schalke 04",
+      "kickoff": "2026-11-28T14:30Z",
+      "recordedAt": "2026-11-28T12:47:56.000Z",
+      "fixtureConfirmed": true,
+      "fixtureSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884719",
+      "homeP": 0.4265756860207189,
+      "drawP": 0.28,
+      "awayP": 0.2934243139792811,
+      "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
+      "settled": false,
+      "researchStatus": "On-demand source facts; no human selection or verified injury/lineup news.",
+      "researchSources": [
+        {
+          "title": "ESPN fixture, standings and recent scores",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884719",
+          "checkedAt": "2026-11-28T12:47:56.000Z"
+        }
+      ],
+      "research": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "teams": [
+          {
+            "side": "home",
+            "name": "SC Paderborn 07",
+            "teamId": "3307",
+            "table": {
+              "gamesPlayed": 10,
+              "losses": 4,
+              "pointDifferential": -7,
+              "points": 10,
+              "ties": 4,
+              "wins": 2,
+              "rank": 15
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-28T17:00Z",
+                "opponent": "VfB Stuttgart",
+                "homeGoals": "0",
+                "awayGoals": "1",
+                "homeTeamId": "3307",
+                "awayTeamId": "134",
+                "competition": "2026-27 German Cup"
+              },
+              {
+                "date": "2026-10-31T14:30Z",
+                "opponent": "Borussia Mönchengladbach",
+                "homeGoals": "0",
+                "awayGoals": "0",
+                "homeTeamId": "268",
+                "awayTeamId": "3307",
+                "competition": "2026-27 German Bundesliga"
+              },
+              {
+                "date": "2026-11-07T14:30Z",
+                "opponent": "Eintracht Frankfurt",
+                "homeGoals": "2",
+                "awayGoals": "2",
+                "homeTeamId": "3307",
+                "awayTeamId": "125",
+                "competition": "2026-27 German Bundesliga"
+              },
+              {
+                "date": "2026-11-10T12:00Z",
+                "opponent": "TSV Eintracht Braunschweig",
+                "homeGoals": "4",
+                "awayGoals": "1",
+                "homeTeamId": "3307",
+                "awayTeamId": "3067",
+                "competition": "2026 Club Friendly"
+              },
+              {
+                "date": "2026-11-21T14:30Z",
+                "opponent": "Bayer Leverkusen",
+                "homeGoals": "4",
+                "awayGoals": "0",
+                "homeTeamId": "131",
+                "awayTeamId": "3307",
+                "competition": "2026-27 German Bundesliga"
+              }
+            ]
+          },
+          {
+            "side": "away",
+            "name": "Schalke 04",
+            "teamId": "133",
+            "table": {
+              "gamesPlayed": 10,
+              "losses": 5,
+              "pointDifferential": -6,
+              "points": 7,
+              "ties": 4,
+              "wins": 1,
+              "rank": 16
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-24T13:30Z",
+                "opponent": "FC Cologne",
+                "homeGoals": "0",
+                "awayGoals": "0",
+                "homeTeamId": "122",
+                "awayTeamId": "133",
+                "competition": "2026-27 German Bundesliga"
+              },
+              {
+                "date": "2026-10-28T17:00Z",
+                "opponent": "Dynamo Dresden",
+                "homeGoals": "2",
+                "awayGoals": "0",
+                "homeTeamId": "7017",
+                "awayTeamId": "133",
+                "competition": "2026-27 German Cup"
+              },
+              {
+                "date": "2026-10-31T14:30Z",
+                "opponent": "RB Leipzig",
+                "homeGoals": "0",
+                "awayGoals": "2",
+                "homeTeamId": "133",
+                "awayTeamId": "11420",
+                "competition": "2026-27 German Bundesliga"
+              },
+              {
+                "date": "2026-11-08T18:30Z",
+                "opponent": "TSG Hoffenheim",
+                "homeGoals": "2",
+                "awayGoals": "1",
+                "homeTeamId": "7911",
+                "awayTeamId": "133",
+                "competition": "2026-27 German Bundesliga"
+              },
+              {
+                "date": "2026-11-21T17:30Z",
+                "opponent": "VfB Stuttgart",
+                "homeGoals": "0",
+                "awayGoals": "0",
+                "homeTeamId": "133",
+                "awayTeamId": "134",
+                "competition": "2026-27 German Bundesliga"
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "Single main provider.",
+          "Small league-only samples, generic priors, no calibration or verified absences."
+        ],
+        "newsCheck": "This refresh retrieves source statistics, not narrative news or a human opinion."
+      },
+      "newsAssessment": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "articles": [],
+        "caution": false,
+        "probabilitiesAdjusted": false,
+        "method": "Pre-kickoff team-name and availability-keyword screening; not AI interpretation or verified player availability.",
+        "predictionUse": "No eligible availability warning found; absence of a warning does not confirm full availability."
+      },
+      "algorithmForecast": {
+        "homeP": 0.38367607820058847,
+        "drawP": 0.28279502675261653,
+        "awayP": 0.33352889504679495,
+        "mostLikelyScore": "1–1",
+        "scoreP": 0.13223305814060687,
+        "homeLambda": 1.2037500000000003,
+        "awayLambda": 1.1020833333333335,
+        "method": "Poisson recent-league goals v1; prior5 games at1.3 goals; home1.08/away0.92; not fitted",
+        "inputs": {
+          "home": {
+            "games": 3,
+            "goalsFor": 2,
+            "goalsAgainst": 6
+          },
+          "away": {
+            "games": 4,
+            "goalsFor": 1,
+            "goalsAgainst": 4
+          }
+        },
+        "recordedAt": "2026-11-28T12:47:56.000Z",
+        "pick": "home",
+        "limitations": "Small league-only sample; unfitted priors; no opponent adjustment or verified absences."
+      },
+      "kickoffAthens": "28/11/2026, 16:30:00",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-28T12:47:56.000Z",
+          "provider": "DraftKings",
+          "homeOdds": 2.6,
+          "drawOdds": 3.35,
+          "awayOdds": 2.5,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884719",
+          "providerUpdatedAt": null,
+          "note": "Observed ESPN/DraftKings snapshot, no executable or closing-price claim."
+        }
+      ]
+    },
+    {
+      "id": "espn-ger.1-401884721",
+      "providerEventId": "401884721",
+      "day": "2026-11-28",
+      "league": "Bundesliga",
+      "home": "FC Cologne",
+      "away": "SV Elversberg",
+      "kickoff": "2026-11-28T14:30Z",
+      "recordedAt": "2026-11-28T12:47:56.000Z",
+      "fixtureConfirmed": true,
+      "fixtureSource": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884721",
+      "homeP": 0.4265756860207189,
+      "drawP": 0.28,
+      "awayP": 0.2934243139792811,
+      "model": "Elo65-draw28-v1; initial1500 ratings for both teams",
+      "settled": false,
+      "researchStatus": "On-demand source facts; no human selection or verified injury/lineup news.",
+      "researchSources": [
+        {
+          "title": "ESPN fixture, standings and recent scores",
+          "url": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884721",
+          "checkedAt": "2026-11-28T12:47:56.000Z"
+        }
+      ],
+      "research": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "teams": [
+          {
+            "side": "home",
+            "name": "FC Cologne",
+            "teamId": "122",
+            "table": {
+              "gamesPlayed": 10,
+              "losses": 4,
+              "pointDifferential": -4,
+              "points": 10,
+              "ties": 4,
+              "wins": 2,
+              "rank": 14
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-24T13:30Z",
+                "opponent": "Schalke 04",
+                "homeGoals": "0",
+                "awayGoals": "0",
+                "homeTeamId": "122",
+                "awayTeamId": "133",
+                "competition": "2026-27 German Bundesliga"
+              },
+              {
+                "date": "2026-10-27T19:45Z",
+                "opponent": "1. FC Union Berlin",
+                "homeGoals": "5",
+                "awayGoals": "0",
+                "homeTeamId": "122",
+                "awayTeamId": "598",
+                "competition": "2026-27 German Cup"
+              },
+              {
+                "date": "2026-11-01T14:30Z",
+                "opponent": "1. FC Union Berlin",
+                "homeGoals": "1",
+                "awayGoals": "1",
+                "homeTeamId": "598",
+                "awayTeamId": "122",
+                "competition": "2026-27 German Bundesliga"
+              },
+              {
+                "date": "2026-11-08T14:30Z",
+                "opponent": "Bayer Leverkusen",
+                "homeGoals": "1",
+                "awayGoals": "2",
+                "homeTeamId": "122",
+                "awayTeamId": "131",
+                "competition": "2026-27 German Bundesliga"
+              },
+              {
+                "date": "2026-11-20T19:30Z",
+                "opponent": "Bayern Munich",
+                "homeGoals": "1",
+                "awayGoals": "1",
+                "homeTeamId": "132",
+                "awayTeamId": "122",
+                "competition": "2026-27 German Bundesliga"
+              }
+            ]
+          },
+          {
+            "side": "away",
+            "name": "SV Elversberg",
+            "teamId": "10388",
+            "table": {
+              "gamesPlayed": 10,
+              "losses": 5,
+              "pointDifferential": -2,
+              "points": 13,
+              "ties": 1,
+              "wins": 4,
+              "rank": 9
+            },
+            "recentMatches": [
+              {
+                "date": "2026-10-24T13:30Z",
+                "opponent": "RB Leipzig",
+                "homeGoals": "4",
+                "awayGoals": "0",
+                "homeTeamId": "11420",
+                "awayTeamId": "10388",
+                "competition": "2026-27 German Bundesliga"
+              },
+              {
+                "date": "2026-10-27T19:45Z",
+                "opponent": "SV Darmstadt 98",
+                "homeGoals": "0",
+                "awayGoals": "2",
+                "homeTeamId": "10388",
+                "awayTeamId": "3812",
+                "competition": "2026-27 German Cup"
+              },
+              {
+                "date": "2026-10-30T19:30Z",
+                "opponent": "Mainz",
+                "homeGoals": "4",
+                "awayGoals": "1",
+                "homeTeamId": "10388",
+                "awayTeamId": "2950",
+                "competition": "2026-27 German Bundesliga"
+              },
+              {
+                "date": "2026-11-07T14:30Z",
+                "opponent": "Borussia Dortmund",
+                "homeGoals": "2",
+                "awayGoals": "1",
+                "homeTeamId": "124",
+                "awayTeamId": "10388",
+                "competition": "2026-27 German Bundesliga"
+              },
+              {
+                "date": "2026-11-21T14:30Z",
+                "opponent": "SC Freiburg",
+                "homeGoals": "0",
+                "awayGoals": "1",
+                "homeTeamId": "10388",
+                "awayTeamId": "126",
+                "competition": "2026-27 German Bundesliga"
+              }
+            ]
+          }
+        ],
+        "limitations": [
+          "Single main provider.",
+          "Small league-only samples, generic priors, no calibration or verified absences."
+        ],
+        "newsCheck": "This refresh retrieves source statistics, not narrative news or a human opinion."
+      },
+      "newsAssessment": {
+        "checkedAt": "2026-11-28T12:47:56.000Z",
+        "articles": [],
+        "caution": false,
+        "probabilitiesAdjusted": false,
+        "method": "Pre-kickoff team-name and availability-keyword screening; not AI interpretation or verified player availability.",
+        "predictionUse": "No eligible availability warning found; absence of a warning does not confirm full availability."
+      },
+      "algorithmForecast": {
+        "homeP": 0.44301786003765864,
+        "drawP": 0.262079831006414,
+        "awayP": 0.29490230895592745,
+        "mostLikelyScore": "1–1",
+        "scoreP": 0.12461675089147217,
+        "homeLambda": 1.4400000000000002,
+        "awayLambda": 1.1244444444444446,
+        "method": "Poisson recent-league goals v1; prior5 games at1.3 goals; home1.08/away0.92; not fitted",
+        "inputs": {
+          "home": {
+            "games": 4,
+            "goalsFor": 3,
+            "goalsAgainst": 4
+          },
+          "away": {
+            "games": 4,
+            "goalsFor": 5,
+            "goalsAgainst": 8
+          }
+        },
+        "recordedAt": "2026-11-28T12:47:56.000Z",
+        "pick": "home",
+        "limitations": "Small league-only sample; unfitted priors; no opponent adjustment or verified absences."
+      },
+      "kickoffAthens": "28/11/2026, 16:30:00",
+      "marketSnapshots": [
+        {
+          "observedAt": "2026-11-28T12:47:56.000Z",
+          "provider": "DraftKings",
+          "homeOdds": 1.9523809523809523,
+          "drawOdds": 3.6,
+          "awayOdds": 3.45,
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/summary?event=401884721",
+          "providerUpdatedAt": null,
+          "note": "Observed ESPN/DraftKings snapshot, no executable or closing-price claim."
         }
       ]
     }
@@ -2350,6 +4461,44 @@
         }
       ],
       "notes": "Separate EUR10 paper experiment, not additional real staking or an optimized allocation. Original experiment A unchanged. Uncalibrated model probabilities motivate a hypothesis only; no validated positive expectation or fees/taxes modelled."
+    },
+    {
+      "id": "paper-2026-11-28-01",
+      "label": "28 November — EUR10 price-disagreement paper trial",
+      "currency": "EUR",
+      "budget": 10,
+      "recordedAt": "2026-11-28T12:50:39.404375Z",
+      "mode": "hypothetical only",
+      "market": "90-minute home/draw/away; two singles; no extra-time or penalties; void returns stake",
+      "bets": [
+        {
+          "matchId": "espn-eng.1-401879226",
+          "pick": "away",
+          "stake": 5,
+          "decimalOdds": 2.9,
+          "recordedAt": "2026-11-28T12:50:39.404375Z",
+          "observedAt": "2026-11-28T12:47:56.000Z",
+          "provider": "DraftKings",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401879226",
+          "providerUpdatedAt": null,
+          "priceNote": "Observed ESPN/DraftKings snapshot. Provider update time unavailable; not an executable price.",
+          "modelProbability": 0.4584885847189956
+        },
+        {
+          "matchId": "espn-eng.1-401878752",
+          "pick": "home",
+          "stake": 5,
+          "decimalOdds": 3.4,
+          "recordedAt": "2026-11-28T12:50:39.404375Z",
+          "observedAt": "2026-11-28T12:47:56.000Z",
+          "provider": "DraftKings",
+          "source": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/summary?event=401878752",
+          "providerUpdatedAt": null,
+          "priceNote": "Observed ESPN/DraftKings snapshot. Provider update time unavailable; not an executable price.",
+          "modelProbability": 0.3823863066359511
+        }
+      ],
+      "notes": "Two separate EUR5 singles. Uncalibrated Poisson/model-price disagreement hypothesis, not verified positive expectation. Incomplete team-specific news, no confirmed absence claim, no fees/taxes and no real wager. Both can lose."
     }
   ],
   "sourceForecasts": [

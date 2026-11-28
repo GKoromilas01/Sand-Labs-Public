@@ -139,8 +139,8 @@
     },
     {
       "path": "apps/pitchlab/daily.json",
-      "sha256": "16cca962b2c5434cb45aa47b909c82bef7c4dfd85076c89d37853ac250826080",
-      "bytes": 93966
+      "sha256": "d2f359fe4e2c3d9cfe2d1d10ca4ec322bc12ce5b091dfeab715731d0cbbd5a29",
+      "bytes": 171200
     },
     {
       "path": "apps/pitchlab/index.html",

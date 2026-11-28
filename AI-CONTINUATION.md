@@ -95,3 +95,7 @@ Hub4.25 adds only the owner-facing board setup guide at apps/shared/online-setup
 
 
 Sand Labs4.26 publishes Chess/Go0.2.0 client improvements and confirmed Supabase public configuration. Owner reports SQL success and bright-processor deployed, legacyJWT off, originsecret saved. All mutation calls use that configured functionName. Google remainsdisabled pendingprovider setup. Authredirect/email and two-user remote matchmaking still need ownerlive test; do notclaimtested. Built-in computer/3levels/local play, original lessons/replays,3D-style view, optional local ambience and guest profiles work without externalAI. Preserve simple12-project gallery; handoffs in private main. No newLeonardo credits.
+
+
+## Pitch Lab paper experiment —28 November2026
+Manual shared ledger refresh adds10 upcoming fixtures with frozen forecasts/observed ESPN DraftKings odds and eligible news metadata. Settles all10 yesterday fixtures; yesterday independent paperA/B tickets each return0 on10stake, net−10each. New10EUR paper ticket is two5EUR singles: Brentfordaway2.90, Ipswichhome3.40. Evidence docs/projects/PITCH-LAB-PAPER-2026-11-28.json. Uncalibrated price-disagreement hypothesis; no verifiedteamabsence claim, no positive-expectation promise or realwager. Priorfrozen predictions/tickets preserved; privateSQLite reconciled. Shared ledger20matches spans2dates, not duplicate20same-day. Existing browserrefresh stillruns on eachopen/press (daily-once guard remainsunimplemented); no schedules added. Boardapps arealready0.2 onhub4.26; nextownerstepauthURLconfig pending.
