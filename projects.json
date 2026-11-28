@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "4.14",
+  "pageVersion": "4.15",
   "updated": "2026-11-28",
   "projects": [
     {
@@ -167,12 +167,12 @@
       "tint": "#8FD3C2",
       "name": "Zoetica",
       "alias": "The Spore-like game \u00b7 formerly Life AI",
-      "what": "Begin as a single cell and explore an evolving world of creatures.",
+      "what": "Guide life from water to land. Choose adaptations with real survival benefits and tradeoffs.",
       "st": "live",
       "stl": "Playable beta",
       "main": {
-        "t": "Zoetica 0.8.6",
-        "u": "apps/zoetica/index.html?v=0.8.6",
+        "t": "Zoetica 0.9",
+        "u": "apps/zoetica/index.html?v=0.9",
         "d": "28 Nov 2026",
         "label": "Play Zoetica"
       },
@@ -183,9 +183,9 @@
           "d": "24 Nov"
         }
       ],
-      "next": "Next-size and upgrade guidance, mobile HUD spacing. Evolution remains at0.30 progression rate, with existing automatic skippable ten-second milestone highlights.",
+      "next": "Open Evolve to choose Scout, Guardian or Hunter. Each path change costs12 DNA and carries to the Creature stage.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/life.md",
-      "version": "0.8.6",
+      "version": "0.9",
       "category": "games"
     },
     {
