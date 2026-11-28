@@ -1,3 +1,7 @@
+## Sand Labs4.12 / Pitch Lab0.12.0
+Pitch Lab0.12.0 reconciles records by provider fixture ID plus competition/date and exact teams/kickoff, not only internal record ID. Matching aliases count once; original snapshots retained in duplicateRecords for device export. Earliest frozen forecast preserved, completed result retained, conflicting finals held for review. Different-day fixtures remain separate. Refresh also fetches eligible provider pre-match headlines and flags availability-keyword uncertainty beside the prediction. It does not perform AI news interpretation, verify injuries, or change numerical probabilities from keywords; forecasts stay frozen. No paid API, schedule or real bet.
+Owner: press Refresh on the updated app; no deletion/reset required. Shattered Crowns and unrelated apps unchanged.
+
 ## Sand Labs 4.11 / Pavlos 0.3.5
 Pavlos 0.3.5 sizes scene artwork from the measured viewport space, header and caption height so subtitles are visible immediately without scrolling. Start focus no longer scrolls the page. Radio behavior unchanged: YouTube advertisements have variable duration and cannot be removed by skipping recording seconds. No new media or paid API; all other apps and Shattered Crowns remain paused.
 Live app: https://gkoromilas01.github.io/Sand-Labs-Public/apps/pavlos/?v=0.3.5

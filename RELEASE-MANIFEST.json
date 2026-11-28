@@ -1,11 +1,11 @@
 {
-  "version": "4.11",
+  "version": "4.12",
   "date": "2026-11-28",
   "files": [
     {
       "path": "index.html",
-      "sha256": "690cdf707d1a4470c4fbfbf599d498c56464093b6d61b5205b649e6f2fd6426a",
-      "bytes": 24865
+      "sha256": "9baa39c12e647bc8c74f905731c792f4e1344287531d10621221c85859edb8a2",
+      "bytes": 24791
     },
     {
       "path": "dashboard.css",
@@ -14,8 +14,8 @@
     },
     {
       "path": "projects.json",
-      "sha256": "1b2d9bb8f77b36f518fdf1c0a422a93acbde19688a833e50e40312823815cbf9",
-      "bytes": 11129
+      "sha256": "5f1076b921274b43a9f1f94f27e65fa9b39fad0cf0b1949371ff6001ffb7f179",
+      "bytes": 11055
     },
     {
       "path": "apps/bios/app.js",
@@ -159,8 +159,8 @@
     },
     {
       "path": "apps/pitchlab/daily.js",
-      "sha256": "79a286290cdc4dd40aef048ed91a2293a2c7580ff324c4dbc36b1564573ed22f",
-      "bytes": 11032
+      "sha256": "b35c70a7b07e19497c6e90d8bd294b00042dd19bf94c2342374165c37a9c22a2",
+      "bytes": 11860
     },
     {
       "path": "apps/pitchlab/daily.json",
@@ -169,8 +169,8 @@
     },
     {
       "path": "apps/pitchlab/index.html",
-      "sha256": "01a3f0fb7a5f242a64f4253f6e02178c4fef9a2a9fcae199778b3d2cfadba780",
-      "bytes": 11504
+      "sha256": "4d67feca59f479eba6802a31c9e423ce7a794f87e5aec25f868970fa8576bfb6",
+      "bytes": 11727
     },
     {
       "path": "apps/pitchlab/ledger.js",
@@ -219,8 +219,8 @@
     },
     {
       "path": "apps/pitchlab/live.js",
-      "sha256": "a7a6d86ea53937a9df6ac8b434ce1799b2c452ce0e625e3fba0c81098e0b66c2",
-      "bytes": 9454
+      "sha256": "f32f2851939d01bdaa18ccd807777d8353d2e6cc51cc95d9522f0c35c9d7208c",
+      "bytes": 13013
     },
     {
       "path": "apps/softone-advisor/guide.js",
