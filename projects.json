@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "4.21",
+  "pageVersion": "4.22",
   "updated": "2026-11-28",
   "projects": [
     {
@@ -300,6 +300,12 @@
         "label": "Play Shattered Crowns"
       },
       "more": [
+        {
+          "t": "First Winter 0.68 — candidate review",
+          "u": "https://github.com/GKoromilas01/Shattered-Crowns/pull/92",
+          "d": "28 Nov 2026",
+          "label": "Review next version"
+        },
         {
           "t": "New v0.67 verification — commit841d1a5",
           "u": "https://github.com/GKoromilas01/Shattered-Crowns/actions/runs/45899703466",

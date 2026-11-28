@@ -78,3 +78,6 @@ Full private working records: GKoromilas01/Sand-Labs-Applications, root CLAUDE.m
 
 ## Owner artwork update — 2026-11-28
 Chess, Go and Ninth Door 0.1.1 use the six owner-uploaded Leonardo JPEGs: square logos in headers and wide landing artwork in both opening screens and Sand Labs cards. Originals preserved byte-for-byte; SVG fallbacks retained. No generation credits spent. Sand Labs 4.21 remains alphabetical and desktop first. Ninth Door scenario remains undecided; preview is noncanonical. Save formats unchanged.
+
+
+Shattered Crowns First Winter0.68 candidate: PR92 in its own repository. Live launch/version remains approved0.66; hub4.22 adds a review link only. No candidate game copied or deployed. Native charter, economic choices and schema18 backup; existing media reused. Owner/Claude release workflow and exact-head CI remain the gates.

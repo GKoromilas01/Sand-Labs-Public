@@ -1,11 +1,11 @@
 {
-  "version": "4.21",
+  "version": "4.22",
   "date": "2026-11-28",
   "files": [
     {
       "path": "index.html",
-      "sha256": "2857bf6d491477f7551c8e432b5cd1add8ead9690b6aa22aa418ad6ce78f8ba0",
-      "bytes": 31598
+      "sha256": "3dd89e97dc4c5b7bff30e4f1acd3ca78989a75bcd74dbcb22460f4c722ee2846",
+      "bytes": 31822
     },
     {
       "path": "dashboard.css",
@@ -14,8 +14,8 @@
     },
     {
       "path": "projects.json",
-      "sha256": "a766a0f8889cefa6ba77b9f99d54307bc089b97770514b681343cfe28743be8c",
-      "bytes": 13004
+      "sha256": "afa45b2616c679c17f222ad07849ce1a476c88a4d0e775e8146a336edaa1db30",
+      "bytes": 13228
     },
     {
       "path": "apps/bios/app.js",
