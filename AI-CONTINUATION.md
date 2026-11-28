@@ -81,3 +81,7 @@ Chess, Go and Ninth Door 0.1.1 use the six owner-uploaded Leonardo JPEGs: square
 
 
 Shattered Crowns First Winter0.68 candidate: PR92 in its own repository. Live launch/version remains approved0.66; hub4.22 adds a review link only. No candidate game copied or deployed. Native charter, economic choices and schema18 backup; existing media reused. Owner/Claude release workflow and exact-head CI remain the gates.
+
+
+## First Winter browser playtest — 28 November2026
+Owner could not use GitHub review/download and requested continuation toward a simple browser link. Hub4.23 adds Try First Winter under the Shattered Crowns card, pointing to previews/shattered-crowns-0.68/index.html. This is an explicitly labelled playtest of exact locally verified game commit05bdc0bf5741e62fb1b71bc53845b3e012a685f1, SHA256521ba8cfbbfb2c109ce670c74d1876fe44b882ae0c15f13321770f3ca101d5e2. No self-merge of game PR92, no change to its protected production workflow, stable launch or release designation. Full game CI remains pending; local52 feature/pipeline/package checks passed. No new assets, credits or paid hosting. Saves made in this preview origin/path may share origin-level storage with Sand Labs; export a city backup before switching between game versions.
