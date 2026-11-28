@@ -1,10 +1,10 @@
 {
-  "version": "4.24",
+  "version": "4.25",
   "date": "2026-11-28",
   "files": [
     {
       "path": "index.html",
-      "sha256": "c24fccedaccd8a3abfa55f8d97cf8e718d6767ae625b26a693ba9ecdc2006d4f",
+      "sha256": "3025e825c042371dff885467d33ed039ca7261be6ea4d03a8b184f21c5d58cf4",
       "bytes": 24860
     },
     {
@@ -14,7 +14,7 @@
     },
     {
       "path": "projects.json",
-      "sha256": "27444c06221352b7e1a4f6a0d7e4c6fb6a8bc77a34ac155ebf984621106b0f6a",
+      "sha256": "432e7d8aaf441148e21abc7b2a9f8c1b596ee084634adbdc8a3959de40803b37",
       "bytes": 13238
     },
     {
@@ -796,6 +796,21 @@
       "path": "previews/shattered-crowns-0.68/provenance.json",
       "sha256": "9acfa08b7b3e49e9f0b4ab27f8d63538b1bdb51ed6defde8e554d1cda0c64e2f",
       "bytes": 286
+    },
+    {
+      "path": "apps/shared/online-setup.html",
+      "sha256": "fe01a8cc0271c103505e4f2e8c18e295787e09ada485eb36b3050ff3517ee3fa",
+      "bytes": 4211
+    },
+    {
+      "path": "apps/shared/setup/schema.sql.txt",
+      "sha256": "dc1a1c7671975830017185c9227266a8bd09304f95879a0f6f0d33a5cd58a8f0",
+      "bytes": 3256
+    },
+    {
+      "path": "apps/shared/setup/function.ts.txt",
+      "sha256": "391837edc3d392ed86db4527421b1dec15b88d82b12fda7aeafa14d3b89f3b7e",
+      "bytes": 9582
     }
   ]
 }

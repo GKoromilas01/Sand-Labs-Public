@@ -89,3 +89,6 @@ Owner could not use GitHub review/download and requested continuation toward a s
 
 ## Simple gallery restored —28 November2026
 Owner requested the earlier simple project gallery with all12 projects. Removed the extra personal-path promotional cards and large feedback composer; kept search, category filters, alphabetical artwork cards, explicit playtest button, About/contact and working email links. No app versions changed by this hub-only update. Supabase exact Project URL and owner backend setup remain pending.
+
+
+Hub4.25 adds only the owner-facing board setup guide at apps/shared/online-setup.html with copyable SQL/function sources. Existing12-project simple gallery and live app versions retained. Confirmed owner Supabase URL/public key stored in private source handoff; no live database/function or Google setup has been verified. No new Leonardo assets/credits.

@@ -1,0 +1,42 @@
+-- Run once in Supabase SQL Editor. Browser clients have read-only participant access.
+create table public.board_matches (
+ id uuid primary key default gen_random_uuid(), game text not null check(game in ('chess','go')),
+ white uuid not null references auth.users(id), black uuid references auth.users(id),
+ status text not null check(status in ('waiting','active','finished')),
+ revision integer not null default 0, position jsonb not null, turn text not null check(turn in ('w','b')),
+ result text, updated_at timestamptz not null default now(), check(white is distinct from black)
+);
+create index board_matches_players on public.board_matches(white,black,status);
+alter table public.board_matches enable row level security;
+revoke all on public.board_matches from anon, authenticated;
+grant select on public.board_matches to authenticated;
+create policy participants_read on public.board_matches for select to authenticated using(auth.uid()=white or auth.uid()=black);
+-- All mutation RPCs are accessible exclusively to the Edge function's service role.
+create function public.board_join(actor uuid, wanted text, initial_position jsonb, initial_turn text)
+returns public.board_matches language plpgsql security definer set search_path=public as $$
+declare m board_matches;
+begin
+ if wanted not in ('chess','go') then raise exception 'Unknown game'; end if;
+ -- Serialize all joins to prevent double queue membership and pair races.
+ perform pg_advisory_xact_lock(913502);
+ select * into m from board_matches where (white=actor or black=actor) and status in ('waiting','active') order by updated_at desc limit 1;
+ if found then return m; end if;
+ select * into m from board_matches where game=wanted and status='waiting' and white<>actor order by updated_at limit 1 for update;
+ if found then update board_matches set black=actor,status='active',revision=revision+1,updated_at=now() where id=m.id returning * into m;
+ else insert into board_matches(game,white,status,position,turn) values(wanted,actor,'waiting',initial_position,initial_turn) returning * into m; end if;
+ return m;
+end $$;
+create function public.board_commit(actor uuid, match_id uuid, expected integer, next_position jsonb, next_turn text, next_status text, next_result text)
+returns public.board_matches language plpgsql security definer set search_path=public as $$
+declare m board_matches;
+begin
+ select * into m from board_matches where id=match_id for update;
+ if not found or (m.white<>actor and m.black is distinct from actor) then raise exception 'Match unavailable'; end if;
+ if m.revision<>expected or m.status='finished' then raise exception 'Stale revision; refresh match'; end if;
+ update board_matches set position=next_position,turn=next_turn,status=next_status,result=next_result,revision=revision+1,updated_at=now() where id=match_id returning * into m;
+ return m;
+end $$;
+revoke all on function public.board_join(uuid,text,jsonb,text) from public,anon,authenticated;
+revoke all on function public.board_commit(uuid,uuid,integer,jsonb,text,text,text) from public,anon,authenticated;
+grant execute on function public.board_join(uuid,text,jsonb,text) to service_role;
+grant execute on function public.board_commit(uuid,uuid,integer,jsonb,text,text,text) to service_role;
