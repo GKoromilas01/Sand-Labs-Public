@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "4.13",
+  "pageVersion": "4.14",
   "updated": "2026-11-28",
   "projects": [
     {
@@ -67,12 +67,12 @@
       "tint": "#C9A6E2",
       "name": "Bios",
       "alias": "Formerly Vios / Digital Biography",
-      "what": "Turn your memories into a personal biography, one story at a time.",
+      "what": "Build your biography with remembered drafts, chapter organization, photos and reviewed personal reflections.",
       "st": "dev",
       "stl": "Working prototype",
       "main": {
-        "t": "Bios 0.5",
-        "u": "apps/bios/index.html?v=0.5",
+        "t": "Bios 0.6",
+        "u": "apps/bios/index.html?v=0.6",
         "d": "28 Nov 2026",
         "label": "Open Bios"
       },
@@ -109,9 +109,9 @@
           "d": "20 Nov"
         }
       ],
-      "next": "Search memories, filter chapters and browse recognised dates while preserving notebook/export order. Chapter-only edits are protected. Local storage/backups unchanged; no connected AI/accounts.",
+      "next": "Continue your story, arrange chapters and photo captions, then export a private backup.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/bio.md",
-      "version": "0.5",
+      "version": "0.6",
       "category": "tools"
     },
     {
@@ -194,12 +194,12 @@
       "tint": "#9DB7E8",
       "name": "Agora",
       "alias": "Formerly Isegoria / Digital Democracy",
-      "what": "Read the news, explore different perspectives and develop ideas for a better society.",
+      "what": "Explore news by topic, save articles and keep your perspectives, questions and local polls together.",
       "st": "dev",
       "stl": "Working prototype",
       "main": {
-        "t": "Agora 0.5",
-        "u": "apps/isegoria/index.html?v=0.5",
+        "t": "Agora 0.6",
+        "u": "apps/isegoria/index.html?v=0.6",
         "d": "28 Nov 2026",
         "label": "Open Agora"
       },
@@ -216,9 +216,9 @@
           "d": "26 Nov 2026"
         }
       ],
-      "next": "Search headlines and saved perspectives; filter local polls by topic/answer; search saved discussions, polls and views. Device-only records, no shared public vote totals. Source timestamp and fallback preserved.",
+      "next": "Read the current headline snapshot, save articles and build your private discussion notebook.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/dd.md",
-      "version": "0.5",
+      "version": "0.6",
       "category": "community"
     },
     {

@@ -81,10 +81,11 @@ footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;b
 <div class="pills" role="group" aria-label="Explore apps"><button class="pill" data-f="all" aria-pressed="true">All apps</button><button class="pill" data-f="games" aria-pressed="false">Games</button><button class="pill" data-f="tools" aria-pressed="false">Tools</button><button class="pill" data-f="creative" aria-pressed="false">Creative</button><button class="pill" data-f="community" aria-pressed="false">Community</button></div>
 <span class="count" id="count"></span>
 </div>
-<div class="grid" id="grid"></div>
+<div class="grid" id="grid"></div><section class="personal-paths" aria-labelledby="personalPathsTitle"><div><p class="eyebrow">MAKE IT PERSONAL</p><h2 id="personalPathsTitle">Your story. Your perspective.</h2><p>Keep a memory, follow an idea, and come back to build on it.</p></div><div id="personalPaths" class="personal-path-grid"></div></section>
 </div>
 </main>
 
+<section class="band feedback-band" id="feedback"><div class="wrap"><div><p class="eyebrow">HELP SHAPE THE LAB</p><h2>What could work better?</h2><p>Report a problem or suggest an idea. Review your message before sending; no app data or personal notes are attached.</p></div><form id="feedbackForm"><label>Application<select id="feedbackApp"><option value="">Sand Labs central page</option></select></label><label>Type<select id="feedbackType"><option>Report a problem</option><option>Suggest an improvement</option></select></label><label>What happened, or what would you like?<textarea id="feedbackDetails" required maxlength="2000" rows="4" placeholder="For a problem, include what you clicked and what you expected."></textarea></label><button class="pill" type="submit">Prepare message</button></form><div id="feedbackReview" hidden><label for="feedbackMessage">Review your message</label><textarea id="feedbackMessage" rows="7" readonly></textarea><div class="actions"><a class="open" id="feedbackGmail" target="_blank" rel="noopener noreferrer">Open Gmail draft</a><a class="mail-app" id="feedbackMail">Use email app</a><button class="pill" id="copyFeedback" type="button">Copy message</button></div><p class="contact-help">You send the message from your email account. Preparing it here does not submit a report.</p></div><p id="feedbackStatus" role="status"></p></div></section>
 <section class="band" id="about" style="border-top:1px solid var(--line)">
 <div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:32px">
 <div>
@@ -95,7 +96,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;b
 </div>
 <div id="contact" style="background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;align-self:start">
 <h3 style="font:700 24px 'Space Grotesk',sans-serif;margin:0 0 8px">Contact</h3>
-<p style="margin:0 0 14px;color:var(--muted)">Questions, ideas or feedback on any project? Write to us.</p>
+<p style="margin:0 0 14px;color:var(--muted)">Questions, ideas or feedback on any project? <a href="#feedback">Prepare a report or suggestion</a>, or write to us.</p>
 <p style="margin:0 0 16px;font-size:18px;font-weight:600;overflow-wrap:anywhere">yanniskoromilas@gmail.com</p>
 <div style="display:flex;flex-wrap:wrap;gap:10px">
 <a class="open" id="sendEmail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=yanniskoromilas%40gmail.com&amp;su=Hello%20Sand%20Labs" target="_blank" rel="noopener noreferrer">Send an email</a><a class="mail-app" href="mailto:yanniskoromilas@gmail.com">Use email app</a>
@@ -109,7 +110,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;b
 <script id="project-data" type="application/json">
 {
   "schemaVersion": 1,
-  "pageVersion": "4.13",
+  "pageVersion": "4.14",
   "updated": "2026-11-28",
   "projects": [
     {
@@ -176,12 +177,12 @@ footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;b
       "tint": "#C9A6E2",
       "name": "Bios",
       "alias": "Formerly Vios / Digital Biography",
-      "what": "Turn your memories into a personal biography, one story at a time.",
+      "what": "Build your biography with remembered drafts, chapter organization, photos and reviewed personal reflections.",
       "st": "dev",
       "stl": "Working prototype",
       "main": {
-        "t": "Bios 0.5",
-        "u": "apps/bios/index.html?v=0.5",
+        "t": "Bios 0.6",
+        "u": "apps/bios/index.html?v=0.6",
         "d": "28 Nov 2026",
         "label": "Open Bios"
       },
@@ -218,9 +219,9 @@ footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;b
           "d": "20 Nov"
         }
       ],
-      "next": "Search memories, filter chapters and browse recognised dates while preserving notebook/export order. Chapter-only edits are protected. Local storage/backups unchanged; no connected AI/accounts.",
+      "next": "Continue your story, arrange chapters and photo captions, then export a private backup.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/bio.md",
-      "version": "0.5",
+      "version": "0.6",
       "category": "tools"
     },
     {
@@ -303,12 +304,12 @@ footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;b
       "tint": "#9DB7E8",
       "name": "Agora",
       "alias": "Formerly Isegoria / Digital Democracy",
-      "what": "Read the news, explore different perspectives and develop ideas for a better society.",
+      "what": "Explore news by topic, save articles and keep your perspectives, questions and local polls together.",
       "st": "dev",
       "stl": "Working prototype",
       "main": {
-        "t": "Agora 0.5",
-        "u": "apps/isegoria/index.html?v=0.5",
+        "t": "Agora 0.6",
+        "u": "apps/isegoria/index.html?v=0.6",
         "d": "28 Nov 2026",
         "label": "Open Agora"
       },
@@ -325,9 +326,9 @@ footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;b
           "d": "26 Nov 2026"
         }
       ],
-      "next": "Search headlines and saved perspectives; filter local polls by topic/answer; search saved discussions, polls and views. Device-only records, no shared public vote totals. Source timestamp and fallback preserved.",
+      "next": "Read the current headline snapshot, save articles and build your private discussion notebook.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/dd.md",
-      "version": "0.5",
+      "version": "0.6",
       "category": "community"
     },
     {
@@ -435,12 +436,16 @@ const projectIcon=id=>{
 };
 const categories={games:'Games',tools:'Tools',creative:'Creative',community:'Community'};
 const appArtwork={sc:"assets/shattered-crowns-settlement.jpg",sphinx:"apps/pavlos/media/island-harbour.jpg",coin:"assets/coin-intel-desk.jpg",bio:"apps/bios/media/landing.jpg",life:"apps/zoetica/media/landing.jpg",dd:"apps/isegoria/media/landing.jpg",sw:"apps/softone-advisor/media/landing.jpg",chronoscope:"apps/chronoscope/media/landing.jpg",pitchlab:"apps/pitchlab/media/landing.jpg"};
-const card=p=>`<article class="card" data-project="${esc(p.id)}"><div class="card-identity"><div class="mark" aria-hidden="true">${projectIcon(p.id)}</div><span class="category">${esc(categories[p.category]||'Tools')}</span></div>${appArtwork[p.id]?`<img class="app-artwork" src="${appArtwork[p.id]}" width="1344" height="768" alt="" loading="lazy" decoding="async">`:""}<h2>${esc(p.name)}</h2><p class="what">${esc(p.what)}</p>${p.main?link(p.main.u,esc(p.main.label||'Open app'),'open'):'<p class="none">Coming soon</p>'}</article>`;
+const card=p=>`<article class="card" data-project="${esc(p.id)}"><div class="card-identity"><div class="mark" aria-hidden="true">${projectIcon(p.id)}</div><span class="category">${esc(categories[p.category]||'Tools')}</span></div>${appArtwork[p.id]?`<img class="app-artwork" src="${appArtwork[p.id]}" width="1344" height="768" alt="" loading="lazy" decoding="async">`:""}<h2>${esc(p.name)}</h2><p class="what">${esc(p.what)}</p>${p.main?link(p.main.u,esc(p.main.label||'Open app'),'open'):'<p class="none">Coming soon</p>'}<a class="app-feedback" href="#feedback" data-feedback="${esc(p.id)}">Feedback on ${esc(p.name)}</a></article>`;
 const grid=document.getElementById('grid'),count=document.getElementById('count'),search=document.getElementById('appSearch');let f='all';
-function render(){const query=search.value.trim().toLowerCase(),list=P.filter(p=>(f==='all'||p.category===f)&&(!query||(p.name+' '+p.what).toLowerCase().includes(query)));grid.innerHTML=list.length?list.map(card).join(''):'<p class="empty-search">No apps match this search. Try another name or choose All apps.</p>';count.textContent=list.length+' app'+(list.length===1?'':'s');document.querySelectorAll('[data-f]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.f===f)));}
+function render(){const query=search.value.trim().toLowerCase(),list=P.filter(p=>(f==='all'||p.category===f)&&(!query||(p.name+' '+p.what).toLowerCase().includes(query)));grid.innerHTML=list.length?list.map(card).join(''):'<p class="empty-search">No apps match this search. Try another name or choose All apps.</p>';count.textContent=list.length+' app'+(list.length===1?'':'s');document.querySelectorAll('[data-f]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.f===f)));renderPaths();}
+function renderPaths(){const paths=document.getElementById('personalPaths');paths.innerHTML=[['bio','Build your biography','Continue your book, organize chapters and keep the details that matter.'],['dd','Read. Question. Discuss.','Explore news topics and collect articles, perspectives and questions.']].map(([id,title,text])=>{const p=P.find(x=>x.id===id);return p?`<a class="personal-path" href="${esc(safeUrl(p.main.u))}"><span class="path-mark">${projectIcon(id)}</span><h3>${title}</h3><p>${text}</p><span>Open ${esc(p.name)} ↗</span></a>`:'';}).join('');const selected=document.getElementById('feedbackApp').value;document.getElementById('feedbackApp').innerHTML='<option value="">Sand Labs central page</option>'+P.map(p=>`<option value="${esc(p.id)}">${esc(p.name)}</option>`).join('');document.getElementById('feedbackApp').value=selected;}
 document.querySelectorAll('[data-f]').forEach(b=>b.addEventListener('click',()=>{f=b.dataset.f;render()}));search.addEventListener('input',render);render();
 async function refreshProjects(){try{const response=await fetch('projects.json',{cache:'no-store'});if(!response.ok)throw Error('Catalog unavailable');const next=await response.json();if(next.schemaVersion!==1||!Array.isArray(next.projects)||!next.projects.length)throw Error('Invalid catalog');const ids=new Set();for(const p of next.projects){if(!p||typeof p.id!=='string'||ids.has(p.id)||typeof p.name!=='string'||typeof p.what!=='string'||(p.main&&typeof p.main.u!=='string'))throw Error('Invalid app');ids.add(p.id);}registry=next;P=next.projects;render();}catch(_){/* Offline catalog remains available. */}}
 if(location.protocol!=='file:')void refreshProjects();
+document.getElementById('grid').addEventListener('click',e=>{const link=e.target.closest('[data-feedback]');if(!link)return;document.getElementById('feedbackApp').value=link.dataset.feedback;document.getElementById('feedbackDetails').focus({preventScroll:true});});
+document.getElementById('feedbackForm').onsubmit=e=>{e.preventDefault();const id=document.getElementById('feedbackApp').value,p=P.find(x=>x.id===id),type=document.getElementById('feedbackType').value,details=document.getElementById('feedbackDetails').value.trim();if(!details)return;const subject=type+' — '+(p?.name||'Sand Labs'),message=subject+'\n\n'+details+'\n\nPage: '+(p?new URL(safeUrl(p.main.u),location.href).href:location.href);document.getElementById('feedbackMessage').value=message;document.getElementById('feedbackGmail').href='https://mail.google.com/mail/?view=cm&fs=1&to=yanniskoromilas%40gmail.com&su='+encodeURIComponent(subject)+'&body='+encodeURIComponent(message);document.getElementById('feedbackMail').href='mailto:yanniskoromilas@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(message);document.getElementById('feedbackReview').hidden=false;document.getElementById('feedbackStatus').textContent='Message prepared locally. Review it, then choose how to send it.';};
+document.getElementById('copyFeedback').onclick=async()=>{try{await navigator.clipboard.writeText(document.getElementById('feedbackMessage').value);document.getElementById('feedbackStatus').textContent='Message copied. You decide where to send it.';}catch(_){document.getElementById('feedbackStatus').textContent='Select the message above and copy it manually.';}};
 const cb=document.getElementById('copyMail');
 if(cb)cb.addEventListener('click',async()=>{const m=document.getElementById('copyMsg');try{await navigator.clipboard.writeText('yanniskoromilas@gmail.com');m.textContent='Address copied.'}catch(e){m.textContent='Copy blocked here; select the address above instead.'}});
 }
