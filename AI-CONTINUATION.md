@@ -92,3 +92,6 @@ Owner requested the earlier simple project gallery with all12 projects. Removed 
 
 
 Hub4.25 adds only the owner-facing board setup guide at apps/shared/online-setup.html with copyable SQL/function sources. Existing12-project simple gallery and live app versions retained. Confirmed owner Supabase URL/public key stored in private source handoff; no live database/function or Google setup has been verified. No new Leonardo assets/credits.
+
+
+Sand Labs4.26 publishes Chess/Go0.2.0 client improvements and confirmed Supabase public configuration. Owner reports SQL success and bright-processor deployed, legacyJWT off, originsecret saved. All mutation calls use that configured functionName. Google remainsdisabled pendingprovider setup. Authredirect/email and two-user remote matchmaking still need ownerlive test; do notclaimtested. Built-in computer/3levels/local play, original lessons/replays,3D-style view, optional local ambience and guest profiles work without externalAI. Preserve simple12-project gallery; handoffs in private main. No newLeonardo credits.
