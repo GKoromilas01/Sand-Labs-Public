@@ -1,0 +1,1 @@
+'use strict';importScripts('engine.js','opponent.js');onmessage=e=>{try{postMessage({action:GoOpponent.choose(GoRules.parse(JSON.stringify(e.data.position)),e.data.level)});}catch(error){postMessage({error:error.message});}};

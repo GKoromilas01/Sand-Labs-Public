@@ -1,11 +1,11 @@
 {
-  "version": "4.25",
+  "version": "4.26",
   "date": "2026-11-28",
   "files": [
     {
       "path": "index.html",
-      "sha256": "3025e825c042371dff885467d33ed039ca7261be6ea4d03a8b184f21c5d58cf4",
-      "bytes": 24860
+      "sha256": "87f1c709bd92ee97ddb557aaff1ea09a33f5534bad2511ca5a27507e84b14edc",
+      "bytes": 24974
     },
     {
       "path": "dashboard.css",
@@ -14,8 +14,8 @@
     },
     {
       "path": "projects.json",
-      "sha256": "432e7d8aaf441148e21abc7b2a9f8c1b596ee084634adbdc8a3959de40803b37",
-      "bytes": 13238
+      "sha256": "f10426249d67f39dee61bee6f425ece69a8f67bf30f8a3ee061e71945ea52abc",
+      "bytes": 13352
     },
     {
       "path": "apps/bios/app.js",
@@ -659,18 +659,18 @@
     },
     {
       "path": "apps/chess/index.html",
-      "sha256": "d8b1bbffe77eea6ce733d7e29d5ed192c468d020cdd4e6802a414aef81933501",
-      "bytes": 2996
+      "sha256": "f576f30e8398497e971382520e9b58435b23afc3d36cbe038a86b919a1f7101a",
+      "bytes": 4383
     },
     {
       "path": "apps/chess/app.js",
-      "sha256": "8acb9162012964057953c0d3435d7868a64ad39d6440e77ae13cbee4e996442e",
-      "bytes": 7475
+      "sha256": "54c3c8bb98139b64766f8ca6d27d6cad5e06e9c88fa61e6dd9dfb2c41e074fbf",
+      "bytes": 14760
     },
     {
       "path": "apps/chess/style.css",
-      "sha256": "3394cee95bbe8807934873f2fb686482ee022492961216a7445d776703a385d7",
-      "bytes": 4268
+      "sha256": "469f8998e2d81d62a70546da22dfe9f9b5487d25311cd861fc05fa702988bc90",
+      "bytes": 4744
     },
     {
       "path": "apps/chess/vendor/LICENSE-chess.txt",
@@ -699,13 +699,13 @@
     },
     {
       "path": "apps/go/index.html",
-      "sha256": "75c93ac26bfbad5355759fc32f67f21aa1d411af69bbf9317b4adc4e25187f03",
-      "bytes": 3158
+      "sha256": "cc717438126f051799679509469d6c9c45b8ae5501da428bfa15ee0f6c7cc7dc",
+      "bytes": 4991
     },
     {
       "path": "apps/go/app.js",
-      "sha256": "414e94200396d515168ff653032f2fc70667556eff077b580d40b6414517f0de",
-      "bytes": 5328
+      "sha256": "94285128c88823d6b1cd14161d1095b303b1fe58948c5a6754696f81f9d507b6",
+      "bytes": 13204
     },
     {
       "path": "apps/go/engine.js",
@@ -714,8 +714,8 @@
     },
     {
       "path": "apps/go/style.css",
-      "sha256": "02bd3c6438cedfc480b3f132cc8d7ca7200b51e59f16afe4d5f80de969039242",
-      "bytes": 4849
+      "sha256": "ac500a393609892e64aedcb6080d7ca80c24ad598cea86620e87513ed40bb442",
+      "bytes": 5307
     },
     {
       "path": "apps/go/media/logo.svg",
@@ -811,6 +811,46 @@
       "path": "apps/shared/setup/function.ts.txt",
       "sha256": "391837edc3d392ed86db4527421b1dec15b88d82b12fda7aeafa14d3b89f3b7e",
       "bytes": 9582
+    },
+    {
+      "path": "apps/chess/computer-worker.js",
+      "sha256": "83ee4e9380568749f9669ebaee870ed5e0af8ccf6051d5722ca93c6cf360c886",
+      "bytes": 221
+    },
+    {
+      "path": "apps/chess/engine.mjs",
+      "sha256": "f70ccfbec40e285e495e1dc710c6058bf85800ee6265e0de5d132f9f5376e11d",
+      "bytes": 1192
+    },
+    {
+      "path": "apps/go/learning.js",
+      "sha256": "ffe916e1c1b09b372cc9c2864d8c7946d08fd196249ecda2d2f249a6e99d81d0",
+      "bytes": 887
+    },
+    {
+      "path": "apps/go/worker.js",
+      "sha256": "6f0d7468731c72c7feedf04f46edf0999db425401e4bc31d55333d1b8209f0cd",
+      "bytes": 226
+    },
+    {
+      "path": "apps/go/opponent.js",
+      "sha256": "6783b2b9b15793f8c827e41bd48544f6e8d50da3c2df0088d77318f1ec6f0274",
+      "bytes": 1392
+    },
+    {
+      "path": "apps/shared/board-experience.js",
+      "sha256": "21e6685d6541c2287fcc2d8dca083543254257e4781e7c99bafb417df06999d7",
+      "bytes": 8110
+    },
+    {
+      "path": "apps/shared/online-config.js",
+      "sha256": "a35f45f6c6d14dbb76476f97f543a91e122f9f2c0a874487f7222f0a38451097",
+      "bytes": 468
+    },
+    {
+      "path": "apps/shared/board-online.js",
+      "sha256": "6717cd79302e3d05597b86f2f9f244e3f49be73989a1f074357e082045bda5b9",
+      "bytes": 6413
     }
   ]
 }

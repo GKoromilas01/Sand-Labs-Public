@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "4.25",
+  "pageVersion": "4.26",
   "updated": "2026-11-28",
   "projects": [
     {
@@ -26,8 +26,8 @@
           "label": "View preview"
         },
         {
-          "t": "Digital Democracy — supplied earlier page (private GitHub file)",
-          "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/apps/digital-democracy/index.html",
+          "t": "Digital Democracy — supplied earlier page",
+          "u": "apps/digital-democracy/index.html",
           "d": "26 Nov 2026"
         }
       ],
@@ -95,18 +95,18 @@
       "mark": "CH",
       "tint": "#9ACCDD",
       "alias": "",
-      "what": "A local two-player chess board with legal moves, promotion, castling and saved games.",
+      "what": "Play built-in computer opponents at three levels, solve original puzzles and explore game replays.",
       "st": "dev",
-      "stl": "Playable first version",
-      "version": "0.1.1",
+      "stl": "Playable computer and local modes",
+      "version": "0.2.0",
       "main": {
-        "t": "Chess 0.1.1",
-        "u": "apps/chess/index.html?v=0.1.1",
+        "t": "Chess 0.2.0",
+        "u": "apps/chess/index.html?v=0.2.0",
         "d": "28 Nov 2026",
         "label": "Play Chess"
       },
       "more": [],
-      "next": "Desktop first. Owner-supplied logo and landing artwork installed; local saves and backups available.",
+      "next": "Built-in computer and local play, lessons, optional music and 3D view. Email/online connection configured for first live testing; Google setup pending.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/chess.md",
       "category": "games"
     },
@@ -153,18 +153,18 @@
       "mark": "GO",
       "tint": "#9CE0C9",
       "alias": "",
-      "what": "Learn and play local9×9 Go with captures, ko protection and agreed area scoring.",
+      "what": "Play 9×9 Go against a built-in computer, practise captures and review an original teaching game.",
       "st": "dev",
-      "stl": "Playable first version",
-      "version": "0.1.1",
+      "stl": "Playable computer and local modes",
+      "version": "0.2.0",
       "main": {
-        "t": "Go 0.1.1",
-        "u": "apps/go/index.html?v=0.1.1",
+        "t": "Go 0.2.0",
+        "u": "apps/go/index.html?v=0.2.0",
         "d": "28 Nov 2026",
         "label": "Play Go"
       },
       "more": [],
-      "next": "Desktop first. Owner-supplied logo and landing artwork installed; local saves and backups available.",
+      "next": "Built-in computer and local play, lessons, optional music and 3D view. Email/online connection configured for first live testing; Google setup pending.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/go.md",
       "category": "games"
     },
@@ -302,7 +302,7 @@
       "more": [
         {
           "t": "First Winter 0.68 — playtest",
-          "u": "previews/shattered-crowns-0.68/index.html?v=0.68.0",
+          "u": "https://gkoromilas01.github.io/Sand-Labs-Public/previews/shattered-crowns-0.68/index.html?v=0.68.0",
           "d": "28 Nov 2026",
           "label": "Try First Winter",
           "preview": true
