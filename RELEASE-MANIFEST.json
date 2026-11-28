@@ -1,20 +1,20 @@
 {
-  "version": "4.18",
+  "version": "4.19",
   "date": "2026-11-28",
   "files": [
     {
       "path": "index.html",
-      "sha256": "0a7cbaf18af2c81d65e050159080d3d72c6f973a8e70789708ac70a5b41596e5",
-      "bytes": 28885
+      "sha256": "41ff4c203aaa8b7bf3c88f24d1159fdbbb85fb6f60427492dc0ba18bce3ead1d",
+      "bytes": 28965
     },
     {
       "path": "dashboard.css",
-      "sha256": "e32efc0db1053c18472e44cd2075ea0bc0b578bb4da270d40c8a6426c293c2b8",
-      "bytes": 12831
+      "sha256": "ced3939caa51c7346e8a4fd2a653bb851ffbce7f7100b1bab0785635e3e57893",
+      "bytes": 13008
     },
     {
       "path": "projects.json",
-      "sha256": "27648345fcf59cdb8ec8f83af75df71876c7fe896130217f3585ebd3a9e14868",
+      "sha256": "e0a5b18f0dc94d55cbc86de65d42e9cc85898f8c96fb1e5052cf67a1df8af6e9",
       "bytes": 10779
     },
     {

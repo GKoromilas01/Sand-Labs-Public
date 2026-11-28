@@ -1,3 +1,6 @@
+## Sand Labs4.19
+Lens catalogue card uses owner-approved vibrant hero, not the logo. CSS frames photographic content. Lens app version0.2 and its logo unchanged.
+
 ## Sand Labs4.18 / new Lens0.2
 New Lens photography app:0.1 working studio followed by0.2 ordered collections, photo removal and challenge history. Owner-approved logo/vibrant hero imported, all supplied alternatives retained unchanged. Private device galleries/critiques, lessons, gear/phone notes, discussion drafts, monthly candidate preparation, personal digital-book HTML download/print-PDF, local profile/sharing preference and IndexedDB/validated JSON backup. Initial service free. Public accounts/galleries, other-user comments, voting, moderated competitions and later print sales are NOT connected; these require secure shared backend. No fake reviews/winners/rankings or new media generation. Working name remains provisional.
 Latest source/decisions: private Sand-Labs-Applications/apps/lens/CLAUDE.md and docs/projects/lens.md. No API keys or account credentials are needed for this client prototype. Lens source data format1 and IndexedDB lens-studio-v1 are separate from all other apps.
