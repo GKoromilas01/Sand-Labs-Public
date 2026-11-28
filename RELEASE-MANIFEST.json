@@ -1,11 +1,11 @@
 {
-  "version": "4.14",
+  "version": "4.15",
   "date": "2026-11-28",
   "files": [
     {
       "path": "index.html",
-      "sha256": "bcecce12216e7fa2dac4e88f5c60df93423277e11511caa22237f7288670027f",
-      "bytes": 28978
+      "sha256": "c9d0092b126bc99fdffbb8d03af5e5d269e69549f82d33c365fd708653645908",
+      "bytes": 28949
     },
     {
       "path": "dashboard.css",
@@ -14,8 +14,8 @@
     },
     {
       "path": "projects.json",
-      "sha256": "57abbe6a3c776510600b36e24a49217e383b0f3d2d8aa4ee528e4a44fbb091eb",
-      "bytes": 10859
+      "sha256": "f52175f599eb5c881c3640cda6b06ad56496046252894a0aebc0540b3bd821e2",
+      "bytes": 10830
     },
     {
       "path": "apps/bios/app.js",
@@ -254,13 +254,13 @@
     },
     {
       "path": "apps/zoetica/backup.js",
-      "sha256": "9fb062ca8ae7815429dba7a106d6dde6c13172af50ac241a4484f4efa597f94b",
-      "bytes": 3522
+      "sha256": "25125476fc52a8f6c7cb46b03b509b1b3af692bdbaeae48d0d4cdc4ccd294232",
+      "bytes": 3661
     },
     {
       "path": "apps/zoetica/index.html",
-      "sha256": "cd4a9d7a1cb55899d2c90209c369ce2bff08e3742f41a65f4e91057b3d641967",
-      "bytes": 170697
+      "sha256": "dade0f13f9b5062c51000c6376b19eba66213dd4878ba7f0eeac432e0d91c3de",
+      "bytes": 174132
     },
     {
       "path": "apps/zoetica/intro.mp4",
@@ -631,6 +631,11 @@
       "path": "assets/coin-intel-desk.jpg",
       "sha256": "14132771729b6a5ee6fcba7ec7543c311d7586be271efe28336a3a01af992cd0",
       "bytes": 358070
+    },
+    {
+      "path": "apps/zoetica/adaptations.js",
+      "sha256": "35e0a77e29b15d2b70704b030678dcdc5cc2e6fad56b1990a88599c38d943c9f",
+      "bytes": 1541
     }
   ]
 }

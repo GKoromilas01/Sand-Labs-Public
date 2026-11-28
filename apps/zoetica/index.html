@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Zoetica — v0.8.6</title>
+<title>Zoetica — v0.9</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;overflow:hidden;background:#03121c;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#dff6ff;user-select:none;-webkit-user-select:none}
@@ -138,7 +138,7 @@ canvas#c{display:block;cursor:crosshair;touch-action:none}
 .mouths button.cur{border-color:#ffd36b;background:rgba(255,211,107,.12);opacity:1}
 #edClose{margin-top:18px;width:100%}
 </style>
-<style>#title{background:linear-gradient(90deg,#03172adb,#03172a55),url("media/landing.jpg") center/cover no-repeat}#title .card{background:#071d2ff2}</style><style>#goalGuide{margin:8px 0 12px;padding:9px;background:#092433dd;border:1px solid #35635e;border-radius:8px;font:11px/1.5 system-ui}#goalGuide b{color:#a7e6c2}#goalHint{margin:4px 0 0;color:#dbedf0}@media(max-width:560px){#hud{width:calc(50vw - 24px)}#eco{min-width:0;width:calc(50vw - 24px);font-size:11px;padding:8px}#ecoTip{font-size:10px}#goalGuide{font-size:10px;padding:7px}}</style></head>
+<style>#title{background:linear-gradient(90deg,#03172adb,#03172a55),url("media/landing.jpg") center/cover no-repeat}#title .card{background:#071d2ff2}</style><style>#goalGuide{margin:8px 0 12px;padding:9px;background:#092433dd;border:1px solid #35635e;border-radius:8px;font:11px/1.5 system-ui}#goalGuide b{color:#a7e6c2}#goalHint{margin:4px 0 0;color:#dbedf0}@media(max-width:560px){#hud{width:calc(50vw - 24px)}#eco{min-width:0;width:calc(50vw - 24px);font-size:11px;padding:8px}#ecoTip{font-size:10px}#goalGuide{font-size:10px;padding:7px}}</style><style>#adaptationPaths{padding:16px;border:1px solid #527c78;border-radius:12px;margin:15px 0;background:#0c2633}#adaptationPaths h3{font:600 20px Georgia,serif;margin:0 0 8px}#adaptationPaths>p{font-size:12px;line-height:1.6}.adaptation-card{display:grid;grid-template-columns:90px 1fr;gap:5px 12px;border-top:1px solid #365961;padding:12px 0}.adaptation-card h4{margin:3px 0;color:#b7e5cc}.adaptation-card p{margin:0;font-size:12px;line-height:1.6}.adaptation-card button{grid-column:2;min-height:44px;padding:9px;border:1px solid #6a968c;border-radius:7px;background:#234f4c;color:#eef7ed;cursor:pointer}.adaptation-card button:disabled{opacity:.6;cursor:default}.adaptation-card button:focus-visible{outline:3px solid #ffd36b;outline-offset:3px}#adaptationStatus{color:#c8ebdb}@media(max-width:500px){.adaptation-card{grid-template-columns:1fr}.adaptation-card button{grid-column:1}}</style></head>
 <body>
 <canvas id="c"></canvas>
 
@@ -230,12 +230,12 @@ canvas#c{display:block;cursor:crosshair;touch-action:none}
 <div id="actions" class="hidden"><button id="filmsBtn">Films (F)</button><button id="dashBtn">Dash (Space)</button><button id="evoBtn">Evolve (E)</button><button id="leaveBtn" class="hidden ready">Leave the water</button></div>
 <div id="hint" class="hidden">Move: mouse, touch or WASD · Dash: Space · Evolve: E · Tree: T · Films: F</div>
 <div id="saveDesk" style="position:fixed;bottom:100px;left:12px;z-index:25;max-width:calc(100vw - 24px);background:#102836;padding:8px;border-radius:10px;font-size:12px"><button id="saveBtn">Save now</button> <button id="backupBtn">Download backup</button> <button id="restoreBtn">Restore file</button><input id="restoreFile" type="file" accept=".json,application/json" hidden><div id="saveStatus" role="status">Autosaves every 8 seconds while playing. Backups use save format 1.</div><div id="restoreConfirm" hidden><span id="restoreName"></span> replaces your current life. <button id="restoreApply">Replace with backup</button> <button id="restoreCancel">Cancel</button></div></div>
-<div id="ver">Zoetica v0.8.6</div>
+<div id="ver">Zoetica v0.9</div>
 
 <div id="title" class="overlay">
   <div class="card">
     <h1>Zoetica</h1>
-    <div class="sub">v0.8.6 · Cell and Creature stages · sound on</div>
+    <div class="sub">v0.9 · Cell and Creature stages · sound on</div>
     <ul>
       <li>Swim with the mouse (or touch / WASD). Eat green plants for DNA.</li>
       <li>Press <b>E</b> to evolve: spend DNA on spikes, flagella, armour, eyes and mouths.</li>
@@ -267,7 +267,7 @@ canvas#c{display:block;cursor:crosshair;touch-action:none}
   </div>
 </div>
 
-<details id="itemGuide"><summary>Special items</summary><p>Mineral crystal: +1.2 DNA/growth. Repair vesicle: up to20 health. Current seed: short speed burst and ready dash. Swim or walk into an item to collect it.</p><p id="itemStatus" role="status">Explore to find three new item types.</p></details><style>#itemGuide{position:fixed;left:12px;bottom:64px;z-index:15;background:#102c30e8;color:#e6f4db;padding:9px 12px;border:1px solid #668d83;border-radius:9px;font:12px/1.6 system-ui;max-width:min(320px,calc(100vw - 24px))}#itemGuide summary{cursor:pointer}#itemGuide p{margin:6px 0}</style><script src="backup.js?v=0.8.6"></script><script src="items.js?v=0.8.6"></script><script src="goals.js?v=0.8.6"></script>
+<details id="itemGuide"><summary>Special items</summary><p>Mineral crystal: +1.2 DNA/growth. Repair vesicle: up to20 health. Current seed: short speed burst and ready dash. Swim or walk into an item to collect it.</p><p id="itemStatus" role="status">Explore to find three new item types.</p></details><style>#itemGuide{position:fixed;left:12px;bottom:64px;z-index:15;background:#102c30e8;color:#e6f4db;padding:9px 12px;border:1px solid #668d83;border-radius:9px;font:12px/1.6 system-ui;max-width:min(320px,calc(100vw - 24px))}#itemGuide summary{cursor:pointer}#itemGuide p{margin:6px 0}</style><script src="backup.js?v=0.9"></script><script src="items.js?v=0.9"></script><script src="goals.js?v=0.9"></script><script src="adaptations.js?v=0.9"></script>
 <script>
 (()=>{
 'use strict';
@@ -300,8 +300,9 @@ const MOUTHS={
 const SIZE_AT=[0,30,90,190,330];
 const PLAYER_HUE=188;
 const radiusFor=s=>11+s*5.5;
+let adaptationFocus='balanced';
 function stats(g,isPlayer){
-  return {
+  return ZoeticaAdaptations.apply({
     speed:(78+g.flagellum*30)*(1-g.armour*0.07)*(1-(g.chloro||0)*0.04)*(1-(g.size-1)*0.035),
     toxin:(g.toxin||0)*9,photo:(g.chloro||0)*0.3,
     spikeDps:g.spike*7,
@@ -311,7 +312,7 @@ function stats(g,isPlayer){
     plants:g.mouth!=='jaw',
     meat:g.mouth!=='filter',
     maxHp:isPlayer?60+g.size*25:15+g.size*15,
-  };
+  },adaptationFocus,isPlayer);
 }
 
 // ---------- state ----------
@@ -349,6 +350,7 @@ function recomputeTargets(){
 }
 
 function init(){
+  adaptationFocus='balanced';
   specialItems=[];itemClock=0;itemStage=null;itemStats={mineral:0,repair:0,current:0};
   cells=[];plants=[];meat=[];fx=[];species=[];spId=0;time=0;allSp={};
   stage='cell';lp=null;LE=[];landSpecies=[];
@@ -1086,7 +1088,7 @@ const fmtT=t=>Math.floor(t/60)+':'+String(t%60).padStart(2,'0');
 function saveGame(){
   if(!player||!running)return false;
   try{
-    const P=player,d={v:1,itemsCollected:{...itemStats},time,spId,dirT:dir.t,pressured:dir.pressured,random:dir.random,apexDone,stageShown,budget:Object.assign({},ROLE_BUDGET),
+    const P=player,d={v:1,adaptationFocus,itemsCollected:{...itemStats},time,spId,dirT:dir.t,pressured:dir.pressured,random:dir.random,apexDone,stageShown,budget:Object.assign({},ROLE_BUDGET),
       patches:patches.map(p=>[p.x,p.y,p.food]),
       player:{g:P.g,dna:P.dna,growth:P.growth,x:P.x,y:P.y,kills:P.kills,deaths:P.deaths,plantDNA:P.plantDNA,meatDNA:P.meatDNA,sporesEaten:P.sporesEaten,apexKills:P.apexKills,forms:P.forms},
       all:Object.values(allSp).map(s=>({id:s.id,name:s.name,hue:s.hue,role:s.role,genome:s.genome,gen:s.gen,w:s.w,parentId:s.parentId,gained:s.gained,reason:s.reason,drift:s.drift,died:s.died,stage:s.stage,born:s.born,parent:s.parent})),
@@ -1107,7 +1109,7 @@ function loadGame(d){
     Object.assign(ROLE_BUDGET,d.budget);
     d.patches.forEach((p,i)=>{if(patches[i]){patches[i].x=p[0];patches[i].y=p[1];patches[i].food=p[2];}});
     itemStats={mineral:0,repair:0,current:0,...(d.itemsCollected||{})};
-    const P=d.player;
+    const P=d.player;adaptationFocus=d.adaptationFocus||'balanced';
     player=newCell(playerSp,P.g,P.x,P.y,true);
     Object.assign(player,{dna:P.dna,growth:P.growth,inv:2,calm:0,kills:P.kills||0,deaths:P.deaths||0,plantDNA:P.plantDNA||0,meatDNA:P.meatDNA||0,sporesEaten:P.sporesEaten||0,apexKills:P.apexKills||0,dashCd:0,boost:0,forms:P.forms||[]});
     cells.push(player);
@@ -1132,7 +1134,7 @@ $('backupBtn').onclick=()=>{
  if(running&&!saveGame()){saveStatus('Could not save; backup was not created.');return;}
  const d=readSave();try{ZoeticaBackup.validateBackup(d);}catch(e){saveStatus('Start a life before downloading a backup.');return;}
  const url=URL.createObjectURL(new Blob([JSON.stringify(d)],{type:'application/json'}));
- const a=document.createElement('a');a.href=url;a.download='zoetica-0.8.2-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);saveStatus('Backup downloaded (save format 1).');
+ const a=document.createElement('a');a.href=url;a.download='zoetica-0.9-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);saveStatus('Backup downloaded (save format 1).');
 };
 $('restoreBtn').onclick=()=>$('restoreFile').click();
 $('restoreCancel').onclick=()=>{pendingBackup=null;$('restoreConfirm').hidden=true;saveStatus('Restore cancelled.');};
@@ -1182,7 +1184,7 @@ function hud(dt){
   const lo=SIZE_AT[g.size-1]||0,hi=SIZE_AT[g.size];
   $('growBar').style.width=(g.size>=5?100:100*clamp((p.growth-lo)/(hi-lo),0,1))+'%';
   const cheapest=Math.min(...Object.keys(PARTS).filter(k=>g[k]<PARTS[k].max).map(k=>PARTS[k].cost),99);
-  const goal=ZoeticaGoals.describe({stage:'cell',size:g.size,growth:p.growth,dna:p.dna,cost:cheapest,thresholds:SIZE_AT});$('evolutionGoal').textContent=goal.title;$('goalHint').textContent=goal.hint;
+  const goal=ZoeticaGoals.describe({stage:'cell',size:g.size,growth:p.growth,dna:p.dna,cost:cheapest,thresholds:SIZE_AT});$('evolutionGoal').textContent=goal.title;$('goalHint').textContent=goal.hint+' Path: '+ZoeticaAdaptations.paths[adaptationFocus].name+'.';
   $('evoBtn').classList.toggle('ready',p.dna>=cheapest);
   $('dashBar').style.width=(100*(1-p.dashCd/dashCdFor()))+'%';$('dashBtn').classList.toggle('ready',p.dashCd<=0);
   const rows=species.map(s=>{const n=cells.filter(c=>c.sp===s).length;
@@ -1208,6 +1210,13 @@ const partSummary=g=>Object.keys(PARTS).filter(k=>g[k]>(k==='eye'?1:0)).map(k=>P
 function closeEditor(){paused=false;panel=null;$('editor').classList.add('hidden');sfx('click');
   if(stage==='land'){if(JSON.stringify(lp.g)!==edSnap)player.forms.push({t:Math.floor(time),txt:'Creature: '+Object.keys(LPARTS).filter(k=>lp.g[k]>((LPARTS[k].min)||0)).map(k=>LPARTS[k].name+(lp.g[k]>1?' ×'+lp.g[k]:'')).concat([LMOUTHS[lp.g.mouth].name]).join(', ')});return;}
   if(JSON.stringify(player.g)!==edSnap){player.forms.push({t:Math.floor(time),txt:partSummary(player.g)});if(player.forms.length>40)player.forms.shift();}}
+function buildAdaptations(){
+ let host=$('adaptationPaths');if(!host){host=document.createElement('section');host.id='adaptationPaths';$('partList').before(host);}
+ host.replaceChildren();const title=document.createElement('h3');title.textContent='Choose your adaptation path';const intro=document.createElement('p');intro.textContent='One path at a time, carried from water to land. Changing costs '+ZoeticaAdaptations.COST+' DNA, with no refund. Body-part upgrades still matter.';host.append(title,intro);
+ const actor=stage==='land'?lp:player;
+ for(const [key,path]of Object.entries(ZoeticaAdaptations.paths)){const card=document.createElement('article'),name=document.createElement('h4'),desc=document.createElement('p'),button=document.createElement('button');card.className='adaptation-card';name.textContent=path.name;desc.textContent=path.description;button.dataset.path=key;button.textContent=key===adaptationFocus?'Active path':('Choose '+path.name+' · '+ZoeticaAdaptations.COST+' DNA');button.disabled=key===adaptationFocus||actor.dna<ZoeticaAdaptations.COST;button.setAttribute('aria-pressed',String(key===adaptationFocus));button.onclick=()=>{try{const next=ZoeticaAdaptations.choose(adaptationFocus,key,actor.dna);adaptationFocus=next.focus;actor.dna=next.dna;if(stage==='land')lRefresh(actor);else refresh(actor);const explanation=path.name+' path: '+path.description;player.forms.push({t:Math.floor(time),txt:explanation});if(player.forms.length>40)player.forms.shift();if(stage==='land')buildLandEditor();else buildEditor();$('adaptationStatus').textContent='Adapted: '+explanation+' Health percentage was preserved; no healing or growth reward.';sfx('buy');saveGame();}catch(e){$('adaptationStatus').textContent=e.message;}};card.append(name,desc,button);host.append(card);}
+ const status=document.createElement('p');status.id='adaptationStatus';status.setAttribute('role','status');status.textContent='Current path: '+ZoeticaAdaptations.paths[adaptationFocus].name+'. These are game strategy bonuses, applied only to your creature.';host.append(status);
+}
 // ---------- tree of life ----------
 function openTree(){
   if(panel||!running)return;
@@ -1265,6 +1274,7 @@ function drawSpPreview(){
   if(spShown.stage==='land')drawCreature(sctx,o,performance.now()/1000);else drawCell(sctx,o,performance.now()/1000);
 }
 function buildEditor(){
+  buildAdaptations();
   const p=player,g=p.g;document.querySelector('#editor h2').textContent='Evolve your cell';
   $('edDna').textContent=Math.floor(p.dna);
   $('partList').innerHTML=Object.entries(PARTS).map(([k,d])=>{
@@ -1607,8 +1617,8 @@ const LSIZE_AT=[0,40,110,220,380];
 const partName=k=>(PARTS[k]||LPARTS[k]||{name:k}).name;
 const lrad=sz=>14+sz*6;
 function lstats(g,isP){
-  return {speed:(72+g.legs*24)*(1-g.shell*0.08)*(1-(g.size-1)*0.03),atk:g.horns*7+g.claws*6+(g.mouth!=='herb'?10:0),horn:g.horns*7,
-    armour:Math.min(0.6,g.shell*0.17),vision:300+g.eyes*130,fruit:g.mouth!=='carn',meat:g.mouth!=='herb',maxHp:isP?80+g.size*30:30+g.size*20,dashCd:3.4-g.tail*0.7};
+  return ZoeticaAdaptations.apply({speed:(72+g.legs*24)*(1-g.shell*0.08)*(1-(g.size-1)*0.03),atk:g.horns*7+g.claws*6+(g.mouth!=='herb'?10:0),horn:g.horns*7,
+    armour:Math.min(0.6,g.shell*0.17),vision:300+g.eyes*130,fruit:g.mouth!=='carn',meat:g.mouth!=='herb',maxHp:isP?80+g.size*30:30+g.size*20,dashCd:3.4-g.tail*0.7},adaptationFocus,isP);
 }
 function lMakeSpecies(o){const s=Object.assign({id:++spId,gen:1,w:1,target:0,isNew:0,stage:'land',born:Math.floor(time)},o);landSpecies.push(s);allSp[s.id]=s;return s;}
 function lNew(sp,g,x,y,isP){const st=lstats(g,isP);return {x,y,vx:0,vy:0,dx:0,dy:0,spd:0,angle:rnd(0,TAU),g,sp,st,r:lrad(g.size)*(isP?1:rnd(.92,1.08)),hp:st.maxHp,phase:rnd(0,TAU),walk:0,wander:rnd(0,TAU),hurt:0,rest:0,chase:0,mut:0,prey:null,lastHit:null,isPlayer:!!isP,dashCd:0,boost:0};}
@@ -1859,7 +1869,7 @@ function landHud(dt){
   $('growBar').style.width=(g.size>=5?100:100*clamp((p.growth-lo)/(hi-lo),0,1))+'%';
   const atNest=Math.hypot(lp.x-nest.x,lp.y-nest.y)<150;
   const cheapest=Math.min(...Object.keys(LPARTS).filter(k=>g[k]<LPARTS[k].max).map(k=>LPARTS[k].cost),99);
-  const goal=ZoeticaGoals.describe({stage:'land',size:g.size,growth:p.growth,dna:p.dna,cost:cheapest,thresholds:LSIZE_AT,atNest});$('evolutionGoal').textContent=goal.title;$('goalHint').textContent=goal.hint;
+  const goal=ZoeticaGoals.describe({stage:'land',size:g.size,growth:p.growth,dna:p.dna,cost:cheapest,thresholds:LSIZE_AT,atNest});$('evolutionGoal').textContent=goal.title;$('goalHint').textContent=goal.hint+' Path: '+ZoeticaAdaptations.paths[adaptationFocus].name+'.';
   $('evoBtn').classList.toggle('ready',atNest&&p.dna>=cheapest);$('evoBtn').textContent=atNest?'Evolve (E)':'Evolve at nest';
   $('dashBar').style.width=(100*(1-p.dashCd/p.st.dashCd))+'%';$('dashBtn').classList.toggle('ready',p.dashCd<=0);
   $('ecoList').innerHTML=landSpecies.map(s=>{const n=LE.filter(c=>c.sp===s).length;return `<div class="sp" data-id="${s.id}"><span class="dot" style="background:hsl(${s.hue},70%,58%)"></span><span class="n">${s.name} ${s.isNew>0?'<span class="new">NEW</span>':''}</span><span class="r">${s.role}</span><span class="c">${n}</span></div>`;}).join('');
@@ -1874,6 +1884,7 @@ function openLandEditor(){
   paused=true;panel='editor';edSnap=JSON.stringify(lp.g);$('editor').classList.remove('hidden');buildLandEditor();sfx('click');
 }
 function buildLandEditor(){
+  buildAdaptations();
   const p=lp,g=p.g;$('edDna').textContent=Math.floor(p.dna);document.querySelector('#editor h2').textContent='Evolve your creature';
   $('partList').innerHTML=Object.entries(LPARTS).map(([k,d])=>{const n=g[k];return `<div class="row"><div class="info"><b>${d.name}</b><button class="q" data-l="${k==='legs'?'legs':k==='eyes'?'eye':k==='shell'?'armour':k==='horns'||k==='claws'?'spike':'land'}" title="Learn more">?</button> <span class="pips">${'●'.repeat(n)+'○'.repeat(d.max-n)}</span><span>${d.desc}</span></div>
     <button data-p="${k}" data-a="-1" ${n<=(d.min||0)?'disabled':''}>−</button><button class="buy" data-p="${k}" data-a="1" ${n>=d.max||p.dna<d.cost?'disabled':''}>+ ${d.cost} DNA</button></div>`;}).join('');
@@ -1919,7 +1930,7 @@ function frame(now){
   requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
-window.__life={setTrack,get mStep(){return mStep},set mStep(v){mStep=v},get lp(){return lp},get LE(){return LE},get landSpecies(){return landSpecies},get stage(){return stage},ldir,landEvolve,nest,AU,get items(){return specialItems},get itemStats(){return itemStats},get player(){return player},get cells(){return cells},get species(){return species},dir,evolveStep,openEditor};
+window.__life={get adaptationFocus(){return adaptationFocus},setTrack,get mStep(){return mStep},set mStep(v){mStep=v},get lp(){return lp},get LE(){return LE},get landSpecies(){return landSpecies},get stage(){return stage},ldir,landEvolve,nest,AU,get items(){return specialItems},get itemStats(){return itemStats},get player(){return player},get cells(){return cells},get species(){return species},dir,evolveStep,openEditor};
 })();
 </script>
 </body>
