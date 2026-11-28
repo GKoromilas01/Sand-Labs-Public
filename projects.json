@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "4.17",
+  "pageVersion": "4.18",
   "updated": "2026-11-28",
   "projects": [
     {
@@ -273,6 +273,27 @@
       "next": "Refresh fixtures, pre-match news warnings and results. Matching duplicate records count once, with original predictions preserved.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/pitchlab.md",
       "category": "tools"
+    },
+    {
+      "id": "lens",
+      "name": "Lens",
+      "mark": "LN",
+      "tint": "#E94E78",
+      "alias": "Photography community \u00b7 working name",
+      "what": "Build a personal photo gallery, practise critiques, explore lessons and download your own digital photography book.",
+      "st": "dev",
+      "stl": "Device studio prototype",
+      "version": "0.2",
+      "main": {
+        "t": "Lens 0.2",
+        "u": "apps/lens/index.html?v=0.2",
+        "d": "28 Nov 2026",
+        "label": "Open Lens"
+      },
+      "more": [],
+      "next": "Try local galleries, ordered collections, photography/gear notes and digital book downloads. Shared accounts, public galleries and voting are future backend work.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/lens.md",
+      "category": "creative"
     }
   ]
 }
