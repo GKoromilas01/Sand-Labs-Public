@@ -1,11 +1,11 @@
 {
-  "version": "4.23",
+  "version": "4.24",
   "date": "2026-11-28",
   "files": [
     {
       "path": "index.html",
-      "sha256": "c29856700d1ac4861f7a5a775e7418a18e58b45faa3d8fce981d68cc17ecc25c",
-      "bytes": 29328
+      "sha256": "c24fccedaccd8a3abfa55f8d97cf8e718d6767ae625b26a693ba9ecdc2006d4f",
+      "bytes": 24860
     },
     {
       "path": "dashboard.css",
@@ -14,7 +14,7 @@
     },
     {
       "path": "projects.json",
-      "sha256": "4fcfb0ffa67b207d41bbe493df662785421ca89723950d1ecd1e8bd003bdee85",
+      "sha256": "27444c06221352b7e1a4f6a0d7e4c6fb6a8bc77a34ac155ebf984621106b0f6a",
       "bytes": 13238
     },
     {
