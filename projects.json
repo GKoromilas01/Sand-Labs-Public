@@ -1,65 +1,40 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "4.19",
+  "pageVersion": "4.20",
   "updated": "2026-11-28",
   "projects": [
     {
-      "id": "sphinx",
-      "mark": "PE",
-      "tint": "#E5C78F",
-      "name": "Pavlos O Ellinaras",
-      "alias": "Formerly The Grumpy Sphinx",
-      "what": "A comic five-location island adventure. Organise a festival, solve connected puzzles and continue your saved story in Greek or English.",
+      "id": "dd",
+      "mark": "AG",
+      "tint": "#9DB7E8",
+      "name": "Agora",
+      "alias": "Formerly Isegoria / Digital Democracy",
+      "what": "Explore news by topic, save articles and keep your perspectives, questions and local polls together.",
       "st": "dev",
-      "stl": "Playable beta",
-      "main": {
-        "t": "Pavlos 0.4",
-        "u": "apps/pavlos/index.html?v=0.4",
-        "d": "28 Nov 2026",
-        "label": "Play Pavlos"
-      },
-      "more": [],
-      "next": "Explore the community hall and backstage, follow three-step hints and keep progress with Save / Continue or a JSON backup.",
-      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sphinx.md",
-      "version": "0.4",
-      "category": "games"
-    },
-    {
-      "id": "coin",
-      "mark": "CI",
-      "tint": "#E2B15E",
-      "name": "Coin Intel",
-      "alias": "",
-      "what": "A workspace for coin collectors: organize your collection and explore market evidence.",
-      "st": "live",
       "stl": "Working prototype",
       "main": {
-        "t": "Coin Intel 10.83.5",
-        "u": "https://coinintel-beta-production.up.railway.app/",
-        "d": "27 Nov 2026",
-        "label": "Open Coin Intel"
+        "t": "Agora 0.6",
+        "u": "apps/isegoria/index.html?v=0.6",
+        "d": "28 Nov 2026",
+        "label": "Open Agora"
       },
       "more": [
         {
-          "t": "Plan and screenshots \u2014 Claude",
-          "u": "https://claude.ai/artifact/5XEMguf3RYKwTomWWEJCoP",
-          "d": "23 Nov"
+          "t": "Previous Isegoria preview",
+          "u": "https://claude.ai/artifact/ApSffgV6QiSumWpmK8Mha5",
+          "d": "24 Nov",
+          "label": "View preview"
         },
         {
-          "t": "Launch review and plan",
-          "u": "https://claude.ai/artifact/GhvV54yYpSkLxHGsWgMwJF",
-          "d": "20 Nov"
-        },
-        {
-          "t": "Code on GitHub (private)",
-          "u": "https://github.com/GKoromilas01/CoinIntel-Beta",
-          "d": "29 Oct"
+          "t": "Digital Democracy \u2014 supplied earlier page (private GitHub file)",
+          "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/apps/digital-democracy/index.html",
+          "d": "26 Nov 2026"
         }
       ],
-      "next": "Supplied collector artwork; startup gating preserved. PR6 merged at b6c3779; Railway primary and backup statuses report successful deployment. Direct live UI remains unobserved here.",
-      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/coin.md",
-      "version": "10.83.5",
-      "category": "tools"
+      "next": "Read the current headline snapshot, save articles and build your private discussion notebook.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/dd.md",
+      "version": "0.6",
+      "category": "community"
     },
     {
       "id": "bio",
@@ -112,6 +87,201 @@
       "next": "Continue your story, arrange chapters and photo captions, then export a private backup.",
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/bio.md",
       "version": "0.6",
+      "category": "tools"
+    },
+    {
+      "id": "chess",
+      "name": "Chess",
+      "mark": "CH",
+      "tint": "#9ACCDD",
+      "alias": "",
+      "what": "A local two-player chess board with legal moves, promotion, castling and saved games.",
+      "st": "dev",
+      "stl": "Playable first version",
+      "version": "0.1",
+      "main": {
+        "t": "Chess0.1",
+        "u": "apps/chess/index.html?v=0.1",
+        "d": "28 Nov 2026",
+        "label": "Play Chess"
+      },
+      "more": [],
+      "next": "Desktop first. Local saves and backup/export available. Original provisional graphics; owner prompts recorded.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/chess.md",
+      "category": "games"
+    },
+    {
+      "id": "coin",
+      "mark": "CI",
+      "tint": "#E2B15E",
+      "name": "Coin Intel",
+      "alias": "",
+      "what": "A workspace for coin collectors: organize your collection and explore market evidence.",
+      "st": "live",
+      "stl": "Working prototype",
+      "main": {
+        "t": "Coin Intel 10.83.5",
+        "u": "https://coinintel-beta-production.up.railway.app/",
+        "d": "27 Nov 2026",
+        "label": "Open Coin Intel"
+      },
+      "more": [
+        {
+          "t": "Plan and screenshots \u2014 Claude",
+          "u": "https://claude.ai/artifact/5XEMguf3RYKwTomWWEJCoP",
+          "d": "23 Nov"
+        },
+        {
+          "t": "Launch review and plan",
+          "u": "https://claude.ai/artifact/GhvV54yYpSkLxHGsWgMwJF",
+          "d": "20 Nov"
+        },
+        {
+          "t": "Code on GitHub (private)",
+          "u": "https://github.com/GKoromilas01/CoinIntel-Beta",
+          "d": "29 Oct"
+        }
+      ],
+      "next": "Supplied collector artwork; startup gating preserved. PR6 merged at b6c3779; Railway primary and backup statuses report successful deployment. Direct live UI remains unobserved here.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/coin.md",
+      "version": "10.83.5",
+      "category": "tools"
+    },
+    {
+      "id": "go",
+      "name": "Go",
+      "mark": "GO",
+      "tint": "#9CE0C9",
+      "alias": "",
+      "what": "Learn and play local9\u00d79 Go with captures, ko protection and agreed area scoring.",
+      "st": "dev",
+      "stl": "Playable first version",
+      "version": "0.1",
+      "main": {
+        "t": "Go0.1",
+        "u": "apps/go/index.html?v=0.1",
+        "d": "28 Nov 2026",
+        "label": "Play Go"
+      },
+      "more": [],
+      "next": "Desktop first. Local saves and backup/export available. Original provisional graphics; owner prompts recorded.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/go.md",
+      "category": "games"
+    },
+    {
+      "id": "sw",
+      "mark": "EA",
+      "tint": "#B5CF86",
+      "name": "IT Consultant",
+      "alias": "Formerly ERP Advisor / SoftOne Advisor",
+      "what": "Organize business knowledge, document systems and plan practical IT improvements.",
+      "st": "dev",
+      "stl": "Working prototype",
+      "main": {
+        "t": "IT Consultant 0.5",
+        "u": "apps/softone-advisor/index.html?v=0.5",
+        "d": "28 Nov 2026",
+        "label": "Open IT Consultant"
+      },
+      "more": [
+        {
+          "t": "Library collection plan",
+          "u": "https://claude.ai/artifact/6RoRiiyYo116SG9r2p1bBt",
+          "d": "24 Nov"
+        },
+        {
+          "t": "AI agent opportunities and build guide",
+          "u": "https://claude.ai/artifact/XxSmSUYNuDnCiMrGyFKW2n",
+          "d": "19 Nov"
+        }
+      ],
+      "next": "Business plan contains AI by department and People; Statistics contains Budget/P&L/cash flow; Projects contains Goals. Nine main categories; stable note identities and old backups preserved.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sw.md",
+      "version": "0.5",
+      "category": "tools"
+    },
+    {
+      "id": "lens",
+      "name": "Lens",
+      "mark": "LN",
+      "tint": "#E94E78",
+      "alias": "Photography community \u00b7 working name",
+      "what": "Build a personal photo gallery, practise critiques, explore lessons and download your own digital photography book.",
+      "st": "dev",
+      "stl": "Device studio prototype",
+      "version": "0.2",
+      "main": {
+        "t": "Lens 0.2",
+        "u": "apps/lens/index.html?v=0.2",
+        "d": "28 Nov 2026",
+        "label": "Open Lens"
+      },
+      "more": [],
+      "next": "Try local galleries, ordered collections, photography/gear notes and digital book downloads. Shared accounts, public galleries and voting are future backend work.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/lens.md",
+      "category": "creative"
+    },
+    {
+      "id": "ninth-door",
+      "name": "Ninth Door",
+      "mark": "ND",
+      "tint": "#AFB8E9",
+      "alias": "",
+      "what": "An original point-and-click mechanics preview. Explore three test rooms while we develop the story together.",
+      "st": "dev",
+      "stl": "Mechanics preview \u2014 scenario pending",
+      "version": "0.1",
+      "main": {
+        "t": "Ninth Door0.1",
+        "u": "apps/ninth-door/index.html?v=0.1",
+        "d": "28 Nov 2026",
+        "label": "Open Ninth Door"
+      },
+      "more": [],
+      "next": "Desktop first. Local saves and backup/export available. Original provisional graphics; owner prompts recorded.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/ninth-door.md",
+      "category": "games"
+    },
+    {
+      "id": "sphinx",
+      "mark": "PE",
+      "tint": "#E5C78F",
+      "name": "Pavlos O Ellinaras",
+      "alias": "Formerly The Grumpy Sphinx",
+      "what": "A comic five-location island adventure. Organise a festival, solve connected puzzles and continue your saved story in Greek or English.",
+      "st": "dev",
+      "stl": "Playable beta",
+      "main": {
+        "t": "Pavlos 0.4",
+        "u": "apps/pavlos/index.html?v=0.4",
+        "d": "28 Nov 2026",
+        "label": "Play Pavlos"
+      },
+      "more": [],
+      "next": "Explore the community hall and backstage, follow three-step hints and keep progress with Save / Continue or a JSON backup.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sphinx.md",
+      "version": "0.4",
+      "category": "games"
+    },
+    {
+      "id": "pitchlab",
+      "name": "Pitch Lab",
+      "mark": "PL",
+      "tint": "#9DB7E8",
+      "alias": "",
+      "what": "Explore football predictions, follow final results and see how the analysis performs.",
+      "st": "dev",
+      "stl": "Working prototype",
+      "version": "0.12.0",
+      "main": {
+        "t": "Pitch Lab 0.12.0",
+        "u": "apps/pitchlab/index.html?v=0.12.0",
+        "d": "28 Nov 2026",
+        "label": "Open Pitch Lab"
+      },
+      "more": [],
+      "next": "Refresh fixtures, pre-match news warnings and results. Matching duplicate records count once, with original predictions preserved.",
+      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/pitchlab.md",
       "category": "tools"
     },
     {
@@ -187,113 +357,6 @@
       "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/life.md",
       "version": "0.9",
       "category": "games"
-    },
-    {
-      "id": "dd",
-      "mark": "AG",
-      "tint": "#9DB7E8",
-      "name": "Agora",
-      "alias": "Formerly Isegoria / Digital Democracy",
-      "what": "Explore news by topic, save articles and keep your perspectives, questions and local polls together.",
-      "st": "dev",
-      "stl": "Working prototype",
-      "main": {
-        "t": "Agora 0.6",
-        "u": "apps/isegoria/index.html?v=0.6",
-        "d": "28 Nov 2026",
-        "label": "Open Agora"
-      },
-      "more": [
-        {
-          "t": "Previous Isegoria preview",
-          "u": "https://claude.ai/artifact/ApSffgV6QiSumWpmK8Mha5",
-          "d": "24 Nov",
-          "label": "View preview"
-        },
-        {
-          "t": "Digital Democracy \u2014 supplied earlier page (private GitHub file)",
-          "u": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/apps/digital-democracy/index.html",
-          "d": "26 Nov 2026"
-        }
-      ],
-      "next": "Read the current headline snapshot, save articles and build your private discussion notebook.",
-      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/dd.md",
-      "version": "0.6",
-      "category": "community"
-    },
-    {
-      "id": "sw",
-      "mark": "EA",
-      "tint": "#B5CF86",
-      "name": "IT Consultant",
-      "alias": "Formerly ERP Advisor / SoftOne Advisor",
-      "what": "Organize business knowledge, document systems and plan practical IT improvements.",
-      "st": "dev",
-      "stl": "Working prototype",
-      "main": {
-        "t": "IT Consultant 0.5",
-        "u": "apps/softone-advisor/index.html?v=0.5",
-        "d": "28 Nov 2026",
-        "label": "Open IT Consultant"
-      },
-      "more": [
-        {
-          "t": "Library collection plan",
-          "u": "https://claude.ai/artifact/6RoRiiyYo116SG9r2p1bBt",
-          "d": "24 Nov"
-        },
-        {
-          "t": "AI agent opportunities and build guide",
-          "u": "https://claude.ai/artifact/XxSmSUYNuDnCiMrGyFKW2n",
-          "d": "19 Nov"
-        }
-      ],
-      "next": "Business plan contains AI by department and People; Statistics contains Budget/P&L/cash flow; Projects contains Goals. Nine main categories; stable note identities and old backups preserved.",
-      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/sw.md",
-      "version": "0.5",
-      "category": "tools"
-    },
-    {
-      "id": "pitchlab",
-      "name": "Pitch Lab",
-      "mark": "PL",
-      "tint": "#9DB7E8",
-      "alias": "",
-      "what": "Explore football predictions, follow final results and see how the analysis performs.",
-      "st": "dev",
-      "stl": "Working prototype",
-      "version": "0.12.0",
-      "main": {
-        "t": "Pitch Lab 0.12.0",
-        "u": "apps/pitchlab/index.html?v=0.12.0",
-        "d": "28 Nov 2026",
-        "label": "Open Pitch Lab"
-      },
-      "more": [],
-      "next": "Refresh fixtures, pre-match news warnings and results. Matching duplicate records count once, with original predictions preserved.",
-      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/pitchlab.md",
-      "category": "tools"
-    },
-    {
-      "id": "lens",
-      "name": "Lens",
-      "mark": "LN",
-      "tint": "#E94E78",
-      "alias": "Photography community \u00b7 working name",
-      "what": "Build a personal photo gallery, practise critiques, explore lessons and download your own digital photography book.",
-      "st": "dev",
-      "stl": "Device studio prototype",
-      "version": "0.2",
-      "main": {
-        "t": "Lens 0.2",
-        "u": "apps/lens/index.html?v=0.2",
-        "d": "28 Nov 2026",
-        "label": "Open Lens"
-      },
-      "more": [],
-      "next": "Try local galleries, ordered collections, photography/gear notes and digital book downloads. Shared accounts, public galleries and voting are future backend work.",
-      "handoff": "https://github.com/GKoromilas01/Sand-Labs-Applications/blob/main/docs/projects/lens.md",
-      "category": "creative"
     }
   ]
 }

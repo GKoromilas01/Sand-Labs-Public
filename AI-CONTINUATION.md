@@ -1,3 +1,7 @@
+## Sand Labs4.20 — three first game versions
+Chess0.1 and Go0.1 local two-player games plus Ninth Door0.1 noncanonical mechanics preview. Original SVG logos/landing/scenes and chess pieces included; six owner Leonardo prompts recorded privately. No generated media/services. Ninth Door name approved, scenario remains for joint development. Chess uses pinned chess.js1.4.0 BSD-2-Clause with full licence. All Sand Labs cards and feedback choices alphabetical; desktop is current priority. No AI/online opponents, clocks or final Ninth Door story claimed. Other apps unchanged; Chronoscope retired and Crowns/Prism Break/survival paused.
+For rules/save formats, limitations and continuation read private apps/{chess,go,ninth-door}/CLAUDE.md and corresponding docs/projects notes. Ninth Door scenario must be agreed before narrative expansion.
+
 ## Sand Labs4.19
 Lens catalogue card uses owner-approved vibrant hero, not the logo. CSS frames photographic content. Lens app version0.2 and its logo unchanged.
 

@@ -1,3 +1,5 @@
+**Latest4.20:** Chess, Go and Ninth Door first versions. All current/future app cards alphabetical; desktop-first owner instruction. Ninth Door scenario undecided; do not invent approved plot. See AI-CONTINUATION.md.
+
 **Latest publication candidate4.18:** new Lens0.2 private device studio. Read AI-CONTINUATION.md for implemented vs pending social/backend features. Chronoscope stays retired.
 
 **Owner override —28 November2026:** The Chronoscope is cancelled and removed from the Sand Labs catalogue and hosted apps in4.17. Do not restore it from historical instructions below. See AI-CONTINUATION.md.
