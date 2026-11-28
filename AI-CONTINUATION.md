@@ -1,3 +1,6 @@
+## Sand Labs4.13 / Pavlos0.3.6
+Pavlos0.3.6 removes the owner-selected YouTube radio recording/player and restores the existing original game soundtrack throughout play. Selecting Radio now only performs its puzzle action; it never loads a player, changes music preference or overrides silent start. Music/mute/volume remain available, and no new audio was generated. Optional unrelated Video corner is unchanged. Subtitle viewport correction preserved. Owner rejected radio advertisements; do not restore hRM_0Ys0cgI without a new request.
+
 ## Sand Labs4.12 / Pitch Lab0.12.0
 Pitch Lab0.12.0 reconciles records by provider fixture ID plus competition/date and exact teams/kickoff, not only internal record ID. Matching aliases count once; original snapshots retained in duplicateRecords for device export. Earliest frozen forecast preserved, completed result retained, conflicting finals held for review. Different-day fixtures remain separate. Refresh also fetches eligible provider pre-match headlines and flags availability-keyword uncertainty beside the prediction. It does not perform AI news interpretation, verify injuries, or change numerical probabilities from keywords; forecasts stay frozen. No paid API, schedule or real bet.
 Owner: press Refresh on the updated app; no deletion/reset required. Shattered Crowns and unrelated apps unchanged.
