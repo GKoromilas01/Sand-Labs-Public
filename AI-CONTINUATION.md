@@ -1,3 +1,7 @@
+## Sand Labs 4.11 / Pavlos 0.3.5
+Pavlos 0.3.5 sizes scene artwork from the measured viewport space, header and caption height so subtitles are visible immediately without scrolling. Start focus no longer scrolls the page. Radio behavior unchanged: YouTube advertisements have variable duration and cannot be removed by skipping recording seconds. No new media or paid API; all other apps and Shattered Crowns remain paused.
+Live app: https://gkoromilas01.github.io/Sand-Labs-Public/apps/pavlos/?v=0.3.5
+
 ## Pavlos0.3.4 — radio-only update
 Owner chose the minimal behaviour: keep Play with music and original soundtrack. Selecting Radio in the first café scene switches to original YouTube hRM_0Ys0cgI, requesting start0/end120/loop1/playlist same ID. Stop/close/travel restores original game music; source never used in other apps or uploaded to any channel. Original visible provider iframe, no recording copied or generated, no Leonardo/provider-credit call. Provider embedding/actual120-second loop not observed here; test verifies configuration/lifecycle only. Standalone voice-audition prototype files remain local/unpublished; owner prioritised radio and paused all other work. Shattered Crowns and Chronoscope paused.
 Next: owner tests actual radio playback in their browser.

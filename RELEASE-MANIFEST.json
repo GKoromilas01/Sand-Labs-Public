@@ -1,11 +1,11 @@
 {
-  "version": "4.10",
+  "version": "4.11",
   "date": "2026-11-28",
   "files": [
     {
       "path": "index.html",
-      "sha256": "d3b5743a00574a476b8460e55289c6644557e9a71a9fd606b0ed1d67c73ccc84",
-      "bytes": 22714
+      "sha256": "690cdf707d1a4470c4fbfbf599d498c56464093b6d61b5205b649e6f2fd6426a",
+      "bytes": 24865
     },
     {
       "path": "dashboard.css",
@@ -14,8 +14,8 @@
     },
     {
       "path": "projects.json",
-      "sha256": "0c849635d2bb5009917aa7d70cc78fe4bc0ce1401cc1799aaadb32438e7470f6",
-      "bytes": 11267
+      "sha256": "1b2d9bb8f77b36f518fdf1c0a422a93acbde19688a833e50e40312823815cbf9",
+      "bytes": 11129
     },
     {
       "path": "apps/bios/app.js",
@@ -109,12 +109,12 @@
     },
     {
       "path": "apps/pavlos/game.js",
-      "sha256": "dcb390d7663657d0ac89633bc70285fa451898f984184e92f94446b8bc386f54",
-      "bytes": 12442
+      "sha256": "ed6cb9e9a2163cfa37d4dedd4c09298843676fbcef936251630c360c19be1f59",
+      "bytes": 13111
     },
     {
       "path": "apps/pavlos/index.html",
-      "sha256": "0e21200ff7d2bd43ada720d43179c1a1ced3dfc57fc11a161e04bebb6693aeba",
+      "sha256": "198397b8e25b26fd31e12c54de61efeb6bcb5470c9c1b8aee7ce989d6a161bf3",
       "bytes": 22324
     },
     {
@@ -124,7 +124,7 @@
     },
     {
       "path": "apps/pavlos/language.js",
-      "sha256": "fe6fbfa0479bd69788bf8a4bdc6833871bb4810262601fcae1d0d27682131f9d",
+      "sha256": "0790e7a8303a6cb0fc18ab3b9058778ddd94241d87f24dd8b00e52267404ccd3",
       "bytes": 28362
     },
     {
