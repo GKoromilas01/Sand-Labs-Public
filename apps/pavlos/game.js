@@ -23,9 +23,18 @@
  document.querySelectorAll('[data-room]').forEach(b=>b.onclick=()=>travel(b.dataset.room));
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&started&&!$('howToDialog').open){const id=document.activeElement?.id;selected=null;render();$(id)?.focus();}});
  $('hint').onclick=()=>{$('hintText').textContent=state.won&&!state.journeyWon?'Harbour key → café grinder → coffee to the square clerk → permit to the harbour captain.':!state.fixed?'Pick up the Spoon and use it on the Radio.':!state.poster?'Travel to the square and read the Poster.':!state.distracted?'Return to the café and Make a speech.':'Inspect the Ledger. You can also explore the harbour and help the festival.';};
- function reset(){PavlosVoice.stop();state=PavlosPuzzle.initial();selected=null;radioSelected=false;$('hintText').textContent='';$('inventoryDrawer').hidden=true;$('inventoryToggle').setAttribute('aria-expanded','false');travel('cafe');document.querySelector('.object-buttons button').focus();}
+ function reset(){PavlosVoice.stop();state=PavlosPuzzle.initial();selected=null;radioSelected=false;$('hintText').textContent='';$('inventoryDrawer').hidden=true;$('inventoryToggle').setAttribute('aria-expanded','false');travel('cafe');document.querySelector('.object-buttons button').focus({preventScroll:true});window.scrollTo(0,0);fitScene();}
  $('restart').onclick=reset;$('again').onclick=reset;
- function begin(music){PavlosLanguage.set($('gameLanguage').value);started=true;$('welcome').hidden=true;main.inert=false;travel('cafe');document.querySelector('.object-buttons button').focus();if(music){wanted=true;noteIndex=0;syncAudio();}}
+ function fitScene(){
+  if(!started)return;
+  const scene=$('scene'),area=scene.parentElement,caption=area.querySelector('.dialogue');
+  const available=window.innerHeight-scene.getBoundingClientRect().top-caption.getBoundingClientRect().height-28;
+  scene.style.width=Math.max(120,Math.min(area.clientWidth,available*1200/620))+'px';
+ }
+ const layoutObserver=new ResizeObserver(()=>fitScene());
+ for(const el of document.querySelectorAll('.masthead,.topbar,.room-tabs,.play-area>.dialogue'))layoutObserver.observe(el);
+ window.addEventListener('resize',fitScene);
+ function begin(music){PavlosLanguage.set($('gameLanguage').value);started=true;$('welcome').hidden=true;main.inert=false;travel('cafe');document.querySelector('.object-buttons button').focus({preventScroll:true});window.scrollTo(0,0);fitScene();if(music){wanted=true;noteIndex=0;syncAudio();}}
  $('start').onclick=()=>begin(true);$('startSilent').onclick=()=>begin(false);$('start').focus({preventScroll:true});$('welcome').addEventListener('keydown',e=>{if(e.key==='Tab'){const buttons=[...$('welcome').querySelectorAll('button,a,summary,select,input')].filter(el=>!el.disabled&&el.getClientRects().length);e.preventDefault();const i=buttons.indexOf(document.activeElement);buttons[(i+(e.shiftKey?-1:1)+buttons.length)%buttons.length]?.focus();}});
  // Original fast six-eight bouzouki-style overture; no recordings or borrowed melody.
  let context,master,stringsWave,noise,timer=null,noteIndex=0,wanted=false,active=false;
