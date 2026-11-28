@@ -1,11 +1,11 @@
 {
-  "version": "4.9",
+  "version": "4.10",
   "date": "2026-11-28",
   "files": [
     {
       "path": "index.html",
-      "sha256": "ae31aa1dfdaefe9eee03063ab2275bd8b05b0dbbb14e0ac4ca3c9b0fd0ddfa80",
-      "bytes": 22628
+      "sha256": "d3b5743a00574a476b8460e55289c6644557e9a71a9fd606b0ed1d67c73ccc84",
+      "bytes": 22714
     },
     {
       "path": "dashboard.css",
@@ -14,8 +14,8 @@
     },
     {
       "path": "projects.json",
-      "sha256": "2a28791a5a3d31537fa8265fffcaa1aa7f0cdc948e70f09bb19499386549d3b8",
-      "bytes": 11177
+      "sha256": "0c849635d2bb5009917aa7d70cc78fe4bc0ce1401cc1799aaadb32438e7470f6",
+      "bytes": 11267
     },
     {
       "path": "apps/bios/app.js",
@@ -109,23 +109,23 @@
     },
     {
       "path": "apps/pavlos/game.js",
-      "sha256": "b56b3fdf4b4fc5c5455b03e76cc6efba564aaa9c30cc333c1dcee617b79af00b",
-      "bytes": 11843
+      "sha256": "dcb390d7663657d0ac89633bc70285fa451898f984184e92f94446b8bc386f54",
+      "bytes": 12442
     },
     {
       "path": "apps/pavlos/index.html",
-      "sha256": "f3ed73d7b603755e7e8ade163b08c8ea45627f1fd1fe6e994916ec30e98606a9",
-      "bytes": 21817
+      "sha256": "0e21200ff7d2bd43ada720d43179c1a1ced3dfc57fc11a161e04bebb6693aeba",
+      "bytes": 22324
     },
     {
       "path": "apps/pavlos/style.css",
-      "sha256": "1ca81039265c154aa5bf959e443f78ccb1effde0d8a35916da70f27b44d0abda",
-      "bytes": 23402
+      "sha256": "c420fc29a062006ccf79b3edf89e3f22f5f17d6062c6ae2a57707718ca45e458",
+      "bytes": 24016
     },
     {
       "path": "apps/pavlos/language.js",
-      "sha256": "5cf2461bdb218697d54b4bfad33aa895267ea97cf845a72d7bcfd8356f4cea57",
-      "bytes": 27912
+      "sha256": "fe6fbfa0479bd69788bf8a4bdc6833871bb4810262601fcae1d0d27682131f9d",
+      "bytes": 28362
     },
     {
       "path": "apps/pavlos/world.js",
@@ -144,8 +144,8 @@
     },
     {
       "path": "apps/pavlos/videos.js",
-      "sha256": "590678aabef48798f3eba97a818cf94fd05397cd1edcb1b71690b057085c3ba5",
-      "bytes": 3426
+      "sha256": "06bfd62be93159336e853fc02dd1a73a9b0fe10e9d96aa97fc1259f969aa3453",
+      "bytes": 3566
     },
     {
       "path": "apps/pavlos/voice-clips.js",
@@ -631,6 +631,11 @@
       "path": "assets/coin-intel-desk.jpg",
       "sha256": "14132771729b6a5ee6fcba7ec7543c311d7586be271efe28336a3a01af992cd0",
       "bytes": 358070
+    },
+    {
+      "path": "apps/pavlos/radio.js",
+      "sha256": "a67f7c1620c9fc96a5d09ff4c078f4f8e0f0fb60e6fd4325a9915591e92990b9",
+      "bytes": 4011
     }
   ]
 }
